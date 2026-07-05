@@ -1,7 +1,6 @@
 import { CATEGORY_CONTENT } from '@/lib/content/categories';
 import { createOgImage } from '@/lib/seo/og';
 
-export const runtime = 'edge';
 export const alt = 'Cleaning robots — PickTheRobot';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';

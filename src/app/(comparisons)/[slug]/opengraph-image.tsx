@@ -1,9 +1,12 @@
 import { COMPARISONS } from '@/lib/content/comparisons';
 import { createOgImage } from '@/lib/seo/og';
 
-export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
+
+export function generateStaticParams() {
+  return Object.keys(COMPARISONS).map((slug) => ({ slug }));
+}
 
 export default async function OgImage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
