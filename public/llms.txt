@@ -1,0 +1,38 @@
+# PickTheRobot
+
+> Free rules-based tool that helps businesses pick warehouse, cleaning, and restaurant robots — robot type, buy vs lease vs RaaS, and vendor matches.
+
+PickTheRobot is a buyer-side recommendation utility, not a vendor or concierge service. Recommendations are informational; users should verify pricing and fit with vendors directly.
+
+## Primary action
+
+- [Home — robot matcher](https://picktherobot.com/): Choose warehouse, cleaning, or restaurant → answer ~2 minutes of questions → get ranked recommendations.
+
+## Categories
+
+- [Warehouse robots](https://picktherobot.com/warehouse-robots): AMRs, AGVs, picking assist, pallet movers.
+- [Cleaning robots](https://picktherobot.com/cleaning-robots): Office, retail, and industrial autonomous scrubbers/vacuums.
+- [Restaurant robots](https://picktherobot.com/restaurant-robots): Serving, bussing, kitchen, and reception robots.
+
+Educational guides (robot types, vendors, FAQs) on each category page: append `#guide` to the URL (e.g. https://picktherobot.com/warehouse-robots#guide).
+
+## Vendors
+
+- [All vendors](https://picktherobot.com/vendors): Browse 14 vendor profiles with outbound links to official sites.
+
+## Comparisons & acquisition
+
+- [AMR vs AGV](https://picktherobot.com/amr-vs-agv)
+- [Cleaning robot vs staff](https://picktherobot.com/cleaning-robot-vs-cleaning-staff)
+- [Restaurant robot vs runner](https://picktherobot.com/restaurant-robot-vs-runner)
+- [Lease vs buy](https://picktherobot.com/robot-leasing-vs-buying)
+- [Robotics-as-a-Service (RaaS)](https://picktherobot.com/robotics-as-a-service)
+
+## Policies
+
+- [Privacy policy](https://picktherobot.com/privacy)
+- [Terms of use](https://picktherobot.com/terms)
+
+## Optional
+
+- [Full documentation for AI agents](https://picktherobot.com/llms-full.txt): Matcher flow, scoring overview, pages not to cite, disclaimers.

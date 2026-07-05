@@ -1,0 +1,103 @@
+import type { RobotCategory } from '@/lib/matching';
+import { CATEGORY_LABELS } from '@/lib/forms/questions';
+
+export const SITE_NAME = 'PickTheRobot';
+
+export const CATEGORY_ROUTES: Record<RobotCategory, string> = {
+  warehouse: '/warehouse-robots',
+  cleaning: '/cleaning-robots',
+  restaurant: '/restaurant-robots',
+};
+
+/** In-page anchor for robot types, vendors, and FAQs below the matcher. */
+export const CATEGORY_GUIDE_ANCHOR = 'guide';
+
+export function categoryGuideHref(category: RobotCategory): string {
+  return `${CATEGORY_ROUTES[category]}#${CATEGORY_GUIDE_ANCHOR}`;
+}
+
+/** Logo home — resets homepage matcher to category selection. */
+export const HOME_MATCHER_RESET_HREF = '/?matcher=category';
+
+export const VENDORS_INDEX_HREF = '/vendors';
+
+export const NAV_LINKS = [
+  { href: '/warehouse-robots', label: 'Warehouse' },
+  { href: '/cleaning-robots', label: 'Cleaning' },
+  { href: '/restaurant-robots', label: 'Restaurant' },
+  { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
+  { href: '/robotics-as-a-service', label: 'RaaS' },
+] as const;
+
+export const DECISION_LINKS = [
+  { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
+  { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service (RaaS)' },
+] as const;
+
+export const CATEGORY_LINKS = [
+  { href: '/warehouse-robots', label: 'Warehouse robots' },
+  { href: '/cleaning-robots', label: 'Cleaning robots' },
+  { href: '/restaurant-robots', label: 'Restaurant robots' },
+] as const;
+
+const GUIDE_CATEGORIES: RobotCategory[] = ['warehouse', 'cleaning', 'restaurant'];
+
+/** Links to robot types / guide content below the matcher (`#guide`). */
+export const CATEGORY_GUIDE_LINKS = GUIDE_CATEGORIES.map((category) => ({
+  href: categoryGuideHref(category),
+  label: `${CATEGORY_LABELS[category]} guide`,
+}));
+
+export const COMPARISON_LINKS = [
+  { href: '/amr-vs-agv', label: 'AMR vs AGV' },
+  { href: '/cleaning-robot-vs-cleaning-staff', label: 'Robot vs staff' },
+  { href: '/restaurant-robot-vs-runner', label: 'Robot vs runner' },
+] as const;
+
+/** Category-specific comparison guides for internal linking. */
+export const CATEGORY_COMPARISON_LINKS: Record<
+  RobotCategory,
+  { href: string; label: string; blurb: string }[]
+> = {
+  warehouse: [
+    {
+      href: '/amr-vs-agv',
+      label: 'AMR vs AGV',
+      blurb: 'When dynamic transport beats fixed guided routes.',
+    },
+    {
+      href: '/robot-leasing-vs-buying',
+      label: 'Lease vs buy',
+      blurb: 'Acquisition models for warehouse automation.',
+    },
+    {
+      href: '/robotics-as-a-service',
+      label: 'RaaS',
+      blurb: 'Subscription models for AMR pilots.',
+    },
+  ],
+  cleaning: [
+    {
+      href: '/cleaning-robot-vs-cleaning-staff',
+      label: 'Robot vs cleaning staff',
+      blurb: 'When autonomous cleaning beats hiring.',
+    },
+    {
+      href: '/robot-leasing-vs-buying',
+      label: 'Lease vs buy',
+      blurb: 'Capex vs opex for scrubbers and vacuums.',
+    },
+  ],
+  restaurant: [
+    {
+      href: '/restaurant-robot-vs-runner',
+      label: 'Robot vs runner',
+      blurb: 'Serving robots vs extra floor staff.',
+    },
+    {
+      href: '/robotics-as-a-service',
+      label: 'RaaS',
+      blurb: 'Pilot serving robots without large upfront cost.',
+    },
+  ],
+};

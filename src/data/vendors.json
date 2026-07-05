@@ -1,0 +1,633 @@
+[
+  {
+    "id": "wh-001",
+    "slug": "locus-robotics",
+    "name": "Locus Robotics",
+    "shortDescription": "Collaborative AMRs and pick-assist for fulfillment and distribution centers.",
+    "categories": [
+      "warehouse"
+    ],
+    "robotTypes": [
+      "amr",
+      "picking_assist"
+    ],
+    "industries": [
+      "ecommerce",
+      "3pl",
+      "retail_distribution"
+    ],
+    "idealFacilitySize": "medium",
+    "budgetTier": "mid",
+    "deploymentComplexity": "medium",
+    "acquisitionModelsSupported": [
+      "buy",
+      "lease",
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "EU",
+      "UK"
+    ],
+    "bestFor": [
+      "dynamic layouts",
+      "pick-and-transport workflows",
+      "mid-size DCs"
+    ],
+    "strengths": [
+      "Collaborative pick-assist AMRs",
+      "WMS integrations",
+      "Fast pilot deployments"
+    ],
+    "limitations": [
+      "Less suited to heavy pallet-only sites",
+      "Enterprise features at premium tier"
+    ],
+    "outboundUrl": "https://locusrobotics.com"
+  },
+  {
+    "id": "wh-002",
+    "slug": "otto-motors",
+    "name": "OTTO Motors",
+    "shortDescription": "Industrial autonomous forklifts and pallet movers for manufacturing and logistics.",
+    "categories": [
+      "warehouse"
+    ],
+    "robotTypes": [
+      "agv",
+      "pallet_mover"
+    ],
+    "industries": [
+      "manufacturing",
+      "automotive",
+      "food_beverage"
+    ],
+    "idealFacilitySize": "large",
+    "budgetTier": "premium",
+    "deploymentComplexity": "high",
+    "acquisitionModelsSupported": [
+      "buy",
+      "lease"
+    ],
+    "regions": [
+      "US",
+      "EU"
+    ],
+    "bestFor": [
+      "fixed routes",
+      "pallet transport",
+      "high-volume repetitive moves"
+    ],
+    "strengths": [
+      "Heavy-load autonomous forklifts",
+      "Industrial fleet software",
+      "Manufacturing focus"
+    ],
+    "limitations": [
+      "Layout changes are costly",
+      "Longer implementation timeline"
+    ],
+    "outboundUrl": "https://ottomotors.com"
+  },
+  {
+    "id": "wh-003",
+    "slug": "6-river-systems",
+    "name": "6 River Systems",
+    "shortDescription": "Chuck AMRs for collaborative picking in ecommerce and retail fulfillment.",
+    "categories": [
+      "warehouse"
+    ],
+    "robotTypes": [
+      "picking_assist",
+      "amr"
+    ],
+    "industries": [
+      "ecommerce",
+      "apparel",
+      "healthcare_distribution"
+    ],
+    "idealFacilitySize": "small",
+    "budgetTier": "entry",
+    "deploymentComplexity": "low",
+    "acquisitionModelsSupported": [
+      "lease",
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "UK"
+    ],
+    "bestFor": [
+      "high-SKU picking",
+      "labor shortage relief",
+      "smaller fulfillment centers"
+    ],
+    "strengths": [
+      "Chuck AMR pick-assist",
+      "Quick setup",
+      "Flexible subscription models"
+    ],
+    "limitations": [
+      "Limited pallet capabilities",
+      "Best for collaborative picking workflows"
+    ],
+    "outboundUrl": "https://ocadointelligentautomation.com/systems/chuck-amr"
+  },
+  {
+    "id": "wh-005",
+    "slug": "mir-mobile-industrial-robots",
+    "name": "MiR (Mobile Industrial Robots)",
+    "shortDescription": "Transport AMRs and pallet-moving platforms for warehouses and manufacturing.",
+    "categories": [
+      "warehouse"
+    ],
+    "robotTypes": [
+      "amr",
+      "pallet_mover",
+      "agv"
+    ],
+    "industries": [
+      "3pl",
+      "retail_distribution",
+      "manufacturing",
+      "pharma"
+    ],
+    "idealFacilitySize": "medium",
+    "budgetTier": "entry",
+    "deploymentComplexity": "low",
+    "acquisitionModelsSupported": [
+      "raas",
+      "lease",
+      "buy"
+    ],
+    "regions": [
+      "US",
+      "EU",
+      "UK",
+      "APAC"
+    ],
+    "bestFor": [
+      "transport bottlenecks",
+      "pallet and tugger workflows",
+      "layout changes",
+      "RaaS-first buyers"
+    ],
+    "strengths": [
+      "Simple transport AMRs",
+      "Pallet and tugger product lines",
+      "Low deployment friction",
+      "Wide partner ecosystem"
+    ],
+    "limitations": [
+      "No picking specialization out of the box"
+    ],
+    "outboundUrl": "https://mobile-industrial-robots.com"
+  },
+  {
+    "id": "cl-001",
+    "slug": "softbank-robotics-whiz",
+    "name": "SoftBank Robotics (Whiz)",
+    "shortDescription": "Compact commercial vacuum robots for offices and light commercial spaces.",
+    "categories": [
+      "cleaning"
+    ],
+    "robotTypes": [
+      "office_cleaner"
+    ],
+    "industries": [
+      "office",
+      "coworking",
+      "education"
+    ],
+    "idealFacilitySize": "small",
+    "budgetTier": "entry",
+    "deploymentComplexity": "low",
+    "acquisitionModelsSupported": [
+      "lease",
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "EU",
+      "UK"
+    ],
+    "bestFor": [
+      "office vacuuming",
+      "daily light cleaning",
+      "low obstacle environments"
+    ],
+    "strengths": [
+      "Quiet operation",
+      "Easy scheduling",
+      "Commercial vacuum focus"
+    ],
+    "limitations": [
+      "Not for industrial floors",
+      "Limited scrub capability"
+    ],
+    "outboundUrl": "https://www.softbankrobotics.com"
+  },
+  {
+    "id": "cl-002",
+    "slug": "avidbots",
+    "name": "Avidbots",
+    "shortDescription": "Autonomous floor scrubbers for retail, airports, and large commercial sites.",
+    "categories": [
+      "cleaning"
+    ],
+    "robotTypes": [
+      "large_scrubber",
+      "office_cleaner"
+    ],
+    "industries": [
+      "retail",
+      "hospitality",
+      "healthcare"
+    ],
+    "idealFacilitySize": "medium",
+    "budgetTier": "mid",
+    "deploymentComplexity": "medium",
+    "acquisitionModelsSupported": [
+      "buy",
+      "lease",
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "EU"
+    ],
+    "bestFor": [
+      "retail floors",
+      "large open areas",
+      "scrub and vacuum combo"
+    ],
+    "strengths": [
+      "Neo floor scrubbers",
+      "Fleet analytics",
+      "Large area coverage"
+    ],
+    "limitations": [
+      "Higher training needs for complex sites"
+    ],
+    "outboundUrl": "https://avidbots.com"
+  },
+  {
+    "id": "cl-003",
+    "slug": "nilfisk",
+    "name": "Nilfisk",
+    "shortDescription": "Industrial cleaning equipment including autonomous scrubbers for heavy-duty floors.",
+    "categories": [
+      "cleaning"
+    ],
+    "robotTypes": [
+      "industrial_cleaner"
+    ],
+    "industries": [
+      "manufacturing",
+      "logistics",
+      "industrial"
+    ],
+    "idealFacilitySize": "large",
+    "budgetTier": "premium",
+    "deploymentComplexity": "high",
+    "acquisitionModelsSupported": [
+      "buy",
+      "lease"
+    ],
+    "regions": [
+      "US",
+      "EU",
+      "APAC"
+    ],
+    "bestFor": [
+      "industrial floors",
+      "heavy debris",
+      "warehouse and factory sites"
+    ],
+    "strengths": [
+      "Industrial scrubber portfolio",
+      "Rugged build",
+      "Wide dealer network"
+    ],
+    "limitations": [
+      "Higher capex",
+      "Longer site assessment"
+    ],
+    "outboundUrl": "https://www.nilfisk.com"
+  },
+  {
+    "id": "cl-004",
+    "slug": "gausium",
+    "name": "Gausium",
+    "shortDescription": "Subscription-oriented cleaning robots for offices and commercial buildings.",
+    "categories": [
+      "cleaning"
+    ],
+    "robotTypes": [
+      "office_cleaner",
+      "large_scrubber"
+    ],
+    "industries": [
+      "retail",
+      "office",
+      "mixed_use"
+    ],
+    "idealFacilitySize": "small",
+    "budgetTier": "entry",
+    "deploymentComplexity": "low",
+    "acquisitionModelsSupported": [
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "UK",
+      "APAC"
+    ],
+    "bestFor": [
+      "trial deployments",
+      "variable cleaning demand",
+      "budget-conscious sites"
+    ],
+    "strengths": [
+      "Phantas and Scrubber models",
+      "Subscription-style offerings",
+      "Compact form factors"
+    ],
+    "limitations": [
+      "RaaS availability varies by region"
+    ],
+    "outboundUrl": "https://www.gausium.com"
+  },
+  {
+    "id": "cl-005",
+    "slug": "ice-cobotics",
+    "name": "ICE Cobotics",
+    "shortDescription": "Autonomous scrubbers with cleaning-as-a-service options for large facilities.",
+    "categories": [
+      "cleaning"
+    ],
+    "robotTypes": [
+      "large_scrubber",
+      "industrial_cleaner"
+    ],
+    "industries": [
+      "warehouse",
+      "industrial",
+      "mixed"
+    ],
+    "idealFacilitySize": "large",
+    "budgetTier": "mid",
+    "deploymentComplexity": "medium",
+    "acquisitionModelsSupported": [
+      "buy",
+      "lease",
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "EU",
+      "UK"
+    ],
+    "bestFor": [
+      "mixed environments",
+      "high daily frequency",
+      "obstacle-rich floors"
+    ],
+    "strengths": [
+      "Cobi 18 and autonomous scrubbers",
+      "Cleaning-as-a-service options"
+    ],
+    "limitations": [
+      "Premium tier for complex facility maps"
+    ],
+    "outboundUrl": "https://www.icecobotics.com"
+  },
+  {
+    "id": "rs-001",
+    "slug": "bear-robotics",
+    "name": "Bear Robotics",
+    "shortDescription": "Servi serving robots for restaurants, food halls, and hospitality dining.",
+    "categories": [
+      "restaurant"
+    ],
+    "robotTypes": [
+      "serving_robot",
+      "bussing_robot"
+    ],
+    "industries": [
+      "qsr",
+      "full_service",
+      "food_hall"
+    ],
+    "idealFacilitySize": "medium",
+    "budgetTier": "mid",
+    "deploymentComplexity": "medium",
+    "acquisitionModelsSupported": [
+      "lease",
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "EU",
+      "APAC"
+    ],
+    "bestFor": [
+      "food running",
+      "table bussing",
+      "high-volume dining"
+    ],
+    "strengths": [
+      "Servi robot line",
+      "Front-of-house focus",
+      "Lease-friendly programs"
+    ],
+    "limitations": [
+      "Tight fine-dining layouts can be challenging"
+    ],
+    "outboundUrl": "https://bearrobotics.ai",
+    "minCoversPerDay": 80,
+    "maxCoversPerDay": 600
+  },
+  {
+    "id": "rs-002",
+    "slug": "pudu-robotics",
+    "name": "Pudu Robotics",
+    "shortDescription": "Serving and delivery robots with a strong global footprint in hospitality.",
+    "categories": [
+      "restaurant"
+    ],
+    "robotTypes": [
+      "bussing_robot",
+      "serving_robot"
+    ],
+    "industries": [
+      "buffet",
+      "full_service",
+      "hotel_restaurant"
+    ],
+    "idealFacilitySize": "medium",
+    "budgetTier": "entry",
+    "deploymentComplexity": "low",
+    "acquisitionModelsSupported": [
+      "raas",
+      "lease",
+      "buy"
+    ],
+    "regions": [
+      "US",
+      "UK",
+      "APAC"
+    ],
+    "bestFor": [
+      "bussing bottlenecks",
+      "buffet turnover",
+      "staff shortage relief"
+    ],
+    "strengths": [
+      "PuduBot serving line",
+      "Quick pilot",
+      "Global deployment footprint"
+    ],
+    "limitations": [
+      "Kitchen automation not in portfolio"
+    ],
+    "outboundUrl": "https://www.pudurobotics.com/en",
+    "minCoversPerDay": 50,
+    "maxCoversPerDay": 400
+  },
+  {
+    "id": "rs-003",
+    "slug": "miso-robotics",
+    "name": "Miso Robotics",
+    "shortDescription": "Kitchen-line automation including frying and grilling for QSR operations.",
+    "categories": [
+      "restaurant"
+    ],
+    "robotTypes": [
+      "kitchen_automation"
+    ],
+    "industries": [
+      "qsr",
+      "fast_casual",
+      "cloud_kitchen"
+    ],
+    "idealFacilitySize": "small",
+    "budgetTier": "premium",
+    "deploymentComplexity": "high",
+    "acquisitionModelsSupported": [
+      "buy",
+      "lease"
+    ],
+    "regions": [
+      "US"
+    ],
+    "bestFor": [
+      "kitchen bottlenecks",
+      "frying and grilling automation",
+      "high-throughput QSR"
+    ],
+    "strengths": [
+      "Flippy kitchen line",
+      "Back-of-house automation"
+    ],
+    "limitations": [
+      "Higher integration effort",
+      "Menu changes need reconfiguration"
+    ],
+    "outboundUrl": "https://misorobotics.com",
+    "minCoversPerDay": 200,
+    "maxCoversPerDay": 1200
+  },
+  {
+    "id": "rs-004",
+    "slug": "keenon-robotics",
+    "name": "Keenon Robotics",
+    "shortDescription": "Hospitality robots for serving, delivery, and guest-facing guidance.",
+    "categories": [
+      "restaurant"
+    ],
+    "robotTypes": [
+      "reception_robot",
+      "serving_robot"
+    ],
+    "industries": [
+      "full_service",
+      "hotel_restaurant",
+      "food_hall"
+    ],
+    "idealFacilitySize": "medium",
+    "budgetTier": "mid",
+    "deploymentComplexity": "low",
+    "acquisitionModelsSupported": [
+      "lease",
+      "raas",
+      "buy"
+    ],
+    "regions": [
+      "US",
+      "EU",
+      "UK",
+      "APAC"
+    ],
+    "bestFor": [
+      "guest guidance",
+      "food delivery in hotels",
+      "front-of-house support"
+    ],
+    "strengths": [
+      "Hospitality-focused robots",
+      "Multilingual interfaces",
+      "Global presence"
+    ],
+    "limitations": [
+      "Does not replace full server workflow alone"
+    ],
+    "outboundUrl": "https://www.keenon.com/en",
+    "minCoversPerDay": 60,
+    "maxCoversPerDay": 500
+  },
+  {
+    "id": "rs-005",
+    "slug": "richtech-robotics",
+    "name": "Richtech Robotics",
+    "shortDescription": "Matradee serving robots for high-volume dining and open layouts.",
+    "categories": [
+      "restaurant"
+    ],
+    "robotTypes": [
+      "serving_robot"
+    ],
+    "industries": [
+      "qsr",
+      "buffet",
+      "food_hall"
+    ],
+    "idealFacilitySize": "large",
+    "budgetTier": "mid",
+    "deploymentComplexity": "medium",
+    "acquisitionModelsSupported": [
+      "buy",
+      "lease",
+      "raas"
+    ],
+    "regions": [
+      "US",
+      "APAC"
+    ],
+    "bestFor": [
+      "high seat turnover",
+      "food running at scale",
+      "open layouts"
+    ],
+    "strengths": [
+      "Matradee serving line",
+      "Multi-tray delivery"
+    ],
+    "limitations": [
+      "Less suited to narrow fine-dining aisles"
+    ],
+    "outboundUrl": "https://www.richtechrobotics.com",
+    "minCoversPerDay": 150,
+    "maxCoversPerDay": 800
+  }
+]
