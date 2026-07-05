@@ -4,6 +4,10 @@ import type { RobotCategory } from '@/lib/matching';
 
 const VALID: RobotCategory[] = ['warehouse', 'cleaning', 'restaurant'];
 
+export function generateStaticParams() {
+  return VALID.map((category) => ({ category }));
+}
+
 export default async function LegacyMatchRedirect({
   params,
 }: {
