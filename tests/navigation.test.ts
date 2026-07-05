@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { categoryGuideHref, CATEGORY_GUIDE_LINKS, HOME_MATCHER_RESET_HREF, VENDORS_INDEX_HREF } from '../src/lib/content/navigation';
+import { categoryGuideHref, CATEGORY_GUIDE_LINKS, HEADER_NAV_LINKS, HOME_MATCHER_RESET_HREF, VENDORS_INDEX_HREF } from '../src/lib/content/navigation';
 import { getMatcherCtaHref } from '../src/lib/navigation/matcher';
 
 describe('getMatcherCtaHref', () => {
@@ -38,6 +38,18 @@ describe('CATEGORY_GUIDE_LINKS', () => {
 describe('HOME_MATCHER_RESET_HREF', () => {
   it('resets homepage matcher to category selection', () => {
     expect(HOME_MATCHER_RESET_HREF).toBe('/?matcher=category');
+  });
+});
+
+describe('HEADER_NAV_LINKS', () => {
+  it('keeps desktop header to categories and vendors only', () => {
+    expect(HEADER_NAV_LINKS).toHaveLength(4);
+    expect(HEADER_NAV_LINKS.map((link) => link.href)).toEqual([
+      '/warehouse-robots',
+      '/cleaning-robots',
+      '/restaurant-robots',
+      '/vendors',
+    ]);
   });
 });
 

@@ -21,6 +21,14 @@ export const HOME_MATCHER_RESET_HREF = '/?matcher=category';
 
 export const VENDORS_INDEX_HREF = '/vendors';
 
+/** Primary header nav — categories + vendors only; guides/comparisons live in footer and mobile menu. */
+export const HEADER_NAV_LINKS = [
+  { href: '/warehouse-robots', label: 'Warehouse' },
+  { href: '/cleaning-robots', label: 'Cleaning' },
+  { href: '/restaurant-robots', label: 'Restaurant' },
+  { href: VENDORS_INDEX_HREF, label: 'Vendors' },
+] as const;
+
 export const NAV_LINKS = [
   { href: '/warehouse-robots', label: 'Warehouse' },
   { href: '/cleaning-robots', label: 'Cleaning' },

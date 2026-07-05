@@ -7,7 +7,13 @@ import { Logo } from '@/components/brand/Logo';
 import { ButtonLink } from '@/components/ui/Button';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { isNavLinkActive } from '@/lib/navigation/active';
-import { COMPARISON_LINKS, HOME_MATCHER_RESET_HREF, NAV_LINKS, SITE_NAME } from '@/lib/content/navigation';
+import {
+  COMPARISON_LINKS,
+  HEADER_NAV_LINKS,
+  HOME_MATCHER_RESET_HREF,
+  NAV_LINKS,
+  SITE_NAME,
+} from '@/lib/content/navigation';
 import { getMatcherCtaHref } from '@/lib/navigation/matcher';
 import { cn } from '@/lib/utils';
 
@@ -52,40 +58,33 @@ export function SiteHeader() {
         Skip to content
       </a>
 
-      {/* Grid keeps logo, nav, and CTA in separate columns so links never overlap the button */}
-      <div className="container-page grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-2 py-3 sm:gap-x-4">
-        <Link href={HOME_MATCHER_RESET_HREF} className="flex shrink-0 items-center gap-2.5 text-lg font-bold text-ink">
+      <div className="container-page flex items-center justify-between gap-4 py-3">
+        <Link
+          href={HOME_MATCHER_RESET_HREF}
+          className="relative z-10 flex shrink-0 items-center gap-2.5 text-lg font-bold text-ink"
+        >
           <Logo />
           <span className="hidden sm:inline">{SITE_NAME}</span>
         </Link>
 
         <nav
           aria-label="Main"
-          className="hidden min-w-0 items-center justify-end gap-x-3 overflow-x-auto text-sm font-medium text-ink-muted [-ms-overflow-style:none] [scrollbar-width:none] md:flex lg:gap-x-4 [&::-webkit-scrollbar]:hidden"
+          className="hidden items-center gap-x-5 text-sm font-medium text-ink-muted lg:flex"
         >
-          {NAV_LINKS.map((link) => (
+          {HEADER_NAV_LINKS.map((link) => (
             <Link key={link.href} href={link.href} className={navLinkClass(pathname, link.href)}>
-              {link.label}
-            </Link>
-          ))}
-          {COMPARISON_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn('hidden xl:inline', navLinkClass(pathname, link.href))}
-            >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center justify-end gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <ButtonLink href={matcherCtaHref} variant="primary" className="hidden text-sm sm:inline-flex">
             Get match
           </ButtonLink>
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-lg border border-surface-border p-2 text-ink md:hidden"
+            className="inline-flex items-center justify-center rounded-lg border border-surface-border p-2 text-ink lg:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -108,10 +107,39 @@ export function SiteHeader() {
           ref={mobileNavRef}
           id="mobile-nav"
           aria-label="Mobile"
-          className="border-t border-surface-border bg-surface md:hidden"
+          className="border-t border-surface-border bg-surface lg:hidden"
         >
           <ul className="container-page flex flex-col gap-1 py-3 text-sm font-medium">
-            {[...NAV_LINKS, ...COMPARISON_LINKS].map((link) => (
+            {HEADER_NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    'block rounded-lg px-3 py-2 hover:bg-surface-soft',
+                    isNavLinkActive(pathname, link.href) && 'bg-accent-soft text-accent',
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li className="px-3 pt-2 text-xs font-semibold uppercase tracking-wide text-ink-faint">
+              Guides
+            </li>
+            {NAV_LINKS.filter((link) => !HEADER_NAV_LINKS.some((h) => h.href === link.href)).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    'block rounded-lg px-3 py-2 hover:bg-surface-soft',
+                    isNavLinkActive(pathname, link.href) && 'bg-accent-soft text-accent',
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            {COMPARISON_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
