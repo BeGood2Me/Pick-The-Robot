@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Source_Serif_4 } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnalyticsConsentProvider } from '@/components/analytics/AnalyticsConsentProvider';
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
 import { SiteFooter } from '@/components/layout/SiteFooter';
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </AnalyticsProvider>
         </AnalyticsConsentProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
