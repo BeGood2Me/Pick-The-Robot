@@ -45,7 +45,7 @@ export function organizationJsonLd() {
     url: BASE_URL,
     description:
       'Business robot buying guide and matcher for warehouse, cleaning, and restaurant operators.',
-    logo: `${BASE_URL}/apple-icon`,
+    logo: `${BASE_URL}/apple-touch-icon.png`,
   };
 }
 

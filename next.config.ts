@@ -10,11 +10,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/favicon.ico',
-        destination: '/icon',
-        permanent: true,
-      },
-      {
         source: '/vendors/autoguide-mobile-robots',
         destination: '/vendors/mir-mobile-industrial-robots',
         permanent: true,

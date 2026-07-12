@@ -23,10 +23,14 @@ export const metadata: Metadata = {
   description:
     'Compare warehouse, cleaning, and restaurant robots by fit, cost model, and deployment. Rules-based recommendations and vendor matches.',
   icons: {
-    icon: [{ url: '/icon', sizes: '96x96', type: 'image/png' }],
-    apple: [{ url: '/apple-icon', sizes: '180x180', type: 'image/png' }],
-    shortcut: '/icon',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/favicon.ico',
   },
+  manifest: '/site.webmanifest',
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
     : {}),
