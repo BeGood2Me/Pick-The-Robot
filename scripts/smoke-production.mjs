@@ -24,6 +24,11 @@ const paths = [
   '/robots.txt',
   '/amr-vs-agv',
   '/robot-leasing-vs-buying',
+  '/raas-pricing',
+  '/warehouse-robot-cost',
+  '/cleaning-robot-cost',
+  '/cleaning-robots-as-a-service',
+  '/for-vendors',
 ];
 
 async function check(path) {

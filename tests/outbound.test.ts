@@ -18,4 +18,15 @@ describe('getOutboundUrl', () => {
     expect(url).toContain('utm_medium=referral');
     expect(url.startsWith(vendor.outboundUrl.split('?')[0])).toBe(true);
   });
+
+  it('uses affiliate medium and affiliateUrl when set', () => {
+    const vendor = {
+      ...getVendorById('wh-001')!,
+      affiliateUrl: 'https://locusrobotics.com/partners/picktherobot',
+    };
+    const url = getOutboundUrl(vendor, 'results');
+    expect(url).toContain('utm_medium=affiliate');
+    expect(url).toContain('locusrobotics.com/partners/picktherobot');
+    expect(url).toContain('utm_content=results');
+  });
 });

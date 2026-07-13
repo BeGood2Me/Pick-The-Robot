@@ -56,7 +56,6 @@ Users can copy a share URL after matching. Format: `https://picktherobot.com/res
 ## Pages agents should not treat as primary citations
 
 - `/results?share=...` — user-specific, noindex
-- `/theme-preview` — internal design preview, noindex
 - `/match/[category]` — legacy redirects to category routes
 
 ## Scoring (high level)

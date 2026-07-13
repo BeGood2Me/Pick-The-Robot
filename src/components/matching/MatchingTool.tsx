@@ -22,9 +22,10 @@ import {
   getRequiredFieldErrors,
   validateFormAnswers,
 } from '@/lib/forms/validateAnswers';
-import { decodeSharePayload } from '@/lib/matching/share';
+import { CATEGORY_ROUTES } from '@/lib/content/navigation';
 import { detectRegionFromBrowser } from '@/lib/geo/region';
 import { onFormSubmit, type RecommendationResult, type RobotCategory } from '@/lib/matching';
+import { decodeSharePayload } from '@/lib/matching/share';
 
 function initialAnswers(category: RobotCategory): WizardAnswers {
   const base = emptyAnswersForCategory(category);
@@ -164,6 +165,10 @@ export function MatchingTool({
   }
 
   function handleCategorySelect(next: RobotCategory) {
+    if (initialCategory && next !== initialCategory) {
+      router.push(CATEGORY_ROUTES[next]);
+      return;
+    }
     const draft = loadDraft(next);
     setCategory(next);
     setAnswers(draft ?? initialAnswers(next));
@@ -232,11 +237,11 @@ export function MatchingTool({
       setError(null);
       return;
     }
-    if (!initialCategory) {
-      setPhase('category');
-      setCategory(null);
-      setAnswers(null);
-    }
+    setPhase('category');
+    setCategory(null);
+    setAnswers(null);
+    setShowFieldErrors(false);
+    setError(null);
   }
 
   function handleReset() {
@@ -319,9 +324,13 @@ export function MatchingTool({
 
       {phase === 'category' && (
         <section>
-          <h2 className="text-xl font-semibold">Get your robot match</h2>
+          <h2 className="text-xl font-semibold">
+            {initialCategory ? 'Switch category' : 'Get your robot match'}
+          </h2>
           <p className="mt-1 mb-4 text-sm text-ink-muted">
-            Step 1 of 2 — pick your operation type, then answer a short questionnaire (~2 min).
+            {initialCategory
+              ? 'Pick a different operation type to run the matcher there.'
+              : 'Step 1 of 2 — pick your operation type, then answer a short questionnaire (~2 min).'}
           </p>
           <CategorySelector selected={category} onSelect={handleCategorySelect} />
         </section>
@@ -393,11 +402,9 @@ export function MatchingTool({
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            {(!initialCategory || questionStep > 0) && (
-              <Button type="button" variant="secondary" onClick={handleBack}>
-                Back
-              </Button>
-            )}
+            <Button type="button" variant="secondary" onClick={handleBack}>
+              Back
+            </Button>
             {isLastQuestionStep ? (
               <Button type="submit">Get recommendation</Button>
             ) : (

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { COMPARISONS } from '@/lib/content/comparisons';
+import { GUIDE_PAGES } from '@/lib/content/guides';
 import { CATEGORY_ROUTES } from '@/lib/content/navigation';
 import { VENDORS } from '@/lib/matching/vendors';
 import { BASE_URL } from '@/lib/seo/metadata';
@@ -8,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     '',
     '/vendors',
+    '/for-vendors',
     '/warehouse-robots',
     '/cleaning-robots',
     '/restaurant-robots',
@@ -16,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy',
     '/terms',
     ...Object.keys(COMPARISONS).map((slug) => `/${slug}`),
+    ...Object.keys(GUIDE_PAGES).map((slug) => `/${slug}`),
   ];
 
   return [

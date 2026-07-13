@@ -1,6 +1,6 @@
 'use client';
 
-import { MatchingTool } from '@/components/matching/MatchingTool';
+import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { CATEGORY_LABELS } from '@/lib/forms';
 import type { RobotCategory } from '@/lib/matching';

@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import { MatcherSkeleton } from '@/components/matching/MatcherSkeleton';
-import { MatchingTool } from '@/components/matching/MatchingTool';
+import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import { Badge } from '@/components/ui/Badge';
 import { CATEGORY_CONTENT, ROBOT_TYPE_INFO } from '@/lib/content/categories';
@@ -87,6 +87,48 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
         <section className="mt-12 card">
           <h2 className="text-xl font-semibold">Buy, lease, or RaaS?</h2>
           <p className="mt-2 prose-muted">{content.acquisitionIntro}</p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-semibold">{content.howToChoose.heading}</h2>
+          {content.howToChoose.paragraphs.map((p) => (
+            <p key={p} className="mt-3 max-w-3xl prose-muted">
+              {p}
+            </p>
+          ))}
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-semibold">{content.priceRanges.heading}</h2>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[28rem] text-left text-sm">
+              <thead>
+                <tr className="border-b border-surface-border text-ink">
+                  <th className="py-2 pr-4 font-semibold">Type</th>
+                  <th className="py-2 pr-4 font-semibold">Range</th>
+                  <th className="py-2 font-semibold">Notes</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-muted">
+                {content.priceRanges.items.map((item) => (
+                  <tr key={item.label} className="border-b border-surface-border">
+                    <td className="py-2 pr-4 font-medium text-ink">{item.label}</td>
+                    <td className="py-2 pr-4">{item.range}</td>
+                    <td className="py-2">{item.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="mt-12 card">
+          <h2 className="text-xl font-semibold">{content.deploymentTimeline.heading}</h2>
+          <ol className="mt-3 list-inside list-decimal space-y-2 text-sm text-ink-muted">
+            {content.deploymentTimeline.steps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
         </section>
 
         <section className="mt-12">

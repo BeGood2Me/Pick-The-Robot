@@ -1,6 +1,8 @@
 import type { RobotCategory } from '@/lib/matching';
 import { CATEGORY_LABELS } from '@/lib/forms/questions';
 
+import { GUIDE_LINKS } from '@/lib/content/guides';
+
 export const SITE_NAME = 'PickTheRobot';
 
 export const CATEGORY_ROUTES: Record<RobotCategory, string> = {
@@ -40,7 +42,10 @@ export const NAV_LINKS = [
 export const DECISION_LINKS = [
   { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
   { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service (RaaS)' },
+  { href: '/raas-pricing', label: 'RaaS pricing' },
 ] as const;
+
+export { GUIDE_LINKS };
 
 export const CATEGORY_LINKS = [
   { href: '/warehouse-robots', label: 'Warehouse robots' },
@@ -74,6 +79,11 @@ export const CATEGORY_COMPARISON_LINKS: Record<
       blurb: 'When dynamic transport beats fixed guided routes.',
     },
     {
+      href: '/warehouse-robot-cost',
+      label: 'Warehouse robot cost',
+      blurb: 'Typical price ranges for AMRs, AGVs, and pallet movers.',
+    },
+    {
       href: '/robot-leasing-vs-buying',
       label: 'Lease vs buy',
       blurb: 'Acquisition models for warehouse automation.',
@@ -83,6 +93,11 @@ export const CATEGORY_COMPARISON_LINKS: Record<
       label: 'RaaS',
       blurb: 'Subscription models for AMR pilots.',
     },
+    {
+      href: '/raas-pricing',
+      label: 'RaaS pricing',
+      blurb: 'What robotics subscriptions typically cost.',
+    },
   ],
   cleaning: [
     {
@@ -91,9 +106,24 @@ export const CATEGORY_COMPARISON_LINKS: Record<
       blurb: 'When autonomous cleaning beats hiring.',
     },
     {
+      href: '/cleaning-robot-cost',
+      label: 'Cleaning robot cost',
+      blurb: 'Price ranges for scrubbers and vacuums.',
+    },
+    {
+      href: '/cleaning-robots-as-a-service',
+      label: 'Cleaning RaaS',
+      blurb: 'Subscription cleaning robots for first deployments.',
+    },
+    {
       href: '/robot-leasing-vs-buying',
       label: 'Lease vs buy',
       blurb: 'Capex vs opex for scrubbers and vacuums.',
+    },
+    {
+      href: '/raas-pricing',
+      label: 'RaaS pricing',
+      blurb: 'Monthly ranges by robot category.',
     },
   ],
   restaurant: [
@@ -106,6 +136,11 @@ export const CATEGORY_COMPARISON_LINKS: Record<
       href: '/robotics-as-a-service',
       label: 'RaaS',
       blurb: 'Pilot serving robots without large upfront cost.',
+    },
+    {
+      href: '/raas-pricing',
+      label: 'RaaS pricing',
+      blurb: 'Typical serving-robot subscription ranges.',
     },
   ],
 };

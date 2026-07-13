@@ -1,7 +1,8 @@
 import { Suspense } from 'react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ResultsSkeleton } from '@/components/matching/MatcherSkeleton';
-import { MatchingTool } from '@/components/matching/MatchingTool';
+import { MatchingTool } from '@/components/matching/MatchingToolLoader';
+import { ResultsPageIntro } from '@/components/matching/ResultsPageIntro';
 import { siteMetadata } from '@/lib/seo/metadata';
 
 export const metadata = siteMetadata({
@@ -15,11 +16,11 @@ export const metadata = siteMetadata({
 export default function ResultsPage() {
   return (
     <div className="container-page py-10">
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Shared results' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Match results' }]} />
       <h1 className="font-display text-3xl font-semibold">Match results</h1>
-      <p className="mt-2 text-sm text-ink-muted">
-        Loaded from a share link. Edit answers to re-run the matcher.
-      </p>
+      <Suspense fallback={<p className="mt-2 text-sm text-ink-muted">Loading…</p>}>
+        <ResultsPageIntro />
+      </Suspense>
       <section id="matcher" className="mt-8 scroll-mt-8">
         <Suspense fallback={<ResultsSkeleton />}>
           <MatchingTool />

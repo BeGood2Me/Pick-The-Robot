@@ -71,6 +71,9 @@ export interface CategoryPageContent {
   metaDescription: string;
   robotTypesIntro: string;
   acquisitionIntro: string;
+  howToChoose: { heading: string; paragraphs: string[] };
+  priceRanges: { heading: string; items: { label: string; range: string; note: string }[] };
+  deploymentTimeline: { heading: string; steps: string[] };
   faqs: { question: string; answer: string }[];
 }
 
@@ -86,6 +89,31 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
       'Warehouse automation spans transport, picking, and pallet movement. The right type depends on layout stability, volume, and systems readiness.',
     acquisitionIntro:
       'Buying suits stable, high-utilization sites. Leasing balances flexibility and upfront cost. RaaS lowers capex and is common for pilots.',
+    howToChoose: {
+      heading: 'How to choose a warehouse robot',
+      paragraphs: [
+        'Start with your primary pain point — transport, picking, or pallet movement — not the robot brand. Layout stability matters: frequent layout changes favor AMRs; fixed routes favor AGVs.',
+        'Check WMS readiness and aisle constraints before shortlisting vendors. Cold-chain sites need cold-rated hardware and more deployment planning.',
+        'Match acquisition model to utilization certainty: RaaS or lease for pilots, buy when daily volume is proven across shifts.',
+      ],
+    },
+    priceRanges: {
+      heading: 'Typical cost ranges (USD, indicative)',
+      items: [
+        { label: 'AMR (purchase)', range: '$25k–$80k+', note: 'Per robot; software tiers vary' },
+        { label: 'AMR (RaaS)', range: '$2k–$5k/mo', note: 'Per robot, often includes support' },
+        { label: 'AGV / pallet systems', range: '$50k–$200k+', note: 'Higher integration cost' },
+      ],
+    },
+    deploymentTimeline: {
+      heading: 'Typical deployment timeline',
+      steps: [
+        'Weeks 1–2: Site assessment, safety review, vendor shortlist',
+        'Weeks 3–6: Mapping, pilot route design, WMS integration scoping',
+        'Weeks 6–12: Pilot fleet live, operator training, KPI baseline',
+        'Month 3+: Scale fleet if utilization and ROI targets are met',
+      ],
+    },
     faqs: [
       {
         question: 'What is the best warehouse robot for a small fulfillment center?',
@@ -115,6 +143,31 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
       'Cleaning robots range from compact office units to large scrubbers and industrial machines. Floor area and obstacle density drive the fit.',
     acquisitionIntro:
       'RaaS and lease models are common for first deployments. Buying can make sense when cleaning runs daily across a large, stable footprint.',
+    howToChoose: {
+      heading: 'How to choose a cleaning robot',
+      paragraphs: [
+        'Floor area and cleaning frequency drive the fit more than brand. Large daily scrubbing favors autonomous scrubbers; smaller offices may only need compact vacuums.',
+        'Obstacle density affects mapping time and reliability — cluttered retail floors need stronger navigation than open warehouses.',
+        'Compare subscription vs purchase using your labor cost per hour and hours spent on floors, not just robot sticker price.',
+      ],
+    },
+    priceRanges: {
+      heading: 'Typical cost ranges (USD, indicative)',
+      items: [
+        { label: 'Office vacuum robot', range: '$5k–$20k', note: 'Purchase; smaller footprint' },
+        { label: 'Commercial scrubber', range: '$30k–$80k', note: 'Purchase; mid-large sites' },
+        { label: 'Cleaning RaaS', range: '$800–$5k/mo', note: 'Depends on machine size' },
+      ],
+    },
+    deploymentTimeline: {
+      heading: 'Typical deployment timeline',
+      steps: [
+        'Week 1: Floor survey, obstacle audit, vendor demo on-site',
+        'Weeks 2–3: Mapping and route programming',
+        'Week 4: Staff training and parallel run with existing cleaning',
+        'Month 2+: Optimize routes and expand coverage if utilization is high',
+      ],
+    },
     faqs: [
       {
         question: 'Are cleaning robots worth it vs hiring staff?',
@@ -144,6 +197,31 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
       'Front-of-house robots handle running and bussing. Kitchen automation targets prep bottlenecks. Reception robots help with guest flow.',
     acquisitionIntro:
       'Restaurants often pilot on lease or RaaS before buying. High-utilization QSR sites with stable layouts are better buy candidates.',
+    howToChoose: {
+      heading: 'How to choose a restaurant robot',
+      paragraphs: [
+        'Match robot type to workflow: serving robots for food running, bussing robots for turnover, kitchen automation for prep bottlenecks.',
+        'Peak covers per day and aisle width matter more than total seat count — narrow fine-dining layouts often block floor robots.',
+        'Pilot during your busiest service period. If the robot cannot keep pace at peak, utilization will not justify the contract.',
+      ],
+    },
+    priceRanges: {
+      heading: 'Typical cost ranges (USD, indicative)',
+      items: [
+        { label: 'Serving robot (lease/RaaS)', range: '$500–$1.5k/mo', note: 'Per unit, region varies' },
+        { label: 'Serving robot (purchase)', range: '$15k–$40k', note: 'Per unit; support plans extra' },
+        { label: 'Kitchen automation', range: '$50k–$200k+', note: 'Highly workflow-dependent' },
+      ],
+    },
+    deploymentTimeline: {
+      heading: 'Typical deployment timeline',
+      steps: [
+        'Week 1: Layout review, aisle measurements, peak-hour workflow map',
+        'Weeks 2–3: On-site mapping and staff training',
+        'Week 4: Soft launch during off-peak, then peak-hour trial',
+        'Month 2+: Expand units or adjust routes based on turnover data',
+      ],
+    },
     faqs: [
       {
         question: 'Do serving robots work in fine dining?',

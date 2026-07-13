@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   computeOverallMatch,
   generateRecommendation,
@@ -14,10 +14,13 @@ import {
   setMatchEventHandler,
 } from '../src/lib/matching';
 import { compareVendorMatches, getVendorById } from '../src/lib/matching/vendors';
+import * as vendorsModule from '../src/lib/matching/vendors';
 import { facilitySizeFit } from '../src/lib/matching/scoring/shared';
+import { MATCH_THRESHOLDS } from '../src/lib/matching/types';
 import type {
   CleaningProfile,
   RestaurantProfile,
+  Vendor,
   VendorMatch,
   WarehouseProfile,
 } from '../src/lib/matching/types';
@@ -137,6 +140,18 @@ describe('warehouse scoring', () => {
     const { trace } = scoreRobotType(warehouseProfile, 'amr');
     expect(trace.hits.length).toBeGreaterThanOrEqual(2);
     expect(trace.hits.some((h) => h.id.includes('pain') || h.id.includes('layout'))).toBe(true);
+  });
+
+  it('boosts AMR and penalizes AGV in cold-chain environments', () => {
+    const coldProfile: WarehouseProfile = {
+      ...warehouseProfile,
+      temperatureZone: 'cold',
+    };
+    const amr = scoreRobotType(coldProfile, 'amr');
+    const agv = scoreRobotType(coldProfile, 'agv');
+    expect(amr.trace.hits.some((h) => h.id === 'cold_zone_amr')).toBe(true);
+    expect(agv.trace.hits.some((h) => h.id === 'cold_zone_penalty')).toBe(true);
+    expect(amr.score.useCaseFit).toBeGreaterThan(agv.score.useCaseFit);
   });
 });
 
@@ -277,6 +292,10 @@ describe('vendor scoring', () => {
 });
 
 describe('generateRecommendation integration', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('returns warehouse recommendation with vendors and explanation', () => {
     const result = generateRecommendation(warehouseProfile);
     expect(result.bestRobotMatch.category).toBe('warehouse');
@@ -351,6 +370,42 @@ describe('generateRecommendation integration', () => {
     const result = generateRecommendation(nicheProfile);
     expect(result.vendorMatches.length).toBeGreaterThan(0);
     expect(result.bestRobotMatch.robotType).toBe('pallet_mover');
+  });
+
+  it('sets vendorsLowConfidence when all vendors score below threshold', () => {
+    const lowFitVendor: Vendor = {
+      ...getVendorById('wh-002')!,
+      robotTypes: ['pallet_mover'],
+      acquisitionModelsSupported: ['buy'],
+      idealFacilitySize: 'large',
+      budgetTier: 'premium',
+      deploymentComplexity: 'high',
+      regions: ['US'],
+    };
+
+    const profile: WarehouseProfile = {
+      ...warehouseProfile,
+      region: 'APAC',
+      budgetPreference: 'low_upfront',
+      acquisitionPreference: 'raas',
+      facilitySizeSqM: 500,
+      techReadiness: 'low',
+    };
+
+    vi.spyOn(vendorsModule, 'getVendorsByCategory').mockReturnValue([lowFitVendor]);
+
+    const result = generateRecommendation(profile);
+    expect(result.vendorsLowConfidence).toBe(true);
+    expect(result.vendorMatches.length).toBeGreaterThan(0);
+    expect(result.vendorExclusionReasons?.length).toBeGreaterThan(0);
+    expect(
+      scoreVendorForProfile(
+        profile,
+        lowFitVendor,
+        result.bestRobotMatch.robotType,
+        result.acquisitionRecommendation,
+      ).overallMatch,
+    ).toBeLessThan(MATCH_THRESHOLDS.vendorMin);
   });
 
   it('surfaces vendor exclusion reason for poor robot type fit', () => {

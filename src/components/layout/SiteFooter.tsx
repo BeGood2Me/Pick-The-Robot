@@ -3,6 +3,7 @@ import {
   CATEGORY_GUIDE_LINKS,
   COMPARISON_LINKS,
   DECISION_LINKS,
+  GUIDE_LINKS,
   HOME_MATCHER_RESET_HREF,
   SITE_NAME,
   VENDORS_INDEX_HREF,
@@ -65,6 +66,28 @@ export function SiteFooter() {
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+            <div className="shrink-0">
+              <p className="text-sm font-semibold text-ink">Cost &amp; pricing</p>
+              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
+                {GUIDE_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="hover:text-ink">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="shrink-0">
+              <p className="text-sm font-semibold text-ink">For vendors</p>
+              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
+                <li>
+                  <Link href="/for-vendors" className="hover:text-ink">
+                    List your robot
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

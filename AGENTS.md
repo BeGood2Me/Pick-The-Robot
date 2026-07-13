@@ -54,7 +54,7 @@ npm run build        # production build
 3. **Share payloads** must pass full validation in `share.ts` — reject partial/tampered tokens.
 4. **`staffAssignedToCleaning: 0`** is valid (see `ZERO_VALID_FIELDS` in `validateAnswers.ts`).
 5. **Sponsored vendors** get a small score boost only when already relevant — never override fit.
-6. **`/results`** and **`/theme-preview`** are `noindex`.
+6. **`/results`** is `noindex`.
 
 ## Conventions
 

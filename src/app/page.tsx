@@ -5,11 +5,12 @@ import { FaqBlock } from '@/components/content/FaqBlock';
 import { MethodologySection } from '@/components/content/MethodologySection';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { MatcherSkeleton } from '@/components/matching/MatcherSkeleton';
-import { MatchingTool } from '@/components/matching/MatchingTool';
+import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { HomeCategoryGuideLinks } from '@/components/content/HomeCategoryCards';
 import {
   COMPARISON_LINKS,
   DECISION_LINKS,
+  GUIDE_LINKS,
 } from '@/lib/content/navigation';
 import { HOME_FAQS } from '@/lib/content/faqs';
 import { faqJsonLd, organizationJsonLd, websiteJsonLd } from '@/lib/seo/schema';
@@ -54,7 +55,7 @@ export default function HomePage() {
 
         <StickyMatcherCta href="#matcher" />
 
-        <section className="mb-10 grid items-start gap-6 sm:grid-cols-2" aria-label="Guides and comparisons">
+        <section className="mb-10 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Guides and comparisons">
           <div>
             <h2 className="mb-3 text-lg font-semibold">Comparisons</h2>
             <ul className="space-y-2 text-sm">
@@ -71,6 +72,18 @@ export default function HomePage() {
             <h2 className="mb-3 text-lg font-semibold">Acquisition guides</h2>
             <ul className="space-y-2 text-sm">
               {DECISION_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="font-medium text-accent hover:underline">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="mb-3 text-lg font-semibold">Cost &amp; pricing guides</h2>
+            <ul className="space-y-2 text-sm">
+              {GUIDE_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="font-medium text-accent hover:underline">
                     {link.label}
