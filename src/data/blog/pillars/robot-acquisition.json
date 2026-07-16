@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "postSlugs": ["robot-raas-vs-buying-explained", "raas-cleaning-robots-guide"],
+  "postSlugs": ["robot-raas-vs-buying-explained"],
   "faqs": [
     {
       "question": "Is RaaS more expensive than buying robots?",
@@ -27,6 +27,7 @@
     }
   ],
   "relatedLinks": [
+    { "href": "/blog/raas-cleaning-robots-guide", "label": "RaaS cleaning robots (cleaning cluster)" },
     { "href": "/robot-leasing-vs-buying", "label": "Lease vs buy guide" },
     { "href": "/robotics-as-a-service", "label": "What is RaaS?" },
     { "href": "/raas-pricing", "label": "RaaS pricing ranges" }
