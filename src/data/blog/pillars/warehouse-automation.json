@@ -1,0 +1,44 @@
+{
+  "slug": "warehouse-automation",
+  "title": "Warehouse automation guides",
+  "h1": "Warehouse automation",
+  "metaDescription": "Warehouse automation guides: robot costs, AMR vs AGV, buying workflows, and RaaS pricing for distribution and fulfillment teams.",
+  "intro": "Warehouse automation spans transport AMRs, guided AGVs, pick-assist, and pallet systems. These guides help operations teams budget, compare technologies, and plan a first deployment — before vendor demos.",
+  "summarySections": [
+    {
+      "heading": "What this topic covers",
+      "bullets": [
+        "Typical warehouse robot cost ranges by technology",
+        "AMR vs AGV trade-offs for layout and infrastructure",
+        "A practical buying workflow from problem definition to pilot",
+        "When RaaS beats capital purchase for first fleets"
+      ]
+    },
+    {
+      "heading": "Who should read this cluster",
+      "paragraphs": [
+        "Distribution center managers, 3PL operators, and facilities leads evaluating automation for transport, picking, or pallet moves. Use the matcher when you are ready to translate facility inputs into robot type and vendor shortlists."
+      ]
+    }
+  ],
+  "postSlugs": [
+    "warehouse-robot-cost-2026",
+    "amr-vs-agv-comparison",
+    "how-to-buy-warehouse-robot"
+  ],
+  "faqs": [
+    {
+      "question": "What is the cheapest way to start warehouse automation?",
+      "answer": "A small AMR pilot on RaaS is often the lowest-risk entry: 3–5 robots, partial zone coverage, and a 60–90 day evaluation before capital commitment."
+    },
+    {
+      "question": "AMR or AGV for a changing warehouse layout?",
+      "answer": "AMRs adapt to layout changes without floor infrastructure. AGVs fit fixed, high-volume routes where per-unit cost matters more than flexibility."
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/warehouse-robots", "label": "Warehouse robots hub" },
+    { "href": "/amr-vs-agv", "label": "AMR vs AGV comparison tool" },
+    { "href": "/warehouse-robot-cost", "label": "Warehouse robot cost guide" }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "slug": "amr-vs-agv-comparison",
+  "pillarSlug": "warehouse-automation",
+  "primaryKeyword": "AMR vs AGV",
+  "secondaryKeywords": [
+    "AMR vs AGV warehouse",
+    "autonomous mobile robot vs guided vehicle",
+    "warehouse AMR comparison"
+  ],
+  "title": "AMR vs AGV for warehouses: 2026 comparison",
+  "h1": "AMR vs AGV for warehouses",
+  "metaDescription": "AMR vs AGV for warehouses: navigation, infrastructure, layout flexibility, deployment time, and when each fits transport workflows.",
+  "intro": "AMRs navigate dynamically with sensors and software; AGVs follow fixed paths with floor infrastructure. The right choice depends on layout stability, payload, and how fast you need to deploy — not which acronym is newer.",
+  "publishedAt": "2026-07-16",
+  "matcherCategory": "warehouse",
+  "sections": [
+    {
+      "heading": "Navigation and infrastructure",
+      "bullets": [
+        "AMRs: no magnetic tape or embedded wires; reroute around obstacles",
+        "AGVs: fixed paths; lower per-unit cost but infrastructure install",
+        "AMR deployment: often days to weeks for software mapping",
+        "AGV deployment: weeks to months when infrastructure is required"
+      ]
+    },
+    {
+      "heading": "When AMRs win",
+      "paragraphs": [
+        "Choose AMRs when layouts change, humans share aisles with robots, or you want incremental scaling without ripping up floors."
+      ],
+      "bullets": [
+        "Frequent layout or SKU changes",
+        "Mixed manual and automated zones",
+        "Pick-and-transport in e-commerce DCs",
+        "RaaS pilots with uncertain long-term volume"
+      ]
+    },
+    {
+      "heading": "When AGVs win",
+      "paragraphs": [
+        "AGVs fit stable, high-volume point-to-point moves — especially heavy pallet lanes where repeatability beats flexibility."
+      ],
+      "bullets": [
+        "Fixed routes and predictable throughput",
+        "Heavy payload requirements on defined lanes",
+        "Lower per-move cost at very high utilization",
+        "Sites that already invested in guided infrastructure"
+      ]
+    },
+    {
+      "heading": "Five-year cost snapshot",
+      "paragraphs": [
+        "Unit purchase price is only part of the story. AGV infrastructure and AMR software subscriptions change total cost of ownership. Compare quotes with integration, maintenance, and layout change risk included."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Are AMRs always better than AGVs?",
+      "answer": "No. AMRs excel in dynamic sites; AGVs can be cheaper per move on fixed, high-volume routes. Match technology to layout stability and payload."
+    },
+    {
+      "question": "Can AMRs and AGVs run in the same warehouse?",
+      "answer": "Some sites use both for different zones. Fleet software and safety zoning must be planned — not all vendors interoperate out of the box."
+    },
+    {
+      "question": "Does PickTheRobot recommend AMR or AGV?",
+      "answer": "The warehouse matcher scores robot types from your pain point, layout stability, aisle constraints, and volume. Transport pain with frequent layout change typically favors AMRs."
+    }
+  ],
+  "relatedPostSlugs": [
+    "warehouse-robot-cost-2026",
+    "how-to-buy-warehouse-robot"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/amr-vs-agv",
+      "label": "AMR vs AGV comparison page"
+    },
+    {
+      "href": "/warehouse-robots#matcher",
+      "label": "Run warehouse matcher"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getAllBlogPillars } from '@/lib/content/blog';
 import {
   CATEGORY_GUIDE_LINKS,
   COMPARISON_LINKS,
@@ -10,6 +11,8 @@ import {
 } from '@/lib/content/navigation';
 
 export function SiteFooter() {
+  const blogPillars = getAllBlogPillars();
+
   return (
     <footer className="mt-16 border-t border-surface-border bg-surface">
       <div className="container-page py-10">
@@ -81,6 +84,23 @@ export function SiteFooter() {
               </ul>
             </div>
             <div className="shrink-0">
+              <p className="text-sm font-semibold text-ink">Blog topics</p>
+              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
+                <li>
+                  <Link href="/blog" className="hover:text-ink">
+                    All articles
+                  </Link>
+                </li>
+                {blogPillars.map((pillar) => (
+                  <li key={pillar.slug}>
+                    <Link href={`/blog/topics/${pillar.slug}`} className="hover:text-ink">
+                      {pillar.h1}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="shrink-0">
               <p className="text-sm font-semibold text-ink">For vendors</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
                 <li>
@@ -96,6 +116,10 @@ export function SiteFooter() {
       <div className="border-t border-surface-border py-4 text-center text-xs text-ink-faint">
         <p>Recommendations are informational. Verify pricing and fit with vendors directly.</p>
         <p className="mt-2">
+          <Link href="/about" className="hover:text-ink-muted">
+            About
+          </Link>
+          {' · '}
           <Link href="/privacy" className="hover:text-ink-muted">
             Privacy
           </Link>

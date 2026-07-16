@@ -65,30 +65,77 @@ export function websiteJsonLd() {
   };
 }
 
+export interface ArticleAuthor {
+  name: string;
+  type?: 'Person' | 'Organization';
+  jobTitle?: string;
+  organization?: string;
+  url?: string;
+  sameAs?: string[];
+}
+
 export function articleJsonLd({
   title,
   description,
   path,
+  datePublished,
+  dateModified,
+  author,
 }: {
   title: string;
   description: string;
   path: string;
+  datePublished?: string;
+  dateModified?: string;
+  author?: ArticleAuthor;
 }) {
+  const authorEntity = author
+    ? author.type === 'Organization'
+      ? {
+          '@type': 'Organization' as const,
+          name: author.name,
+          ...(author.url ? { url: author.url } : {}),
+          ...(author.sameAs?.length ? { sameAs: author.sameAs } : {}),
+        }
+      : {
+          '@type': 'Person' as const,
+          name: author.name,
+          ...(author.jobTitle ? { jobTitle: author.jobTitle } : {}),
+          ...(author.organization
+            ? {
+                worksFor: {
+                  '@type': 'Organization',
+                  name: author.organization,
+                  url: BASE_URL,
+                },
+              }
+            : {}),
+          ...(author.url ? { url: author.url } : {}),
+          ...(author.sameAs?.length ? { sameAs: author.sameAs } : {}),
+        }
+    : {
+        '@type': 'Organization' as const,
+        name: SITE_NAME,
+        url: BASE_URL,
+      };
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
     description,
     url: `${BASE_URL}${path}`,
-    author: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: BASE_URL,
-    },
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ? { dateModified } : {}),
+    author: authorEntity,
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,
       url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/apple-touch-icon.png`,
+      },
     },
     mainEntityOfPage: `${BASE_URL}${path}`,
   };

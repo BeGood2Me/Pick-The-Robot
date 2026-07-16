@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-07-16T15:00:50.862Z",
+  "posts": [
+    {
+      "slug": "amr-vs-agv-comparison",
+      "pillarSlug": "warehouse-automation",
+      "publishedAt": "2026-07-16",
+      "title": "AMR vs AGV for warehouses: 2026 comparison",
+      "path": "/blog/amr-vs-agv-comparison"
+    },
+    {
+      "slug": "cleaning-robot-cost-2026",
+      "pillarSlug": "cleaning-robotics",
+      "publishedAt": "2026-07-16",
+      "title": "Cleaning robot cost in 2026: scrubbers, vacuums, and RaaS",
+      "path": "/blog/cleaning-robot-cost-2026"
+    },
+    {
+      "slug": "how-to-buy-warehouse-robot",
+      "pillarSlug": "warehouse-automation",
+      "publishedAt": "2026-07-16",
+      "title": "How to buy a warehouse robot: step-by-step buyer guide",
+      "path": "/blog/how-to-buy-warehouse-robot"
+    },
+    {
+      "slug": "raas-cleaning-robots-guide",
+      "pillarSlug": "cleaning-robotics",
+      "publishedAt": "2026-07-16",
+      "title": "RaaS cleaning robots: subscription pricing and fit",
+      "path": "/blog/raas-cleaning-robots-guide"
+    },
+    {
+      "slug": "restaurant-serving-robot-cost",
+      "pillarSlug": "restaurant-robotics",
+      "publishedAt": "2026-07-16",
+      "title": "Restaurant serving robot cost: lease, RaaS, and buy ranges",
+      "path": "/blog/restaurant-serving-robot-cost"
+    },
+    {
+      "slug": "robot-raas-vs-buying-explained",
+      "pillarSlug": "robot-acquisition",
+      "publishedAt": "2026-07-16",
+      "title": "Robot RaaS vs buying: which acquisition model fits?",
+      "path": "/blog/robot-raas-vs-buying-explained"
+    },
+    {
+      "slug": "warehouse-robot-cost-2026",
+      "pillarSlug": "warehouse-automation",
+      "publishedAt": "2026-07-16",
+      "title": "Warehouse robot cost in 2026: AMR, AGV, and RaaS ranges",
+      "path": "/blog/warehouse-robot-cost-2026"
+    }
+  ],
+  "pillars": [
+    {
+      "slug": "cleaning-robotics",
+      "title": "Commercial cleaning robot guides",
+      "postCount": 2,
+      "path": "/blog/topics/cleaning-robotics"
+    },
+    {
+      "slug": "restaurant-robotics",
+      "title": "Restaurant robot guides",
+      "postCount": 1,
+      "path": "/blog/topics/restaurant-robotics"
+    },
+    {
+      "slug": "robot-acquisition",
+      "title": "Robot acquisition & RaaS guides",
+      "postCount": 2,
+      "path": "/blog/topics/robot-acquisition"
+    },
+    {
+      "slug": "warehouse-automation",
+      "title": "Warehouse automation guides",
+      "postCount": 3,
+      "path": "/blog/topics/warehouse-automation"
+    }
+  ]
+}

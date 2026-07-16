@@ -1,0 +1,33 @@
+{
+  "slug": "restaurant-robotics",
+  "title": "Restaurant robot guides",
+  "h1": "Restaurant robotics",
+  "metaDescription": "Restaurant robot guides: serving and bussing robot costs, layout fit, and when front-of-house automation makes sense for QSR, buffet, and full-service dining.",
+  "intro": "Restaurant robots focus on food running, bussing, and guest-facing tasks — not full server replacement. These guides help operators budget and assess layout fit before leasing or buying.",
+  "summarySections": [
+    {
+      "heading": "What this topic covers",
+      "bullets": [
+        "Serving and bussing robot cost and lease ranges",
+        "Layout and aisle width requirements",
+        "Peak-hour utilization vs headline monthly fees",
+        "Links to runner comparison and matcher"
+      ]
+    }
+  ],
+  "postSlugs": ["restaurant-serving-robot-cost"],
+  "faqs": [
+    {
+      "question": "How much does a restaurant serving robot cost?",
+      "answer": "Purchase prices often fall in the mid five figures per unit; lease and RaaS programs commonly run roughly $500–$1,500/month per robot depending on model and fleet size."
+    },
+    {
+      "question": "Do serving robots work in tight dining rooms?",
+      "answer": "Open layouts and wide aisles work best. Fine-dining rooms with narrow paths often see lower fit scores — measure aisles before shortlisting vendors."
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/restaurant-robots", "label": "Restaurant robots hub" },
+    { "href": "/restaurant-robot-vs-runner", "label": "Robot vs runner comparison" }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "robot-acquisition",
+  "title": "Robot acquisition & RaaS guides",
+  "h1": "Robot acquisition",
+  "metaDescription": "Buy vs lease vs RaaS for business robots: pricing models, contract terms, and when subscription robotics beats capital purchase across warehouse, cleaning, and restaurant categories.",
+  "intro": "Acquisition model often matters as much as robot type. These guides explain RaaS, leasing, and buying — with category-specific pricing context and links to the matcher acquisition recommendation.",
+  "summarySections": [
+    {
+      "heading": "What this topic covers",
+      "bullets": [
+        "RaaS vs buy economics over 3–5 years",
+        "Category-specific subscription ranges",
+        "When OpEx pilots de-risk first deployments",
+        "How PickTheRobot scores acquisition fit from budget preference"
+      ]
+    }
+  ],
+  "postSlugs": ["robot-raas-vs-buying-explained", "raas-cleaning-robots-guide"],
+  "faqs": [
+    {
+      "question": "Is RaaS more expensive than buying robots?",
+      "answer": "Usually yes over a 3–5 year horizon — often 30–50% more in total — but RaaS lowers upfront risk and bundles maintenance. It fits unproven utilization or changing layouts."
+    },
+    {
+      "question": "Can I switch from RaaS to purchase later?",
+      "answer": "Many vendors offer buyout options or apply part of subscription fees toward purchase. Confirm terms before signing."
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/robot-leasing-vs-buying", "label": "Lease vs buy guide" },
+    { "href": "/robotics-as-a-service", "label": "What is RaaS?" },
+    { "href": "/raas-pricing", "label": "RaaS pricing ranges" }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "cleaning-robotics",
+  "title": "Commercial cleaning robot guides",
+  "h1": "Cleaning robotics",
+  "metaDescription": "Cleaning robot guides: scrubber and vacuum costs, RaaS cleaning subscriptions, and when autonomous cleaning beats staffing for retail, office, and industrial floors.",
+  "intro": "Commercial cleaning robots range from compact office vacuums to large autonomous scrubbers. These articles cover pricing, subscription models, and deployment fit for facilities teams.",
+  "summarySections": [
+    {
+      "heading": "What this topic covers",
+      "bullets": [
+        "Purchase and RaaS price ranges for scrubbers and vacuums",
+        "How floor area, mess level, and frequency affect ROI",
+        "When cleaning-as-a-service beats buying outright",
+        "Cross-links to staff comparison and matcher tools"
+      ]
+    }
+  ],
+  "postSlugs": ["cleaning-robot-cost-2026", "raas-cleaning-robots-guide"],
+  "faqs": [
+    {
+      "question": "How much does a cleaning robot cost per month on RaaS?",
+      "answer": "Compact units often run roughly $800–$2,000/month; large scrubbers roughly $2,000–$5,000/month depending on coverage, service tier, and contract length."
+    },
+    {
+      "question": "Do cleaning robots replace janitorial staff?",
+      "answer": "They usually automate repetitive floor work on open areas. Staff still handle restrooms, detail work, and obstacles robots cannot reach."
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/cleaning-robots", "label": "Cleaning robots hub" },
+    { "href": "/cleaning-robot-cost", "label": "Cleaning robot cost guide" },
+    { "href": "/cleaning-robots-as-a-service", "label": "Cleaning robots as a service" }
+  ]
+}

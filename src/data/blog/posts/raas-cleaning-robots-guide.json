@@ -1,0 +1,85 @@
+{
+  "slug": "raas-cleaning-robots-guide",
+  "pillarSlug": "cleaning-robotics",
+  "primaryKeyword": "RaaS cleaning",
+  "secondaryKeywords": [
+    "raas cleaning robots",
+    "cleaning robots as a service",
+    "cleaning robot subscription"
+  ],
+  "title": "RaaS cleaning robots: subscription pricing and fit",
+  "h1": "RaaS cleaning robots explained",
+  "metaDescription": "RaaS cleaning robots explained: monthly subscription ranges, what is included, when cleaning-as-a-service beats buying, and how to evaluate contracts.",
+  "intro": "RaaS cleaning — robotics-as-a-service for scrubbers and vacuums — bundles hardware, software, and often maintenance into a monthly fee. It is popular for first deployments and sites with variable cleaning demand.",
+  "publishedAt": "2026-07-16",
+  "matcherCategory": "cleaning",
+  "sections": [
+    {
+      "heading": "What RaaS cleaning includes",
+      "bullets": [
+        "Robot hardware for the contract term",
+        "Fleet software and map updates",
+        "Maintenance and often a swap unit",
+        "Training for schedulers and supervisors"
+      ]
+    },
+    {
+      "heading": "Typical monthly ranges",
+      "paragraphs": [
+        "Published ranges are illustrative — vendors quote per site. Use them to budget before sales calls, not as final pricing."
+      ],
+      "bullets": [
+        "Office / compact: roughly $800–$2,000/month",
+        "Large scrubbers: roughly $2,000–$5,000/month",
+        "Multi-site fleets: negotiated fleet rates",
+        "Shorter contracts often carry higher monthly fees"
+      ]
+    },
+    {
+      "heading": "When RaaS cleaning makes sense",
+      "bullets": [
+        "First autonomous cleaning pilot on one building",
+        "Seasonal or variable cleaning hours",
+        "Low upfront capital preference (OpEx)",
+        "Need vendor-owned maintenance risk"
+      ]
+    },
+    {
+      "heading": "Contract questions to ask",
+      "bullets": [
+        "Response time and spare robot policy",
+        "Consumables: included or billable",
+        "Buyout or purchase option at end of term",
+        "Minimum term and early termination fees"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What does RaaS cleaning mean?",
+      "answer": "Robotics-as-a-service for cleaning: you pay a monthly subscription for autonomous scrubbers or vacuums, usually with maintenance and software included, instead of buying hardware outright."
+    },
+    {
+      "question": "Is RaaS cleaning worth it?",
+      "answer": "It is strong for pilots and variable demand. High-utilization sites over many years often save money buying — if they can absorb maintenance risk."
+    }
+  ],
+  "relatedPostSlugs": [
+    "cleaning-robot-cost-2026",
+    "robot-raas-vs-buying-explained"
+  ],
+  "relatedLinks": [
+    {
+      "href": "/cleaning-robots-as-a-service",
+      "label": "Cleaning robots as a service"
+    },
+    {
+      "href": "/raas-pricing",
+      "label": "RaaS pricing guide"
+    },
+    {
+      "href": "/robotics-as-a-service",
+      "label": "What is RaaS?"
+    }
+  ]
+}

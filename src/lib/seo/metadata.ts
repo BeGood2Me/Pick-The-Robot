@@ -11,6 +11,13 @@ export interface SiteMetadataOptions {
   noIndex?: boolean;
   /** Override default /opengraph-image for this page. */
   ogImage?: string;
+  /** Open Graph type — use `article` for blog posts. */
+  ogType?: 'website' | 'article';
+  /** Article metadata for Open Graph when ogType is article. */
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
+  keywords?: string[];
 }
 
 function fullTitle(title: string): string {
@@ -24,6 +31,11 @@ export function siteMetadata({
   path = '',
   noIndex = false,
   ogImage = '/opengraph-image',
+  ogType = 'website',
+  publishedTime,
+  modifiedTime,
+  authors,
+  keywords,
 }: SiteMetadataOptions): Metadata {
   const url = `${BASE_URL}${path}`;
   const isAbsoluteTitle = title.includes(SITE_NAME);
@@ -35,13 +47,17 @@ export function siteMetadata({
     description,
     alternates: { canonical: url },
     robots: noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    ...(keywords?.length ? { keywords: keywords.join(', ') } : {}),
     openGraph: {
       title: ogTitle,
       description,
       url,
       siteName: SITE_NAME,
-      type: 'website',
+      type: ogType,
       locale: 'en_US',
+      ...(ogType === 'article' && publishedTime ? { publishedTime } : {}),
+      ...(ogType === 'article' && modifiedTime ? { modifiedTime } : {}),
+      ...(ogType === 'article' && authors?.length ? { authors } : {}),
       images: [
         {
           url: imageUrl,

@@ -13,6 +13,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "smoke": "node scripts/smoke-production.mjs",
+    "blog:generate": "node scripts/generate-blog.mjs",
+    "prebuild": "node scripts/generate-blog.mjs",
     "vendors:export": "node scripts/export-vendors.mjs"
   },
   "dependencies": {
