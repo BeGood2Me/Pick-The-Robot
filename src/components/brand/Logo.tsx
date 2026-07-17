@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { HOME_MATCHER_RESET_HREF } from '@/lib/content/nav';
+import { HOME_MATCHER_RESET_HREF } from '@/lib/content/navigation';
 import { RobotMarkSvg } from '@/lib/brand/robotMark';
 
 type LogoProps = {
