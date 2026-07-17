@@ -10,9 +10,7 @@ import { isNavLinkActive } from '@/lib/navigation/active';
 import {
   COMPARISON_LINKS,
   HEADER_NAV_LINKS,
-  HOME_MATCHER_RESET_HREF,
   NAV_LINKS,
-  SITE_NAME,
 } from '@/lib/content/navigation';
 import { getMatcherCtaHref } from '@/lib/navigation/matcher';
 import { cn } from '@/lib/utils';
@@ -59,13 +57,7 @@ export function SiteHeader() {
       </a>
 
       <div className="container-page flex items-center justify-between gap-4 py-3">
-        <Link
-          href={HOME_MATCHER_RESET_HREF}
-          className="relative z-10 flex shrink-0 items-center gap-2.5 font-display text-lg font-bold tracking-tight text-ink"
-        >
-          <Logo />
-          <span className="hidden sm:inline">{SITE_NAME}</span>
-        </Link>
+        <Logo className="relative z-10 shrink-0" />
 
         <nav
           aria-label="Main"

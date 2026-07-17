@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { HOME_MATCHER_RESET_HREF } from '@/lib/content/navigation';
+import { HOME_MATCHER_RESET_HREF, SITE_NAME } from '@/lib/content/navigation';
 import { RobotMarkSvg } from '@/lib/brand/robotMark';
 
 type LogoProps = {
@@ -20,8 +20,8 @@ export function Logo({ className = '' }: LogoProps) {
           aria-hidden
         />
       </span>
-      <span className="font-display text-lg font-semibold tracking-tight text-ink">
-        PickTheRobot
+      <span className="hidden font-display text-lg font-semibold tracking-tight text-ink sm:inline">
+        {SITE_NAME}
       </span>
     </Link>
   );
