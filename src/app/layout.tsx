@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Source_Serif_4 } from 'next/font/google';
+import { DM_Sans, Space_Grotesk } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnalyticsConsentProvider } from '@/components/analytics/AnalyticsConsentProvider';
@@ -9,8 +9,8 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { BASE_URL } from '@/lib/seo/metadata';
 import './globals.css';
 
-const sans = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const display = Source_Serif_4({ subsets: ['latin'], variable: '--font-display' });
+const sans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' });
+const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' });
 
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 

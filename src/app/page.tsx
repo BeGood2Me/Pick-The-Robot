@@ -32,13 +32,16 @@ export default function HomePage() {
       <JsonLd data={faqJsonLd(HOME_FAQS)} />
 
       <div className="container-page py-8 sm:py-10">
-        <section className="mb-8 border-b border-surface-border pb-8">
+        <section className="animate-fade-up mb-8 border-b border-surface-border pb-8">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr,min(360px,40%)]">
             <div>
-              <h1 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Buyer-side robot research
+              </p>
+              <h1 className="font-display text-3xl font-semibold leading-[1.1] sm:text-4xl lg:text-[2.75rem]">
                 Pick the right robot for your business
               </h1>
-              <p className="mt-2 max-w-2xl text-ink-muted">
+              <p className="mt-3 max-w-2xl text-ink-muted">
                 Buyer-side robot research and a rules-based matcher for warehouse, cleaning, and
                 restaurant teams. Compare fit, acquisition model, and vendors in about two minutes —
                 we&apos;re a research tool, not a dealer or integrator.{' '}

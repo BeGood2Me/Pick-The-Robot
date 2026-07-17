@@ -16,7 +16,7 @@ export function robotIconMarkup(size: number) {
         justifyContent: 'center',
         width: '100%',
         height: '100%',
-        background: '#1d4ed8',
+        background: '#0e7490',
         borderRadius: radius,
       }}
     >

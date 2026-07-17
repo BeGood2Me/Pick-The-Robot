@@ -7,32 +7,59 @@ export function HomeHeroIllustration({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
     >
-      <rect x="24" y="40" width="352" height="200" rx="12" fill="#eff6ff" stroke="#bfdbfe" />
-      <rect x="48" y="68" width="120" height="12" rx="4" fill="#1d4ed8" opacity="0.15" />
-      <rect x="48" y="92" width="200" height="8" rx="3" fill="#64748b" opacity="0.2" />
-      <rect x="48" y="108" width="160" height="8" rx="3" fill="#64748b" opacity="0.15" />
-      <rect x="48" y="140" width="140" height="36" rx="8" fill="#fff" stroke="#93c5fd" />
-      <rect x="56" y="148" width="60" height="6" rx="2" fill="#1d4ed8" opacity="0.3" />
-      <rect x="56" y="160" width="100" height="6" rx="2" fill="#94a3b8" opacity="0.35" />
-      <rect x="200" y="140" width="140" height="36" rx="8" fill="#fff" stroke="#93c5fd" />
-      <rect x="208" y="148" width="60" height="6" rx="2" fill="#1d4ed8" opacity="0.5" />
-      <rect x="208" y="160" width="80" height="6" rx="2" fill="#94a3b8" opacity="0.35" />
-      <g transform="translate(280, 56)">
-        <rect width="72" height="72" rx="10" fill="#1d4ed8" />
-        <circle cx="26" cy="30" r="5" fill="white" />
-        <circle cx="46" cy="30" r="5" fill="white" />
-        <path d="M22 48h28" stroke="white" strokeWidth="3" strokeLinecap="round" />
-        <rect x="32" y="12" width="8" height="6" rx="2" fill="white" opacity="0.9" />
+      {/* Soft panel */}
+      <rect x="20" y="28" width="360" height="224" rx="10" fill="#e0f2fe" fillOpacity="0.55" />
+      <rect x="20" y="28" width="360" height="224" rx="10" stroke="#a5f3fc" strokeOpacity="0.7" />
+
+      {/* Grid lines */}
+      <g stroke="#0e7490" strokeOpacity="0.12" strokeWidth="1">
+        <path d="M48 80h304" />
+        <path d="M48 120h304" />
+        <path d="M48 160h304" />
+        <path d="M48 200h304" />
+        <path d="M100 56v168" />
+        <path d="M200 56v168" />
+        <path d="M300 56v168" />
       </g>
+
+      {/* Scan path */}
       <path
-        d="M120 200h160"
-        stroke="#1d4ed8"
+        d="M72 196c40-48 80-48 120 0s80 48 120 0"
+        stroke="#0e7490"
         strokeWidth="2"
         strokeLinecap="round"
-        strokeDasharray="4 6"
-        opacity="0.4"
+        strokeDasharray="6 8"
+        opacity="0.45"
       />
-      <circle cx="200" cy="200" r="6" fill="#1d4ed8" opacity="0.6" />
+      <circle cx="192" cy="172" r="5" fill="#0e7490" opacity="0.75" className="animate-pulse-soft" />
+
+      {/* Robot unit */}
+      <g transform="translate(268, 72)">
+        <rect width="84" height="96" rx="8" fill="#0e7490" />
+        <rect x="2" y="2" width="80" height="92" rx="7" stroke="white" strokeOpacity="0.18" />
+        <rect x="18" y="22" width="48" height="36" rx="6" fill="#0b1220" fillOpacity="0.25" />
+        <circle cx="32" cy="40" r="6" fill="white" />
+        <circle cx="52" cy="40" r="6" fill="white" />
+        <circle cx="32" cy="40" r="2.5" fill="#67e8f9" />
+        <circle cx="52" cy="40" r="2.5" fill="#67e8f9" />
+        <rect x="28" y="68" width="28" height="6" rx="3" fill="white" opacity="0.85" />
+        <rect x="38" y="8" width="8" height="8" rx="2" fill="white" opacity="0.9" />
+        <circle cx="42" cy="6" r="3" fill="#67e8f9" opacity="0.9" className="animate-pulse-soft" />
+      </g>
+
+      {/* Data cards */}
+      <rect x="48" y="72" width="148" height="44" rx="6" fill="white" stroke="#67e8f9" />
+      <rect x="60" y="84" width="72" height="6" rx="2" fill="#0e7490" opacity="0.35" />
+      <rect x="60" y="98" width="100" height="5" rx="2" fill="#7a8fa8" opacity="0.35" />
+
+      <rect x="48" y="128" width="148" height="44" rx="6" fill="white" stroke="#67e8f9" />
+      <rect x="60" y="140" width="88" height="6" rx="2" fill="#0e7490" opacity="0.55" />
+      <rect x="60" y="154" width="72" height="5" rx="2" fill="#7a8fa8" opacity="0.35" />
+
+      {/* Status chip */}
+      <rect x="48" y="208" width="88" height="22" rx="4" fill="#0e7490" fillOpacity="0.12" />
+      <circle cx="62" cy="219" r="3" fill="#0e7490" className="animate-pulse-soft" />
+      <rect x="72" y="215" width="48" height="8" rx="2" fill="#0e7490" opacity="0.45" />
     </svg>
   );
 }

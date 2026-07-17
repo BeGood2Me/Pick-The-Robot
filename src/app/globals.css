@@ -4,6 +4,9 @@
  * - surface / surface-soft / surface-border — backgrounds and borders
  * - accent / accent-soft — primary brand actions and highlights
  * - warn / warn-soft — cautions, sponsored labels, moderate confidence
+ *
+ * Visual direction: industrial aerospace / precision robotics —
+ * cool steel ink, cyan-teal accent, subtle grid atmosphere. Light mode.
  */
 @tailwind base;
 @tailwind components;
@@ -11,78 +14,21 @@
 
 @layer base {
   :root {
-    --color-ink: #0f172a;
-    --color-ink-muted: #475569;
-    --color-ink-faint: #94a3b8;
+    --color-ink: #0b1220;
+    --color-ink-muted: #3d4f66;
+    --color-ink-faint: #7a8fa8;
     --color-surface: #ffffff;
-    --color-surface-soft: #f8fafc;
-    --color-surface-border: #e2e8f0;
-    --color-accent: #1d4ed8;
-    --color-accent-hover: #1e40af;
-    --color-accent-soft: #dbeafe;
+    --color-surface-soft: #f0f4f8;
+    --color-surface-border: #d4dde8;
+    --color-accent: #0e7490;
+    --color-accent-hover: #155e75;
+    --color-accent-soft: #e0f2fe;
     --color-warn: #b45309;
     --color-warn-soft: #fef3c7;
-    --color-category-warehouse: #1d4ed8;
-    --color-category-cleaning: #1d4ed8;
-    --color-category-restaurant: #1d4ed8;
-    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  }
-
-  [data-theme='current'] {
-    --color-ink: #0f172a;
-    --color-ink-muted: #475569;
-    --color-ink-faint: #94a3b8;
-    --color-surface: #ffffff;
-    --color-surface-soft: #f8fafc;
-    --color-surface-border: #e2e8f0;
-    --color-accent: #1d4ed8;
-    --color-accent-hover: #1e40af;
-    --color-accent-soft: #dbeafe;
-    --color-warn: #b45309;
-    --color-warn-soft: #fef3c7;
-    --color-category-warehouse: #1d4ed8;
-    --color-category-cleaning: #1d4ed8;
-    --color-category-restaurant: #1d4ed8;
-    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  }
-
-  [data-theme='enterprise'] {
-    --color-ink: #0c1222;
-    --color-ink-muted: #3d4f63;
-    --color-ink-faint: #8b9aad;
-    --color-surface: #ffffff;
-    --color-surface-soft: #eef1f4;
-    --color-surface-border: #c5cdd8;
-    --color-accent: #1e3a5f;
-    --color-accent-hover: #152a45;
-    --color-accent-soft: #e8edf3;
-    --color-warn: #92400e;
-    --color-warn-soft: #fef9e8;
-    --color-category-warehouse: #1e3a5f;
-    --color-category-cleaning: #1e3a5f;
-    --color-category-restaurant: #1e3a5f;
-    --shadow-card: none;
-  }
-
-  [data-theme='distinctive'] {
-    --color-ink: #1c1917;
-    --color-ink-muted: #57534e;
-    --color-ink-faint: #a8a29e;
-    --color-surface: #ffffff;
-    --color-surface-soft: #f5f5f4;
-    --color-surface-border: #e7e5e4;
-    --color-accent: #4338ca;
-    --color-accent-hover: #3730a3;
-    --color-accent-soft: #eef2ff;
-    --color-warn: #b45309;
-    --color-warn-soft: #fff7ed;
-    --color-category-warehouse: #2563eb;
-    --color-category-cleaning: #059669;
-    --color-category-restaurant: #d97706;
-    --color-category-warehouse-soft: #eff6ff;
-    --color-category-cleaning-soft: #ecfdf5;
-    --color-category-restaurant-soft: #fffbeb;
-    --shadow-card: 0 4px 14px rgba(28, 25, 23, 0.08);
+    --color-category-warehouse: #0e7490;
+    --color-category-cleaning: #0f766e;
+    --color-category-restaurant: #0369a1;
+    --shadow-card: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 12px rgba(11, 18, 32, 0.05);
   }
 
   html {
@@ -93,16 +39,35 @@
     html {
       scroll-behavior: auto;
     }
+
+    .animate-step-in,
+    .animate-fade-up,
+    .animate-pulse-soft {
+      animation: none !important;
+    }
   }
 
   body {
     @apply bg-surface-soft text-ink antialiased;
+    background-image:
+      linear-gradient(180deg, rgba(224, 242, 254, 0.45) 0%, transparent 28%),
+      radial-gradient(ellipse 80% 50% at 100% -10%, rgba(14, 116, 144, 0.08), transparent 50%),
+      linear-gradient(rgba(14, 116, 144, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 116, 144, 0.035) 1px, transparent 1px);
+    background-size: auto, auto, 40px 40px, 40px 40px;
+    background-attachment: fixed;
   }
 
   h1,
   h2,
   h3 {
     @apply text-ink tracking-tight;
+  }
+
+  h1.font-display,
+  h2.font-display,
+  .font-display {
+    letter-spacing: -0.03em;
   }
 }
 
@@ -112,7 +77,7 @@
   }
 
   .card {
-    @apply rounded-xl border border-surface-border bg-surface p-5 shadow-card sm:p-6;
+    @apply rounded-lg border border-surface-border bg-surface p-5 shadow-card sm:p-6;
   }
 
   .prose-muted {
@@ -120,7 +85,15 @@
   }
 
   .animate-step-in {
-    animation: step-in 0.2s ease-out;
+    animation: step-in 0.22s ease-out;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.45s ease-out both;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2.4s ease-in-out infinite;
   }
 
   @keyframes step-in {
@@ -131,6 +104,27 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
     }
   }
 }
@@ -153,6 +147,7 @@
 
   body {
     @apply bg-white text-ink;
+    background-image: none !important;
     font-size: 11pt;
   }
 
@@ -168,27 +163,28 @@
   .print-header {
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #d4dde8;
   }
 
   .print-footer {
     margin-top: 1.5rem;
     padding-top: 0.75rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #d4dde8;
   }
 
   .card {
     box-shadow: none;
     break-inside: avoid;
-    border-color: #e2e8f0;
+    border-color: #d4dde8;
     padding: 0.75rem 1rem;
     margin-bottom: 0.75rem;
+    backdrop-filter: none;
   }
 
   .print-hero {
     border-width: 2px;
-    border-color: #93c5fd !important;
-    background: #eff6ff !important;
+    border-color: #67e8f9 !important;
+    background: #ecfeff !important;
   }
 
   .scores-collapsible-toggle {
@@ -203,16 +199,15 @@
     break-inside: avoid;
   }
 
-  /* Preserve accent bars and badges in PDF */
   .print-score-compare [role='progressbar'] > div,
   .print-hero [role='progressbar'] > div {
-    background-color: #1d4ed8 !important;
+    background-color: #0e7490 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
   .print-score-compare [role='progressbar'] {
-    background-color: #f1f5f9 !important;
+    background-color: #f0f4f8 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }

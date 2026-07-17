@@ -50,7 +50,7 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header className="border-b border-surface-border bg-surface">
+    <header className="sticky top-0 z-40 border-b border-surface-border/80 bg-surface/85 backdrop-blur-md">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-3 focus:py-2 focus:text-white"
@@ -61,7 +61,7 @@ export function SiteHeader() {
       <div className="container-page flex items-center justify-between gap-4 py-3">
         <Link
           href={HOME_MATCHER_RESET_HREF}
-          className="relative z-10 flex shrink-0 items-center gap-2.5 text-lg font-bold text-ink"
+          className="relative z-10 flex shrink-0 items-center gap-2.5 font-display text-lg font-bold tracking-tight text-ink"
         >
           <Logo />
           <span className="hidden sm:inline">{SITE_NAME}</span>

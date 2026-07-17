@@ -14,11 +14,11 @@ export function SiteFooter() {
   const blogPillars = getAllBlogPillars();
 
   return (
-    <footer className="mt-16 border-t border-surface-border bg-surface">
+    <footer className="mt-16 border-t border-surface-border bg-surface/90 backdrop-blur-sm">
       <div className="container-page py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
           <div className="max-w-[16rem] shrink-0">
-            <p className="font-semibold text-ink">{SITE_NAME}</p>
+            <p className="font-display text-lg font-semibold tracking-tight text-ink">{SITE_NAME}</p>
             <p className="mt-2 text-sm text-ink-muted">
               A buyer-side robot selection tool for warehouse, cleaning, and restaurant operators.
             </p>
