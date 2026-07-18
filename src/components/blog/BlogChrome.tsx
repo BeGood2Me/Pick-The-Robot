@@ -88,3 +88,15 @@ export function BlogPillarLabel({ pillarSlug }: { pillarSlug: string }) {
     </Link>
   );
 }
+
+const DEFAULT_EDITORIAL_DISCLAIMER =
+  'PickTheRobot is a buyer-side research tool, not a robotics dealer or integrator. Figures in this article are illustrative — compiled from publicly discussed market ranges to help you budget before vendor quotes. Verify pricing, safety requirements, and deployment scope with qualified vendors.';
+
+export function BlogEditorialNote({ disclaimer }: { disclaimer?: string }) {
+  return (
+    <aside className="card border-amber-500/20 bg-amber-500/5">
+      <p className="text-sm font-semibold text-ink">Editorial note</p>
+      <p className="mt-2 text-sm text-ink-muted">{disclaimer ?? DEFAULT_EDITORIAL_DISCLAIMER}</p>
+    </aside>
+  );
+}

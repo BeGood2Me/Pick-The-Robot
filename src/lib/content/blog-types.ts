@@ -4,6 +4,7 @@ export interface BlogBrandProfile {
   name: string;
   tagline?: string;
   bio: string;
+  editorialDisclaimer?: string;
   sameAs?: string[];
 }
 

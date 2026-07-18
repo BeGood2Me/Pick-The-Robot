@@ -2,5 +2,6 @@
   "name": "PickTheRobot",
   "tagline": "Buyer-side robot research",
   "bio": "PickTheRobot is a buyer-side research product — not a robotics integrator or dealer. Guides on this site organize publicly discussed price ranges and buyer checklists so operations teams can research faster. Always confirm pricing and deployment fit with vendors.",
+  "editorialDisclaimer": "PickTheRobot is a buyer-side research tool, not a robotics dealer or integrator. Price ranges in this article are illustrative — compiled from publicly discussed market figures to help you budget before vendor quotes. Verify all pricing, safety requirements, and deployment scope with qualified vendors.",
   "sameAs": []
 }

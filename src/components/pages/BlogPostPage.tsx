@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BlogTopBar, BlogTopicList, BlogPillarLabel } from '@/components/blog/BlogChrome';
+import { BlogTopBar, BlogTopicList, BlogPillarLabel, BlogEditorialNote } from '@/components/blog/BlogChrome';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { FaqBlock } from '@/components/content/FaqBlock';
@@ -114,42 +114,6 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
         <h1 className="mt-4 font-display text-4xl font-semibold">{post.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{post.intro}</p>
 
-        <aside className="mt-6 card border-surface-border bg-surface">
-          <p className="text-sm font-semibold text-ink">About {post.brand.name}</p>
-          <p className="mt-2 text-sm text-ink-muted">{post.brand.bio}</p>
-          <p className="mt-2 text-sm">
-            <Link href="/about" className="font-medium text-accent hover:underline">
-              About PickTheRobot
-            </Link>
-          </p>
-        </aside>
-
-        <aside className="mt-4 card border-amber-500/20 bg-amber-500/5">
-          <p className="text-sm font-semibold text-ink">Editorial note</p>
-          <p className="mt-2 text-sm text-ink-muted">
-            PickTheRobot is a buyer-side research tool, not a robotics dealer or integrator.
-            Price ranges in this article are illustrative — compiled from publicly discussed market
-            figures to help you budget before vendor quotes. Verify all pricing, safety requirements,
-            and deployment scope with qualified vendors.
-          </p>
-        </aside>
-
-        <section className="mt-8 card border-accent/30 bg-accent-soft/20">
-          <h2 className="text-lg font-semibold">Get a recommendation for your operation</h2>
-          <p className="mt-2 text-sm text-ink-muted">
-            Answer a few questions — we&apos;ll rank robot types, acquisition models, and vendors
-            from your inputs.
-          </p>
-          <p className="mt-4">
-            <Link
-              href={matcherHref}
-              className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
-            >
-              Run the matcher
-            </Link>
-          </p>
-        </section>
-
         <StickyMatcherCta href={matcherHref} />
 
         <div className="mt-10 space-y-6">
@@ -171,6 +135,22 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
             </section>
           ))}
         </div>
+
+        <section className="mt-10 card border-accent/30 bg-accent-soft/20">
+          <h2 className="text-lg font-semibold">Get a recommendation for your operation</h2>
+          <p className="mt-2 text-sm text-ink-muted">
+            Answer a few questions — we&apos;ll rank robot types, acquisition models, and vendors
+            from your inputs.
+          </p>
+          <p className="mt-4">
+            <Link
+              href={matcherHref}
+              className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
+            >
+              Run the matcher
+            </Link>
+          </p>
+        </section>
 
         {relatedPosts.length > 0 && (
           <section className="mt-10 card">
@@ -205,6 +185,10 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
 
         <div className="mt-10">
           <FaqBlock items={post.faqs} title="Frequently asked questions" />
+        </div>
+
+        <div className="mt-10">
+          <BlogEditorialNote disclaimer={post.brand.editorialDisclaimer} />
         </div>
 
         <BlogTopicList activePillarSlug={post.pillarSlug} />
