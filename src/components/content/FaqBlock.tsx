@@ -3,8 +3,16 @@
 import { useState } from 'react';
 import type { FaqItem } from '@/lib/seo/schema';
 
-export function FaqBlock({ items, title = 'FAQ' }: { items: FaqItem[]; title?: string }) {
-  const [open, setOpen] = useState<number | null>(0);
+export function FaqBlock({
+  items,
+  title = 'FAQ',
+  defaultOpen = 0,
+}: {
+  items: FaqItem[];
+  title?: string;
+  defaultOpen?: number | null;
+}) {
+  const [open, setOpen] = useState<number | null>(defaultOpen);
 
   return (
     <section className="card">

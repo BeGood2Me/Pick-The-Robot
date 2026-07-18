@@ -329,8 +329,8 @@ export function MatchingTool({
           </h2>
           <p className="mt-1 mb-4 text-sm text-ink-muted">
             {initialCategory
-              ? 'Pick a different operation type to run the matcher there.'
-              : 'Step 1 of 2 — pick your operation type, then answer a short questionnaire (~2 min).'}
+              ? 'Pick a different operation type.'
+              : 'Pick your operation type.'}
           </p>
           <CategorySelector selected={category} onSelect={handleCategorySelect} />
         </section>
