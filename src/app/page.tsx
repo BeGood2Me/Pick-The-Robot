@@ -41,11 +41,12 @@ export default function HomePage() {
               <h1 className="font-display text-3xl font-semibold leading-[1.1] sm:text-4xl lg:text-[2.75rem]">
                 Pick the right robot for your business
               </h1>
-              <p className="mt-3 max-w-2xl text-ink-muted">
-                Buyer-side robot research and a rules-based matcher for warehouse, cleaning, and
-                restaurant teams. Compare fit, acquisition model, and vendors in about two minutes —
-                we&apos;re a research tool, not a dealer or integrator.{' '}
-                <Link href="/about" className="font-medium text-accent hover:underline">
+              <p className="mt-4 max-w-xl text-lg text-ink-muted">
+                Rules-based matcher for warehouse, cleaning, and restaurant teams — fit, cost
+                model, and vendors in under two minutes.
+              </p>
+              <p className="mt-3">
+                <Link href="/about" className="text-sm font-medium text-accent hover:underline">
                   How we work
                 </Link>
               </p>
