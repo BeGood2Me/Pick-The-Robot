@@ -77,7 +77,7 @@ export function SiteFooter() {
             <div className="shrink-0">
               <p className="text-sm font-semibold text-ink">Cost &amp; pricing</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                {GUIDE_LINKS.map((link) => (
+                {GUIDE_LINKS.filter((link) => link.href !== '/raas-pricing').map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="hover:text-ink">
                       {link.label}

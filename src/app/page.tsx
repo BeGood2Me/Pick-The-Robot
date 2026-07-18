@@ -1,9 +1,7 @@
-import { Suspense } from 'react';
 import { HomeHeroIllustration } from '@/components/brand/HomeHeroIllustration';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import { HomeExploreStrip } from '@/components/content/HomeExploreStrip';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
-import { MatcherSkeleton } from '@/components/matching/MatcherSkeleton';
 import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { HOME_FAQS } from '@/lib/content/faqs';
 import { faqJsonLd, organizationJsonLd, websiteJsonLd } from '@/lib/seo/schema';
@@ -40,9 +38,7 @@ export default function HomePage() {
         </section>
 
         <section id="matcher" className="mb-10 scroll-mt-8 sm:mb-12">
-          <Suspense fallback={<MatcherSkeleton />}>
-            <MatchingTool />
-          </Suspense>
+          <MatchingTool />
         </section>
 
         <StickyMatcherCta href="#matcher" />

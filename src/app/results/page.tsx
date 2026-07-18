@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { ResultsSkeleton } from '@/components/matching/MatcherSkeleton';
 import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { ResultsPageIntro } from '@/components/matching/ResultsPageIntro';
 import { siteMetadata } from '@/lib/seo/metadata';
@@ -22,9 +21,7 @@ export default function ResultsPage() {
         <ResultsPageIntro />
       </Suspense>
       <section id="matcher" className="mt-8 scroll-mt-8">
-        <Suspense fallback={<ResultsSkeleton />}>
-          <MatchingTool />
-        </Suspense>
+        <MatchingTool />
       </section>
     </div>
   );

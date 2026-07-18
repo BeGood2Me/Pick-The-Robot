@@ -1,9 +1,7 @@
-import { Suspense } from 'react';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { FaqBlock } from '@/components/content/FaqBlock';
-import { MatcherSkeleton } from '@/components/matching/MatcherSkeleton';
 import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import { Badge } from '@/components/ui/Badge';
@@ -48,9 +46,7 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
             Category-specific questions → robot type, acquisition model, ranked vendors.
           </p>
           <div className="mt-4">
-            <Suspense fallback={<MatcherSkeleton />}>
-              <MatchingTool initialCategory={category} />
-            </Suspense>
+            <MatchingTool initialCategory={category} />
           </div>
         </section>
 

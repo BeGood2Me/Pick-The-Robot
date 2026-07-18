@@ -1,9 +1,15 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import { MatchingTool as MatchingToolInner } from '@/components/matching/MatchingTool';
 import { MatcherSkeleton } from '@/components/matching/MatcherSkeleton';
 
-export const MatchingTool = dynamic(
-  () => import('@/components/matching/MatchingTool').then((mod) => mod.MatchingTool),
-  { loading: () => <MatcherSkeleton /> },
-);
+type MatchingToolProps = React.ComponentProps<typeof MatchingToolInner>;
+
+export function MatchingTool(props: MatchingToolProps) {
+  return (
+    <Suspense fallback={<MatcherSkeleton />}>
+      <MatchingToolInner {...props} />
+    </Suspense>
+  );
+}
