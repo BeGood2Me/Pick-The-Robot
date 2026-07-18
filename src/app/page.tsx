@@ -12,7 +12,7 @@ export const metadata = siteMetadata({
   title: 'PickTheRobot — Pick the right robot for your business',
   description:
     'Business robot buying guide and matcher. Compare warehouse, cleaning, and restaurant robots by fit, lease vs buy, and vendor options.',
-  path: '/',
+  path: '',
 });
 
 export default function HomePage() {

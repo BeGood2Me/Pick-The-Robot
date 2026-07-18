@@ -25,6 +25,11 @@ function fullTitle(title: string): string {
   return `${title} | ${SITE_NAME}`;
 }
 
+function canonicalPath(path: string): string {
+  if (!path || path === '/') return '';
+  return path.startsWith('/') ? path : `/${path}`;
+}
+
 export function siteMetadata({
   title,
   description,
@@ -37,7 +42,7 @@ export function siteMetadata({
   authors,
   keywords,
 }: SiteMetadataOptions): Metadata {
-  const url = `${BASE_URL}${path}`;
+  const url = `${BASE_URL}${canonicalPath(path)}`;
   const isAbsoluteTitle = title.includes(SITE_NAME);
   const ogTitle = fullTitle(title);
   const imageUrl = ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;

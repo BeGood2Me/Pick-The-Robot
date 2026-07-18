@@ -47,13 +47,9 @@ npm run smoke
 3. Set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel → **redeploy** so `layout.tsx` emits the meta tag.
 4. Click **Verify** in Search Console.
 5. **Sitemaps** → submit `https://picktherobot.com/sitemap.xml`.
-6. **URL inspection** → request indexing for:
-   - `/`
-   - `/warehouse-robots`
-   - `/cleaning-robots`
-   - `/restaurant-robots`
-   - `/vendors`
-7. After the first week, check **Pages** and **Indexing** for crawl errors.
+6. **URL inspection** → request indexing for `https://picktherobot.com` (use **https**, not `http://`).
+7. **“Page with redirect” for `http://`**: Expected — HTTP permanently redirects to HTTPS. Google indexes the HTTPS URL, not HTTP. Click **Validate fix** in Search Console after deploy; do not try to index the `http://` URL.
+8. After the first week, check **Pages** and **Indexing** for crawl errors.
 
 ## Phase 1 — Analytics
 
