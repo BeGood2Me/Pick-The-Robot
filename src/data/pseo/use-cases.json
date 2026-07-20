@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ecommerce-pick-transport",
+    "name": "Pick-and-transport for e-commerce",
+    "robotType": "amr",
+    "environmentIds": ["ecommerce-warehouse"],
+    "summary": "AMRs carry totes or accompany associates so walking time drops on multi-zone picks. Works best when Wi-Fi and a basic WMS handshake exist and aisles stay wide enough for collaborative traffic.",
+    "priority": 1,
+    "kpis": ["picks per hour", "walk time reduction", "units per labour hour"]
+  },
+  {
+    "id": "ecommerce-fixed-lane-moves",
+    "name": "Fixed-lane carton and pallet moves",
+    "robotType": "agv",
+    "environmentIds": ["ecommerce-warehouse"],
+    "summary": "AGVs suit stable point-to-point routes (dock to buffer, buffer to pack) when the map rarely changes. Infrastructure and guide paths raise upfront cost but stabilize repetitive volume.",
+    "priority": 2,
+    "kpis": ["moves per hour", "dock dwell time", "route utilization"]
+  },
+  {
+    "id": "ecommerce-goods-to-person",
+    "name": "Collaborative pick assist",
+    "robotType": "picking_assist",
+    "environmentIds": ["ecommerce-warehouse"],
+    "summary": "Pick-assist fleets bring work to associates or guide picks in zone. Highest payoff when pick density is high and WMS/WES can allocate work to robots and people together.",
+    "priority": 1,
+    "kpis": ["picks per hour", "training time", "error rate"]
+  },
+  {
+    "id": "office-nightly-vacuum",
+    "name": "After-hours office vacuuming",
+    "robotType": "office_cleaner",
+    "environmentIds": ["office-retail-floors"],
+    "summary": "Compact robots cover open carpet and hard floors overnight while staff handle restrooms and detailing. Mapping and obstacle handling matter more than industrial scrub depth.",
+    "priority": 1,
+    "kpis": ["hours saved", "coverage consistency", "complaint rate"]
+  },
+  {
+    "id": "fsr-food-running",
+    "name": "Food running in full-service dining",
+    "robotType": "serving_robot",
+    "environmentIds": ["full-service-restaurant"],
+    "summary": "Serving robots reduce runner walk time on clear paths during peak. Staff still plate, sell, and handle exceptions; robots are a capacity layer, not a full front-of-house replacement.",
+    "priority": 1,
+    "kpis": ["covers per labour hour", "ticket time to table", "runner steps"]
+  }
+]

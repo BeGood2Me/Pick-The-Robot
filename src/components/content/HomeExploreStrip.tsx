@@ -25,6 +25,18 @@ export function HomeExploreStrip() {
         </Link>
       ))}
       <Link
+        href="/best"
+        className="rounded-full border border-surface-border bg-surface px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:border-accent/40 hover:text-ink"
+      >
+        Best for facility
+      </Link>
+      <Link
+        href="/integrations"
+        className="rounded-full border border-surface-border bg-surface px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:border-accent/40 hover:text-ink"
+      >
+        Integrations
+      </Link>
+      <Link
         href="/blog"
         className="rounded-full border border-surface-border bg-surface px-3 py-1.5 text-sm font-medium text-ink-muted transition hover:border-accent/40 hover:text-ink"
       >

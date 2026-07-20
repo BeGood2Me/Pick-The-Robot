@@ -14,6 +14,13 @@ const nextConfig: NextConfig = {
         destination: '/vendors/mir-mobile-industrial-robots',
         permanent: true,
       },
+      // Strip trailing slashes (except root) without host-based middleware —
+      // host middleware previously 308'd localhost and broke local browsers.
+      {
+        source: '/:path+/',
+        destination: '/:path+',
+        permanent: true,
+      },
     ];
   },
 };

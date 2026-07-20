@@ -41,6 +41,16 @@ export function SiteFooter() {
                     All vendors
                   </Link>
                 </li>
+                <li>
+                  <Link href="/best" className="hover:text-ink">
+                    Best robots by facility
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/integrations" className="hover:text-ink">
+                    Integrations
+                  </Link>
+                </li>
                 {CATEGORY_GUIDE_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="hover:text-ink">

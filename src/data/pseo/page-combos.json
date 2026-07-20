@@ -1,0 +1,96 @@
+[
+  {
+    "robotType": "amr",
+    "environmentId": "ecommerce-warehouse",
+    "faqs": [
+      {
+        "question": "Are AMRs better than AGVs for e-commerce warehouses?",
+        "answer": "Often yes when layouts change and picks are dense—AMRs navigate dynamically. AGVs can win on fixed high-volume lanes. Many sites mix both. Use the AMR vs AGV guide and the warehouse matcher to compare for your pain point."
+      },
+      {
+        "question": "How long does an AMR pilot usually take?",
+        "answer": "Many vendors target a 60–90 day pilot in one workflow after mapping and basic WMS connectivity. Integration depth and network readiness drive the timeline more than robot count alone."
+      },
+      {
+        "question": "What facility changes do AMRs need?",
+        "answer": "Reliable Wi-Fi, clear charging space, and aisle widths that allow collaborative traffic. Heavy structural changes are less common than with fixed-guide AGV loops, but safety reviews and traffic rules still matter."
+      },
+      {
+        "question": "How many AMRs do e-commerce sites start with?",
+        "answer": "Transport and pick-assist pilots commonly start with a small fleet (often around 3–5 robots) in one zone before expanding. Fleet size depends on picks, travel distance, and shifts—confirm with vendor sizing and the matcher hint."
+      }
+    ]
+  },
+  {
+    "robotType": "agv",
+    "environmentId": "ecommerce-warehouse",
+    "faqs": [
+      {
+        "question": "When should an e-commerce DC choose AGVs over AMRs?",
+        "answer": "When routes are stable, volume is predictable, and you can invest in guide infrastructure. If promotions constantly reshape pick paths, AMRs or a hybrid fleet usually fit better."
+      },
+      {
+        "question": "What hidden costs come with AGVs?",
+        "answer": "Tape, reflectors, charging layout, and integration can rival vehicle price on larger sites. Budget infrastructure and WMS connectors separately from the per-vehicle quote."
+      },
+      {
+        "question": "Can AGVs and AMRs run in the same warehouse?",
+        "answer": "Yes—fixed lanes for AGVs and dynamic zones for AMRs is a common pattern. Fleet managers and safety zoning need clear ownership so paths do not conflict."
+      }
+    ]
+  },
+  {
+    "robotType": "picking_assist",
+    "environmentId": "ecommerce-warehouse",
+    "faqs": [
+      {
+        "question": "Do pick-assist robots require a WMS?",
+        "answer": "Basic fleets can start light, but meaningful productivity usually needs WMS/WES work allocation. Plan connector cost and testing into the pilot budget."
+      },
+      {
+        "question": "Is pick assist the same as a goods-to-person AS/RS?",
+        "answer": "No. Collaborative pick-assist AMRs work with associates in aisles or zones. Goods-to-person AS/RS is a different capital profile. Match the workflow before comparing vendors."
+      },
+      {
+        "question": "Who is a poor fit for pick assist?",
+        "answer": "Very low pick volume, no path to WMS integration, or facilities that only move heavy pallets. Pallet movers or transport AMRs may fit better in those cases."
+      }
+    ]
+  },
+  {
+    "robotType": "office_cleaner",
+    "environmentId": "office-retail-floors",
+    "faqs": [
+      {
+        "question": "Will a cleaning robot replace janitorial staff?",
+        "answer": "Usually no. Robots handle routine floor coverage; staff still manage restrooms, detailing, and exceptions. The value is hours saved and more consistent coverage."
+      },
+      {
+        "question": "How long does mapping take?",
+        "answer": "Many compact units map a floor plate in hours to a few days depending on complexity. Furniture moves and glass walls are common remapping triggers."
+      },
+      {
+        "question": "What does RaaS look like for office cleaners?",
+        "answer": "Subscriptions often bundle the machine, software, and support. See the cleaning robot cost guide and RaaS pricing pages for illustrative bands before vendor quotes."
+      }
+    ]
+  },
+  {
+    "robotType": "serving_robot",
+    "environmentId": "full-service-restaurant",
+    "faqs": [
+      {
+        "question": "Do serving robots work in tight dining rooms?",
+        "answer": "Narrow aisles and dense furniture reduce reliability. Measure clear path width and peak congestion before buying. The restaurant matcher asks about aisle width and layout complexity for this reason."
+      },
+      {
+        "question": "Should I buy or use RaaS for a serving robot?",
+        "answer": "Pilots often start on lease or RaaS to test guest reaction and path reliability. Purchase can win if utilization stays high for several years—compare with your budget preference in the matcher."
+      },
+      {
+        "question": "What staff roles stay after adding a serving robot?",
+        "answer": "Servers still sell, plate, and handle exceptions. Robots mainly cut runner walk time. Plan change management so the floor team trusts and loads the robot correctly."
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ecommerce-warehouse",
+    "name": "E-commerce fulfillment warehouse",
+    "description": "High-SKU e-commerce and omnichannel DCs with dense pick paths, tote and carton flows, and frequent layout tweaks as promotions change. Labor pressure usually concentrates on walking and pick transport rather than heavy pallet-only lanes.",
+    "floorAreaBand": "50k–250k sq ft (approx. 5k–25k m²)",
+    "trafficPattern": "High pick density, mixed tote/carton moves, dynamic slotting",
+    "priorityKpis": ["throughput", "picks per hour", "labour reduction", "error rate"],
+    "category": "warehouse",
+    "pageIntro": "E-commerce warehouses need robots that tolerate layout change and high pick density—not just fixed guided loops. This page ranks vendors whose fleets support AMR-style transport and pick assist for fulfillment sites, then points you to cost guides and the matcher."
+  },
+  {
+    "id": "office-retail-floors",
+    "name": "Office and retail floors",
+    "description": "Multi-tenant offices, showrooms, and retail floor plates with hard or mixed surfaces, after-hours cleaning windows, and staff who still handle restrooms and detailing. Robots cover routine vacuum or scrub passes so crews focus on edges and high-touch zones.",
+    "floorAreaBand": "5k–80k sq ft per site (approx. 500–7.5k m²)",
+    "trafficPattern": "Open aisles after hours, furniture and fixture obstacles, light-to-moderate soil",
+    "priorityKpis": ["hours saved", "coverage consistency", "cleanliness scores"],
+    "category": "cleaning",
+    "pageIntro": "Office and retail sites usually start with compact autonomous cleaners before industrial scrubbers. Below are vendors that commonly fit this floor plate and soil profile—validate quotes and mapping for your exact layout."
+  },
+  {
+    "id": "full-service-restaurant",
+    "name": "Full-service restaurant",
+    "description": "Table-service dining rooms with peak-hour runners, busing pressure, and aisle constraints that vary by concept. Robots help with food running or busing when paths are clear and staff still own guest experience and exceptions.",
+    "floorAreaBand": "Dining room + kitchen paths typical of 80–250 seats",
+    "trafficPattern": "Peak bursts, server stations, mixed guest and staff traffic",
+    "priorityKpis": ["covers per labour hour", "runner walk time", "table turn consistency"],
+    "category": "restaurant",
+    "pageIntro": "Full-service venues care about aisle width, peak intensity, and guest-facing reliability. These serving-oriented vendors are a starting shortlist—run the restaurant matcher for a fit score based on your seats and layout."
+  }
+]

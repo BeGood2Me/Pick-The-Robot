@@ -1,0 +1,62 @@
+[
+  {
+    "robotType": "amr",
+    "purchaseBand": "$25,000–$80,000+ per robot",
+    "monthlyBand": "$2,000–$5,000/month per robot (RaaS)",
+    "costDrivers": [
+      "WMS / WES connectivity and pilot scope",
+      "Mapping, Wi-Fi, and safety review",
+      "Fleet size vs. picks and travel distance",
+      "Training and change management on the floor"
+    ],
+    "caveat": "Indicative USD research bands only—confirm quotes, integration, and service terms with vendors."
+  },
+  {
+    "robotType": "agv",
+    "purchaseBand": "$50,000–$150,000+ per vehicle",
+    "monthlyBand": "Lease/RaaS less common; expect multi-year finance plus infrastructure",
+    "costDrivers": [
+      "Guide infrastructure (tape, reflectors, or fixed paths)",
+      "Charging layout and aisle constraints",
+      "WMS integration for move confirmations",
+      "Stable high-volume routes vs. layout change risk"
+    ],
+    "caveat": "Indicative USD research bands only—AGV projects often carry infrastructure costs beyond the vehicle price."
+  },
+  {
+    "robotType": "picking_assist",
+    "purchaseBand": "$30,000–$70,000 per robot",
+    "monthlyBand": "$2,000–$5,000/month per robot (typical RaaS/lease band)",
+    "costDrivers": [
+      "Work allocation depth in WMS/WES",
+      "Associate workflow redesign and training",
+      "Zone size and concurrent robot count",
+      "Software tiers and annual support on buy models"
+    ],
+    "caveat": "Indicative USD research bands only—connector and professional services are often quoted separately."
+  },
+  {
+    "robotType": "office_cleaner",
+    "purchaseBand": "$5,000–$20,000 (compact office units)",
+    "monthlyBand": "$800–$2,000/month (RaaS)",
+    "costDrivers": [
+      "Floor area and cleaning frequency",
+      "Mapping complexity (furniture, glass, no-go zones)",
+      "Staff handoff for restrooms and detailing",
+      "Multi-site vs. single-floor deployment"
+    ],
+    "caveat": "Indicative USD research bands only—larger scrubbers sit higher; confirm with vendors for your floor plate."
+  },
+  {
+    "robotType": "serving_robot",
+    "purchaseBand": "$15,000–$40,000 per unit",
+    "monthlyBand": "$500–$1,500/month per unit (lease/RaaS)",
+    "costDrivers": [
+      "Aisle width and peak congestion",
+      "Guest-facing reliability and staff loading SOPs",
+      "Number of peak covers and runner walk time",
+      "Region and support plan inclusions"
+    ],
+    "caveat": "Indicative USD research bands only—pilots often start on lease/RaaS before purchase."
+  }
+]

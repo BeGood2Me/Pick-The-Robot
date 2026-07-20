@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sap-ewm",
+    "name": "SAP Extended Warehouse Management (EWM)",
+    "category": "WMS",
+    "description": "Enterprise warehouse execution for high-volume DCs — tasking, inventory, and outbound orchestration often used as the system of record for robot work allocation.",
+    "pricingHint": "Enterprise license + implementation; typically a major IT program, not a line-item SaaS add-on.",
+    "websiteUrl": "https://www.sap.com"
+  },
+  {
+    "id": "generic-wms",
+    "name": "Generic / mid-market WMS",
+    "category": "WMS",
+    "description": "Representative mid-market warehouse management systems that expose order, inventory, and task APIs or file-based connectors for AMR/AGV fleets.",
+    "pricingHint": "Mid-range SaaS or perpetual licenses; connector and professional services often quoted separately.",
+    "websiteUrl": "https://picktherobot.com/warehouse-robots"
+  },
+  {
+    "id": "facilities-ops",
+    "name": "Facilities / cleaning ops platform",
+    "category": "facilitiesOps",
+    "description": "Building and janitorial operations tools used to schedule coverage, track completeness, and hand off exceptions between autonomous cleaners and on-site staff.",
+    "pricingHint": "Often bundled with robot RaaS or sold as light SaaS; pricing varies by site count.",
+    "websiteUrl": "https://picktherobot.com/cleaning-robots"
+  }
+]

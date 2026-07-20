@@ -1,0 +1,176 @@
+[
+  {
+    "vendorSlug": "locus-robotics",
+    "softwareId": "sap-ewm",
+    "environmentIds": ["ecommerce-warehouse"],
+    "summary": "E-commerce and omnichannel DCs running SAP EWM can use Locus collaborative AMRs for pick-and-transport while EWM remains the system of record for inventory and work. Integration is typically a project: map workflows, agree task handoffs, then pilot in one zone before expanding.",
+    "architectureNotes": [
+      "Orders and pick tasks originate in SAP EWM (or upstream ERP → EWM).",
+      "A fleet / orchestration layer receives eligible work and assigns Locus robots and associates.",
+      "Robots execute moves and confirmations flow back so EWM inventory and task status stay consistent.",
+      "Exceptions (blocked aisles, short picks) escalate to human workflows defined in ops SOPs — not only in software."
+    ],
+    "setupSteps": [
+      "Confirm EWM release, warehouse number, and which process types (e.g. picking, replenishment) robots will support.",
+      "Document data contracts: task create/update, confirmations, and cancellation handling.",
+      "Stand up non-prod connectivity (API, middleware, or certified connector) and map IDs for locations and HU/totes.",
+      "Pilot in one aisle zone with clear success metrics (picks/hour, exception rate, confirmation latency).",
+      "Train floor leads on robot loading, traffic rules, and when to fall back to manual work.",
+      "Expand zones only after WMS confirmations and safety review are stable."
+    ],
+    "faqs": [
+      {
+        "question": "Does Locus plug into SAP EWM out of the box?",
+        "answer": "Expect a scoped integration project. Some sites use vendor or SI connectors; others use middleware. Validate your EWM version and process types with Locus and your SAP partner before promising a timeline."
+      },
+      {
+        "question": "What breaks most often in WMS–AMR projects?",
+        "answer": "Unclear exception paths, location master data mismatches, and pilots that skip confirmation latency testing. Treat mapping and ID hygiene as first-class work."
+      },
+      {
+        "question": "Should IT or operations own the pilot?",
+        "answer": "Both. IT owns connectivity and security; operations owns zone design, staffing, and KPIs. Joint success criteria prevent a technically “live” integration that the floor does not trust."
+      },
+      {
+        "question": "How does this relate to PickTheRobot’s matcher?",
+        "answer": "The matcher ranks robot type and acquisition fit from your facility answers. This page is research on WMS pairing — confirm commercial and technical fit with Locus and your SAP team."
+      }
+    ]
+  },
+  {
+    "vendorSlug": "locus-robotics",
+    "softwareId": "generic-wms",
+    "environmentIds": ["ecommerce-warehouse"],
+    "summary": "Mid-market WMS stacks can orchestrate Locus fleets when they can publish pick/transport tasks and accept confirmations. Many first pilots start with a light connector or middleware rather than deep customization.",
+    "architectureNotes": [
+      "WMS (or WES) creates work for a zone or wave.",
+      "Middleware or fleet software translates tasks into robot missions.",
+      "Associates and robots collaborate; status returns to the WMS for inventory accuracy.",
+      "Reporting may live in fleet analytics until WMS dashboards catch up."
+    ],
+    "setupSteps": [
+      "Inventory which WMS events you can emit (task assign, cancel, complete) and in what format (API, EDI, files).",
+      "Pick one workflow (e.g. pick-to-tote transport) with measurable volume.",
+      "Configure location and SKU/HU identifiers consistently across WMS and fleet maps.",
+      "Run a dry-run with simulated confirmations before robots move live product.",
+      "Define rollback: how associates finish work if the connector is down.",
+      "Review security: credentials, network segments, and who can change tasking rules."
+    ],
+    "faqs": [
+      {
+        "question": "Can we integrate without a full WES?",
+        "answer": "Often yes for a narrow pilot. Broader multi-zone orchestration usually needs clearer task allocation — either in WMS/WES or a dedicated fleet layer."
+      },
+      {
+        "question": "How long do mid-market WMS connectors take?",
+        "answer": "Simple file or REST pilots can be weeks; deeper real-time allocation is longer. Integration depth — not robot count — usually sets the critical path."
+      },
+      {
+        "question": "What should we ask Locus in the first call?",
+        "answer": "Supported WMS patterns, reference sites at similar volume, pilot terms, and whether middleware is included or SI-led."
+      }
+    ]
+  },
+  {
+    "vendorSlug": "mir-mobile-industrial-robots",
+    "softwareId": "generic-wms",
+    "environmentIds": ["ecommerce-warehouse"],
+    "summary": "MiR AMRs are often used for point-to-point and line-side transport. Pairing with a mid-market WMS usually means missions triggered by WMS events or MES/WMS signals rather than full goods-to-person allocation.",
+    "architectureNotes": [
+      "WMS signals a move need (replenishment, buffer to pack, dock transfer).",
+      "Fleet manager or MiR software accepts a mission with source/destination.",
+      "Robot executes; confirmation updates the WMS task or inventory move.",
+      "Traffic and charging policies stay in the fleet layer; WMS stays authoritative for inventory."
+    ],
+    "setupSteps": [
+      "List the 2–3 move types you want robots to own in phase one.",
+      "Confirm how the WMS can trigger those moves (API, PLC/MES bridge, or operator console).",
+      "Map physical locations to WMS location IDs and MiR maps.",
+      "Pilot one loop with clear SLAs for wait time and blocked-path handling.",
+      "Document who resets missions when Wi-Fi or maps fail.",
+      "Only then add concurrent missions or additional floors."
+    ],
+    "faqs": [
+      {
+        "question": "Is MiR a WMS replacement?",
+        "answer": "No. MiR handles mobile execution; your WMS remains the inventory and order system of record."
+      },
+      {
+        "question": "Do we need AGV-style infrastructure?",
+        "answer": "MiR AMRs navigate dynamically, but you still need reliable Wi-Fi, charging, and clear traffic rules. That is different from tape-guided AGV loops, not “zero facility work.”"
+      },
+      {
+        "question": "When is MiR a better WMS partner than pick-assist fleets?",
+        "answer": "When the bottleneck is repeatable transport between defined points rather than dense collaborative picking. Use the warehouse matcher to compare types for your pain point."
+      }
+    ]
+  },
+  {
+    "vendorSlug": "otto-motors",
+    "softwareId": "generic-wms",
+    "environmentIds": ["ecommerce-warehouse"],
+    "summary": "OTTO autonomous vehicles often serve heavier material movement. WMS integration focuses on dispatching moves and confirming completions so dock, buffer, and production-adjacent flows stay synchronized with inventory.",
+    "architectureNotes": [
+      "WMS or MES requests a material move with priority and destination.",
+      "Fleet software schedules OTTO vehicles and manages traffic.",
+      "Completion events update WMS inventory or production staging.",
+      "Safety zones and human traffic rules are enforced at the fleet/facility layer."
+    ],
+    "setupSteps": [
+      "Define payload and path constraints (aisle width, intersections, pedestrian mix).",
+      "Agree which WMS transactions create robot-eligible moves.",
+      "Integrate dispatch and confirmation in a test environment first.",
+      "Pilot a single high-volume loop with spare-capacity planning.",
+      "Train material handlers on call points and exception tags.",
+      "Scale loops after cycle-time and safety reviews pass."
+    ],
+    "faqs": [
+      {
+        "question": "How is this different from AMR pick assist + WMS?",
+        "answer": "OTTO-style vehicles target heavier or longer-haul moves. Pick-assist fleets target collaborative picking. Many sites use different robot types for different zones."
+      },
+      {
+        "question": "What WMS readiness do we need?",
+        "answer": "At minimum, reliable location masters and a way to create/close move tasks. Deeper real-time optimization is optional for a first loop."
+      },
+      {
+        "question": "Where do I compare vendors after reading this?",
+        "answer": "Open the OTTO vendor profile for strengths/limits, then run the warehouse matcher with your facility and pain-point answers."
+      }
+    ]
+  },
+  {
+    "vendorSlug": "avidbots",
+    "softwareId": "facilities-ops",
+    "environmentIds": ["office-retail-floors"],
+    "summary": "Autonomous scrubbers like Avidbots Neo work best when cleaning schedules and coverage reporting connect to facilities or janitorial ops tools — so robots handle routine passes and staff own restrooms, detailing, and exceptions.",
+    "architectureNotes": [
+      "Ops platform (or robot cloud) holds schedules, maps, and site hierarchy.",
+      "Robots run planned coverage; completion and issue flags sync to ops dashboards.",
+      "Staff receive exception tickets (blocked areas, low battery, incomplete zones).",
+      "Building access and after-hours rules stay with facilities security processes."
+    ],
+    "setupSteps": [
+      "Map floor plates and note no-go zones (stairs, glass, clutter).",
+      "Align cleaning windows with building access and alarm schedules.",
+      "Connect reporting so supervisors see completed vs skipped areas.",
+      "Pilot one floor with a clear handoff SOP for staff detailing.",
+      "Tune schedules after two weeks of real obstacle and traffic data.",
+      "Expand floors once mapping and exception response times are acceptable."
+    ],
+    "faqs": [
+      {
+        "question": "Do we need a full CMMS to start?",
+        "answer": "No. Many sites start with the vendor’s cloud scheduling and export reports. A CMMS helps when you already manage work orders across many buildings."
+      },
+      {
+        "question": "Will the robot replace janitorial staff?",
+        "answer": "Usually no. Robots cover open-floor routine work; staff still handle edges, restrooms, and guest-facing recovery. See our cleaning guides for buy vs RaaS framing."
+      },
+      {
+        "question": "How do I get a fit recommendation?",
+        "answer": "Run the cleaning matcher with floor area, mess level, and budget preference, then review the Avidbots vendor profile."
+      }
+    ]
+  }
+]

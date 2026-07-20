@@ -22,7 +22,8 @@ Use this after `npm test` and `npm run build` pass locally.
 
 4. **Deploy** → confirm build succeeds on Vercel.
 5. **Persist env vars** in Vercel → Project → Settings → Environment Variables (the `-e` flag on CLI only applies to that deploy).
-6. **Custom domain** → add `picktherobot.com` in Vercel → point DNS (A/CNAME per Vercel) → wait for HTTPS.
+6. **Custom domain** → add `picktherobot.com` **and** `www.picktherobot.com` in Vercel → set apex as primary (Vercel redirects www). Point DNS per Vercel. Wait for HTTPS.
+   - Do **not** rely on app middleware for www→apex; that previously 308-cached and broke `localhost` in browsers.
 7. **Smoke test** on production:
 
    ```bash
