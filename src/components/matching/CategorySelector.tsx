@@ -28,16 +28,35 @@ export function CategorySelector({
               trackCategoryChanged(category);
             }}
             className={cn(
-              'w-full cursor-pointer rounded-xl border p-4 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+              'group w-full cursor-pointer rounded-xl border p-4 text-left shadow-sm transition-[border-color,background-color,box-shadow,color] duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
               active
-                ? 'border-accent bg-accent-soft ring-1 ring-accent/20'
-                : 'border-surface-border bg-surface hover:border-accent/30 hover:bg-accent-soft/30',
+                ? 'border-accent bg-accent text-white shadow-card ring-1 ring-accent/30'
+                : 'border-surface-border bg-surface hover:border-accent hover:bg-accent hover:text-white hover:shadow-card',
             )}
           >
-            <CategoryIcon category={category} className="mb-2 text-accent" />
-            <span className="block font-semibold text-ink">{CATEGORY_LABELS[category]}</span>
-            <span className="mt-1 block text-sm text-ink-muted">{CATEGORY_DESCRIPTIONS[category]}</span>
-            <span className="mt-3 block text-sm font-semibold text-accent">
+            <CategoryIcon
+              category={category}
+              className={cn(
+                'mb-2 text-accent transition-colors duration-150',
+                !active && 'group-hover:text-white',
+                active && 'text-white',
+              )}
+            />
+            <span className="block font-semibold">{CATEGORY_LABELS[category]}</span>
+            <span
+              className={cn(
+                'mt-1 block text-sm transition-colors duration-150',
+                active ? 'text-white/85' : 'text-ink-muted group-hover:text-white/85',
+              )}
+            >
+              {CATEGORY_DESCRIPTIONS[category]}
+            </span>
+            <span
+              className={cn(
+                'mt-3 block text-sm font-semibold transition-colors duration-150',
+                active ? 'text-white' : 'text-accent group-hover:text-white',
+              )}
+            >
               {active ? 'Continue →' : 'Start matching →'}
             </span>
           </button>

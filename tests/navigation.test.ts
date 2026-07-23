@@ -58,3 +58,18 @@ describe('VENDORS_INDEX_HREF', () => {
     expect(VENDORS_INDEX_HREF).toBe('/vendors');
   });
 });
+
+describe('HOME_EXPLORE_LINKS', () => {
+  it('links homepage explore strip to category and hub pages', async () => {
+    const { HOME_EXPLORE_LINKS } = await import('../src/components/content/HomeExploreStrip');
+    expect(HOME_EXPLORE_LINKS.map((link) => link.href)).toEqual([
+      '/warehouse-robots',
+      '/cleaning-robots',
+      '/restaurant-robots',
+      '/best',
+      '/integrations',
+      '/blog',
+      '/about',
+    ]);
+  });
+});
