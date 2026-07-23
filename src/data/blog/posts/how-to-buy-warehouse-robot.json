@@ -1,17 +1,19 @@
 {
   "slug": "how-to-buy-warehouse-robot",
   "pillarSlug": "warehouse-automation",
-  "primaryKeyword": "how to buy a warehouse robot",
+  "primaryKeyword": "warehouse robot buyer checklist",
   "secondaryKeywords": [
-    "warehouse robot buyer guide",
+    "how to buy a warehouse robot",
     "warehouse automation buying process",
-    "warehouse robot pilot"
+    "warehouse robot pilot",
+    "warehouse robot buyer guide"
   ],
-  "title": "How to buy a warehouse robot: step-by-step buyer guide",
-  "h1": "How to buy a warehouse robot",
-  "metaDescription": "How to buy a warehouse robot: define the workflow problem, compare AMR vs AGV, budget integration, run a 60–90 day pilot, and choose buy vs lease vs RaaS.",
-  "intro": "Buying a warehouse robot works best when you start from a specific workflow problem — not from a vendor catalog. This guide walks through problem definition, technology shortlisting, pilot design, and acquisition negotiation.",
+  "title": "Warehouse robot buyer's checklist (2026) + step-by-step guide",
+  "h1": "Warehouse robot buyer's checklist",
+  "metaDescription": "Free warehouse robot buyer's checklist: AMR vs AGV, integration budget, 60–90 day pilot, buy vs lease vs RaaS, plus questions to ask vendors.",
+  "intro": "Use the checklist below before vendor demos — then read the step-by-step guide for problem definition, technology shortlisting, pilot design, and acquisition negotiation. Buying a warehouse robot works best when you start from a specific workflow problem, not from a sales catalog.",
   "publishedAt": "2026-07-16",
+  "updatedAt": "2026-07-23",
   "matcherCategory": "warehouse",
   "sections": [
     {
@@ -60,12 +62,17 @@
     },
     {
       "question": "What should I ask vendors in the first call?",
-      "answer": "Ask about your workflow fit, reference sites at similar volume, WMS integration path, pilot terms, and all-in first-year cost — not just unit list price."
+      "answer": "Use the ten questions in the checklist above — reference sites, workflow fit, WMS path, pilot terms, and all-in first-year cost matter more than unit list price alone."
+    },
+    {
+      "question": "Can I print the warehouse robot buyer's checklist?",
+      "answer": "Yes. Click Print checklist (PDF) at the top of the checklist section — it formats a one-page summary you can share with ops and procurement."
     }
   ],
   "relatedPostSlugs": [
     "warehouse-robot-cost-2026",
-    "amr-vs-agv-comparison"
+    "amr-vs-agv-comparison",
+    "robot-raas-vs-buying-explained"
   ],
   "relatedLinks": [
     {
@@ -73,8 +80,28 @@
       "label": "Warehouse matcher"
     },
     {
+      "href": "/amr-vs-agv",
+      "label": "AMR vs AGV comparison"
+    },
+    {
+      "href": "/warehouse-robot-cost",
+      "label": "Warehouse robot cost guide"
+    },
+    {
       "href": "/robot-leasing-vs-buying",
       "label": "Lease vs buy guide"
+    },
+    {
+      "href": "/robotics-as-a-service",
+      "label": "What is RaaS?"
+    },
+    {
+      "href": "/integrations",
+      "label": "Robot integration guides"
+    },
+    {
+      "href": "/best",
+      "label": "Best robots by environment"
     }
   ]
 }

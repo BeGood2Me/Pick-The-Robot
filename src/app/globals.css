@@ -223,6 +223,32 @@
   a[href]::after {
     content: none !important;
   }
+
+  body.printing-checklist * {
+    visibility: hidden;
+  }
+
+  body.printing-checklist .print-checklist-root,
+  body.printing-checklist .print-checklist-root * {
+    visibility: visible;
+  }
+
+  body.printing-checklist .print-checklist-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  body.printing-checklist .print-checklist-root .no-print {
+    display: none !important;
+  }
+
+  body.printing-checklist .print-checklist-root .print-only {
+    display: block !important;
+  }
 }
 
 .print-only {

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BlogTopBar, BlogTopicList, BlogPillarLabel, BlogEditorialNote } from '@/components/blog/BlogChrome';
+import { WarehouseBuyersChecklist } from '@/components/blog/WarehouseBuyersChecklist';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { FaqBlock } from '@/components/content/FaqBlock';
@@ -11,6 +12,7 @@ import {
   resolvePostBrand,
 } from '@/lib/content/blog';
 import { CATEGORY_ROUTES } from '@/lib/content/navigation';
+import { WAREHOUSE_ROBOT_POST_SLUG } from '@/lib/content/warehouse-buyers-checklist';
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/seo/schema';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { BASE_URL, siteMetadata } from '@/lib/seo/metadata';
@@ -113,6 +115,8 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
 
         <h1 className="mt-4 font-display text-4xl font-semibold">{post.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{post.intro}</p>
+
+        {post.slug === WAREHOUSE_ROBOT_POST_SLUG && <WarehouseBuyersChecklist />}
 
         <StickyMatcherCta href={matcherHref} />
 

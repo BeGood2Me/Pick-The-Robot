@@ -8,6 +8,11 @@ import {
   getPostsForPillar,
   getRelatedPosts,
 } from '../src/lib/content/blog';
+import {
+  VENDOR_FIRST_CALL_QUESTIONS,
+  WAREHOUSE_BUYERS_CHECKLIST,
+  WAREHOUSE_ROBOT_POST_SLUG,
+} from '../src/lib/content/warehouse-buyers-checklist';
 
 describe('blog content', () => {
   it('loads posts and pillars from JSON', () => {
@@ -42,5 +47,12 @@ describe('blog content', () => {
     }
     const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
     expect(registry.posts.length).toBe(getAllBlogPosts().length);
+  });
+
+  it('warehouse buyer checklist has ten steps and vendor questions', () => {
+    expect(WAREHOUSE_BUYERS_CHECKLIST).toHaveLength(10);
+    expect(VENDOR_FIRST_CALL_QUESTIONS.length).toBeGreaterThanOrEqual(10);
+    const post = getBlogPostBySlug(WAREHOUSE_ROBOT_POST_SLUG);
+    expect(post?.h1).toContain('checklist');
   });
 });
