@@ -1,11 +1,13 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { CleaningBuyersChecklist } from '@/components/content/CleaningBuyersChecklist';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ComparisonMatcherCta } from '@/components/matching/ComparisonMatcherCta';
 import { ComparisonTable } from '@/components/content/ComparisonTable';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import { COMPARISONS } from '@/lib/content/comparisons';
+import { CLEANING_CHECKLIST_COMPARISON_SLUG } from '@/lib/content/cleaning-buyers-checklist';
 import { breadcrumbJsonLd, faqJsonLd, articleJsonLd } from '@/lib/seo/schema';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { siteMetadata } from '@/lib/seo/metadata';
@@ -64,11 +66,18 @@ export default async function ComparisonPageRoute({
         <h1 className="font-display text-4xl font-semibold">{page.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{page.intro}</p>
 
+        {slug === CLEANING_CHECKLIST_COMPARISON_SLUG && <CleaningBuyersChecklist />}
+
         <Suspense fallback={null}>
           <ComparisonMatcherCta category={page.matcherCategory} />
         </Suspense>
 
         <section className="mt-10">
+          <h2 className="mb-4 text-xl font-semibold text-ink">
+            {slug === CLEANING_CHECKLIST_COMPARISON_SLUG
+              ? 'Cleaning robot vs cleaning staff'
+              : `Compare ${labels[0]} and ${labels[1]}`}
+          </h2>
           <ComparisonTable optionALabel={labels[0]} optionBLabel={labels[1]} rows={page.rows} />
         </section>
 

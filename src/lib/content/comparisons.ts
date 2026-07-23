@@ -50,12 +50,12 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
   },
   'cleaning-robot-vs-cleaning-staff': {
     slug: 'cleaning-robot-vs-cleaning-staff',
-    title: 'Cleaning robot vs cleaning staff',
-    h1: 'Cleaning robot vs cleaning staff',
+    title: "Commercial cleaning robot buyer's checklist + vs staff",
+    h1: 'Cleaning robot buyer\'s checklist',
     metaDescription:
-      'When does a commercial cleaning robot beat additional staff? Compare cost, coverage, and deployment for offices and facilities.',
+      'Free cleaning robot buyer\'s checklist: floor area, robot vs staff, cost ranges, RaaS, and vendor questions — plus robot vs hiring comparison.',
     intro:
-      'Cleaning robots are not a straight headcount swap. They work best when floors are large, cleaning is frequent, and labor is expensive or hard to hire.',
+      'Use the checklist below before vendor demos — then compare robots and cleaning staff on cost, coverage, and deployment. Robots are not a straight headcount swap; they work best when floors are large, cleaning is frequent, and labor is expensive or hard to hire.',
     matcherCategory: 'cleaning',
     rows: [
       { aspect: 'Upfront cost', optionA: 'Robot capex or subscription', optionB: 'Recruiting + wages' },
@@ -77,9 +77,17 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
         answer:
           'Depends on frequency, area, and local wages. Use the matcher with your floor area and labor cost to compare fit.',
       },
+      {
+        question: 'Can I print the cleaning robot buyer\'s checklist?',
+        answer:
+          'Yes. Click Print checklist (PDF) at the top of the checklist section — it formats a one-page summary for facilities and procurement.',
+      },
     ],
     relatedLinks: [
-      { href: '/cleaning-robots', label: 'Cleaning robot matcher' },
+      { href: '/cleaning-robots#matcher', label: 'Cleaning robot matcher' },
+      { href: '/cleaning-robot-cost', label: 'Cleaning robot cost guide' },
+      { href: '/blog/cleaning-robot-cost-2026', label: 'Cleaning robot cost (2026)' },
+      { href: '/cleaning-robots-as-a-service', label: 'Cleaning RaaS guide' },
       { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
     ],
   },

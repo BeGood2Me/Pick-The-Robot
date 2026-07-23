@@ -40,6 +40,16 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
         <h1 className="font-display text-4xl font-semibold">{content.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{content.intro}</p>
 
+        {category === 'cleaning' && (
+          <p className="mt-4 text-sm text-ink-muted">
+            Still researching?{' '}
+            <Link href="/cleaning-robot-vs-cleaning-staff#cleaning-buyers-checklist" className="font-medium text-accent hover:underline">
+              Use the free cleaning robot buyer&apos;s checklist
+            </Link>{' '}
+            before vendor demos.
+          </p>
+        )}
+
         <section id="matcher" className="mt-8 scroll-mt-8 border-y border-surface-border py-8">
           <h2 className="text-xl font-semibold">Match your operation</h2>
           <p className="mt-1 text-sm text-ink-muted">

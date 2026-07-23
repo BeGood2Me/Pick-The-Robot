@@ -1,10 +1,6 @@
-export interface BuyersChecklistItem {
-  step: number;
-  title: string;
-  summary: string;
-  href: string;
-  linkLabel: string;
-}
+import type { BuyersChecklistItem } from '@/lib/content/buyers-checklist-types';
+
+export type { BuyersChecklistItem };
 
 export const WAREHOUSE_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
   {
