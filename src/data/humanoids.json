@@ -1,0 +1,188 @@
+[
+  {
+    "id": "hum-001",
+    "slug": "figure-ai",
+    "name": "Figure AI",
+    "productName": "Figure humanoid",
+    "shortDescription": "General-purpose humanoid robots targeting logistics and manufacturing workflows with BMW and other pilot partners.",
+    "readiness": "pilot",
+    "headquarters": "US",
+    "regions": ["US"],
+    "targetUseCases": [
+      "Logistics and material handling pilots",
+      "Manufacturing line support",
+      "General-purpose manipulation research"
+    ],
+    "strengths": [
+      "Strong funding and automotive/logistics partnerships",
+      "Focus on commercial deployment narratives",
+      "Bipedal mobility for human-scale environments"
+    ],
+    "limitations": [
+      "Not a standard catalog purchase for most operators",
+      "Pilot programs only — no public list pricing",
+      "Deployment complexity and safety review are enterprise-grade"
+    ],
+    "matcherAlternative": {
+      "href": "/warehouse-robots#matcher",
+      "label": "Warehouse matcher",
+      "reason": "For transport and picking needs today, AMRs and pick-assist are deployable now."
+    },
+    "outboundUrl": "https://www.figure.ai"
+  },
+  {
+    "id": "hum-002",
+    "slug": "apptronik",
+    "name": "Apptronik",
+    "productName": "Apollo",
+    "shortDescription": "Apollo humanoid designed for warehouse, logistics, and manufacturing tasks alongside people.",
+    "readiness": "pilot",
+    "headquarters": "US",
+    "regions": ["US"],
+    "targetUseCases": [
+      "Warehouse tote and case handling pilots",
+      "Manufacturing material movement",
+      "Facilities with human-scale workstations"
+    ],
+    "strengths": [
+      "Explicit logistics and manufacturing positioning",
+      "Designed for work alongside humans",
+      "Partnership-driven enterprise rollouts"
+    ],
+    "limitations": [
+      "Early commercial availability — contact sales for pilots",
+      "Not in typical SMB warehouse budgets",
+      "Integration and change management are significant"
+    ],
+    "matcherAlternative": {
+      "href": "/amr-vs-agv",
+      "label": "AMR vs AGV guide",
+      "reason": "Most DC transport needs are met by AMRs or AGVs without humanoid complexity."
+    },
+    "outboundUrl": "https://www.apptronik.com"
+  },
+  {
+    "id": "hum-003",
+    "slug": "1x",
+    "name": "1X",
+    "productName": "NEO",
+    "shortDescription": "NEO humanoid aimed at home and eventually commercial assistance — bipedal, general-purpose platform.",
+    "readiness": "research",
+    "headquarters": "Norway / US",
+    "regions": ["US", "EU"],
+    "targetUseCases": [
+      "Home assistance (consumer roadmap)",
+      "General mobile manipulation research",
+      "Future commercial service roles"
+    ],
+    "strengths": [
+      "Consumer-scale design focus",
+      "Strong investor backing for long-term humanoid development",
+      "Emphasis on safe interaction in human environments"
+    ],
+    "limitations": [
+      "Not positioned for warehouse or restaurant buyers today",
+      "Commercial B2B programs are limited vs logistics humanoids",
+      "Timeline to broad deployment is uncertain"
+    ],
+    "matcherAlternative": {
+      "href": "/cleaning-robots#matcher",
+      "label": "Cleaning matcher",
+      "reason": "For facilities automation today, autonomous scrubbers and vacuums are proven."
+    },
+    "outboundUrl": "https://www.1x.tech"
+  },
+  {
+    "id": "hum-004",
+    "slug": "neura-robotics",
+    "name": "Neura Robotics",
+    "productName": "MAiRA / cognitive robots",
+    "shortDescription": "German robotics company with cognitive manipulators and humanoid platforms for industrial and collaborative use.",
+    "readiness": "pilot",
+    "headquarters": "Germany",
+    "regions": ["EU", "UK"],
+    "targetUseCases": [
+      "Industrial manipulation and cobot workflows",
+      "Humanoid and mobile manipulator pilots in EU manufacturing",
+      "Facilities seeking European vendor relationships"
+    ],
+    "strengths": [
+      "Strong EU presence and industrial focus",
+      "Broader portfolio beyond humanoids alone",
+      "Cognitive robotics positioning for flexible tasks"
+    ],
+    "limitations": [
+      "Humanoid deployments are pilot-scale, not commodity purchases",
+      "US availability is more limited than EU",
+      "Buyer programs vary by application and integrator"
+    ],
+    "matcherAlternative": {
+      "href": "/warehouse-robots#matcher",
+      "label": "Warehouse matcher",
+      "reason": "For EU distribution centers, AMRs and pallet movers are available to procure now."
+    },
+    "outboundUrl": "https://neura-robotics.com"
+  },
+  {
+    "id": "hum-005",
+    "slug": "boston-dynamics",
+    "name": "Boston Dynamics",
+    "productName": "Atlas (electric)",
+    "shortDescription": "Atlas humanoid demonstrations for research and advanced mobility; Stretch handles warehouse case handling separately.",
+    "readiness": "research",
+    "headquarters": "US",
+    "regions": ["US", "EU"],
+    "targetUseCases": [
+      "Research and advanced mobility showcases",
+      "Future general-purpose manipulation (Atlas)",
+      "Warehouse case handling (Stretch — not a humanoid)"
+    ],
+    "strengths": [
+      "Industry-leading mobility research reputation",
+      "Stretch is a deployable warehouse product (separate from Atlas)",
+      "High visibility drives humanoid category interest"
+    ],
+    "limitations": [
+      "Atlas is not a standard commercial buyer product",
+      "Stretch is the practical warehouse option — guided case handling",
+      "Humanoid timelines for broad sale remain unclear"
+    ],
+    "matcherAlternative": {
+      "href": "/vendors",
+      "label": "Vendor index",
+      "reason": "For warehouse automation today, browse deployable AMR and pallet vendors."
+    },
+    "outboundUrl": "https://bostondynamics.com"
+  },
+  {
+    "id": "hum-006",
+    "slug": "tesla-optimus",
+    "name": "Tesla",
+    "productName": "Optimus",
+    "shortDescription": "Tesla's bipedal humanoid platform — widely publicized demos and factory-use narratives, but no standard commercial buyer program for operators.",
+    "readiness": "research",
+    "headquarters": "US",
+    "regions": ["US"],
+    "targetUseCases": [
+      "Internal Tesla manufacturing experiments (reported)",
+      "General-purpose humanoid R&D showcases",
+      "Future consumer or industrial roles (roadmap)"
+    ],
+    "strengths": [
+      "Massive brand awareness drives humanoid search interest",
+      "Vertical integration with Tesla AI and manufacturing narrative",
+      "High-profile demos keep category visibility high"
+    ],
+    "limitations": [
+      "No public catalog, pricing, or buyer program for warehouse or restaurant operators",
+      "Timelines for commercial availability are unclear and often revised",
+      "Not appropriate for PickTheRobot matcher scoring today"
+    ],
+    "matcherAlternative": {
+      "href": "/humanoid-vs-amr",
+      "label": "Humanoid vs AMR guide",
+      "reason": "For logistics automation you can deploy this year, AMRs are the practical shortlist — not Optimus."
+    },
+    "outboundUrl": "https://www.tesla.com/AI"
+  }
+]

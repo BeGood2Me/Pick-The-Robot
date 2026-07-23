@@ -126,6 +126,57 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
       { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service' },
     ],
   },
+  'humanoid-vs-amr': {
+    slug: 'humanoid-vs-amr',
+    title: 'Humanoid vs AMR for warehouses',
+    h1: 'Humanoid vs AMR',
+    metaDescription:
+      'Compare humanoid robots and AMRs for warehouses — deployment readiness, cost, layout fit, and when to choose deployable AMRs today.',
+    intro:
+      'Humanoids promise general-purpose labor in human-scale facilities. AMRs deliver proven transport and pick-assist today. For most distribution centers, AMRs are the practical choice until humanoid buyer programs mature.',
+    matcherCategory: 'warehouse',
+    rows: [
+      { aspect: 'Buyer readiness', optionA: 'Pilot / enterprise programs', optionB: 'Commercial fleets available' },
+      { aspect: 'Primary task today', optionA: 'General manipulation (emerging)', optionB: 'Transport, pick-assist' },
+      { aspect: 'Deployment timeline', optionA: 'Long co-development cycles', optionB: 'Weeks to months for pilots' },
+      { aspect: 'Layout fit', optionA: 'Human-scale aisles (theory)', optionB: 'Proven in dynamic DC layouts' },
+      { aspect: 'Cost predictability', optionA: 'Custom quotes, few public prices', optionB: 'RaaS and lease ranges common' },
+    ],
+    whenA: [
+      'Enterprise pilot with vendor engineering support',
+      'Varied manipulation tasks not solved by AMRs',
+      'Long horizon R&D budget — not urgent throughput',
+    ],
+    whenB: [
+      'Need automation live within one or two quarters',
+      'Transport or picking is the bottleneck',
+      'Want reference sites and fleet software today',
+    ],
+    faqs: [
+      {
+        question: 'Should I wait for humanoids instead of buying AMRs?',
+        answer:
+          'Usually no if you have a clear transport or picking problem now. AMRs are deployable; humanoids are tracked on our research hub until standard buyer programs exist.',
+      },
+      {
+        question: 'Are humanoids in the PickTheRobot matcher?',
+        answer:
+          'Not yet. We profile Figure, Apptronik, and others under Track — separate from scored matcher results.',
+      },
+      {
+        question: 'Where can I research humanoid platforms?',
+        answer:
+          'See our humanoid robots hub and company profiles for readiness labels and links to official sites.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/humanoid-robots', label: 'Humanoid robots hub' },
+      { href: '/humanoids/figure-ai', label: 'Figure AI profile' },
+      { href: '/humanoids/tesla-optimus', label: 'Tesla Optimus profile' },
+      { href: '/amr-vs-agv', label: 'AMR vs AGV' },
+      { href: '/warehouse-robots#matcher', label: 'Warehouse matcher' },
+    ],
+  },
 };
 
 export const DECISION_PAGES = {

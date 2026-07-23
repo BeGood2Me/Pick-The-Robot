@@ -40,9 +40,11 @@ export default async function ComparisonPageRoute({
   const labels =
     slug === 'amr-vs-agv'
       ? ['AMR', 'AGV']
-      : slug === 'cleaning-robot-vs-cleaning-staff'
-        ? ['Cleaning robot', 'Cleaning staff']
-        : ['Serving robot', 'Runner staff'];
+      : slug === 'humanoid-vs-amr'
+        ? ['Humanoid', 'AMR']
+        : slug === 'cleaning-robot-vs-cleaning-staff'
+          ? ['Cleaning robot', 'Cleaning staff']
+          : ['Serving robot', 'Runner staff'];
 
   return (
     <>

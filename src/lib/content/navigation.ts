@@ -63,6 +63,7 @@ export const CATEGORY_GUIDE_LINKS = GUIDE_CATEGORIES.map((category) => ({
 
 export const COMPARISON_LINKS = [
   { href: '/amr-vs-agv', label: 'AMR vs AGV' },
+  { href: '/humanoid-vs-amr', label: 'Humanoid vs AMR' },
   { href: '/cleaning-robot-vs-cleaning-staff', label: 'Robot vs staff' },
   { href: '/restaurant-robot-vs-runner', label: 'Robot vs runner' },
 ] as const;
@@ -77,6 +78,11 @@ export const CATEGORY_COMPARISON_LINKS: Record<
       href: '/amr-vs-agv',
       label: 'AMR vs AGV',
       blurb: 'When dynamic transport beats fixed guided routes.',
+    },
+    {
+      href: '/humanoid-vs-amr',
+      label: 'Humanoid vs AMR',
+      blurb: 'When deployable AMRs beat humanoid pilots.',
     },
     {
       href: '/warehouse-robot-cost',

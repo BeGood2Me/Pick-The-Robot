@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T14:48:27.276Z",
+  "generatedAt": "2026-07-23T15:10:53.915Z",
   "posts": [
     {
       "slug": "amr-vs-agv-comparison",
@@ -57,6 +57,12 @@
       "title": "Commercial cleaning robot guides",
       "postCount": 2,
       "path": "/blog/topics/cleaning-robotics"
+    },
+    {
+      "slug": "humanoid-robotics",
+      "title": "Humanoid robot guides",
+      "postCount": 0,
+      "path": "/blog/topics/humanoid-robotics"
     },
     {
       "slug": "restaurant-robotics",

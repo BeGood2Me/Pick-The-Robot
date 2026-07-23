@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllBlogPillars, getBlogBrand } from '@/lib/content/blog';
+import { HUMANOID_HUB_PATH } from '@/lib/content/humanoids';
 import {
   CATEGORY_GUIDE_LINKS,
   COMPARISON_LINKS,
@@ -70,6 +71,11 @@ export function SiteFooter() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href={HUMANOID_HUB_PATH} className="hover:text-ink">
+                    Humanoid robots (track)
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="shrink-0">

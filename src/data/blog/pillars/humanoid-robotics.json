@@ -1,0 +1,29 @@
+{
+  "slug": "humanoid-robotics",
+  "title": "Humanoid robot guides",
+  "h1": "Humanoid robotics",
+  "metaDescription": "Humanoid robot research: Figure, Apptronik, 1X, Neura, Boston Dynamics — readiness labels and when AMRs are the practical warehouse choice.",
+  "intro": "Humanoids are tracked separately from our matcher. These guides explain what is pilot-stage vs deployable, and link to warehouse AMRs when you need automation now.",
+  "summarySections": [
+    {
+      "heading": "What this topic covers",
+      "bullets": [
+        "Research profiles for major humanoid platforms",
+        "Humanoid vs AMR for warehouse buyers",
+        "When to use the matcher instead of waiting for humanoids"
+      ]
+    }
+  ],
+  "postSlugs": [],
+  "faqs": [
+    {
+      "question": "Why are humanoids not in the matcher?",
+      "answer": "Most operators cannot procure humanoids like AMRs or scrubbers yet. We track platforms editorially until buyer programs are mature enough to score honestly."
+    }
+  ],
+  "relatedLinks": [
+    { "href": "/humanoid-robots", "label": "Humanoid robots hub" },
+    { "href": "/humanoid-vs-amr", "label": "Humanoid vs AMR" },
+    { "href": "/warehouse-robots", "label": "Warehouse matcher" }
+  ]
+}

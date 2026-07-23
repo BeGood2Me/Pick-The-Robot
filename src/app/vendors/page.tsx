@@ -3,6 +3,12 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import { Badge } from '@/components/ui/Badge';
 import { CATEGORY_CONTENT } from '@/lib/content/categories';
+import {
+  getAllHumanoids,
+  HUMANOID_HUB_PATH,
+  HUMANOID_READINESS_LABELS,
+  humanoidProfilePath,
+} from '@/lib/content/humanoids';
 import { CATEGORY_ROUTES } from '@/lib/content/navigation';
 import { ROBOT_TYPE_LABELS, type RobotCategory } from '@/lib/matching';
 import { getVendorsByCategory } from '@/lib/matching/vendors';
@@ -101,6 +107,54 @@ export default function VendorsIndexPage() {
               </section>
             );
           })}
+
+          <section id="humanoids" className="scroll-mt-8 border-t border-surface-border pt-12">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <h2 className="text-2xl font-semibold">Humanoid robots (Track)</h2>
+                <p className="mt-1 text-sm text-ink-muted">
+                  Research profiles — not in matcher scoring
+                </p>
+              </div>
+              <Link
+                href={HUMANOID_HUB_PATH}
+                className="text-sm font-medium text-accent hover:underline"
+              >
+                Humanoid hub
+              </Link>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              {getAllHumanoids().map((company) => (
+                <article
+                  key={company.id}
+                  className="card flex flex-wrap items-center justify-between gap-4"
+                >
+                  <div className="flex min-w-0 gap-3">
+                    <VendorMonogram name={company.name} size="sm" />
+                    <div className="min-w-0">
+                      <Link
+                        href={humanoidProfilePath(company.slug)}
+                        className="text-lg font-semibold hover:text-accent"
+                      >
+                        {company.name}
+                      </Link>
+                      <p className="mt-1 text-sm text-ink-muted">{company.shortDescription}</p>
+                      <Badge variant="default" className="mt-2">
+                        {HUMANOID_READINESS_LABELS[company.readiness]}
+                      </Badge>
+                    </div>
+                  </div>
+                  <Link
+                    href={humanoidProfilePath(company.slug)}
+                    className="shrink-0 text-sm font-semibold text-accent hover:underline"
+                  >
+                    View profile
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </>

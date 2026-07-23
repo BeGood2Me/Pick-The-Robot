@@ -8,6 +8,7 @@ import {
   INTEGRATIONS_HUB_PATH,
 } from '@/lib/content/pseo-integrations';
 import { VENDORS } from '@/lib/matching/vendors';
+import { getAllHumanoids, HUMANOID_HUB_PATH } from '@/lib/content/humanoids';
 import { BASE_URL } from '@/lib/seo/metadata';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/vendors',
     '/for-vendors',
+    HUMANOID_HUB_PATH,
     '/warehouse-robots',
     '/cleaning-robots',
     '/restaurant-robots',
@@ -83,6 +85,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    ...getAllHumanoids().map((h) => ({
+      url: `${BASE_URL}/humanoids/${h.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
     })),
   ];
 }
