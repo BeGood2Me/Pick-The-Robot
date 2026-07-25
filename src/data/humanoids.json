@@ -24,8 +24,8 @@
       "Deployment complexity and safety review are enterprise-grade"
     ],
     "matcherAlternative": {
-      "href": "/warehouse-robots#matcher",
-      "label": "Warehouse matcher",
+      "href": "/?matcher=category",
+      "label": "Run the matcher",
       "reason": "For transport and picking needs today, AMRs and pick-assist are deployable now."
     },
     "outboundUrl": "https://www.figure.ai"
@@ -86,8 +86,8 @@
       "Timeline to broad deployment is uncertain"
     ],
     "matcherAlternative": {
-      "href": "/cleaning-robots#matcher",
-      "label": "Cleaning matcher",
+      "href": "/?matcher=category",
+      "label": "Run the matcher",
       "reason": "For facilities automation today, autonomous scrubbers and vacuums are proven."
     },
     "outboundUrl": "https://www.1x.tech"
@@ -117,8 +117,8 @@
       "Buyer programs vary by application and integrator"
     ],
     "matcherAlternative": {
-      "href": "/warehouse-robots#matcher",
-      "label": "Warehouse matcher",
+      "href": "/?matcher=category",
+      "label": "Run the matcher",
       "reason": "For EU distribution centers, AMRs and pallet movers are available to procure now."
     },
     "outboundUrl": "https://neura-robotics.com"

@@ -1,11 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import {
+  DEPLOYABLE_MATCHER_HREF,
   getAllHumanoids,
   getHumanoidBySlug,
+  HUMANOID_HUB,
   HUMANOID_HUB_PATH,
   humanoidProfilePath,
 } from '../src/lib/content/humanoids';
 import { COMPARISONS } from '../src/lib/content/comparisons';
+import { HOME_MATCHER_RESET_HREF } from '../src/lib/content/navigation';
 
 describe('humanoids track layer', () => {
   it('loads six humanoid profiles including Tesla Optimus', () => {
@@ -20,11 +23,19 @@ describe('humanoids track layer', () => {
     expect(humanoidProfilePath('apptronik')).toBe('/humanoids/apptronik');
   });
 
+  it('links deployable matcher to homepage category picker', () => {
+    expect(DEPLOYABLE_MATCHER_HREF).toBe(HOME_MATCHER_RESET_HREF);
+    expect(HUMANOID_HUB.relatedLinks.some((l) => l.href === HOME_MATCHER_RESET_HREF)).toBe(true);
+    const figure = getHumanoidBySlug('figure-ai');
+    expect(figure?.matcherAlternative.href).toBe(HOME_MATCHER_RESET_HREF);
+  });
+
   it('has humanoid vs amr comparison', () => {
     expect(COMPARISONS['humanoid-vs-amr']).toBeDefined();
     expect(COMPARISONS['humanoid-vs-amr'].relatedLinks.some((l) => l.href === HUMANOID_HUB_PATH)).toBe(
       true,
     );
+    expect(COMPARISONS['humanoid-vs-amr'].matcherCategory).toBeUndefined();
   });
 
   it('excludes humanoids from matcher vendors dataset', async () => {

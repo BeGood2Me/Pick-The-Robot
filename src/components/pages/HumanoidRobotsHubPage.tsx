@@ -4,6 +4,8 @@ import { FaqBlock } from '@/components/content/FaqBlock';
 import { Badge } from '@/components/ui/Badge';
 import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import {
+  DEPLOYABLE_MATCHER_HREF,
+  DEPLOYABLE_MATCHER_LABEL,
   getAllHumanoids,
   HUMANOID_HUB,
   HUMANOID_HUB_PATH,
@@ -48,10 +50,10 @@ export function HumanoidRobotsHubPage() {
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
-              href="/warehouse-robots#matcher"
+              href={DEPLOYABLE_MATCHER_HREF}
               className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
             >
-              Warehouse matcher
+              {DEPLOYABLE_MATCHER_LABEL}
             </Link>
             <Link
               href="/humanoid-vs-amr"

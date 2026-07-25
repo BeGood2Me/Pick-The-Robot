@@ -1,6 +1,11 @@
 import humanoidsData from '@/data/humanoids.json';
+import { HOME_MATCHER_RESET_HREF } from '@/lib/content/navigation';
 
 export const HUMANOID_HUB_PATH = '/humanoid-robots';
+
+/** Deployable robots matcher — category picker on the homepage. */
+export const DEPLOYABLE_MATCHER_HREF = HOME_MATCHER_RESET_HREF;
+export const DEPLOYABLE_MATCHER_LABEL = 'Run the matcher';
 
 export type HumanoidReadiness = 'research' | 'pilot' | 'early-commercial';
 
@@ -82,7 +87,7 @@ export const HUMANOID_HUB = {
     {
       question: 'Can I buy a Figure or Apptronik humanoid today?',
       answer:
-        'Most buyers cannot order from a public catalog. Programs are pilot-based with enterprise sales and integration. Use our profiles for research — use the warehouse matcher for deployable options.',
+        'Most buyers cannot order from a public catalog. Programs are pilot-based with enterprise sales and integration. Use our profiles for research — use the matcher for deployable options.',
     },
     {
       question: 'Why are humanoids not in the matcher?',
@@ -97,7 +102,7 @@ export const HUMANOID_HUB = {
   ],
   relatedLinks: [
     { href: '/humanoid-vs-amr', label: 'Humanoid vs AMR for warehouses' },
-    { href: '/warehouse-robots#matcher', label: 'Warehouse matcher' },
+    { href: DEPLOYABLE_MATCHER_HREF, label: DEPLOYABLE_MATCHER_LABEL },
     { href: '/amr-vs-agv', label: 'AMR vs AGV' },
     { href: '/vendors', label: 'Deployable vendor index' },
   ],

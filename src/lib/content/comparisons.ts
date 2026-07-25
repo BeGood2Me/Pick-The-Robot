@@ -1,10 +1,12 @@
+import { DEPLOYABLE_MATCHER_HREF, DEPLOYABLE_MATCHER_LABEL } from '@/lib/content/humanoids';
+
 export interface ComparisonPage {
   slug: string;
   title: string;
   h1: string;
   metaDescription: string;
   intro: string;
-  matcherCategory: 'warehouse' | 'cleaning' | 'restaurant';
+  matcherCategory?: 'warehouse' | 'cleaning' | 'restaurant';
   rows: { aspect: string; optionA: string; optionB: string }[];
   whenA: string[];
   whenB: string[];
@@ -134,7 +136,6 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
       'Compare humanoid robots and AMRs for warehouses — deployment readiness, cost, layout fit, and when to choose deployable AMRs today.',
     intro:
       'Humanoids promise general-purpose labor in human-scale facilities. AMRs deliver proven transport and pick-assist today. For most distribution centers, AMRs are the practical choice until humanoid buyer programs mature.',
-    matcherCategory: 'warehouse',
     rows: [
       { aspect: 'Buyer readiness', optionA: 'Pilot / enterprise programs', optionB: 'Commercial fleets available' },
       { aspect: 'Primary task today', optionA: 'General manipulation (emerging)', optionB: 'Transport, pick-assist' },
@@ -174,7 +175,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
       { href: '/humanoids/figure-ai', label: 'Figure AI profile' },
       { href: '/humanoids/tesla-optimus', label: 'Tesla Optimus profile' },
       { href: '/amr-vs-agv', label: 'AMR vs AGV' },
-      { href: '/warehouse-robots#matcher', label: 'Warehouse matcher' },
+      { href: DEPLOYABLE_MATCHER_HREF, label: DEPLOYABLE_MATCHER_LABEL },
     ],
   },
 };

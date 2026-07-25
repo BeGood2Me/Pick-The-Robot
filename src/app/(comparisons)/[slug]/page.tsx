@@ -71,7 +71,7 @@ export default async function ComparisonPageRoute({
         {slug === CLEANING_CHECKLIST_COMPARISON_SLUG && <CleaningBuyersChecklist />}
 
         <Suspense fallback={null}>
-          <ComparisonMatcherCta category={page.matcherCategory} />
+          <ComparisonMatcherCta category={page.matcherCategory ?? null} />
         </Suspense>
 
         <section className="mt-10">

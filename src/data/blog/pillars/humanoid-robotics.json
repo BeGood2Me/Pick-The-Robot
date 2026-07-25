@@ -24,6 +24,6 @@
   "relatedLinks": [
     { "href": "/humanoid-robots", "label": "Humanoid robots hub" },
     { "href": "/humanoid-vs-amr", "label": "Humanoid vs AMR" },
-    { "href": "/warehouse-robots", "label": "Warehouse matcher" }
+    { "href": "/?matcher=category", "label": "Run the matcher" }
   ]
 }
