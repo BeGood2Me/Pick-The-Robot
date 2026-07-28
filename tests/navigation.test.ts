@@ -37,7 +37,7 @@ describe('CATEGORY_GUIDE_LINKS', () => {
 
 describe('HOME_MATCHER_RESET_HREF', () => {
   it('resets homepage matcher to category selection', () => {
-    expect(HOME_MATCHER_RESET_HREF).toBe('/?matcher=category');
+    expect(HOME_MATCHER_RESET_HREF).toBe('/#matcher');
   });
 });
 

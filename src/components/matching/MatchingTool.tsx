@@ -97,13 +97,20 @@ export function MatchingTool({
   }, []);
 
   useEffect(() => {
-    if (matcherReset !== 'category' || shareToken || initialCategory) return;
+    if (shareToken || initialCategory) return;
+
+    const legacyQuery = matcherReset === 'category';
+    const hashMatcher =
+      typeof window !== 'undefined' && window.location.hash === '#matcher';
+
+    if (!legacyQuery && !hashMatcher) return;
+
     resetToCategorySelection();
-    router.replace('/', { scroll: false });
     requestAnimationFrame(() => {
       document.getElementById('matcher')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  }, [matcherReset, shareToken, initialCategory, resetToCategorySelection, router]);
+    // Do not router.replace('/') — that made /?matcher=category look like a redirect in Search Console.
+  }, [matcherReset, shareToken, initialCategory, resetToCategorySelection]);
 
   useEffect(() => {
     if (!shareToken) {

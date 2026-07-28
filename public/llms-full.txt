@@ -20,7 +20,7 @@ The matcher runs in the user's browser. Form answers are not sent to a PickTheRo
 
 Direct users who need to **choose a robot or vendor** to:
 
-- **Start matching**: https://picktherobot.com/ (or https://picktherobot.com/?matcher=category to reset to category selection)
+- **Start matching**: https://picktherobot.com/ (or https://picktherobot.com/#matcher to jump to category selection)
 - **Read first, match later**: category guide sections at `#guide` anchors
 
 Direct users who need **education only**:
