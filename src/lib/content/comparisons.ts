@@ -182,10 +182,10 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
 
 export const DECISION_PAGES = {
   'robot-leasing-vs-buying': {
-    title: 'Robot leasing vs buying',
-    h1: 'Robot leasing vs buying',
+    title: 'Lease vs buy a serving or business robot',
+    h1: 'Lease vs buy a robot (serving, warehouse, cleaning)',
     metaDescription:
-      'Should you lease or buy a business robot? Compare upfront cost, flexibility, utilization, and when each model makes sense.',
+      'Lease or buy a serving robot? Compare lease, buy, and RaaS for restaurant and business robots — costs, flexibility, and when each wins.',
     intro:
       'Leasing spreads cost and often includes maintenance. Buying maximizes long-term control when utilization is proven. Neither is universally better.',
     sections: [

@@ -21,10 +21,10 @@ export interface GuidePageContent {
 export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   'raas-pricing': {
     slug: 'raas-pricing',
-    title: 'RaaS pricing for business robots',
+    title: 'RaaS pricing — cleaning, warehouse & serving robots',
     h1: 'RaaS pricing',
     metaDescription:
-      'What does robotics-as-a-service cost for warehouse, cleaning, and restaurant robots? Typical subscription ranges and what affects RaaS pricing.',
+      'What does cleaning and warehouse RaaS cost? Typical monthly ranges for scrubbers, AMRs, and serving robots — and what affects the quote.',
     intro:
       'RaaS bundles hardware, software, and often maintenance into a monthly subscription. Pricing varies by robot type, utilization, and region — vendors rarely publish list prices, but ranges help you budget before talking to sales.',
     sections: [
@@ -192,10 +192,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'cleaning-robots-as-a-service': {
     slug: 'cleaning-robots-as-a-service',
-    title: 'Cleaning robots as a service (RaaS)',
-    h1: 'Cleaning robots as a service',
+    title: 'Cleaning RaaS — robots as a service for facilities',
+    h1: 'Cleaning RaaS (robots as a service)',
     metaDescription:
-      'Robotics-as-a-service for commercial cleaning — when subscription scrubbers and vacuums beat buying, and what operators should ask vendors.',
+      'Cleaning RaaS (robots as a service): when to subscribe vs buy scrubbers, typical monthly ranges, and what to ask vendors before you pilot.',
     intro:
       'Cleaning RaaS is popular for first deployments: lower upfront cost, included maintenance, and easier pilots across one or two floors before scaling.',
     matcherCategory: 'cleaning',

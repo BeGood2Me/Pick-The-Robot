@@ -130,6 +130,10 @@ export interface Vendor {
   affiliateUrl?: string;
   sponsored?: boolean;
   shortDescription: string;
+  /** Optional SEO title override for vendor profile pages. */
+  seoTitle?: string;
+  /** Optional SEO meta description override (defaults to shortDescription). */
+  seoDescription?: string;
   /** Sponsored listings only — optional logo URL (self-hosted path recommended). */
   logoUrl?: string;
   /** Restaurant-only: typical daily cover range this vendor targets. */

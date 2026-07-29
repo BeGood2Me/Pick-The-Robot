@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const vendor = getVendorBySlug(slug);
   if (!vendor) return {};
   return siteMetadata({
-    title: `${vendor.name} — robot vendor profile`,
-    description: vendor.shortDescription,
+    title: vendor.seoTitle ?? `${vendor.name} — robot vendor profile`,
+    description: vendor.seoDescription ?? vendor.shortDescription,
     path: `/vendors/${slug}`,
   });
 }

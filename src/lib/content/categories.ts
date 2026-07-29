@@ -187,12 +187,12 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
     ],
   },
   restaurant: {
-    title: 'Restaurant robots buying guide',
+    title: 'Restaurant serving robots — lease, buy & match',
     h1: 'Restaurant robots',
     intro:
       'Match serving, bussing, kitchen, or reception robots to your venue type, volume, and layout. Get buy, lease, or RaaS guidance and vendor options.',
     metaDescription:
-      'Compare restaurant robots for serving, bussing, kitchen automation, and guest guidance. Find the right fit for QSR, full service, and food halls.',
+      'Lease or buy a restaurant serving robot? Compare serving and bussing robots by venue, peak covers, and layout — then run the matcher.',
     robotTypesIntro:
       'Front-of-house robots handle running and bussing. Kitchen automation targets prep bottlenecks. Reception robots help with guest flow.',
     acquisitionIntro:
