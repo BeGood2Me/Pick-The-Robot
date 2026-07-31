@@ -7,12 +7,24 @@ out/
 
 # env (keep .env.example)
 .env
-.env*.local
+.env.*
+!.env.example
 
 # vercel
 .vercel
 
 # debug / OS
 npm-debug.log*
+*.log
 .DS_Store
+Thumbs.db
 *.tsbuildinfo
+
+# test coverage
+coverage/
+
+# certificates / keys (accidental drops)
+*.pem
+
+# Local outreach / media contact lists — never commit
+docs/outreach/
