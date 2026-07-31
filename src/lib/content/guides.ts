@@ -192,10 +192,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'cleaning-robots-as-a-service': {
     slug: 'cleaning-robots-as-a-service',
-    title: 'Cleaning RaaS — robots as a service for facilities',
+    title: 'Cleaning robots as a service (RaaS) guide',
     h1: 'Cleaning RaaS (robots as a service)',
     metaDescription:
-      'Cleaning RaaS (robots as a service): when to subscribe vs buy scrubbers, typical monthly ranges, and what to ask vendors before you pilot.',
+      'Cleaning robots as a service: when to subscribe vs buy, vendor questions, and how RaaS cleaning differs from a plain equipment lease.',
     intro:
       'Cleaning RaaS is popular for first deployments: lower upfront cost, included maintenance, and easier pilots across one or two floors before scaling.',
     matcherCategory: 'cleaning',

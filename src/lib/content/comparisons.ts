@@ -17,10 +17,10 @@ export interface ComparisonPage {
 export const COMPARISONS: Record<string, ComparisonPage> = {
   'amr-vs-agv': {
     slug: 'amr-vs-agv',
-    title: 'AMR vs AGV for warehouses',
+    title: 'AMR vs AGV: which warehouse robot fits?',
     h1: 'AMR vs AGV',
     metaDescription:
-      'Compare autonomous mobile robots (AMRs) and automated guided vehicles (AGVs) for warehouse transport — layout, cost, and deployment differences.',
+      'AMR vs AGV for warehouses — navigation, layout change, cost, and deployment. Use this table before you shortlist vendors.',
     intro:
       'Both move materials autonomously, but AMRs navigate dynamically while AGVs follow fixed paths. Your layout stability and route predictability determine which is the better fit.',
     matcherCategory: 'warehouse',
@@ -183,10 +183,10 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
 
 export const DECISION_PAGES = {
   'robot-leasing-vs-buying': {
-    title: 'Lease vs buy a serving or business robot',
+    title: 'Lease vs buy a serving robot (when each wins)',
     h1: 'Lease vs buy a robot (serving, warehouse, cleaning)',
     metaDescription:
-      'Lease or buy a serving robot? Compare lease, buy, and RaaS for restaurant and business robots — costs, flexibility, and when each wins.',
+      'Lease vs buy a serving or business robot: cost, flexibility, and when RaaS is safer for a first restaurant or warehouse pilot.',
     intro:
       'Leasing spreads cost and often includes maintenance. Buying maximizes long-term control when utilization is proven. Neither is universally better.',
     sections: [

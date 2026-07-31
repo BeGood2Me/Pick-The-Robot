@@ -7,9 +7,9 @@
     "autonomous mobile robot vs guided vehicle",
     "warehouse AMR comparison"
   ],
-  "title": "AMR vs AGV for warehouses: 2026 comparison",
+  "title": "AMR vs AGV for warehouses (2026)",
   "h1": "AMR vs AGV for warehouses",
-  "metaDescription": "AMR vs AGV for warehouses: navigation, infrastructure, layout flexibility, deployment time, and when each fits transport workflows.",
+  "metaDescription": "AMR vs AGV compared for warehouses: dynamic vs fixed paths, infrastructure cost, and when each wins for transport workflows.",
   "intro": "AMRs navigate dynamically with sensors and software; AGVs follow fixed paths with floor infrastructure. The right choice depends on layout stability, payload, and how fast you need to deploy — not which acronym is newer.",
   "publishedAt": "2026-07-16",
   "matcherCategory": "warehouse",

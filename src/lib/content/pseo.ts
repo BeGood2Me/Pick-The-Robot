@@ -111,6 +111,42 @@ export interface ResolvedBestForPage {
   year: number;
 }
 
+/** Avoid “Serving robot robots” — labels ending in “robot” become plural robots. */
+function pluralRobotPhrase(label: string): string {
+  if (/\brobots\b/i.test(label)) return label;
+  if (/\brobot\b/i.test(label)) return label.replace(/\brobot\b/i, 'robots');
+  return `${label} robots`;
+}
+
+function shortEnvironmentName(environment: PseoEnvironment): string {
+  const shortNames: Record<string, string> = {
+    'ecommerce-warehouse': 'e-commerce fulfillment',
+    'office-retail-floors': 'office & retail floors',
+    'full-service-restaurant': 'full-service restaurants',
+  };
+  return shortNames[environment.id] ?? environment.name;
+}
+
+function buildBestForMeta(
+  robotType: RobotType,
+  robotPhrase: string,
+  environment: PseoEnvironment,
+  year: number,
+): string {
+  const env = environment.name;
+  const byType: Partial<Record<RobotType, string>> = {
+    amr: `Best AMR robots for ${env} in ${year} — compare vendors for flexible layouts, pick density, and RaaS vs buy before you pilot.`,
+    agv: `Best AGV robots for ${env} in ${year} — when fixed paths beat AMRs, vendor shortlist, and what infrastructure quotes usually include.`,
+    picking_assist: `Best pick-assist robots for ${env} in ${year} — vendors for collaborative picking, fleet sizing cues, and next-step matcher.`,
+    office_cleaner: `Best office cleaner robots for ${env} in ${year} — compact autonomous cleaners, vendor shortlist, and when to move up to scrubbers.`,
+    serving_robot: `Best serving robots for ${env} in ${year} — vendors for peak running, aisle-fit checks, and lease vs RaaS pilots.`,
+  };
+  const meta =
+    byType[robotType] ??
+    `Best ${robotPhrase} for ${env} in ${year} — compare vendors, workflows, cost models, and next steps with the matcher.`;
+  return meta.length > 160 ? `${meta.slice(0, 157)}…` : meta;
+}
+
 function defaultFaqs(robotTypeLabel: string, environmentName: string): PseoFaq[] {
   return [
     {
@@ -144,9 +180,11 @@ export function resolveBestForPage(
   const robotTypeLabel = ROBOT_TYPE_INFO[robotType]?.label ?? robotType;
   const year = new Date().getFullYear();
   const path = bestForPath(robotType, environmentId);
-  const h1 = `Best ${robotTypeLabel} robots for ${environment.name} in ${year}`;
-  const title = `${h1}`;
-  const metaDescription = `${environment.pageIntro.slice(0, 140).trim()}… Compare vendors, workflows, and next steps.`;
+  const robotPhrase = pluralRobotPhrase(robotTypeLabel);
+  const envTitle = shortEnvironmentName(environment);
+  const h1 = `Best ${robotPhrase} for ${environment.name} (${year})`;
+  const title = `Best ${robotPhrase} for ${envTitle} (${year})`;
+  const metaDescription = buildBestForMeta(robotType, robotPhrase, environment, year);
 
   return {
     robotType,
@@ -159,10 +197,7 @@ export function resolveBestForPage(
     path,
     h1,
     title,
-    metaDescription:
-      metaDescription.length > 160
-        ? `${metaDescription.slice(0, 157)}…`
-        : metaDescription,
+    metaDescription,
     matcherHref: `${CATEGORY_ROUTES[environment.category]}#matcher`,
     categoryGuideHref: categoryGuideHref(environment.category),
     costGuide: COST_GUIDE_BY_CATEGORY[environment.category],

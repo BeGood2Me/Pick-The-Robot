@@ -15,7 +15,8 @@
     "smoke": "node scripts/smoke-production.mjs",
     "blog:generate": "node scripts/generate-blog.mjs",
     "prebuild": "node scripts/generate-blog.mjs",
-    "vendors:export": "node scripts/export-vendors.mjs"
+    "vendors:export": "node scripts/export-vendors.mjs",
+    "indexnow": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/indexnow.ps1"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
