@@ -7,6 +7,7 @@ import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import { Badge } from '@/components/ui/Badge';
 import { CATEGORY_CONTENT, ROBOT_TYPE_INFO } from '@/lib/content/categories';
 import { CATEGORY_COMPARISON_LINKS, CATEGORY_ROUTES } from '@/lib/content/navigation';
+import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
 import { ROBOT_TYPE_LABELS, type RobotCategory, type RobotType } from '@/lib/matching';
 import { getVendorsByCategory } from '@/lib/matching/vendors';
 import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo/schema';
@@ -43,7 +44,7 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
         {category === 'cleaning' && (
           <p className="mt-4 text-sm text-ink-muted">
             Still researching?{' '}
-            <Link href="/cleaning-robot-vs-cleaning-staff#cleaning-buyers-checklist" className="font-medium text-accent hover:underline">
+            <Link href={CLEANING_BUYERS_CHECKLIST_PATH} className="font-medium text-accent hover:underline">
               Use the free cleaning robot buyer&apos;s checklist
             </Link>{' '}
             before vendor demos.

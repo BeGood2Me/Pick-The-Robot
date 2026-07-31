@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { CleaningBuyersChecklist } from '@/components/content/CleaningBuyersChecklist';
+import { CleaningChecklistPromo } from '@/components/content/CleaningChecklistPromo';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ComparisonMatcherCta } from '@/components/matching/ComparisonMatcherCta';
 import { ComparisonTable } from '@/components/content/ComparisonTable';
@@ -68,7 +68,7 @@ export default async function ComparisonPageRoute({
         <h1 className="font-display text-4xl font-semibold">{page.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{page.intro}</p>
 
-        {slug === CLEANING_CHECKLIST_COMPARISON_SLUG && <CleaningBuyersChecklist />}
+        {slug === CLEANING_CHECKLIST_COMPARISON_SLUG && <CleaningChecklistPromo />}
 
         <Suspense fallback={null}>
           <ComparisonMatcherCta category={page.matcherCategory ?? null} />

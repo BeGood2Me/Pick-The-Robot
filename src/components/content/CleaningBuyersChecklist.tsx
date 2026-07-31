@@ -2,8 +2,10 @@ import Link from 'next/link';
 import { BuyersChecklist } from '@/components/content/BuyersChecklist';
 import {
   CLEANING_BUYERS_CHECKLIST,
+  CLEANING_BUYERS_CHECKLIST_PATH,
   CLEANING_VENDOR_FIRST_CALL_QUESTIONS,
 } from '@/lib/content/cleaning-buyers-checklist';
+import { BASE_URL } from '@/lib/seo/metadata';
 
 export function CleaningBuyersChecklist() {
   return (
@@ -44,7 +46,7 @@ export function CleaningBuyersChecklist() {
       }
       vendorQuestions={CLEANING_VENDOR_FIRST_CALL_QUESTIONS}
       printSubtitle="Commercial cleaning robot buyer's checklist · picktherobot.com"
-      printFooterUrl="https://picktherobot.com/cleaning-robot-vs-cleaning-staff#cleaning-buyers-checklist"
+      printFooterUrl={`${BASE_URL}${CLEANING_BUYERS_CHECKLIST_PATH}`}
     />
   );
 }

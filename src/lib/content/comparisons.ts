@@ -57,7 +57,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
     metaDescription:
       'Free cleaning robot buyer\'s checklist: floor area, robot vs staff, cost ranges, RaaS, and vendor questions — plus robot vs hiring comparison.',
     intro:
-      'Use the checklist below before vendor demos — then compare robots and cleaning staff on cost, coverage, and deployment. Robots are not a straight headcount swap; they work best when floors are large, cleaning is frequent, and labor is expensive or hard to hire.',
+      'Use our free commercial cleaning robot buyer\'s checklist before vendor demos — then compare robots and cleaning staff on cost, coverage, and deployment. Robots are not a straight headcount swap; they work best when floors are large, cleaning is frequent, and labor is expensive or hard to hire.',
     matcherCategory: 'cleaning',
     rows: [
       { aspect: 'Upfront cost', optionA: 'Robot capex or subscription', optionB: 'Recruiting + wages' },
@@ -82,10 +82,11 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
       {
         question: 'Can I print the cleaning robot buyer\'s checklist?',
         answer:
-          'Yes. Click Print checklist (PDF) at the top of the checklist section — it formats a one-page summary for facilities and procurement.',
+          'Yes. Open the free commercial cleaning robot buyer\'s checklist, then click Print checklist — it formats a one-page summary for facilities and procurement.',
       },
     ],
     relatedLinks: [
+      { href: '/resources/commercial-cleaning-robot-buyer-checklist', label: 'Cleaning robot buyer\'s checklist' },
       { href: '/cleaning-robots#matcher', label: 'Cleaning robot matcher' },
       { href: '/cleaning-robot-cost', label: 'Cleaning robot cost guide' },
       { href: '/blog/cleaning-robot-cost-2026', label: 'Cleaning robot cost (2026)' },
