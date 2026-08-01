@@ -16,7 +16,7 @@ export function BlogTopBar({ activePillarSlug }: BlogTopBarProps) {
   return (
     <nav
       aria-label="Blog navigation"
-      className="border-b border-surface-border bg-surface/80 backdrop-blur-sm"
+      className="border-b border-surface-border bg-surface"
     >
       <div className="container-page flex flex-wrap items-center gap-x-4 gap-y-2 py-3 text-sm">
         <Link href={BLOG_INDEX_PATH} className="font-semibold text-ink hover:text-accent">

@@ -55,7 +55,7 @@ export function BlogPillarPage({ pillar }: { pillar: BlogPillarJson }) {
           ]}
         />
 
-        <h1 className="mt-4 font-display text-4xl font-semibold">{pillar.h1}</h1>
+        <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">{pillar.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{pillar.intro}</p>
 
         <div className="mt-10 space-y-6">

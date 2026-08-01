@@ -9,8 +9,19 @@ import { SiteHeader } from '@/components/layout/SiteHeader';
 import { BASE_URL } from '@/lib/seo/metadata';
 import './globals.css';
 
-const sans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' });
-const display = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' });
+const sans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+  adjustFontFallback: true,
+});
+const display = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+  adjustFontFallback: true,
+  preload: true,
+});
 
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 

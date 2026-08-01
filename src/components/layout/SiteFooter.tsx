@@ -15,7 +15,7 @@ export function SiteFooter() {
   const brand = getBlogBrand();
 
   return (
-    <footer className="mt-16 border-t border-surface-border bg-surface/90 backdrop-blur-sm">
+    <footer className="mt-16 border-t border-surface-border bg-surface">
       <div className="container-page py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
           <div className="max-w-[16rem] shrink-0">
