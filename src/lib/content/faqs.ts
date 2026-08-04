@@ -14,17 +14,32 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: 'What categories are supported?',
     answer:
-      'Warehouse, cleaning, and restaurant robots at launch. Each category has its own questions and robot types.',
+      'Warehouse, cleaning, and restaurant robots. Each category has its own questions and robot types.',
   },
   {
-    question: 'How do you make money?',
+    question: 'How long does the matcher take?',
     answer:
-      'The matcher is free today. We may add referral or sponsored partnerships later.',
+      'Most people finish in under two minutes. You pick a category, answer a short wizard, and get scored results immediately in the browser.',
+  },
+  {
+    question: 'Do I need an account or email?',
+    answer:
+      'No. The matcher runs in your browser without signup. Share links encode answers in the URL if you want to send results to a colleague.',
   },
   {
     question: 'Should I buy, lease, or use RaaS?',
     answer:
       'It depends on upfront budget, utilization stability, and tech readiness. The matcher recommends a primary acquisition model and explains why.',
+  },
+  {
+    question: 'Are vendor rankings paid?',
+    answer:
+      'Fit comes first. If sponsored partnerships appear later, they are disclosed and only boost vendors that already match your profile — they never override fit.',
+  },
+  {
+    question: 'How do you make money?',
+    answer:
+      'The matcher is free today. We may earn from outbound vendor referrals or disclosed sponsored placements later.',
   },
 ];
 

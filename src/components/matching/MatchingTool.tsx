@@ -35,12 +35,19 @@ function initialAnswers(category: RobotCategory): WizardAnswers {
   return base;
 }
 
-type Phase = 'category' | 'questions' | 'results';
+function scrollPageToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+}
+
+export type MatcherPhase = 'category' | 'questions' | 'results';
 
 export function MatchingTool({
   initialCategory = null,
+  onPhaseChange,
 }: {
   initialCategory?: RobotCategory | null;
+  /** Fired when the wizard phase changes (homepage uses this to hide landing chrome). */
+  onPhaseChange?: (phase: MatcherPhase) => void;
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -54,11 +61,15 @@ export function MatchingTool({
   const [result, setResult] = useState<RecommendationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [questionStep, setQuestionStep] = useState(0);
-  const [phase, setPhase] = useState<Phase>(initialCategory ? 'questions' : 'category');
+  const [phase, setPhase] = useState<MatcherPhase>(initialCategory ? 'questions' : 'category');
   const [shareLoading, setShareLoading] = useState(false);
   const [draftBanner, setDraftBanner] = useState(false);
   const [resultsAnnouncement, setResultsAnnouncement] = useState('');
   const [showFieldErrors, setShowFieldErrors] = useState(false);
+
+  useEffect(() => {
+    onPhaseChange?.(phase);
+  }, [phase, onPhaseChange]);
 
   const fieldGroups = useMemo(
     () => (category ? getFormFieldGroups(category) : []),
@@ -186,7 +197,7 @@ export function MatchingTool({
     setQuestionStep(0);
     setPhase('questions');
     requestAnimationFrame(() => {
-      document.getElementById('matcher-questions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollPageToTop();
     });
   }
 
@@ -201,7 +212,7 @@ export function MatchingTool({
       `Recommendation ready: ${recommendation.bestRobotMatch.robotType.replace(/_/g, ' ')}.`,
     );
     requestAnimationFrame(() => {
-      document.getElementById('match-results')?.scrollIntoView({ behavior: 'smooth' });
+      scrollPageToTop();
     });
   }
 
@@ -226,6 +237,9 @@ export function MatchingTool({
       setQuestionStep((s) => s + 1);
       setShowFieldErrors(false);
       setError(null);
+      requestAnimationFrame(() => {
+        scrollPageToTop();
+      });
       return;
     }
     if (!answers) return;
@@ -242,6 +256,9 @@ export function MatchingTool({
       setQuestionStep((s) => s - 1);
       setShowFieldErrors(false);
       setError(null);
+      requestAnimationFrame(() => {
+        scrollPageToTop();
+      });
       return;
     }
     setPhase('category');
@@ -249,6 +266,9 @@ export function MatchingTool({
     setAnswers(null);
     setShowFieldErrors(false);
     setError(null);
+    requestAnimationFrame(() => {
+      scrollPageToTop();
+    });
   }
 
   function handleReset() {

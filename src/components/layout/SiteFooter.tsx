@@ -32,8 +32,8 @@ export function SiteFooter() {
               </Link>
             </p>
           </div>
-          <div className="flex flex-col gap-8 sm:flex-row sm:flex-wrap sm:items-start sm:gap-x-12 sm:gap-y-8">
-            <div className="shrink-0">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="min-w-0">
               <p className="text-sm font-semibold text-ink">Still researching?</p>
               <p className="mt-1 text-xs text-ink-muted">Robot types, vendors, and FAQs</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
@@ -61,7 +61,7 @@ export function SiteFooter() {
                 ))}
               </ul>
             </div>
-            <div className="shrink-0">
+            <div className="min-w-0">
               <p className="text-sm font-semibold text-ink">Comparisons</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
                 {COMPARISON_LINKS.map((link) => (
@@ -78,7 +78,7 @@ export function SiteFooter() {
                 </li>
               </ul>
             </div>
-            <div className="shrink-0">
+            <div className="min-w-0">
               <p className="text-sm font-semibold text-ink">Acquisition guides</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
                 {DECISION_LINKS.map((link) => (
@@ -90,7 +90,7 @@ export function SiteFooter() {
                 ))}
               </ul>
             </div>
-            <div className="shrink-0">
+            <div className="min-w-0">
               <p className="text-sm font-semibold text-ink">Cost &amp; pricing</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
                 {GUIDE_LINKS.filter((link) => link.href !== '/raas-pricing').map((link) => (
@@ -102,7 +102,7 @@ export function SiteFooter() {
                 ))}
               </ul>
             </div>
-            <div className="shrink-0">
+            <div className="min-w-0">
               <p className="text-sm font-semibold text-ink">Blog topics</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
                 <li>
@@ -119,7 +119,7 @@ export function SiteFooter() {
                 ))}
               </ul>
             </div>
-            <div className="shrink-0">
+            <div className="min-w-0">
               <p className="text-sm font-semibold text-ink">For vendors</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
                 <li>

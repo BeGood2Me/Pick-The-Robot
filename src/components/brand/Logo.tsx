@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { HOME_MATCHER_RESET_HREF, SITE_NAME } from '@/lib/content/navigation';
+import { HOME_HREF, SITE_NAME } from '@/lib/content/navigation';
 import { RobotMarkSvg } from '@/lib/brand/robotMark';
 
 type LogoProps = {
@@ -9,7 +9,7 @@ type LogoProps = {
 export function Logo({ className = '' }: LogoProps) {
   return (
     <Link
-      href={HOME_MATCHER_RESET_HREF}
+      href={HOME_HREF}
       className={`group inline-flex items-center gap-2.5 ${className}`}
       aria-label="PickTheRobot home"
     >

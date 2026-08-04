@@ -18,9 +18,11 @@ export function categoryGuideHref(category: RobotCategory): string {
   return `${CATEGORY_ROUTES[category]}#${CATEGORY_GUIDE_ANCHOR}`;
 }
 
-/** Logo home — resets homepage matcher to category selection. */
 /** Homepage matcher entry — hash scrolls to wizard; avoids ?query URLs that GSC treats as redirects. */
 export const HOME_MATCHER_RESET_HREF = '/#matcher';
+
+/** Site logo / brand home link (plain homepage, not matcher hash). */
+export const HOME_HREF = '/';
 
 export const VENDORS_INDEX_HREF = '/vendors';
 

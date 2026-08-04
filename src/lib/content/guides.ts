@@ -193,7 +193,7 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   'cleaning-robots-as-a-service': {
     slug: 'cleaning-robots-as-a-service',
     title: 'Cleaning robots as a service (RaaS) guide',
-    h1: 'Cleaning RaaS (robots as a service)',
+    h1: 'Cleaning RaaS',
     metaDescription:
       'Cleaning robots as a service: when to subscribe vs buy, vendor questions, and how RaaS cleaning differs from a plain equipment lease.',
     intro:
