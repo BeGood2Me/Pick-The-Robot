@@ -47,6 +47,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
     ],
     relatedLinks: [
       { href: '/warehouse-robots', label: 'Warehouse robot matcher' },
+      { href: '/best/amr/ecommerce-warehouse', label: 'Best AMRs for e-commerce fulfillment' },
       { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service' },
     ],
   },
@@ -96,12 +97,12 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
   },
   'restaurant-robot-vs-runner': {
     slug: 'restaurant-robot-vs-runner',
-    title: 'Restaurant serving robot vs runner',
-    h1: 'Restaurant robot vs runner',
+    title: 'Food runner robot vs human runner',
+    h1: 'Food runner robot vs runner staff',
     metaDescription:
-      'Compare serving robots and human runners for restaurants — volume, layout, peak hours, and acquisition models.',
+      'Food runner robot vs human runners: when a restaurant serving robot wins on peak volume, aisle layout, and lease vs labor cost.',
     intro:
-      'Serving robots reduce server travel during peak periods. They are not a universal replacement for runners — layout, covers, and peak intensity matter.',
+      'A food runner robot (serving robot) reduces server travel during peak periods. It is not a universal replacement for runner staff — layout, covers, and peak intensity matter.',
     matcherCategory: 'restaurant',
     rows: [
       { aspect: 'Peak capacity', optionA: 'Adds parallel running capacity', optionB: 'Limited by staff count' },
@@ -114,6 +115,11 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
     whenB: ['Low daily volume', 'Narrow aisles', 'Guest experience requires human touch'],
     faqs: [
       {
+        question: 'What is a food runner robot?',
+        answer:
+          'A food runner robot is a serving robot that carries trays or plates between kitchen and dining floor. It offloads travel; staff still handle guest interaction and exceptions.',
+      },
+      {
         question: 'Do serving robots slow down service?',
         answer:
           'In the right layout they can speed peak turnover by offloading travel. Tight layouts may require route changes first.',
@@ -121,11 +127,18 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
       {
         question: 'Should I lease or buy a serving robot?',
         answer:
-          'Most operators pilot on lease or RaaS. Buying is for proven high utilization across multiple peak periods per week.',
+          'Most operators pilot on lease or RaaS. Buying is for proven high utilization across multiple peak periods per week. See the serving robot cost guide for typical monthly and purchase ranges.',
+      },
+      {
+        question: 'When is a robot food runner better than hiring?',
+        answer:
+          'When peak covers create a travel bottleneck, aisles are wide enough, and lease cost is competitive with loaded labor for those trips — not for full server replacement in tight fine-dining rooms.',
       },
     ],
     relatedLinks: [
+      { href: '/blog/restaurant-serving-robot-cost', label: 'Serving robot cost (buy vs lease)' },
       { href: '/restaurant-robots', label: 'Restaurant robot matcher' },
+      { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
       { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service' },
     ],
   },
@@ -210,6 +223,11 @@ export const DECISION_PAGES = {
       },
     ],
     faqs: [
+      {
+        question: 'Should I buy or lease a serving robot?',
+        answer:
+          'Lease or RaaS for a first restaurant pilot when peak utilization is unproven. Buy after covers justify the unit across multiple busy periods. See the serving robot cost guide for typical $500–$1,500/mo and purchase bands.',
+      },
       {
         question: 'Is leasing always more expensive long term?',
         answer:

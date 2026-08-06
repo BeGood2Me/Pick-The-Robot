@@ -135,7 +135,7 @@ function buildBestForMeta(
 ): string {
   const env = environment.name;
   const byType: Partial<Record<RobotType, string>> = {
-    amr: `Best AMR robots for ${env} in ${year} — compare vendors for flexible layouts, pick density, and RaaS vs buy before you pilot.`,
+    amr: `Best fulfillment AMR robots for ${env} in ${year} — compare vendors for e-commerce pick density, layout change, and RaaS vs buy before you pilot.`,
     agv: `Best AGV robots for ${env} in ${year} — when fixed paths beat AMRs, vendor shortlist, and what infrastructure quotes usually include.`,
     picking_assist: `Best pick-assist robots for ${env} in ${year} — vendors for collaborative picking, fleet sizing cues, and next-step matcher.`,
     office_cleaner: `Best office cleaner robots for ${env} in ${year} — compact autonomous cleaners, vendor shortlist, and when to move up to scrubbers.`,

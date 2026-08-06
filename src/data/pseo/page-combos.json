@@ -4,8 +4,16 @@
     "environmentId": "ecommerce-warehouse",
     "faqs": [
       {
+        "question": "What is a fulfillment AMR?",
+        "answer": "A fulfillment AMR is an autonomous mobile robot used in e-commerce and omnichannel warehouses for tote/carton transport or pick-assist. Unlike fixed-path AGVs, fulfillment AMRs navigate dynamically when slotting and promotions change layout."
+      },
+      {
         "question": "Are AMRs better than AGVs for e-commerce warehouses?",
         "answer": "Often yes when layouts change and picks are dense—AMRs navigate dynamically. AGVs can win on fixed high-volume lanes. Many sites mix both. Use the AMR vs AGV guide and the warehouse matcher to compare for your pain point."
+      },
+      {
+        "question": "How do AMRs help e-commerce fulfillment?",
+        "answer": "They cut walking time on dense pick paths, move totes/cartons between zones, and scale fleet size with volume. Best fits are sites with layout change, high picks per hour pressure, and Wi-Fi ready for fleet software."
       },
       {
         "question": "How long does an AMR pilot usually take?",
@@ -18,6 +26,10 @@
       {
         "question": "How many AMRs do e-commerce sites start with?",
         "answer": "Transport and pick-assist pilots commonly start with a small fleet (often around 3–5 robots) in one zone before expanding. Fleet size depends on picks, travel distance, and shifts—confirm with vendor sizing and the matcher hint."
+      },
+      {
+        "question": "Who are typical AMR vendors for e-commerce fulfillment?",
+        "answer": "Shortlists often include Locus, 6 River / Zebra, Geek+, MiR, and similar fleet platforms—compare on workflow fit, WMS connectors, and RaaS vs buy, not brand alone. See vendor profiles linked on this page and the warehouse cost guide for budget bands."
       }
     ]
   },

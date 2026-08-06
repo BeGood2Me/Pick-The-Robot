@@ -68,7 +68,7 @@ export const COMPARISON_LINKS = [
   { href: '/amr-vs-agv', label: 'AMR vs AGV' },
   { href: '/humanoid-vs-amr', label: 'Humanoid vs AMR' },
   { href: '/cleaning-robot-vs-cleaning-staff', label: 'Robot vs staff' },
-  { href: '/restaurant-robot-vs-runner', label: 'Robot vs runner' },
+  { href: '/restaurant-robot-vs-runner', label: 'Food runner robot vs staff' },
 ] as const;
 
 /** Category-specific comparison guides for internal linking. */
@@ -138,7 +138,7 @@ export const CATEGORY_COMPARISON_LINKS: Record<
   restaurant: [
     {
       href: '/restaurant-robot-vs-runner',
-      label: 'Robot vs runner',
+      label: 'Food runner robot vs staff',
       blurb: 'Serving robots vs extra floor staff.',
     },
     {

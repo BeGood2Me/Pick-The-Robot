@@ -137,6 +137,30 @@ function DecisionPageContent({ pageKey }: { pageKey: DecisionKey }) {
 
             )}
 
+            {pageKey === 'robot-leasing-vs-buying' || pageKey === 'robotics-as-a-service' ? (
+
+              <li>
+
+                <Link href="/blog/restaurant-serving-robot-cost" className="text-accent hover:underline">
+
+                  Buy or lease a serving robot (cost ranges)
+
+                </Link>
+
+              </li>
+
+            ) : null}
+
+            <li>
+
+              <Link href="/best/amr/ecommerce-warehouse" className="text-accent hover:underline">
+
+                Best AMRs for e-commerce fulfillment
+
+              </Link>
+
+            </li>
+
             <li>
 
               <Link href="/warehouse-robots" className="text-accent hover:underline">

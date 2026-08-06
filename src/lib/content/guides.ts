@@ -133,6 +133,7 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
     ],
     relatedLinks: [
       { href: '/warehouse-robots', label: 'Warehouse robot matcher' },
+      { href: '/best/amr/ecommerce-warehouse', label: 'Best AMRs for e-commerce fulfillment' },
       { href: '/amr-vs-agv', label: 'AMR vs AGV' },
       { href: '/raas-pricing', label: 'RaaS pricing' },
     ],

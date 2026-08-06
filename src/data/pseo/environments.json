@@ -7,7 +7,7 @@
     "trafficPattern": "High pick density, mixed tote/carton moves, dynamic slotting",
     "priorityKpis": ["throughput", "picks per hour", "labour reduction", "error rate"],
     "category": "warehouse",
-    "pageIntro": "E-commerce warehouses need robots that tolerate layout change and high pick density—not just fixed guided loops. This page ranks vendors whose fleets support AMR-style transport and pick assist for fulfillment sites, then points you to cost guides and the matcher."
+    "pageIntro": "Fulfillment AMRs help e-commerce warehouses cut walking time when layouts change and pick density is high—not just fixed guided AGV loops. This page ranks vendors whose fleets support AMR transport and pick assist for e-commerce fulfillment, then points you to cost guides and the matcher."
   },
   {
     "id": "office-retail-floors",

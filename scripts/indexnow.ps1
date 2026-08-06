@@ -5,13 +5,14 @@
 $key = "6662e166-5a66-4ac6-abc7-7fcc9a30b510"
 $hostName = "picktherobot.com"
 $urls = @(
+  "https://picktherobot.com/blog/restaurant-serving-robot-cost",
+  "https://picktherobot.com/restaurant-robot-vs-runner",
   "https://picktherobot.com/best/amr/ecommerce-warehouse",
-  "https://picktherobot.com/integrations/locus-robotics/sap-ewm",
   "https://picktherobot.com/robot-leasing-vs-buying",
-  "https://picktherobot.com/restaurant-robots",
-  "https://picktherobot.com/cleaning-robots-as-a-service",
-  "https://picktherobot.com/raas-pricing",
-  "https://picktherobot.com/vendors/mir-mobile-industrial-robots"
+  "https://picktherobot.com/robotics-as-a-service",
+  "https://picktherobot.com/amr-vs-agv",
+  "https://picktherobot.com/warehouse-robot-cost",
+  "https://picktherobot.com/blog/warehouse-robot-cost-2026"
 )
 
 $bodyObj = @{

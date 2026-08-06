@@ -27,7 +27,9 @@
     }
   ],
   "relatedLinks": [
+    { "href": "/blog/restaurant-serving-robot-cost", "label": "Serving robot cost (buy vs lease)" },
     { "href": "/restaurant-robots", "label": "Restaurant robots hub" },
-    { "href": "/restaurant-robot-vs-runner", "label": "Robot vs runner comparison" }
+    { "href": "/restaurant-robot-vs-runner", "label": "Food runner robot vs staff" },
+    { "href": "/robot-leasing-vs-buying", "label": "Lease vs buy" }
   ]
 }

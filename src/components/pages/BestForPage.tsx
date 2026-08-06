@@ -225,6 +225,13 @@ export function BestForPage({ page }: { page: ResolvedBestForPage }) {
                 All best-for facility pages
               </Link>
             </li>
+            {page.robotType === 'amr' && page.environment.id === 'ecommerce-warehouse' ? (
+              <li>
+                <Link href="/amr-vs-agv" className="text-accent hover:underline">
+                  AMR vs AGV comparison
+                </Link>
+              </li>
+            ) : null}
             <li>
               <Link href={INTEGRATIONS_HUB_PATH} className="text-accent hover:underline">
                 Robot software integrations
