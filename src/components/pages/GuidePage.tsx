@@ -39,24 +39,6 @@ function GuidePageContent({ pageKey }: { pageKey: GuideKey }) {
         <h1 className="font-display text-4xl font-semibold">{page.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{page.intro}</p>
 
-        <section className="mt-8 card border-accent/30 bg-accent-soft/20">
-          <h2 className="text-lg font-semibold">Get a recommendation for your operation</h2>
-          <p className="mt-2 text-sm text-ink-muted">
-            Answer a few questions about your facility — we&apos;ll rank robot types, acquisition
-            models, and vendors from your inputs.
-          </p>
-          <p className="mt-4">
-            <Link
-              href={matcherHref}
-              className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
-            >
-              Run the matcher
-            </Link>
-          </p>
-        </section>
-
-        <StickyMatcherCta href={matcherHref} />
-
         <div className="mt-10 space-y-6">
           {page.sections.map((section) => (
             <section key={section.heading} className="card">
@@ -93,6 +75,24 @@ function GuidePageContent({ pageKey }: { pageKey: GuideKey }) {
         <div className="mt-10">
           <FaqBlock items={[...page.faqs]} />
         </div>
+
+        <section className="mt-10 card border-accent/30 bg-accent-soft/20">
+          <h2 className="text-lg font-semibold">Get a recommendation for your operation</h2>
+          <p className="mt-2 text-sm text-ink-muted">
+            Answer a few questions about your facility — we&apos;ll rank robot types, acquisition
+            models, and vendors from your inputs.
+          </p>
+          <p className="mt-4">
+            <Link
+              href={matcherHref}
+              className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
+            >
+              Run the matcher
+            </Link>
+          </p>
+        </section>
+
+        <StickyMatcherCta href={matcherHref} />
       </div>
     </>
   );

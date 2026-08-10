@@ -70,10 +70,6 @@ export default async function ComparisonPageRoute({
 
         {slug === CLEANING_CHECKLIST_COMPARISON_SLUG && <CleaningChecklistPromo />}
 
-        <Suspense fallback={null}>
-          <ComparisonMatcherCta category={page.matcherCategory ?? null} />
-        </Suspense>
-
         <section className="mt-10">
           <h2 className="mb-4 text-xl font-semibold text-ink">
             {slug === CLEANING_CHECKLIST_COMPARISON_SLUG
@@ -102,6 +98,10 @@ export default async function ComparisonPageRoute({
           </section>
         </div>
 
+        <div className="mt-10">
+          <FaqBlock items={page.faqs} />
+        </div>
+
         <section className="mt-10 card">
           <h2 className="font-semibold">Related</h2>
           <ul className="mt-3 space-y-1 text-sm">
@@ -115,9 +115,9 @@ export default async function ComparisonPageRoute({
           </ul>
         </section>
 
-        <div className="mt-10">
-          <FaqBlock items={page.faqs} />
-        </div>
+        <Suspense fallback={null}>
+          <ComparisonMatcherCta category={page.matcherCategory ?? null} />
+        </Suspense>
       </div>
     </>
   );
