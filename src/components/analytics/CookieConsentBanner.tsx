@@ -20,11 +20,10 @@ export function CookieConsentBanner({ onChoice }: { onChoice: (consent: Analytic
       <div className="container-page flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="max-w-2xl text-sm">
           <p id="cookie-consent-title" className="font-semibold text-ink">
-            Analytics cookies
+            We use cookies
           </p>
           <p id="cookie-consent-desc" className="mt-1 text-ink-muted">
-            We use optional analytics to understand how the matcher is used. Accept to load Google
-            Analytics and/or Plausible. Essential-only keeps the site working without analytics.{' '}
+            We use cookies to understand how the site is used.{' '}
             <Link href="/privacy" className="font-medium text-accent hover:underline">
               Privacy policy
             </Link>
@@ -32,10 +31,10 @@ export function CookieConsentBanner({ onChoice }: { onChoice: (consent: Analytic
         </div>
         <div className="flex shrink-0 flex-wrap gap-2">
           <Button type="button" variant="secondary" onClick={() => choose('declined')}>
-            Essential only
+            Reject
           </Button>
           <Button type="button" onClick={() => choose('accepted')}>
-            Accept analytics
+            Accept cookies
           </Button>
         </div>
       </div>

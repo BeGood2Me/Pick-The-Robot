@@ -66,7 +66,7 @@ export default function PrivacyPage() {
           type, and general location derived from IP address. We also send custom events for things like
           completing a match or clicking a vendor link — typically including category, robot type, or
           vendor identifier, not your full form responses. Analytics scripts load only after you accept
-          them in the cookie banner on your first visit. Your choice (accept or essential only) is
+          them in the cookie banner on your first visit. Your choice (accept or reject) is
           stored in your browser&apos;s <strong className="text-ink">local storage</strong> so we do
           not ask again on every page. You can limit analytics with browser extensions, blocking
           third-party scripts, clearing site data, or your browser&apos;s privacy settings.
