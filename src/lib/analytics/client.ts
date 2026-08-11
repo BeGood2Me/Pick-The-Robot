@@ -1,3 +1,4 @@
+import type { AnalyticsConsent } from '@/lib/analytics/consent';
 import type { MatchEvent } from '@/lib/matching/types';
 
 type GtagFn = (...args: unknown[]) => void;
@@ -26,6 +27,19 @@ function sanitizePayload(payload: unknown): Record<string, unknown> {
     }
   }
   return flat;
+}
+
+/** Sync Google Consent Mode with the user's analytics cookie choice. */
+export function applyGoogleAnalyticsConsent(consent: AnalyticsConsent): void {
+  if (typeof window === 'undefined' || !window.gtag) return;
+
+  const granted = consent === 'accepted';
+  window.gtag('consent', 'update', {
+    analytics_storage: granted ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+  });
 }
 
 /** Dispatch a match event to configured analytics providers. */

@@ -1,8 +1,12 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { AnalyticsScripts } from '@/components/analytics/AnalyticsScripts';
+import {
+  GoogleAnalyticsScripts,
+  PlausibleScript,
+} from '@/components/analytics/AnalyticsScripts';
 import { CookieConsentBanner } from '@/components/analytics/CookieConsentBanner';
+import { applyGoogleAnalyticsConsent } from '@/lib/analytics/client';
 import {
   isAnalyticsConfigured,
   readAnalyticsConsent,
@@ -28,18 +32,29 @@ export function AnalyticsConsentProvider({ children }: { children: React.ReactNo
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    setConsent(readAnalyticsConsent());
+    const stored = readAnalyticsConsent();
+    setConsent(stored);
     setHydrated(true);
+    if (stored) {
+      applyGoogleAnalyticsConsent(stored);
+    }
   }, []);
 
+  function handleConsentChoice(next: AnalyticsConsent) {
+    setConsent(next);
+    applyGoogleAnalyticsConsent(next);
+  }
+
   const showBanner = analyticsConfigured && hydrated && consent === null;
-  const loadScripts = analyticsConfigured && consent === 'accepted';
+  const loadPlausible = analyticsConfigured && consent === 'accepted';
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
     <AnalyticsConsentContext.Provider value={{ consent, setConsent }}>
-      {loadScripts && <AnalyticsScripts />}
+      {gaId ? <GoogleAnalyticsScripts /> : null}
+      {loadPlausible ? <PlausibleScript /> : null}
       {children}
-      {showBanner && <CookieConsentBanner onChoice={setConsent} />}
+      {showBanner ? <CookieConsentBanner onChoice={handleConsentChoice} /> : null}
     </AnalyticsConsentContext.Provider>
   );
 }
