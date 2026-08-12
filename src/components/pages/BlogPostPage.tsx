@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import type { BlogBrandProfile, BlogPostJson } from '@/lib/content/blog-types';
 import {
+  blogPillarHref,
   blogPostPath,
   getBlogPillarBySlug,
   getRelatedPosts,
@@ -31,6 +32,7 @@ export function blogPostMetadata(post: BlogPostJson) {
     title: post.title,
     description: post.metaDescription,
     path,
+    canonicalPath: post.canonicalPath,
     ogImage: `${path}/opengraph-image`,
     ogType: 'article',
     publishedTime: post.publishedAt,
@@ -57,7 +59,7 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
           { name: 'Home', path: '/' },
           { name: 'Blog', path: '/blog' },
           ...(pillar
-            ? [{ name: pillar.h1, path: `/blog/topics/${pillar.slug}` }]
+            ? [{ name: pillar.h1, path: blogPillarHref(pillar) }]
             : []),
           { name: post.h1, path },
         ])}
@@ -87,7 +89,7 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
             { label: 'Home', href: '/' },
             { label: 'Blog', href: '/blog' },
             ...(pillar
-              ? [{ label: pillar.h1, href: `/blog/topics/${pillar.slug}` }]
+              ? [{ label: pillar.h1, href: blogPillarHref(pillar) }]
               : []),
             { label: post.h1 },
           ]}

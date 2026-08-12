@@ -84,10 +84,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'warehouse-robot-cost': {
     slug: 'warehouse-robot-cost',
-    title: 'Warehouse robot cost guide',
+    title: 'Warehouse robot cost: AMR, AGV, and RaaS ranges',
     h1: 'Warehouse robot cost',
     metaDescription:
-      'How much do warehouse robots cost? Typical price ranges for AMRs, AGVs, pick-assist, and pallet movers — buy, lease, and RaaS.',
+      'Warehouse robot cost ranges for AMRs, AGVs, pick-assist, and pallet movers — buy, lease, and RaaS. Use the 2026 cost article for first-year budget examples.',
     intro:
       'Warehouse robot costs span a wide range by type and acquisition model. Use these benchmarks for budgeting; confirm quotes with vendors for your facility size and integration scope.',
     matcherCategory: 'warehouse',
@@ -132,6 +132,7 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
       },
     ],
     relatedLinks: [
+      { href: '/blog/warehouse-robot-cost-2026', label: 'Warehouse robot cost in 2026' },
       { href: '/warehouse-robots', label: 'Warehouse robot matcher' },
       { href: '/best/amr/ecommerce-warehouse', label: 'Best AMRs for e-commerce fulfillment' },
       { href: '/amr-vs-agv', label: 'AMR vs AGV' },

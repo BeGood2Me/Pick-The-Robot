@@ -49,6 +49,24 @@ describe('blog content', () => {
     expect(registry.posts.length).toBe(getAllBlogPosts().length);
   });
 
+  it('canonicalizes blog twins to standalone guides', () => {
+    expect(getBlogPostBySlug('amr-vs-agv-comparison')?.canonicalPath).toBe('/amr-vs-agv');
+    expect(getBlogPostBySlug('cleaning-robot-cost-2026')?.canonicalPath).toBe('/cleaning-robot-cost');
+    expect(getBlogPostBySlug('raas-cleaning-robots-guide')?.canonicalPath).toBe(
+      '/cleaning-robots-as-a-service',
+    );
+    expect(getBlogPostBySlug('robot-raas-vs-buying-explained')?.canonicalPath).toBe(
+      '/robot-leasing-vs-buying',
+    );
+    expect(getBlogPostBySlug('warehouse-robot-cost-2026')?.canonicalPath).toBeUndefined();
+  });
+
+  it('points the empty humanoid pillar at the humanoid hub', () => {
+    const pillar = getAllBlogPillars().find((p) => p.slug === 'humanoid-robotics');
+    expect(pillar?.canonicalPath).toBe('/humanoid-robots');
+    expect(pillar?.postSlugs).toHaveLength(0);
+  });
+
   it('warehouse buyer checklist has ten steps and vendor questions', () => {
     expect(WAREHOUSE_BUYERS_CHECKLIST).toHaveLength(10);
     expect(VENDOR_FIRST_CALL_QUESTIONS.length).toBeGreaterThanOrEqual(10);

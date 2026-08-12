@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllBlogPillars, getBlogBrand } from '@/lib/content/blog';
+import { getAllBlogPillars, getBlogBrand, blogPillarHref } from '@/lib/content/blog';
 import { HUMANOID_HUB_PATH } from '@/lib/content/humanoids';
 import {
   CATEGORY_GUIDE_LINKS,
@@ -112,7 +112,7 @@ export function SiteFooter() {
                 </li>
                 {blogPillars.map((pillar) => (
                   <li key={pillar.slug}>
-                    <Link href={`/blog/topics/${pillar.slug}`} className="hover:text-ink">
+                    <Link href={blogPillarHref(pillar)} className="hover:text-ink">
                       {pillar.h1}
                     </Link>
                   </li>

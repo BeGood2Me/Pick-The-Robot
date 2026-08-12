@@ -19,9 +19,9 @@ import { siteMetadata } from '@/lib/seo/metadata';
 const CATEGORIES: RobotCategory[] = ['warehouse', 'cleaning', 'restaurant'];
 
 export const metadata = siteMetadata({
-  title: 'Robot vendors — warehouse, cleaning, and restaurant',
+  title: 'Robot vendor directory: warehouse, cleaning, restaurant',
   description:
-    'Browse robot vendors for warehouse AMRs, cleaning scrubbers, and restaurant service robots. Profiles, acquisition models, and outbound links.',
+    'Directory of warehouse, cleaning, and restaurant robot vendors in the PickTheRobot matcher. Browse profiles, then run the matcher for a ranked shortlist — not a market-size report.',
   path: '/vendors',
 });
 
@@ -37,10 +37,11 @@ export default function VendorsIndexPage() {
 
       <div className="container-page py-10">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Vendors' }]} />
-        <h1 className="font-display text-4xl font-semibold">Robot vendors</h1>
+        <h1 className="font-display text-4xl font-semibold">Robot vendor directory</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">
-          Profiles for vendors in our matcher dataset — warehouse, cleaning, and restaurant robotics.
-          Run the matcher for ranked recommendations, or browse by category below.
+          This is a directory of vendors in our matcher dataset for warehouse, cleaning, and restaurant
+          robotics — not a market-size or cleanroom-robotics report. Run the matcher for ranked
+          recommendations, or browse profiles by category below.
         </p>
 
         <div className="mt-10 space-y-12">

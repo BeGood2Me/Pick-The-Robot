@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {
   BLOG_INDEX_PATH,
-  blogPillarPath,
+  blogPillarHref,
   getAllBlogPillars,
   getBlogPillarBySlug,
 } from '@/lib/content/blog';
@@ -32,7 +32,7 @@ export function BlogTopBar({ activePillarSlug }: BlogTopBarProps) {
             return (
               <li key={pillar.slug}>
                 <Link
-                  href={blogPillarPath(pillar.slug)}
+                  href={blogPillarHref(pillar)}
                   className={
                     active
                       ? 'rounded-full bg-accent px-3 py-1 font-medium text-white'
@@ -61,7 +61,7 @@ export function BlogTopicList({ activePillarSlug }: BlogTopBarProps) {
         {pillars.map((pillar) => (
           <li key={pillar.slug}>
             <Link
-              href={blogPillarPath(pillar.slug)}
+              href={blogPillarHref(pillar)}
               className="inline-flex rounded-lg border border-surface-border bg-surface px-3 py-2 text-sm text-ink-muted transition hover:border-accent/40 hover:text-ink"
             >
               {pillar.h1}
@@ -81,7 +81,7 @@ export function BlogPillarLabel({ pillarSlug }: { pillarSlug: string }) {
   if (!pillar) return null;
   return (
     <Link
-      href={blogPillarPath(pillar.slug)}
+      href={blogPillarHref(pillar)}
       className="text-sm font-medium text-accent hover:underline"
     >
       {pillar.h1}

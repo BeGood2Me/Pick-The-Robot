@@ -34,7 +34,7 @@ export function HomePageContent() {
         </div>
       )}
 
-      <section id="matcher" className="mb-12 scroll-mt-8 sm:mb-16">
+      <section id="matcher" className="mb-12 scroll-mt-4 sm:mb-16 sm:scroll-mt-8">
         <MatchingTool onPhaseChange={onPhaseChange} />
       </section>
 

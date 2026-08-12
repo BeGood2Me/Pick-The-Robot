@@ -48,19 +48,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.76,
   }));
 
-  const blogPosts = getAllBlogPosts().map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt ?? post.publishedAt),
-    changeFrequency: 'monthly' as const,
-    priority: 0.75,
-  }));
+  const blogPosts = getAllBlogPosts()
+    .filter((post) => !post.canonicalPath)
+    .map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.updatedAt ?? post.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    }));
 
-  const blogPillars = getAllBlogPillars().map((pillar) => ({
-    url: `${BASE_URL}/blog/topics/${pillar.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  const blogPillars = getAllBlogPillars()
+    .filter((pillar) => !pillar.canonicalPath)
+    .map((pillar) => ({
+      url: `${BASE_URL}/blog/topics/${pillar.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
 
   return [
     ...staticPages.map((path) => ({

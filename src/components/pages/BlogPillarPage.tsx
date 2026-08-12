@@ -18,6 +18,7 @@ export function blogPillarMetadata(pillar: BlogPillarJson) {
     title: pillar.title,
     description: pillar.metaDescription,
     path,
+    canonicalPath: pillar.canonicalPath,
     ogImage: `${path}/opengraph-image`,
   });
 }

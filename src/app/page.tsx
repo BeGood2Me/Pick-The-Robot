@@ -18,7 +18,7 @@ export default function HomePage() {
       <JsonLd data={websiteJsonLd()} />
       <JsonLd data={faqJsonLd(HOME_FAQS)} />
 
-      <div className="container-page py-8 sm:py-10">
+      <div className="container-page py-4 sm:py-10">
         <HomePageContent />
       </div>
     </>

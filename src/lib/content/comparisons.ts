@@ -17,7 +17,7 @@ export interface ComparisonPage {
 export const COMPARISONS: Record<string, ComparisonPage> = {
   'amr-vs-agv': {
     slug: 'amr-vs-agv',
-    title: 'AMR vs AGV: key differences for warehouses',
+    title: 'AMR vs AGV difference: dynamic vs fixed paths',
     h1: 'AMR vs AGV',
     metaDescription:
       'AMR vs AGV difference: AMRs navigate dynamically; AGVs follow fixed paths. Compare cost, layout fit, and deployment before you shortlist vendors.',

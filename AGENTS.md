@@ -49,7 +49,7 @@ npm run build        # production build
 
 ## Key behaviors (do not break)
 
-1. **Logo / home** links to `/#matcher` (`HOME_MATCHER_RESET_HREF`) to scroll to the homepage matcher.
+1. **Logo / home** links to `/` (`HOME_HREF`). Matcher CTAs use `/#matcher` (`HOME_MATCHER_RESET_HREF`).
 2. **Category guide links** use `categoryGuideHref()` → `/[category-route]#guide` (educational content below matcher).
 3. **Share payloads** must pass full validation in `share.ts` — reject partial/tampered tokens.
 4. **`staffAssignedToCleaning: 0`** is valid (see `ZERO_VALID_FIELDS` in `validateAnswers.ts`).

@@ -3,7 +3,7 @@ import { BlogTopBar, BlogTopicList } from '@/components/blog/BlogChrome';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import {
   blogPostPath,
-  blogPillarPath,
+  blogPillarHref,
   getAllBlogPillars,
   getAllBlogPosts,
 } from '@/lib/content/blog';
@@ -47,7 +47,7 @@ export default function BlogIndexPage() {
             {pillars.map((pillar) => (
               <Link
                 key={pillar.slug}
-                href={blogPillarPath(pillar.slug)}
+                href={blogPillarHref(pillar)}
                 className="card transition hover:border-accent/40"
               >
                 <h3 className="font-semibold text-ink">{pillar.h1}</h3>

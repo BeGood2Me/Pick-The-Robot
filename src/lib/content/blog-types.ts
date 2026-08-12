@@ -43,6 +43,8 @@ export interface BlogPostJson {
   /** Slugs of other blog posts for in-cluster cross-linking. */
   relatedPostSlugs: string[];
   relatedLinks: BlogRelatedLink[];
+  /** When set, HTML canonical points here (standalone guide/comparison). */
+  canonicalPath?: string;
 }
 
 export interface BlogPillarJson {
@@ -55,6 +57,8 @@ export interface BlogPillarJson {
   postSlugs: string[];
   faqs: BlogFaq[];
   relatedLinks: BlogRelatedLink[];
+  /** When set, topic hub links and canonical point here instead of /blog/topics/{slug}. */
+  canonicalPath?: string;
 }
 
 export interface BlogRegistry {

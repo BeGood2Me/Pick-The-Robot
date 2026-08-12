@@ -21,7 +21,8 @@ describe('cleaning buyers checklist', () => {
 
   it('is linked from the cleaning vs staff comparison page', () => {
     const page = COMPARISONS[CLEANING_CHECKLIST_COMPARISON_SLUG];
-    expect(page.h1.toLowerCase()).toContain('checklist');
+    expect(page.h1.toLowerCase()).toContain('cleaning robot vs cleaning staff');
+    expect(page.intro.toLowerCase()).toContain('checklist');
     expect(
       page.relatedLinks.some((link) => link.href === CLEANING_BUYERS_CHECKLIST_PATH),
     ).toBe(true);

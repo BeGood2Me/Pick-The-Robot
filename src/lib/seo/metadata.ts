@@ -7,6 +7,8 @@ export interface SiteMetadataOptions {
   title: string;
   description: string;
   path?: string;
+  /** Prefer another URL in Search (blog twins → standalone guides). */
+  canonicalPath?: string;
   /** Set for shareable / thin pages that should not be indexed. */
   noIndex?: boolean;
   /** Override default /opengraph-image for this page. */
@@ -34,6 +36,7 @@ export function siteMetadata({
   title,
   description,
   path = '',
+  canonicalPath: canonicalPathOverride,
   noIndex = false,
   ogImage = '/opengraph-image',
   ogType = 'website',
@@ -43,6 +46,7 @@ export function siteMetadata({
   keywords,
 }: SiteMetadataOptions): Metadata {
   const url = `${BASE_URL}${canonicalPath(path)}`;
+  const canonicalUrl = `${BASE_URL}${canonicalPath(canonicalPathOverride ?? path)}`;
   const isAbsoluteTitle = title.includes(SITE_NAME);
   const ogTitle = fullTitle(title);
   const imageUrl = ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;
@@ -50,7 +54,7 @@ export function siteMetadata({
   return {
     title: isAbsoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: url },
+    alternates: { canonical: canonicalUrl },
     robots: noIndex ? { index: false, follow: true } : { index: true, follow: true },
     ...(keywords?.length ? { keywords: keywords.join(', ') } : {}),
     openGraph: {

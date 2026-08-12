@@ -95,6 +95,11 @@ export function blogPillarPath(slug: string): string {
   return `/blog/topics/${slug}`;
 }
 
+/** Public href for a topic cluster — may point at a hub when the pillar is empty. */
+export function blogPillarHref(pillar: BlogPillarJson): string {
+  return pillar.canonicalPath ?? blogPillarPath(pillar.slug);
+}
+
 export const BLOG_INDEX_PATH = '/blog';
 
 export function readBlogRegistry(): BlogRegistry | null {
