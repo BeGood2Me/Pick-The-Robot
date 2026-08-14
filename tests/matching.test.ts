@@ -308,6 +308,7 @@ describe('generateRecommendation integration', () => {
     expect(result.explanation.robotChoiceReasons.length).toBeGreaterThanOrEqual(2);
     expect(result.allRobotMatches.length).toBe(4);
     expect(result.fleetSizingHint).toBeDefined();
+    expect(result.cleaningRoi).toBeUndefined();
   });
 
   it('returns cleaning recommendation', () => {
@@ -315,6 +316,8 @@ describe('generateRecommendation integration', () => {
     expect(result.bestRobotMatch.category).toBe('cleaning');
     expect(result.vendorMatches.length).toBeGreaterThan(0);
     expect(result.allRobotMatches.length).toBe(3);
+    expect(result.cleaningRoi).toBeDefined();
+    expect(result.cleaningRoi?.robotCount).toBeGreaterThan(0);
   });
 
   it('returns restaurant recommendation', () => {

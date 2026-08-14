@@ -5,6 +5,7 @@ import {
   AcquisitionCallout,
   RecommendationCard,
 } from '@/components/matching/RecommendationCard';
+import { CleaningRoiPanel } from '@/components/matching/CleaningRoiPanel';
 import { ScoreCompareBars } from '@/components/matching/ScoreCompareBars';
 import { ScoreBreakdownTable } from '@/components/matching/ScoreBreakdownTable';
 import { ScoreMeter } from '@/components/matching/ScoreMeter';
@@ -35,6 +36,7 @@ export function MatchResults({ result }: { result: RecommendationResult }) {
     vendorsLowConfidence,
     vendorExclusionReasons,
     fleetSizingHint,
+    cleaningRoi,
     allRobotMatches,
     bestRobotMatch,
     runnerUpRobotMatch,
@@ -103,6 +105,8 @@ export function MatchResults({ result }: { result: RecommendationResult }) {
           </p>
         )}
       </section>
+
+      {cleaningRoi && <CleaningRoiPanel roi={cleaningRoi} />}
 
       {runnerUpWithin10 && runnerUpRobotMatch && (
         <p className="text-sm text-ink-muted">
@@ -216,7 +220,7 @@ export function MatchResults({ result }: { result: RecommendationResult }) {
         </section>
       )}
 
-      {fleetSizingHint && (
+      {!cleaningRoi && fleetSizingHint && (
         <section className="card border-surface-border bg-surface-soft/80">
           <h3 className="text-lg font-semibold">Fleet sizing guidance</h3>
           <p className="mt-2 text-sm text-ink-muted">{fleetSizingHint}</p>

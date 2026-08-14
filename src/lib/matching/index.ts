@@ -30,6 +30,13 @@ export {
 } from './engine';
 
 export { getFleetSizingHint, fleetSizingDisclaimer } from './sizing';
+export {
+  estimateCleaningRoi,
+  formatUsd,
+  formatUsdRange,
+  formatMonthRange,
+  CLEANING_COST_BANDS,
+} from './cleaningRoi';
 export { buildExplanation, ROBOT_TYPE_LABELS, ACQUISITION_LABELS } from './explain';
 export { VENDORS, getVendorsByCategory, getVendorById } from './vendors';
 export { setMatchEventHandler, emitMatchEvent } from './events';
@@ -63,6 +70,9 @@ export type {
   MatchEventHandler,
   PartialMatchScore,
   MatchConfidence,
+  CleaningRoiEstimate,
+  CleaningRoiViability,
+  MoneyRange,
   ScoringTrace,
   RuleHit,
   ScoreDimension,

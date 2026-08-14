@@ -165,6 +165,31 @@ export interface RecommendationExplanation {
 
 export type MatchConfidence = 'strong' | 'moderate' | 'weak';
 
+export type CleaningRoiViability = 'strong' | 'moderate' | 'weak';
+
+export interface MoneyRange {
+  low: number;
+  high: number;
+}
+
+export interface CleaningRoiEstimate {
+  robotCount: number;
+  coverageSqMPerOuting: number;
+  weeklyFloorHours: number;
+  weeklyHoursDisplaced: number;
+  monthlyLaborSavings: number;
+  monthlyRobotCost: MoneyRange;
+  monthlyNet: MoneyRange;
+  paybackMonths: MoneyRange | null;
+  viability: CleaningRoiViability;
+  acquisitionModel: AcquisitionModel;
+  robotType: CleaningRobotType;
+  wageUsed: number;
+  hoursSource: 'staff' | 'inferred';
+  assumptions: string[];
+  notes: string[];
+}
+
 export interface RecommendationResult {
   profile: UserProfile;
   bestRobotMatch: RobotMatch;
@@ -183,6 +208,8 @@ export interface RecommendationResult {
   explanation: RecommendationExplanation;
   /** Qualitative fleet sizing guidance (not a dollar ROI estimate). */
   fleetSizingHint?: string;
+  /** Cleaning only: indicative labor offset from published cost bands. */
+  cleaningRoi?: CleaningRoiEstimate;
 }
 
 /** Score without overallMatch — used as input to computeOverallMatch. */

@@ -1,4 +1,11 @@
-import { ACQUISITION_LABELS, ROBOT_TYPE_LABELS, type RecommendationResult } from '@/lib/matching';
+import {
+  ACQUISITION_LABELS,
+  ROBOT_TYPE_LABELS,
+  formatMonthRange,
+  formatUsd,
+  formatUsdRange,
+  type RecommendationResult,
+} from '@/lib/matching';
 
 export function formatResultsSummary(result: RecommendationResult): string {
   const { bestRobotMatch, runnerUpRobotMatch, vendorMatches, explanation, matchConfidence } =
@@ -24,6 +31,22 @@ export function formatResultsSummary(result: RecommendationResult): string {
     lines.push('', 'Top vendors:');
     for (const vm of vendorMatches.slice(0, 3)) {
       lines.push(`• ${vm.vendorName} — ${Math.round(vm.overallMatch)}% match`);
+    }
+  }
+
+  if (result.cleaningRoi) {
+    const roi = result.cleaningRoi;
+    lines.push(
+      '',
+      'Cleaning labor offset (indicative, not a quote):',
+      `Robots: ${roi.robotCount}`,
+      `Hours robots could take: ${roi.weeklyHoursDisplaced}/week`,
+      `Labor offset: ${formatUsd(roi.monthlyLaborSavings)}/mo`,
+      `Robot cost: ${formatUsdRange(roi.monthlyRobotCost)}/mo`,
+      `Net: ${formatUsdRange(roi.monthlyNet)}/mo`,
+    );
+    if (roi.paybackMonths) {
+      lines.push(`Purchase payback: ${formatMonthRange(roi.paybackMonths)}`);
     }
   }
 
