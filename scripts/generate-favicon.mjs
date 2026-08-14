@@ -1,6 +1,6 @@
 /**
- * Writes src/app/favicon.ico and public/favicon.ico (16 + 32 PNG frames).
- * Chrome's address bar requests /favicon.ico; a generated /icon PNG is not enough.
+ * Writes public favicon assets Chrome's address bar will actually use:
+ * classic BMP ICO (not PNG-in-ICO), SVG, and 32px PNG.
  */
 import { deflateSync } from 'node:zlib';
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -9,7 +9,6 @@ import { fileURLToPath } from 'node:url';
 
 const TEAL = { r: 0x0e, g: 0x74, b: 0x90, a: 0xff };
 const WHITE = { r: 0xff, g: 0xff, b: 0xff, a: 0xff };
-const CLEAR = { r: 0, g: 0, b: 0, a: 0 };
 
 function crc32(buf) {
   let c = 0xffffffff;
@@ -29,14 +28,13 @@ function chunk(type, data) {
   return Buffer.concat([len, typeBuf, data, crcBuf]);
 }
 
-function pngRgba(width, pixels) {
-  const height = width;
-  const raw = Buffer.alloc((width * 4 + 1) * height);
-  for (let y = 0; y < height; y++) {
-    const row = y * (width * 4 + 1);
+function pngRgba(size, pixels) {
+  const raw = Buffer.alloc((size * 4 + 1) * size);
+  for (let y = 0; y < size; y++) {
+    const row = y * (size * 4 + 1);
     raw[row] = 0;
-    for (let x = 0; x < width; x++) {
-      const p = pixels[y * width + x];
+    for (let x = 0; x < size; x++) {
+      const p = pixels[y * size + x];
       const o = row + 1 + x * 4;
       raw[o] = p.r;
       raw[o + 1] = p.g;
@@ -45,8 +43,8 @@ function pngRgba(width, pixels) {
     }
   }
   const ihdr = Buffer.alloc(13);
-  ihdr.writeUInt32BE(width, 0);
-  ihdr.writeUInt32BE(height, 4);
+  ihdr.writeUInt32BE(size, 0);
+  ihdr.writeUInt32BE(size, 4);
   ihdr[8] = 8;
   ihdr[9] = 6;
   return Buffer.concat([
@@ -61,94 +59,110 @@ function dist(x, y, cx, cy) {
   return Math.hypot(x - cx, y - cy);
 }
 
-function inRoundRect(x, y, size, radius) {
-  const r = radius;
-  if (x >= r && x < size - r && y >= 0 && y < size) return true;
-  if (y >= r && y < size - r && x >= 0 && x < size) return true;
-  if (dist(x, y, r, r) <= r) return true;
-  if (dist(x, y, size - 1 - r, r) <= r) return true;
-  if (dist(x, y, r, size - 1 - r) <= r) return true;
-  if (dist(x, y, size - 1 - r, size - 1 - r) <= r) return true;
-  return false;
-}
-
 function paintMark(size) {
   const s = (n) => (n / 28) * size;
-  const pixels = Array.from({ length: size * size }, () => CLEAR);
-  const radius = s(6);
+  const pixels = Array.from({ length: size * size }, () => ({ ...TEAL }));
   const set = (x, y, color) => {
     if (x < 0 || y < 0 || x >= size || y >= size) return;
     pixels[y * size + x] = color;
   };
-
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < size; x++) {
-      if (inRoundRect(x + 0.5, y + 0.5, size, radius)) set(x, y, TEAL);
-    }
-  }
-
   const fillCircle = (cx, cy, r, color) => {
-    const minX = Math.floor(cx - r);
-    const maxX = Math.ceil(cx + r);
-    const minY = Math.floor(cy - r);
-    const maxY = Math.ceil(cy + r);
-    for (let y = minY; y <= maxY; y++) {
-      for (let x = minX; x <= maxX; x++) {
+    for (let y = Math.floor(cy - r); y <= Math.ceil(cy + r); y++) {
+      for (let x = Math.floor(cx - r); x <= Math.ceil(cx + r); x++) {
         if (dist(x + 0.5, y + 0.5, cx, cy) <= r) set(x, y, color);
       }
     }
   };
-
   const fillRect = (x0, y0, w, h, color) => {
     for (let y = Math.floor(y0); y < Math.ceil(y0 + h); y++) {
       for (let x = Math.floor(x0); x < Math.ceil(x0 + w); x++) set(x, y, color);
     }
   };
 
-  fillCircle(s(10), s(11), s(2.25), WHITE);
-  fillCircle(s(18), s(11), s(2.25), WHITE);
-  fillRect(s(9), s(16), s(10), s(2), WHITE);
+  fillCircle(s(10), s(11), Math.max(1.2, s(2.25)), WHITE);
+  fillCircle(s(18), s(11), Math.max(1.2, s(2.25)), WHITE);
+  fillRect(s(9), s(16), s(10), Math.max(1.5, s(2)), WHITE);
   fillRect(s(12), s(4), s(4), s(3), WHITE);
-  fillCircle(s(14), s(3), s(1), WHITE);
 
   return pixels;
 }
 
-function icoFromPngs(pngs) {
-  const count = pngs.length;
-  const header = Buffer.alloc(6);
-  header.writeUInt16LE(0, 0);
-  header.writeUInt16LE(1, 2);
-  header.writeUInt16LE(count, 4);
+/** Classic ICO BMP (BGRA + AND mask). Chrome on Windows often rejects PNG-in-ICO in the address bar. */
+function dib32(size, pixels) {
+  const xorStride = size * 4;
+  const xor = Buffer.alloc(xorStride * size);
+  for (let y = 0; y < size; y++) {
+    const srcY = size - 1 - y;
+    for (let x = 0; x < size; x++) {
+      const p = pixels[srcY * size + x];
+      const o = y * xorStride + x * 4;
+      xor[o] = p.b;
+      xor[o + 1] = p.g;
+      xor[o + 2] = p.r;
+      xor[o + 3] = p.a;
+    }
+  }
+  const andStride = Math.ceil(size / 32) * 4;
+  const and = Buffer.alloc(andStride * size);
+  const header = Buffer.alloc(40);
+  header.writeUInt32LE(40, 0);
+  header.writeInt32LE(size, 4);
+  header.writeInt32LE(size * 2, 8);
+  header.writeUInt16LE(1, 12);
+  header.writeUInt16LE(32, 14);
+  header.writeUInt32LE(xor.length + and.length, 20);
+  return Buffer.concat([header, xor, and]);
+}
 
+function icoFromDibs(images) {
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(1, 2);
+  header.writeUInt16LE(images.length, 4);
   const entries = [];
-  let offset = 6 + count * 16;
+  let offset = 6 + images.length * 16;
   const bodies = [];
-  for (const { size, png } of pngs) {
+  for (const { size, dib } of images) {
     const entry = Buffer.alloc(16);
-    entry[0] = size === 256 ? 0 : size;
-    entry[1] = size === 256 ? 0 : size;
+    entry[0] = size;
+    entry[1] = size;
     entry.writeUInt16LE(1, 4);
     entry.writeUInt16LE(32, 6);
-    entry.writeUInt32LE(png.length, 8);
+    entry.writeUInt32LE(dib.length, 8);
     entry.writeUInt32LE(offset, 12);
     entries.push(entry);
-    bodies.push(png);
-    offset += png.length;
+    bodies.push(dib);
+    offset += dib.length;
   }
   return Buffer.concat([header, ...entries, ...bodies]);
 }
 
-const pngs = [16, 32, 48].map((size) => ({
-  size,
-  png: pngRgba(size, paintMark(size)),
-}));
-const ico = icoFromPngs(pngs);
+const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="32" height="32">
+  <rect width="28" height="28" rx="6" fill="#0e7490"/>
+  <circle cx="10" cy="11" r="2.25" fill="#fff"/>
+  <circle cx="18" cy="11" r="2.25" fill="#fff"/>
+  <path d="M9 17h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <rect x="12" y="4" width="4" height="3" rx="1" fill="#fff"/>
+</svg>
+`;
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const targets = [join(root, 'src', 'app', 'favicon.ico'), join(root, 'public', 'favicon.ico')];
-for (const target of targets) {
-  mkdirSync(dirname(target), { recursive: true });
-  writeFileSync(target, ico);
-  console.log(`wrote ${target} (${ico.length} bytes)`);
-}
+const pub = join(root, 'public');
+mkdirSync(pub, { recursive: true });
+
+const px16 = paintMark(16);
+const px32 = paintMark(32);
+const px48 = paintMark(48);
+
+const ico = icoFromDibs([
+  { size: 16, dib: dib32(16, px16) },
+  { size: 32, dib: dib32(32, px32) },
+  { size: 48, dib: dib32(48, px48) },
+]);
+
+writeFileSync(join(pub, 'favicon.ico'), ico);
+writeFileSync(join(pub, 'favicon.svg'), svg);
+writeFileSync(join(pub, 'favicon-32x32.png'), pngRgba(32, px32));
+writeFileSync(join(pub, 'favicon-48x48.png'), pngRgba(48, px48));
+console.log(`wrote public/favicon.ico (${ico.length} bytes, BMP ICO)`);
+console.log('wrote public/favicon.svg, favicon-32x32.png, favicon-48x48.png');
