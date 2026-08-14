@@ -148,11 +148,14 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pub = join(root, 'public');
+const appDir = join(root, 'src', 'app');
 mkdirSync(pub, { recursive: true });
+mkdirSync(appDir, { recursive: true });
 
 const px16 = paintMark(16);
 const px32 = paintMark(32);
 const px48 = paintMark(48);
+const px180 = paintMark(180);
 
 const ico = icoFromDibs([
   { size: 16, dib: dib32(16, px16) },
@@ -160,9 +163,17 @@ const ico = icoFromDibs([
   { size: 48, dib: dib32(48, px48) },
 ]);
 
+const png48 = pngRgba(48, px48);
+const png180 = pngRgba(180, px180);
+
 writeFileSync(join(pub, 'favicon.ico'), ico);
 writeFileSync(join(pub, 'favicon.svg'), svg);
 writeFileSync(join(pub, 'favicon-32x32.png'), pngRgba(32, px32));
-writeFileSync(join(pub, 'favicon-48x48.png'), pngRgba(48, px48));
+writeFileSync(join(pub, 'favicon-48x48.png'), png48);
+// Hashed <link rel="icon"> so Chrome refetches. Skip app/favicon.ico —
+// Next would inject sizes="16x16" and the address bar would use only that frame.
+writeFileSync(join(appDir, 'icon.png'), png48);
+writeFileSync(join(appDir, 'icon1.png'), pngRgba(32, px32));
+writeFileSync(join(appDir, 'apple-icon.png'), png180);
 console.log(`wrote public/favicon.ico (${ico.length} bytes, BMP ICO)`);
-console.log('wrote public/favicon.svg, favicon-32x32.png, favicon-48x48.png');
+console.log('wrote public SVG/PNGs and src/app/icon.png, icon1.png, apple-icon.png');

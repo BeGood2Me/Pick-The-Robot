@@ -33,14 +33,6 @@ export const metadata: Metadata = {
   },
   description:
     'Compare warehouse, cleaning, and restaurant robots by fit, cost model, and deployment. Rules-based recommendations and vendor matches.',
-  icons: {
-    icon: [
-      { url: '/favicon.ico?v=2', type: 'image/x-icon', sizes: '48x48' },
-      { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
-      { url: '/favicon-32x32.png?v=2', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: [{ url: '/apple-icon', sizes: '180x180', type: 'image/png' }],
-  },
   manifest: '/site.webmanifest',
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
