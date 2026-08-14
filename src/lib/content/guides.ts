@@ -84,10 +84,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'warehouse-robot-cost': {
     slug: 'warehouse-robot-cost',
-    title: 'Warehouse robot cost: AMR, AGV, and RaaS ranges',
+    title: 'Warehouse robot cost ranges (AMR, AGV, RaaS)',
     h1: 'Warehouse robot cost',
     metaDescription:
-      'Warehouse robot cost ranges for AMRs, AGVs, pick-assist, and pallet movers — buy, lease, and RaaS. Use the 2026 cost article for first-year budget examples.',
+      'Warehouse robot cost ranges by type: AMR, AGV, pick-assist, pallet mover — buy, lease, or RaaS. Then run the matcher. First-year budget examples are in the 2026 article.',
     intro:
       'Warehouse robot costs span a wide range by type and acquisition model. Use these benchmarks for budgeting; confirm quotes with vendors for your facility size and integration scope.',
     matcherCategory: 'warehouse',
@@ -141,10 +141,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'cleaning-robot-cost': {
     slug: 'cleaning-robot-cost',
-    title: 'Commercial cleaning robot cost guide',
+    title: 'Cleaning robot cost ranges: buy vs RaaS',
     h1: 'Cleaning robot cost',
     metaDescription:
-      'How much do commercial cleaning robots cost? Price ranges for office vacuums, scrubbers, and industrial cleaners — buy vs RaaS.',
+      'How much do commercial cleaning robots cost? Bands for office vacuums, scrubbers, and industrial units — buy vs RaaS. Confirm quotes with vendors.',
     intro:
       'Cleaning robot pricing depends on floor area, frequency, and machine size. Small office units cost far less than industrial scrubbers built for daily heavy use.',
     matcherCategory: 'cleaning',

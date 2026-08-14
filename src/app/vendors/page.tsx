@@ -19,9 +19,9 @@ import { siteMetadata } from '@/lib/seo/metadata';
 const CATEGORIES: RobotCategory[] = ['warehouse', 'cleaning', 'restaurant'];
 
 export const metadata = siteMetadata({
-  title: 'Robot vendor directory: warehouse, cleaning, restaurant',
+  title: 'Robot vendors for warehouse, cleaning, restaurants',
   description:
-    'Directory of warehouse, cleaning, and restaurant robot vendors in the PickTheRobot matcher. Browse profiles, then run the matcher for a ranked shortlist — not a market-size report.',
+    'Browse warehouse, cleaning, and restaurant robot vendors in the PickTheRobot directory. Profiles and outbound links — then run the matcher for a ranked shortlist, not a market-size report.',
   path: '/vendors',
 });
 

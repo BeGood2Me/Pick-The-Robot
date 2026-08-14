@@ -17,10 +17,10 @@ export interface ComparisonPage {
 export const COMPARISONS: Record<string, ComparisonPage> = {
   'amr-vs-agv': {
     slug: 'amr-vs-agv',
-    title: 'AMR vs AGV difference: dynamic vs fixed paths',
+    title: 'AMR vs AGV: pick the robot type first',
     h1: 'AMR vs AGV',
     metaDescription:
-      'AMR vs AGV difference: AMRs navigate dynamically; AGVs follow fixed paths. Compare cost, layout fit, and deployment before you shortlist vendors.',
+      'AMR vs AGV for warehouses: dynamic vs fixed paths. Choose robot type and layout fit before vendor demos — comparison table, not a spec sheet.',
     intro:
       'The core AMR vs AGV difference is navigation: AMRs (autonomous mobile robots) build and follow a map and reroute around people and obstacles, while AGVs (automated guided vehicles) stick to fixed paths — tape, reflectors, wires, or marked lanes. Layout stability and route predictability decide which fits your warehouse.',
     matcherCategory: 'warehouse',
