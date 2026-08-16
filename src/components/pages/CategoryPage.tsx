@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
+import { CanonicalDefinitions } from '@/components/content/CanonicalDefinitions';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import { Badge } from '@/components/ui/Badge';
 import { CATEGORY_CONTENT, ROBOT_TYPE_INFO } from '@/lib/content/categories';
+import { getCategoryDefinitions } from '@/lib/content/definitions';
 import { CATEGORY_COMPARISON_LINKS, CATEGORY_ROUTES } from '@/lib/content/navigation';
 import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
 import { WAREHOUSE_BUYERS_CHECKLIST_PATH } from '@/lib/content/warehouse-buyers-checklist';
@@ -86,6 +88,8 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
         <StickyMatcherCta href="#matcher" />
 
         <div id="guide" className="scroll-mt-8">
+        <CanonicalDefinitions items={getCategoryDefinitions(category)} />
+
         <section className="mt-12">
           <h2 className="text-2xl font-semibold">Robot types</h2>
           <p className="mt-2 prose-muted">{content.robotTypesIntro}</p>

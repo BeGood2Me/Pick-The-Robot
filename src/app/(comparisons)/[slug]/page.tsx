@@ -7,7 +7,9 @@ import { RestaurantChecklistPromo } from '@/components/content/RestaurantCheckli
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ComparisonMatcherCta } from '@/components/matching/ComparisonMatcherCta';
 import { ComparisonTable } from '@/components/content/ComparisonTable';
+import { CanonicalDefinitions } from '@/components/content/CanonicalDefinitions';
 import { FaqBlock } from '@/components/content/FaqBlock';
+import { COMPARISON_DEFINITION_IDS, getDefinitionsById } from '@/lib/content/definitions';
 import { COMPARISONS } from '@/lib/content/comparisons';
 import { CLEANING_CHECKLIST_COMPARISON_SLUG } from '@/lib/content/cleaning-buyers-checklist';
 import { RESTAURANT_CHECKLIST_COMPARISON_SLUG } from '@/lib/content/restaurant-buyers-checklist';
@@ -75,6 +77,10 @@ export default async function ComparisonPageRoute({
         {slug === CLEANING_CHECKLIST_COMPARISON_SLUG && <CleaningChecklistPromo />}
         {slug === WAREHOUSE_CHECKLIST_COMPARISON_SLUG && <WarehouseChecklistPromo />}
         {slug === RESTAURANT_CHECKLIST_COMPARISON_SLUG && <RestaurantChecklistPromo />}
+
+        {COMPARISON_DEFINITION_IDS[slug] && (
+          <CanonicalDefinitions items={getDefinitionsById([...COMPARISON_DEFINITION_IDS[slug]])} />
+        )}
 
         <section className="mt-10">
           <h2 className="mb-4 text-xl font-semibold text-ink">

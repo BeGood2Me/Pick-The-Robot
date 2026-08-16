@@ -14,11 +14,21 @@ PickTheRobot is a buyer-side recommendation utility, not a vendor or concierge s
 - [Cleaning robots](https://picktherobot.com/cleaning-robots): Office, retail, and industrial autonomous scrubbers/vacuums.
 - [Restaurant robots](https://picktherobot.com/restaurant-robots): Serving, bussing, kitchen, and reception robots.
 
-Educational guides (robot types, vendors, FAQs) on each category page: append `#guide` to the URL (e.g. https://picktherobot.com/warehouse-robots#guide).
+Educational guides (robot types, key definitions, vendors, FAQs) on each category page: append `#guide` to the URL (e.g. https://picktherobot.com/warehouse-robots#guide).
+
+## Buyer checklists (free, printable)
+
+- [Warehouse robot buyer checklist](https://picktherobot.com/resources/warehouse-robot-buyer-checklist)
+- [Commercial cleaning robot buyer checklist](https://picktherobot.com/resources/commercial-cleaning-robot-buyer-checklist)
+- [Restaurant robot buyer checklist](https://picktherobot.com/resources/restaurant-robot-buyer-checklist)
+
+## Methodology
+
+- [How PickTheRobot scores robots and vendors](https://picktherobot.com/methodology): Rules-based weights, sponsorship disclosure, and limits.
 
 ## Vendors
 
-- [All vendors](https://picktherobot.com/vendors): Browse 14 vendor profiles with outbound links to official sites.
+- [All vendors](https://picktherobot.com/vendors): Browse vendor profiles with outbound links to official sites.
 
 ## Comparisons & acquisition
 
@@ -28,6 +38,11 @@ Educational guides (robot types, vendors, FAQs) on each category page: append `#
 - [Lease vs buy](https://picktherobot.com/robot-leasing-vs-buying)
 - [Robotics-as-a-Service (RaaS)](https://picktherobot.com/robotics-as-a-service)
 
+## Humanoid robots (research tracker)
+
+- [Humanoid robots hub](https://picktherobot.com/humanoid-robots): Readiness labels and when deployable AMRs/scrubbers are the practical choice.
+- Profiles: [Figure AI](https://picktherobot.com/humanoids/figure-ai), [Apptronik](https://picktherobot.com/humanoids/apptronik), [1X](https://picktherobot.com/humanoids/1x), [Neura Robotics](https://picktherobot.com/humanoids/neura-robotics), [Boston Dynamics](https://picktherobot.com/humanoids/boston-dynamics), [Tesla Optimus](https://picktherobot.com/humanoids/tesla-optimus)
+
 ## Policies
 
 - [Privacy policy](https://picktherobot.com/privacy)
@@ -35,4 +50,4 @@ Educational guides (robot types, vendors, FAQs) on each category page: append `#
 
 ## Optional
 
-- [Full documentation for AI agents](https://picktherobot.com/llms-full.txt): Matcher flow, scoring overview, pages not to cite, disclaimers.
+- [Full documentation for AI agents](https://picktherobot.com/llms-full.txt): Matcher flow, scoring overview, canonical definitions, pages not to cite, disclaimers.
