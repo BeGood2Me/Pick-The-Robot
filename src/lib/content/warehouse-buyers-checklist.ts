@@ -1,6 +1,61 @@
 import type { BuyersChecklistItem } from '@/lib/content/buyers-checklist-types';
+import type { FaqItem } from '@/lib/seo/schema';
 
 export type { BuyersChecklistItem };
+
+export const WAREHOUSE_BUYERS_CHECKLIST_PATH = '/resources/warehouse-robot-buyer-checklist';
+
+export const WAREHOUSE_BUYERS_CHECKLIST_META = {
+  title: 'Warehouse robot buyer\'s checklist',
+  description:
+    'Free 10-step checklist for ops and procurement teams before AMR, AGV, pick-assist, or pallet mover demos — workflow fit, WMS readiness, pilot design, and vendor questions.',
+} as const;
+
+export const WAREHOUSE_BUYERS_CHECKLIST_LAST_UPDATED = 'August 2026';
+
+export const WAREHOUSE_BUYERS_CHECKLIST_WHEN_TO_USE = [
+  'Before scheduling vendor demos or sending an RFP',
+  'When shortlisting AMR vs AGV vs pick-assist for a specific workflow',
+  'When planning a 60–90 day pilot or comparing buy, lease, and RaaS',
+] as const;
+
+export const WAREHOUSE_BUYERS_CHECKLIST_LIMITATIONS = [
+  'Site-specific safety sign-off, traffic rules, and union or labor agreements',
+  'Detailed integration quotes, electrical work, and facility modifications',
+  'Vendor-specific SLAs and performance guarantees — validate in writing on every deal',
+] as const;
+
+export const WAREHOUSE_BUYERS_CHECKLIST_FAQS: FaqItem[] = [
+  {
+    question: 'AMR or AGV for a warehouse?',
+    answer:
+      'AMRs fit dynamic transport when layouts or pick paths change. AGVs or pallet movers often fit fixed, repetitive pallet lanes. Compare robot types before comparing brands — see our AMR vs AGV guide.',
+  },
+  {
+    question: 'How long does a warehouse robot pilot take?',
+    answer:
+      'Many AMR pilots target 60–90 days on one workflow. AGV or infrastructure-heavy projects often take longer. Integration depth and WMS connectivity usually drive the timeline more than robot count.',
+  },
+  {
+    question: 'What should I ask vendors on the first call?',
+    answer:
+      'Use the ten questions in this checklist — reference sites, workflow fit, WMS path, pilot terms, and all-in first-year cost matter more than unit list price alone.',
+  },
+  {
+    question: 'Is RaaS better for a first warehouse robot pilot?',
+    answer:
+      'RaaS or lease often lowers upfront risk when utilization is unproven. Purchase can win on stable, high-utilization fleets — compare both with the same utilization assumptions.',
+  },
+];
+
+export const WAREHOUSE_BUYERS_CHECKLIST_RELATED_LINKS = [
+  { href: '/warehouse-robots', label: 'Warehouse robots hub' },
+  { href: '/amr-vs-agv', label: 'AMR vs AGV comparison' },
+  { href: '/warehouse-robot-cost', label: 'Warehouse robot cost guide' },
+  { href: '/robot-leasing-vs-buying', label: 'Lease vs buy guide' },
+  { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service (RaaS)' },
+  { href: '/warehouse-robots#matcher', label: 'Warehouse matcher' },
+] as const;
 
 export const WAREHOUSE_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
   {
@@ -75,7 +130,7 @@ export const WAREHOUSE_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
   },
 ];
 
-export const VENDOR_FIRST_CALL_QUESTIONS = [
+export const WAREHOUSE_VENDOR_FIRST_CALL_QUESTIONS = [
   'Which reference sites match our order volume, layout, and WMS stack?',
   'What robot type do you recommend for our primary pain point — and what would you rule out?',
   'What is the all-in first-year cost (hardware, software, integration, training)?',
@@ -88,4 +143,9 @@ export const VENDOR_FIRST_CALL_QUESTIONS = [
   'What happens at contract end — buyout, refresh, or fleet return terms?',
 ];
 
+/** @deprecated Use WAREHOUSE_VENDOR_FIRST_CALL_QUESTIONS */
+export const VENDOR_FIRST_CALL_QUESTIONS = WAREHOUSE_VENDOR_FIRST_CALL_QUESTIONS;
+
 export const WAREHOUSE_ROBOT_POST_SLUG = 'how-to-buy-warehouse-robot';
+
+export const WAREHOUSE_CHECKLIST_COMPARISON_SLUG = 'amr-vs-agv';

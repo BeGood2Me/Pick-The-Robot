@@ -10,6 +10,9 @@ import {
 import { VENDORS } from '@/lib/matching/vendors';
 import { getAllHumanoids, HUMANOID_HUB_PATH } from '@/lib/content/humanoids';
 import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
+import { WAREHOUSE_BUYERS_CHECKLIST_PATH } from '@/lib/content/warehouse-buyers-checklist';
+import { RESTAURANT_BUYERS_CHECKLIST_PATH } from '@/lib/content/restaurant-buyers-checklist';
+import { METHODOLOGY_PATH } from '@/lib/content/methodology';
 import { BASE_URL } from '@/lib/seo/metadata';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,10 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     BEST_HUB_PATH,
     INTEGRATIONS_HUB_PATH,
     '/about',
+    METHODOLOGY_PATH,
     '/vendors',
     '/for-vendors',
     HUMANOID_HUB_PATH,
     CLEANING_BUYERS_CHECKLIST_PATH,
+    WAREHOUSE_BUYERS_CHECKLIST_PATH,
+    RESTAURANT_BUYERS_CHECKLIST_PATH,
     '/warehouse-robots',
     '/cleaning-robots',
     '/restaurant-robots',

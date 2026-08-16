@@ -1,7 +1,7 @@
 import { LegalDocument } from '@/components/pages/LegalDocument';
 import { siteMetadata } from '@/lib/seo/metadata';
 
-const LAST_UPDATED = 'July 3, 2026';
+const LAST_UPDATED = 'August 14, 2026';
 
 export const metadata = siteMetadata({
   title: 'Privacy Policy',
@@ -90,6 +90,17 @@ export default function PrivacyPage() {
           <strong className="text-ink">/llms-full.txt</strong> so AI assistants can describe the
           matcher and link users to the right pages. Those files describe the product and public URLs
           only — not your matcher answers or personal information.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-semibold text-ink">Chrome extension</h2>
+        <p className="mt-2">
+          We offer an optional Chrome extension (&quot;PickTheRobot — Robot Matcher Shortcut&quot;) that
+          opens PickTheRobot matcher and guide pages in a new tab when you click a button. The
+          extension does not collect personal information, does not read your browsing history, does
+          not use analytics SDKs, and does not request host or storage permissions. It only navigates
+          to public PickTheRobot URLs you choose.
         </p>
       </section>
 

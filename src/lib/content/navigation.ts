@@ -2,6 +2,9 @@ import type { RobotCategory } from '@/lib/matching';
 import { CATEGORY_LABELS } from '@/lib/forms/questions';
 
 import { GUIDE_LINKS } from '@/lib/content/guides';
+import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
+import { WAREHOUSE_BUYERS_CHECKLIST_PATH } from '@/lib/content/warehouse-buyers-checklist';
+import { RESTAURANT_BUYERS_CHECKLIST_PATH } from '@/lib/content/restaurant-buyers-checklist';
 
 export const SITE_NAME = 'PickTheRobot';
 
@@ -69,6 +72,12 @@ export const COMPARISON_LINKS = [
   { href: '/humanoid-vs-amr', label: 'Humanoid vs AMR' },
   { href: '/cleaning-robot-vs-cleaning-staff', label: 'Robot vs staff' },
   { href: '/restaurant-robot-vs-runner', label: 'Food runner robot vs staff' },
+] as const;
+
+export const BUYER_CHECKLIST_LINKS = [
+  { href: WAREHOUSE_BUYERS_CHECKLIST_PATH, label: 'Warehouse robot checklist' },
+  { href: CLEANING_BUYERS_CHECKLIST_PATH, label: 'Cleaning robot checklist' },
+  { href: RESTAURANT_BUYERS_CHECKLIST_PATH, label: 'Restaurant robot checklist' },
 ] as const;
 
 /** Category-specific comparison guides for internal linking. */
@@ -140,6 +149,11 @@ export const CATEGORY_COMPARISON_LINKS: Record<
       href: '/restaurant-robot-vs-runner',
       label: 'Food runner robot vs staff',
       blurb: 'Serving robots vs extra floor staff.',
+    },
+    {
+      href: '/resources/restaurant-robot-buyer-checklist',
+      label: 'Restaurant buyer\'s checklist',
+      blurb: 'Ten steps before vendor demos.',
     },
     {
       href: '/robotics-as-a-service',

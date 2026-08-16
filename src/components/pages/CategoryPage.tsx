@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/Badge';
 import { CATEGORY_CONTENT, ROBOT_TYPE_INFO } from '@/lib/content/categories';
 import { CATEGORY_COMPARISON_LINKS, CATEGORY_ROUTES } from '@/lib/content/navigation';
 import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
+import { WAREHOUSE_BUYERS_CHECKLIST_PATH } from '@/lib/content/warehouse-buyers-checklist';
+import { RESTAURANT_BUYERS_CHECKLIST_PATH } from '@/lib/content/restaurant-buyers-checklist';
 import { ROBOT_TYPE_LABELS, type RobotCategory, type RobotType } from '@/lib/matching';
 import { getVendorsByCategory } from '@/lib/matching/vendors';
 import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo/schema';
@@ -46,6 +48,26 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
             Still researching?{' '}
             <Link href={CLEANING_BUYERS_CHECKLIST_PATH} className="font-medium text-accent hover:underline">
               Use the free cleaning robot buyer&apos;s checklist
+            </Link>{' '}
+            before vendor demos.
+          </p>
+        )}
+
+        {category === 'warehouse' && (
+          <p className="mt-4 text-sm text-ink-muted">
+            Still researching?{' '}
+            <Link href={WAREHOUSE_BUYERS_CHECKLIST_PATH} className="font-medium text-accent hover:underline">
+              Use the free warehouse robot buyer&apos;s checklist
+            </Link>{' '}
+            before vendor demos.
+          </p>
+        )}
+
+        {category === 'restaurant' && (
+          <p className="mt-4 text-sm text-ink-muted">
+            Still researching?{' '}
+            <Link href={RESTAURANT_BUYERS_CHECKLIST_PATH} className="font-medium text-accent hover:underline">
+              Use the free restaurant robot buyer&apos;s checklist
             </Link>{' '}
             before vendor demos.
           </p>

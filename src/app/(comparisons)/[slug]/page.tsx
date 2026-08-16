@@ -2,12 +2,16 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CleaningChecklistPromo } from '@/components/content/CleaningChecklistPromo';
+import { WarehouseChecklistPromo } from '@/components/content/WarehouseChecklistPromo';
+import { RestaurantChecklistPromo } from '@/components/content/RestaurantChecklistPromo';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ComparisonMatcherCta } from '@/components/matching/ComparisonMatcherCta';
 import { ComparisonTable } from '@/components/content/ComparisonTable';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import { COMPARISONS } from '@/lib/content/comparisons';
 import { CLEANING_CHECKLIST_COMPARISON_SLUG } from '@/lib/content/cleaning-buyers-checklist';
+import { RESTAURANT_CHECKLIST_COMPARISON_SLUG } from '@/lib/content/restaurant-buyers-checklist';
+import { WAREHOUSE_CHECKLIST_COMPARISON_SLUG } from '@/lib/content/warehouse-buyers-checklist';
 import { breadcrumbJsonLd, faqJsonLd, articleJsonLd } from '@/lib/seo/schema';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { siteMetadata } from '@/lib/seo/metadata';
@@ -69,6 +73,8 @@ export default async function ComparisonPageRoute({
         <p className="mt-4 max-w-3xl text-lg prose-muted">{page.intro}</p>
 
         {slug === CLEANING_CHECKLIST_COMPARISON_SLUG && <CleaningChecklistPromo />}
+        {slug === WAREHOUSE_CHECKLIST_COMPARISON_SLUG && <WarehouseChecklistPromo />}
+        {slug === RESTAURANT_CHECKLIST_COMPARISON_SLUG && <RestaurantChecklistPromo />}
 
         <section className="mt-10">
           <h2 className="mb-4 text-xl font-semibold text-ink">

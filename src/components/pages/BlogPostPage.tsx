@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BlogTopBar, BlogTopicList, BlogPillarLabel, BlogEditorialNote } from '@/components/blog/BlogChrome';
-import { WarehouseBuyersChecklist } from '@/components/blog/WarehouseBuyersChecklist';
+import { WarehouseChecklistPromo } from '@/components/content/WarehouseChecklistPromo';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import type { BlogBrandProfile, BlogPostJson } from '@/lib/content/blog-types';
@@ -117,7 +117,7 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
         <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">{post.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{post.intro}</p>
 
-        {post.slug === WAREHOUSE_ROBOT_POST_SLUG && <WarehouseBuyersChecklist />}
+        {post.slug === WAREHOUSE_ROBOT_POST_SLUG && <WarehouseChecklistPromo />}
 
         <div className="mt-10 space-y-6">
           {post.sections.map((section) => (

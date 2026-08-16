@@ -27,6 +27,7 @@
     }
   ],
   "relatedLinks": [
+    { "href": "/resources/restaurant-robot-buyer-checklist", "label": "Restaurant robot buyer's checklist (printable)" },
     { "href": "/blog/restaurant-serving-robot-cost", "label": "Serving robot cost (buy vs lease)" },
     { "href": "/restaurant-robots", "label": "Restaurant robots hub" },
     { "href": "/restaurant-robot-vs-runner", "label": "Food runner robot vs staff" },

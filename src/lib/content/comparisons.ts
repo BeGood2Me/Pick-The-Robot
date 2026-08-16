@@ -20,9 +20,9 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
     title: 'AMR vs AGV: pick the robot type first',
     h1: 'AMR vs AGV',
     metaDescription:
-      'AMR vs AGV for warehouses: dynamic vs fixed paths. Choose robot type and layout fit before vendor demos — comparison table, not a spec sheet.',
+      'AMR vs AGV for warehouses: dynamic vs fixed paths. Choose robot type and layout fit before vendor demos — comparison table plus a free buyer checklist.',
     intro:
-      'The core AMR vs AGV difference is navigation: AMRs (autonomous mobile robots) build and follow a map and reroute around people and obstacles, while AGVs (automated guided vehicles) stick to fixed paths — tape, reflectors, wires, or marked lanes. Layout stability and route predictability decide which fits your warehouse.',
+      'The core AMR vs AGV difference is navigation: AMRs (autonomous mobile robots) build and follow a map and reroute around people and obstacles, while AGVs (automated guided vehicles) stick to fixed paths — tape, reflectors, wires, or marked lanes. Layout stability and route predictability decide which fits your warehouse. Use the free warehouse buyer checklist before demos, then compare fit below.',
     matcherCategory: 'warehouse',
     rows: [
       { aspect: 'Navigation', optionA: 'Dynamic, map-based', optionB: 'Fixed paths or guides' },
@@ -64,8 +64,14 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
         answer:
           'E-commerce DCs with changing slotting and dense picks usually lean AMR or pick-assist fleets. AGVs fit better when routes stay fixed year-round. Use the best AMRs for e-commerce fulfillment page and the warehouse matcher to shortlist.',
       },
+      {
+        question: 'Can I print the warehouse robot buyer\'s checklist?',
+        answer:
+          'Yes. Open the free warehouse robot buyer\'s checklist, then click Print checklist — it formats a one-page summary for ops and procurement.',
+      },
     ],
     relatedLinks: [
+      { href: '/resources/warehouse-robot-buyer-checklist', label: 'Warehouse robot buyer\'s checklist' },
       { href: '/warehouse-robots', label: 'Warehouse robot matcher' },
       { href: '/best/amr/ecommerce-warehouse', label: 'Best AMRs for e-commerce fulfillment' },
       { href: '/warehouse-robot-cost', label: 'Warehouse robot cost guide' },
@@ -136,9 +142,9 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
     title: 'Food runner robot vs human runner: key differences',
     h1: 'Food runner robot vs runner staff',
     metaDescription:
-      'Food runner robot vs human runner: robots add peak carrying capacity in open layouts; staff win in tight rooms. Compare lease vs labor and when each fits.',
+      'Food runner robot vs human runner: robots add peak carrying capacity in open layouts; staff win in tight rooms. Compare lease vs labor, plus a free buyer checklist.',
     intro:
-      'The core difference: a food runner robot (serving robot) adds parallel tray-carrying capacity during peak hours, while human runners handle tight aisles, guest touchpoints, and exceptions. Robots are not a full server replacement — layout, covers, and peak intensity decide which wins.',
+      'The core difference: a food runner robot (serving robot) adds parallel tray-carrying capacity during peak hours, while human runners handle tight aisles, guest touchpoints, and exceptions. Robots are not a full server replacement — layout, covers, and peak intensity decide which wins. Use the free restaurant buyer checklist before demos, then compare fit below.',
     matcherCategory: 'restaurant',
     rows: [
       { aspect: 'Peak capacity', optionA: 'Adds parallel running capacity', optionB: 'Limited by staff count' },
@@ -180,8 +186,14 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
         answer:
           'Lease and RaaS often fall around $500–$1,500/month per unit; purchase is commonly mid five figures. Confirm quotes — see the serving robot cost guide for budgeting bands.',
       },
+      {
+        question: 'Can I print the restaurant robot buyer\'s checklist?',
+        answer:
+          'Yes. Open the free restaurant robot buyer\'s checklist, then click Print checklist — it formats a one-page summary for operators and ownership.',
+      },
     ],
     relatedLinks: [
+      { href: '/resources/restaurant-robot-buyer-checklist', label: 'Restaurant robot buyer\'s checklist' },
       { href: '/blog/restaurant-serving-robot-cost', label: 'Serving robot cost (buy vs lease)' },
       { href: '/restaurant-robots', label: 'Restaurant robot matcher' },
       { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },

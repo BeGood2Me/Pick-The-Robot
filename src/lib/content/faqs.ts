@@ -43,12 +43,9 @@ export const HOME_FAQS: FaqItem[] = [
   },
 ];
 
+import { METHODOLOGY_SUMMARY } from '@/lib/content/methodology';
+
 export const METHODOLOGY_COPY = {
   title: 'How matching works',
-  paragraphs: [
-    'You answer operational questions — floor size, pain points, labor cost, layout, and budget preference.',
-    'Each robot type receives three scores: use-case fit (45%), economic fit (35%), and deployment fit (20%).',
-    'Vendors are ranked against your top robot type and recommended acquisition model. If we add sponsored partnerships later, they will be disclosed and will not override fit.',
-    'Cleaning results include an indicative labor offset from published cost bands. We do not promise payback, headcount cuts, or vendor performance.',
-  ],
+  paragraphs: [...METHODOLOGY_SUMMARY],
 };

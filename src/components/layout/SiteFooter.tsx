@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getAllBlogPillars, getBlogBrand, blogPillarHref } from '@/lib/content/blog';
 import { HUMANOID_HUB_PATH } from '@/lib/content/humanoids';
 import {
+  BUYER_CHECKLIST_LINKS,
   CATEGORY_GUIDE_LINKS,
   COMPARISON_LINKS,
   DECISION_LINKS,
@@ -53,6 +54,19 @@ export function SiteFooter() {
                   </Link>
                 </li>
                 {CATEGORY_GUIDE_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="hover:text-ink">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-ink">Buyer checklists</p>
+              <p className="mt-1 text-xs text-ink-muted">Free printable guides before vendor demos</p>
+              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
+                {BUYER_CHECKLIST_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="hover:text-ink">
                       {link.label}
@@ -137,6 +151,10 @@ export function SiteFooter() {
         <p className="mt-2">
           <Link href="/about" className="hover:text-ink-muted">
             About
+          </Link>
+          {' · '}
+          <Link href="/methodology" className="hover:text-ink-muted">
+            Methodology
           </Link>
           {' · '}
           <Link href="/privacy" className="hover:text-ink-muted">

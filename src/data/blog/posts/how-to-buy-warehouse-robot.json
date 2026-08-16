@@ -76,6 +76,10 @@
   ],
   "relatedLinks": [
     {
+      "href": "/resources/warehouse-robot-buyer-checklist",
+      "label": "Warehouse robot buyer's checklist (printable)"
+    },
+    {
       "href": "/warehouse-robots#matcher",
       "label": "Warehouse matcher"
     },

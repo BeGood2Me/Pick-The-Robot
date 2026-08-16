@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import { METHODOLOGY_COPY } from '@/lib/content/faqs';
+import { METHODOLOGY_PATH } from '@/lib/content/methodology';
 
 export function MethodologySection() {
   return (
@@ -9,6 +11,11 @@ export function MethodologySection() {
           <li key={p}>{p}</li>
         ))}
       </ul>
+      <p className="mt-4 text-sm">
+        <Link href={METHODOLOGY_PATH} className="font-medium text-accent hover:underline">
+          Full methodology — scoring, sponsorship, and limits
+        </Link>
+      </p>
     </section>
   );
 }
