@@ -2,12 +2,18 @@ import type {
   AcquisitionModel,
   CleaningProfile,
   CleaningRobotType,
-  CleaningRoiEstimate,
-  CleaningRoiViability,
   MoneyRange,
+  RoiEstimate,
 } from './types';
+import {
+  clamp,
+  monthlyRobotCostFromBands,
+  paybackForBuy,
+  roundMoney,
+  viabilityFromNet,
+} from './roiShared';
 
-export type { CleaningRoiEstimate, CleaningRoiViability, MoneyRange } from './types';
+export type { RoiEstimate } from './types';
 
 const CLEANING_ROBOT_TYPES = new Set(['office_cleaner', 'large_scrubber', 'industrial_cleaner']);
 
@@ -66,14 +72,6 @@ export const CLEANING_ROI_CONSTANTS = {
     high: 0.3,
   } as Record<CleaningProfile['obstacleComplexity'], number>,
 } as const;
-
-function roundMoney(n: number): number {
-  return Math.round(n);
-}
-
-function clamp(n: number, min: number, max: number): number {
-  return Math.min(max, Math.max(min, n));
-}
 
 function obstacleFactor(level: CleaningProfile['obstacleComplexity']): number {
   if (level === 'high') return 0.7;
@@ -135,93 +133,6 @@ function staffWeeklyFloorHours(profile: CleaningProfile): number | null {
   return profile.staffAssignedToCleaning * profile.hoursPerDay * profile.daysPerWeek * share;
 }
 
-function monthlyRobotCost(
-  robots: number,
-  robotType: CleaningRobotType,
-  acquisition: AcquisitionModel,
-): MoneyRange {
-  if (robots <= 0) return { low: 0, high: 0 };
-  const band = CLEANING_COST_BANDS[robotType];
-  if (acquisition === 'raas') {
-    return {
-      low: roundMoney(robots * band.raasMonthly.low),
-      high: roundMoney(robots * band.raasMonthly.high),
-    };
-  }
-  if (acquisition === 'lease') {
-    return {
-      low: roundMoney(robots * band.leaseMonthly.low),
-      high: roundMoney(robots * band.leaseMonthly.high),
-    };
-  }
-  const months = CLEANING_ROI_CONSTANTS.buyAmortizationMonths;
-  const serviceMonthly = CLEANING_ROI_CONSTANTS.annualServiceRate / 12;
-  return {
-    low: roundMoney(robots * (band.buyUnit.low / months + band.buyUnit.low * serviceMonthly)),
-    high: roundMoney(robots * (band.buyUnit.high / months + band.buyUnit.high * serviceMonthly)),
-  };
-}
-
-function paybackForBuy(
-  robots: number,
-  robotType: CleaningRobotType,
-  monthlyLaborSavings: number,
-): MoneyRange | null {
-  if (robots <= 0 || monthlyLaborSavings <= 0) return null;
-  const band = CLEANING_COST_BANDS[robotType];
-  const low = Math.ceil((robots * band.buyUnit.low) / monthlyLaborSavings);
-  const high = Math.ceil((robots * band.buyUnit.high) / monthlyLaborSavings);
-  return { low, high };
-}
-
-function viabilityFor(input: {
-  robotCount: number;
-  weeklyFloorHours: number;
-  frequency: number;
-  area: number;
-  monthlyNet: MoneyRange;
-  paybackMonths: MoneyRange | null;
-  acquisition: AcquisitionModel;
-}): CleaningRoiViability {
-  if (
-    input.robotCount <= 0 ||
-    input.weeklyFloorHours < 4 ||
-    input.frequency < 1 ||
-    input.area < 400
-  ) {
-    return 'weak';
-  }
-  if (input.monthlyNet.high <= 0) return 'weak';
-  if (input.monthlyNet.low > 0) {
-    if (input.acquisition === 'buy') {
-      return input.paybackMonths && input.paybackMonths.high <= 36 ? 'strong' : 'moderate';
-    }
-    return 'strong';
-  }
-  return 'moderate';
-}
-
-export function formatUsd(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
-export function formatUsdRange(range: MoneyRange): string {
-  if (range.low === range.high) return formatUsd(range.low);
-  return `${formatUsd(range.low)} to ${formatUsd(range.high)}`;
-}
-
-export function formatMonthRange(range: MoneyRange): string {
-  if (range.high > 60) {
-    return range.low > 60 ? 'longer than 5 years' : `${range.low} months to longer than 5 years`;
-  }
-  if (range.low === range.high) return `${range.low} months`;
-  return `${range.low} to ${range.high} months`;
-}
-
 /**
  * Indicative cleaning labor offset from matcher inputs and published cost bands.
  * Conservative on purpose: does not eliminate headcount or invent workers' compensation dollars.
@@ -230,12 +141,12 @@ export function estimateCleaningRoi(
   profile: CleaningProfile,
   robotType: CleaningRobotType,
   acquisitionModel: AcquisitionModel,
-): CleaningRoiEstimate {
+): RoiEstimate {
   const coverageSqMPerOuting = Math.round(effectiveCoverage(profile, robotType));
   const robotCount = robotCountFor(profile, coverageSqMPerOuting);
   const inferred = inferredWeeklyFloorHours(profile);
   const staffHours = staffWeeklyFloorHours(profile);
-  const hoursSource: CleaningRoiEstimate['hoursSource'] = staffHours === null ? 'inferred' : 'staff';
+  const hoursSource = staffHours === null ? 'inferred' : 'staff';
   const weeklyFloorHours = staffHours === null ? inferred : Math.min(staffHours, inferred);
 
   const displaceShare = CLEANING_ROI_CONSTANTS.displaceShare[profile.obstacleComplexity];
@@ -247,22 +158,33 @@ export function estimateCleaningRoi(
   const monthlyLaborSavings = roundMoney(
     weeklyHoursDisplaced * wageUsed * CLEANING_ROI_CONSTANTS.weeksPerMonth,
   );
-  const robotCost = monthlyRobotCost(robotCount, robotType, acquisitionModel);
+  const robotCost = monthlyRobotCostFromBands(
+    robotCount,
+    CLEANING_COST_BANDS[robotType],
+    acquisitionModel,
+    CLEANING_ROI_CONSTANTS.buyAmortizationMonths,
+    CLEANING_ROI_CONSTANTS.annualServiceRate,
+  );
   const monthlyNet: MoneyRange = {
     low: roundMoney(monthlyLaborSavings - robotCost.high),
     high: roundMoney(monthlyLaborSavings - robotCost.low),
   };
   const paybackMonths =
-    acquisitionModel === 'buy' ? paybackForBuy(robotCount, robotType, monthlyLaborSavings) : null;
+    acquisitionModel === 'buy'
+      ? paybackForBuy(robotCount, CLEANING_COST_BANDS[robotType].buyUnit, monthlyLaborSavings)
+      : null;
 
-  const viability = viabilityFor({
-    robotCount,
-    weeklyFloorHours,
-    frequency: profile.cleaningFrequencyPerDay,
-    area: profile.floorAreaSqM,
+  const weakCase =
+    robotCount <= 0 ||
+    weeklyFloorHours < 4 ||
+    profile.cleaningFrequencyPerDay < 1 ||
+    profile.floorAreaSqM < 400;
+
+  const viability = viabilityFromNet({
     monthlyNet,
     paybackMonths,
     acquisition: acquisitionModel,
+    weakCase,
   });
 
   const assumptions = [
@@ -289,10 +211,12 @@ export function estimateCleaningRoi(
   }
 
   return {
-    robotCount,
-    coverageSqMPerOuting,
-    weeklyFloorHours: Math.round(weeklyFloorHours * 10) / 10,
+    unitCount: robotCount,
+    unitLabel: 'robots',
+    weeklyActivityHours: Math.round(weeklyFloorHours * 10) / 10,
+    activityHoursLabel: 'Floor hours in your profile',
     weeklyHoursDisplaced: Math.round(weeklyHoursDisplaced * 10) / 10,
+    displacedHoursLabel: 'Hours robots could take',
     monthlyLaborSavings,
     monthlyRobotCost: robotCost,
     monthlyNet,
@@ -301,8 +225,25 @@ export function estimateCleaningRoi(
     acquisitionModel,
     robotType,
     wageUsed,
-    hoursSource,
+    modelKind: 'floor_labor_offset',
     assumptions,
     notes,
+    costGuideHref: '/cleaning-robot-cost',
+    categoryLabel: 'Cleaning labor offset',
+    secondaryStat: {
+      label: 'Coverage per outing',
+      value: `${coverageSqMPerOuting.toLocaleString()} m²`,
+      hint:
+        hoursSource === 'staff'
+          ? 'Floor hours capped by reported staff time.'
+          : 'Floor hours inferred from area and frequency.',
+    },
   };
 }
+
+// Re-export formatting helpers for backward compatibility.
+export {
+  formatUsd,
+  formatUsdRange,
+  formatMonthRange,
+} from './roiShared';

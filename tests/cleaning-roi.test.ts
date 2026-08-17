@@ -29,9 +29,9 @@ describe('estimateCleaningRoi', () => {
   it('never claims more displaced hours than reported staff floor time', () => {
     const roi = estimateCleaningRoi(base, 'large_scrubber', 'raas');
     const staffFloorHours = 2 * 8 * 5 * 0.5;
-    expect(roi.weeklyFloorHours).toBeLessThanOrEqual(staffFloorHours);
-    expect(roi.weeklyHoursDisplaced).toBeLessThanOrEqual(roi.weeklyFloorHours);
-    expect(roi.robotCount).toBeGreaterThanOrEqual(1);
+    expect(roi.weeklyActivityHours).toBeLessThanOrEqual(staffFloorHours);
+    expect(roi.weeklyHoursDisplaced).toBeLessThanOrEqual(roi.weeklyActivityHours);
+    expect(roi.unitCount).toBeGreaterThanOrEqual(1);
   });
 
   it('infers hours when staff assigned is zero', () => {
@@ -40,8 +40,8 @@ describe('estimateCleaningRoi', () => {
       'large_scrubber',
       'raas',
     );
-    expect(roi.hoursSource).toBe('inferred');
-    expect(roi.weeklyFloorHours).toBeGreaterThan(0);
+    expect(roi.secondaryStat?.hint).toContain('inferred');
+    expect(roi.weeklyActivityHours).toBeGreaterThan(0);
   });
 
   it('marks small or infrequent sites as a weak savings case', () => {
@@ -72,7 +72,7 @@ describe('estimateCleaningRoi', () => {
       'office_cleaner',
       'buy',
     );
-    expect(roi.robotCount).toBeLessThanOrEqual(12);
+    expect(roi.unitCount).toBeLessThanOrEqual(12);
   });
 
   it('is deterministic', () => {
@@ -87,10 +87,10 @@ describe('estimateCleaningRoi', () => {
 });
 
 describe('cleaning recommendation includes ROI', () => {
-  it('attaches cleaningRoi on cleaning matches', () => {
+  it('attaches laborOffset on cleaning matches', () => {
     const cleaning = generateRecommendation(base);
-    expect(cleaning.cleaningRoi).toBeDefined();
-    expect(cleaning.cleaningRoi?.robotType).toBe(cleaning.bestRobotMatch.robotType);
+    expect(cleaning.laborOffset).toBeDefined();
+    expect(cleaning.laborOffset?.robotType).toBe(cleaning.bestRobotMatch.robotType);
 
     const summary = formatResultsSummary(cleaning);
     expect(summary).toContain('Cleaning labor offset');

@@ -165,30 +165,54 @@ export interface RecommendationExplanation {
 
 export type MatchConfidence = 'strong' | 'moderate' | 'weak';
 
-export type CleaningRoiViability = 'strong' | 'moderate' | 'weak';
+export type RoiViability = 'strong' | 'moderate' | 'weak';
+
+/** @deprecated Use RoiViability */
+export type CleaningRoiViability = RoiViability;
 
 export interface MoneyRange {
   low: number;
   high: number;
 }
 
-export interface CleaningRoiEstimate {
-  robotCount: number;
-  coverageSqMPerOuting: number;
-  weeklyFloorHours: number;
+export type RoiModelKind =
+  | 'floor_labor_offset'
+  | 'transport_labor_offset'
+  | 'throughput'
+  | 'pallet_moves'
+  | 'peak_labor_offset'
+  | 'guest_service';
+
+/** Indicative labor-offset estimate shown in matcher results — not a quote or guarantee. */
+export interface RoiEstimate {
+  unitCount: number;
+  unitLabel: string;
+  weeklyActivityHours: number;
+  activityHoursLabel: string;
   weeklyHoursDisplaced: number;
+  displacedHoursLabel: string;
   monthlyLaborSavings: number;
   monthlyRobotCost: MoneyRange;
   monthlyNet: MoneyRange;
   paybackMonths: MoneyRange | null;
-  viability: CleaningRoiViability;
+  viability: RoiViability;
   acquisitionModel: AcquisitionModel;
-  robotType: CleaningRobotType;
+  robotType: RobotType;
   wageUsed: number;
-  hoursSource: 'staff' | 'inferred';
+  modelKind: RoiModelKind;
   assumptions: string[];
   notes: string[];
+  costGuideHref: string;
+  categoryLabel: string;
+  secondaryStat?: {
+    label: string;
+    value: string;
+    hint?: string;
+  };
 }
+
+/** @deprecated Use RoiEstimate */
+export type CleaningRoiEstimate = RoiEstimate;
 
 export interface RecommendationResult {
   profile: UserProfile;
@@ -208,8 +232,10 @@ export interface RecommendationResult {
   explanation: RecommendationExplanation;
   /** Qualitative fleet sizing guidance (not a dollar ROI estimate). */
   fleetSizingHint?: string;
-  /** Cleaning only: indicative labor offset from published cost bands. */
-  cleaningRoi?: CleaningRoiEstimate;
+  /** Indicative labor offset from published cost bands — all categories. */
+  laborOffset?: RoiEstimate;
+  /** @deprecated Use laborOffset */
+  cleaningRoi?: RoiEstimate;
 }
 
 /** Score without overallMatch — used as input to computeOverallMatch. */

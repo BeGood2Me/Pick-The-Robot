@@ -7,6 +7,22 @@ import {
   type RecommendationResult,
 } from '@/lib/matching';
 
+function formatLaborOffsetSummary(roi: NonNullable<RecommendationResult['laborOffset']>): string[] {
+  const unitWord = roi.unitCount === 1 ? roi.unitLabel.replace(/s$/, '') : roi.unitLabel;
+  const lines = [
+    `${roi.categoryLabel} (indicative, not a quote):`,
+    `${roi.unitLabel}: ${roi.unitCount === 0 ? 'None' : `${roi.unitCount} ${unitWord}`}`,
+    `${roi.displacedHoursLabel}: ${roi.weeklyHoursDisplaced}/week`,
+    `Labor offset: ${formatUsd(roi.monthlyLaborSavings)}/mo`,
+    `Robot cost: ${formatUsdRange(roi.monthlyRobotCost)}/mo`,
+    `Net: ${formatUsdRange(roi.monthlyNet)}/mo`,
+  ];
+  if (roi.paybackMonths) {
+    lines.push(`Purchase payback: ${formatMonthRange(roi.paybackMonths)}`);
+  }
+  return lines;
+}
+
 export function formatResultsSummary(result: RecommendationResult): string {
   const { bestRobotMatch, runnerUpRobotMatch, vendorMatches, explanation, matchConfidence } =
     result;
@@ -34,20 +50,8 @@ export function formatResultsSummary(result: RecommendationResult): string {
     }
   }
 
-  if (result.cleaningRoi) {
-    const roi = result.cleaningRoi;
-    lines.push(
-      '',
-      'Cleaning labor offset (indicative, not a quote):',
-      `Robots: ${roi.robotCount}`,
-      `Hours robots could take: ${roi.weeklyHoursDisplaced}/week`,
-      `Labor offset: ${formatUsd(roi.monthlyLaborSavings)}/mo`,
-      `Robot cost: ${formatUsdRange(roi.monthlyRobotCost)}/mo`,
-      `Net: ${formatUsdRange(roi.monthlyNet)}/mo`,
-    );
-    if (roi.paybackMonths) {
-      lines.push(`Purchase payback: ${formatMonthRange(roi.paybackMonths)}`);
-    }
+  if (result.laborOffset) {
+    lines.push('', ...formatLaborOffsetSummary(result.laborOffset));
   }
 
   if (explanation.cautions.length > 0) {

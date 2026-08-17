@@ -37,6 +37,9 @@ export {
   formatMonthRange,
   CLEANING_COST_BANDS,
 } from './cleaningRoi';
+export { estimateWarehouseRoi, WAREHOUSE_COST_BANDS } from './warehouseRoi';
+export { estimateRestaurantRoi, RESTAURANT_COST_BANDS } from './restaurantRoi';
+export { estimateLaborOffset } from './laborOffset';
 export { buildExplanation, ROBOT_TYPE_LABELS, ACQUISITION_LABELS } from './explain';
 export { VENDORS, getVendorsByCategory, getVendorById } from './vendors';
 export { setMatchEventHandler, emitMatchEvent } from './events';
@@ -70,6 +73,9 @@ export type {
   MatchEventHandler,
   PartialMatchScore,
   MatchConfidence,
+  RoiEstimate,
+  RoiViability,
+  RoiModelKind,
   CleaningRoiEstimate,
   CleaningRoiViability,
   MoneyRange,
