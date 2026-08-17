@@ -1,4 +1,5 @@
 import { SITE_NAME } from '@/lib/content/navigation';
+import { BRAND_IMAGE_PATHS } from '@/lib/brand/imagePaths';
 import type { Vendor } from '@/lib/matching/types';
 import { ROBOT_TYPE_LABELS } from '@/lib/matching/explain-labels';
 
@@ -45,7 +46,7 @@ export function organizationJsonLd() {
     url: BASE_URL,
     description:
       'Business robot buying guide and matcher for warehouse, cleaning, and restaurant operators.',
-    logo: `${BASE_URL}/apple-icon.png`,
+    logo: `${BASE_URL}${BRAND_IMAGE_PATHS.appleTouch180}`,
   };
 }
 
@@ -134,7 +135,7 @@ export function articleJsonLd({
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/apple-icon.png`,
+        url: `${BASE_URL}${BRAND_IMAGE_PATHS.appleTouch180}`,
       },
     },
     mainEntityOfPage: `${BASE_URL}${path}`,

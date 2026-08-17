@@ -1,6 +1,6 @@
 /**
- * Writes public favicon assets Chrome's address bar will actually use:
- * classic BMP ICO (not PNG-in-ICO), SVG, and 32px PNG.
+ * Writes public brand images with descriptive SEO filenames:
+ * BMP favicon.ico at site root, SVG/PNGs under public/images/brand/.
  */
 import { deflateSync } from 'node:zlib';
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -148,9 +148,15 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pub = join(root, 'public');
-const appDir = join(root, 'src', 'app');
-mkdirSync(pub, { recursive: true });
-mkdirSync(appDir, { recursive: true });
+const brandDir = join(pub, 'images', 'brand');
+mkdirSync(brandDir, { recursive: true });
+
+const BRAND_FILES = {
+  svg: 'picktherobot-robot-mark.svg',
+  png32: 'picktherobot-robot-mark-32x32.png',
+  png48: 'picktherobot-robot-mark-48x48.png',
+  apple180: 'picktherobot-apple-touch-icon-180x180.png',
+};
 
 const px16 = paintMark(16);
 const px32 = paintMark(32);
@@ -167,13 +173,9 @@ const png48 = pngRgba(48, px48);
 const png180 = pngRgba(180, px180);
 
 writeFileSync(join(pub, 'favicon.ico'), ico);
-writeFileSync(join(pub, 'favicon.svg'), svg);
-writeFileSync(join(pub, 'favicon-32x32.png'), pngRgba(32, px32));
-writeFileSync(join(pub, 'favicon-48x48.png'), png48);
-// Hashed <link rel="icon"> so Chrome refetches. Skip app/favicon.ico —
-// Next would inject sizes="16x16" and the address bar would use only that frame.
-writeFileSync(join(appDir, 'icon.png'), png48);
-writeFileSync(join(appDir, 'icon1.png'), pngRgba(32, px32));
-writeFileSync(join(appDir, 'apple-icon.png'), png180);
+writeFileSync(join(brandDir, BRAND_FILES.svg), svg);
+writeFileSync(join(brandDir, BRAND_FILES.png32), pngRgba(32, px32));
+writeFileSync(join(brandDir, BRAND_FILES.png48), png48);
+writeFileSync(join(brandDir, BRAND_FILES.apple180), png180);
 console.log(`wrote public/favicon.ico (${ico.length} bytes, BMP ICO)`);
-console.log('wrote public SVG/PNGs and src/app/icon.png, icon1.png, apple-icon.png');
+console.log(`wrote public/images/brand/${BRAND_FILES.svg}, ${BRAND_FILES.png32}, ${BRAND_FILES.png48}, ${BRAND_FILES.apple180}`);

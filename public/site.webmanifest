@@ -8,12 +8,12 @@
   "theme_color": "#0e7490",
   "icons": [
     {
-      "src": "/favicon-48x48.png",
+      "src": "/images/brand/picktherobot-robot-mark-48x48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "/apple-icon.png",
+      "src": "/images/brand/picktherobot-apple-touch-icon-180x180.png",
       "sizes": "180x180",
       "type": "image/png"
     }

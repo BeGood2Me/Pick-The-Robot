@@ -6,6 +6,7 @@ import { AnalyticsConsentProvider } from '@/components/analytics/AnalyticsConsen
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
+import { BRAND_IMAGE_PATHS } from '@/lib/brand/imagePaths';
 import { BASE_URL } from '@/lib/seo/metadata';
 import './globals.css';
 
@@ -34,6 +35,31 @@ export const metadata: Metadata = {
   description:
     'Compare warehouse, cleaning, and restaurant robots by fit, cost model, and deployment. Rules-based recommendations and vendor matches.',
   manifest: '/site.webmanifest',
+  icons: {
+    icon: [
+      {
+        url: BRAND_IMAGE_PATHS.robotMark48,
+        sizes: '48x48',
+        type: 'image/png',
+      },
+      {
+        url: BRAND_IMAGE_PATHS.robotMarkSvg,
+        type: 'image/svg+xml',
+      },
+      {
+        url: BRAND_IMAGE_PATHS.robotMark32,
+        sizes: '32x32',
+        type: 'image/png',
+      },
+    ],
+    apple: [
+      {
+        url: BRAND_IMAGE_PATHS.appleTouch180,
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
+  },
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
     : {}),
