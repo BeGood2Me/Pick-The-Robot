@@ -308,8 +308,7 @@ describe('generateRecommendation integration', () => {
     expect(result.explanation.robotChoiceReasons.length).toBeGreaterThanOrEqual(2);
     expect(result.allRobotMatches.length).toBe(4);
     expect(result.fleetSizingHint).toBeDefined();
-    expect(result.laborOffset).toBeDefined();
-    expect(result.laborOffset?.categoryLabel).toBe('Warehouse labor offset');
+    expect(result.cleaningRoi).toBeUndefined();
   });
 
   it('returns cleaning recommendation', () => {
@@ -317,15 +316,14 @@ describe('generateRecommendation integration', () => {
     expect(result.bestRobotMatch.category).toBe('cleaning');
     expect(result.vendorMatches.length).toBeGreaterThan(0);
     expect(result.allRobotMatches.length).toBe(3);
-    expect(result.laborOffset).toBeDefined();
-    expect(result.laborOffset?.unitCount).toBeGreaterThan(0);
+    expect(result.cleaningRoi).toBeDefined();
+    expect(result.cleaningRoi?.robotCount).toBeGreaterThan(0);
   });
 
   it('returns restaurant recommendation', () => {
     const result = generateRecommendation(restaurantProfile);
     expect(result.bestRobotMatch.robotType).toBe('serving_robot');
     expect(result.runnerUpRobotMatch).toBeDefined();
-    expect(result.laborOffset).toBeDefined();
   });
 
   it('includes runner-up comparison when scores are close', () => {

@@ -16,7 +16,7 @@ export const METHODOLOGY_SUMMARY = [
   'Each robot type receives three scores: use-case fit (45%), economic fit (35%), and deployment fit (20%).',
   'Vendors are ranked against your top robot type and recommended acquisition model.',
   'Sponsored listings receive a small boost only when already a reasonable fit — never enough to override poor relevance.',
-  'Cleaning, warehouse, and restaurant results may include an indicative labor offset from published cost bands. We do not promise payback, headcount cuts, or vendor performance.',
+  'Cleaning results may include an indicative labor offset from published cost bands. We do not promise payback, headcount cuts, or vendor performance.',
 ] as const;
 
 export const SCORING_DIMENSIONS = [
@@ -98,8 +98,8 @@ export const METHODOLOGY_FAQS: FaqItem[] = [
       'No. It narrows robot types and vendors to investigate. You should still validate pricing, pilots, integration scope, and contracts directly with vendors.',
   },
   {
-    question: 'Are labor offset numbers guaranteed savings?',
+    question: 'Are cleaning labor offset numbers guaranteed savings?',
     answer:
-      'No. Matcher results may show indicative labor offset ranges from published cost bands and your inputs. They are budgeting aids across warehouse, cleaning, and restaurant categories — not promises of headcount reduction or payback.',
+      'No. Cleaning results may show indicative labor offset ranges from published cost bands and your inputs. They are budgeting aids, not promises of headcount reduction or payback.',
   },
 ];

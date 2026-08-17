@@ -1,7 +1,7 @@
 import { buildExplanation } from './explain';
 import { emitMatchEvent } from './events';
 import { getFleetSizingHint } from './sizing';
-import { estimateLaborOffset } from './laborOffset';
+import { estimateCleaningRoi, isCleaningRobotType } from './cleaningRoi';
 import {
   acquisitionForBudgetGoal,
   getRobotTypesForCategory,
@@ -216,11 +216,10 @@ export function generateRecommendation(profile: UserProfile): RecommendationResu
   );
 
   const fleetSizingHint = getFleetSizingHint(profile, bestRobotMatch.robotType);
-  const laborOffset = estimateLaborOffset(
-    profile,
-    bestRobotMatch.robotType,
-    acquisitionRecommendation,
-  );
+  const cleaningRoi =
+    profile.category === 'cleaning' && isCleaningRobotType(bestRobotMatch.robotType)
+      ? estimateCleaningRoi(profile, bestRobotMatch.robotType, acquisitionRecommendation)
+      : undefined;
 
   const result: RecommendationResult = {
     profile,
@@ -236,8 +235,7 @@ export function generateRecommendation(profile: UserProfile): RecommendationResu
     matchConfidence,
     explanation,
     fleetSizingHint,
-    laborOffset,
-    cleaningRoi: laborOffset,
+    cleaningRoi,
   };
 
   emitMatchEvent({
