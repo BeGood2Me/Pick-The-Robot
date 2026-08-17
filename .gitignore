@@ -26,8 +26,10 @@ coverage/
 # certificates / keys (accidental drops)
 *.pem
 
-# Local outreach / media contact lists — never commit
-docs/outreach/
+# Provisioned API subscriber keys (local dev; use durable storage in production)
+data/api-subscribers.json
 
 # Chrome extension — maintained outside this repo
 chrome-extension/
+.env*
+.neon

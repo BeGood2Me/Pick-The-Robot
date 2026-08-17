@@ -1,0 +1,20 @@
+{
+  "category": "cleaning",
+  "laborCostPerHour": 22,
+  "hoursPerDay": 8,
+  "daysPerWeek": 5,
+  "staffingPressure": "medium",
+  "budgetPreference": "balanced",
+  "acquisitionPreference": "open",
+  "techReadiness": "medium",
+  "region": "US",
+  "floorAreaSqM": 2500,
+  "environmentType": "office",
+  "cleaningFrequencyPerDay": 1,
+  "messLevel": "moderate",
+  "obstacleComplexity": "medium",
+  "cleaningType": "vacuum",
+  "staffAssignedToCleaning": 1,
+  "floorSurface": "hard",
+  "cleaningLaborCostPerHour": 22
+}

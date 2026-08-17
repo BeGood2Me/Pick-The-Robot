@@ -1,3 +1,4 @@
+import { DEVELOPERS_PATH } from '@/lib/content/developers';
 import type { RobotCategory } from '@/lib/matching';
 import { CATEGORY_LABELS } from '@/lib/forms/questions';
 
@@ -29,12 +30,13 @@ export const HOME_HREF = '/';
 
 export const VENDORS_INDEX_HREF = '/vendors';
 
-/** Primary header nav — categories + vendors only; guides/comparisons live in footer and mobile menu. */
+/** Primary header nav — categories + vendors + API; guides/comparisons live in footer and mobile menu. */
 export const HEADER_NAV_LINKS = [
   { href: '/warehouse-robots', label: 'Warehouse' },
   { href: '/cleaning-robots', label: 'Cleaning' },
   { href: '/restaurant-robots', label: 'Restaurant' },
   { href: VENDORS_INDEX_HREF, label: 'Vendors' },
+  { href: DEVELOPERS_PATH, label: 'API' },
 ] as const;
 
 export const NAV_LINKS = [

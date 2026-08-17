@@ -19,12 +19,14 @@
     "indexnow": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/indexnow.ps1"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.43.0",
     "next": "^15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "stripe": "^22.5.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",

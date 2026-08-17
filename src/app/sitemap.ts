@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     METHODOLOGY_PATH,
     '/vendors',
     '/for-vendors',
+    '/developers',
     HUMANOID_HUB_PATH,
     CLEANING_BUYERS_CHECKLIST_PATH,
     WAREHOUSE_BUYERS_CHECKLIST_PATH,

@@ -10,6 +10,7 @@ import {
   HOME_MATCHER_RESET_HREF,
   VENDORS_INDEX_HREF,
 } from '@/lib/content/navigation';
+import { DEVELOPERS_PATH } from '@/lib/content/developers';
 
 export function SiteFooter() {
   const blogPillars = getAllBlogPillars();
@@ -134,11 +135,16 @@ export function SiteFooter() {
               </ul>
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">For vendors</p>
+              <p className="text-sm font-semibold text-ink">Business</p>
               <ul className="mt-2 space-y-1 text-sm text-ink-muted">
                 <li>
                   <Link href="/for-vendors" className="hover:text-ink">
                     List your robot
+                  </Link>
+                </li>
+                <li>
+                  <Link href={DEVELOPERS_PATH} className="hover:text-ink">
+                    Developer API
                   </Link>
                 </li>
               </ul>

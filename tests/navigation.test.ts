@@ -42,14 +42,16 @@ describe('HOME_MATCHER_RESET_HREF', () => {
 });
 
 describe('HEADER_NAV_LINKS', () => {
-  it('keeps desktop header to categories and vendors only', () => {
-    expect(HEADER_NAV_LINKS).toHaveLength(4);
+  it('includes categories, vendors, and API', () => {
+    expect(HEADER_NAV_LINKS).toHaveLength(5);
     expect(HEADER_NAV_LINKS.map((link) => link.href)).toEqual([
       '/warehouse-robots',
       '/cleaning-robots',
       '/restaurant-robots',
       '/vendors',
+      '/developers',
     ]);
+    expect(HEADER_NAV_LINKS[4]?.label).toBe('API');
   });
 });
 
