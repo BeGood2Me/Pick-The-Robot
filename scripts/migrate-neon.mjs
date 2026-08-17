@@ -1,6 +1,25 @@
+import { readFileSync } from 'node:fs';
 import { neon } from '@neondatabase/serverless';
 
-const url = process.env.DATABASE_URL;
+function loadEnvLocal() {
+  const env = { ...process.env };
+  try {
+    const lines = readFileSync('.env.local', 'utf8').split(/\r?\n/);
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const idx = trimmed.indexOf('=');
+      if (idx === -1) continue;
+      env[trimmed.slice(0, idx)] = trimmed.slice(idx + 1);
+    }
+  } catch {
+    // optional
+  }
+  return env;
+}
+
+const env = loadEnvLocal();
+const url = env.DATABASE_URL;
 if (!url) {
   console.error('DATABASE_URL is required.');
   process.exit(1);
@@ -65,3 +84,58 @@ await sql`ALTER TABLE pending_checkout_keys ADD COLUMN IF NOT EXISTS api_key_cip
 await sql`ALTER TABLE pending_checkout_keys ADD COLUMN IF NOT EXISTS recovery_token_hash TEXT`;
 
 console.log('Neon limits and key-security columns are ready.');
+
+await sql`
+  CREATE TABLE IF NOT EXISTS vendor_accounts (
+    id TEXT PRIMARY KEY,
+    email TEXT NOT NULL UNIQUE,
+    vendor_slug TEXT NOT NULL UNIQUE,
+    stripe_customer_id TEXT UNIQUE,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )
+`;
+await sql`CREATE INDEX IF NOT EXISTS vendor_accounts_email_idx ON vendor_accounts (email)`;
+
+await sql`
+  CREATE TABLE IF NOT EXISTS vendor_subscriptions (
+    stripe_subscription_id TEXT PRIMARY KEY,
+    vendor_account_id TEXT NOT NULL REFERENCES vendor_accounts (id) ON DELETE CASCADE,
+    tier TEXT NOT NULL CHECK (tier IN ('verified', 'sponsored')),
+    status TEXT NOT NULL CHECK (status IN ('active', 'past_due', 'canceled')),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )
+`;
+await sql`CREATE INDEX IF NOT EXISTS vendor_subscriptions_account_idx ON vendor_subscriptions (vendor_account_id)`;
+
+await sql`
+  CREATE TABLE IF NOT EXISTS vendor_profiles (
+    vendor_slug TEXT PRIMARY KEY,
+    logo_url TEXT,
+    affiliate_url TEXT,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )
+`;
+
+await sql`
+  CREATE TABLE IF NOT EXISTS vendor_login_tokens (
+    token_hash TEXT PRIMARY KEY,
+    email TEXT NOT NULL,
+    expires_at TIMESTAMPTZ NOT NULL,
+    used_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )
+`;
+await sql`CREATE INDEX IF NOT EXISTS vendor_login_tokens_email_idx ON vendor_login_tokens (email)`;
+
+await sql`
+  CREATE TABLE IF NOT EXISTS vendor_clicks (
+    id BIGSERIAL PRIMARY KEY,
+    vendor_slug TEXT NOT NULL,
+    context TEXT,
+    clicked_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )
+`;
+await sql`CREATE INDEX IF NOT EXISTS vendor_clicks_slug_idx ON vendor_clicks (vendor_slug, clicked_at DESC)`;
+
+console.log('Neon vendor partner tables are ready.');

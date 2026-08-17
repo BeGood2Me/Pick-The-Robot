@@ -51,7 +51,7 @@ export const CLEANING_BUYERS_CHECKLIST_RELATED_LINKS = [
   { href: '/cleaning-robot-vs-cleaning-staff', label: 'Cleaning robot vs staff' },
   { href: '/cleaning-robot-cost', label: 'Cleaning robot cost guide' },
   { href: '/cleaning-robots-as-a-service', label: 'Cleaning RaaS guide' },
-  { href: '/cleaning-robots#matcher', label: 'Cleaning matcher' },
+  { href: '/?category=cleaning#matcher', label: 'Cleaning matcher' },
 ] as const;
 
 export const CLEANING_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
@@ -73,7 +73,7 @@ export const CLEANING_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 3,
     title: 'Pick the robot type',
     summary: 'Office vacuums, large scrubbers, and industrial units fit different floor plates and soil levels.',
-    href: '/cleaning-robots#guide',
+    href: '/cleaning-robots',
     linkLabel: 'Cleaning robot types guide',
   },
   {
@@ -122,7 +122,7 @@ export const CLEANING_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 10,
     title: 'Run the matcher',
     summary: 'Score fit from your floor size, labor cost, and budget preference — then validate with vendors.',
-    href: '/cleaning-robots#matcher',
+    href: '/?category=cleaning#matcher',
     linkLabel: 'Cleaning matcher',
   },
 ];

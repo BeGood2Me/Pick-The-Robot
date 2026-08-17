@@ -82,7 +82,7 @@ export async function GET(request: Request) {
       return NextResponse.json(
         {
           error: 'subscription_inactive',
-          message: 'Your subscription is not active. Resubscribe on the Developers page.',
+          message: 'Your subscription is not active. Resubscribe on the API page.',
         },
         { status: 403 },
       );

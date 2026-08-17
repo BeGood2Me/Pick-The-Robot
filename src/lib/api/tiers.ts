@@ -39,7 +39,7 @@ export function unauthorizedApiResponse(request: Request): NextResponse {
       error: 'unauthorized',
       message: hasKey
         ? 'Invalid API key.'
-        : 'API key required. Subscribe at picktherobot.com/developers.',
+        : 'API key required. Subscribe at picktherobot.com/api.',
     },
     { status: 401 },
   );

@@ -10,7 +10,7 @@ import type {
   PseoUseCase,
 } from '@/lib/content/pseo-types';
 import { ROBOT_TYPE_INFO } from '@/lib/content/categories';
-import { categoryGuideHref, CATEGORY_ROUTES } from '@/lib/content/navigation';
+import { categoryGuideHref, homeMatcherHref } from '@/lib/content/navigation';
 import {
   ACQUISITION_LABELS,
   type RobotCategory,
@@ -198,7 +198,7 @@ export function resolveBestForPage(
     h1,
     title,
     metaDescription,
-    matcherHref: `${CATEGORY_ROUTES[environment.category]}#matcher`,
+    matcherHref: homeMatcherHref(environment.category),
     categoryGuideHref: categoryGuideHref(environment.category),
     costGuide: COST_GUIDE_BY_CATEGORY[environment.category],
     year,

@@ -52,6 +52,21 @@ const nextConfig: NextConfig = {
         destination: '/humanoid-robots',
         permanent: true,
       },
+      {
+        source: '/developers',
+        destination: '/api',
+        permanent: true,
+      },
+      {
+        source: '/developers/reference',
+        destination: '/api/reference',
+        permanent: true,
+      },
+      {
+        source: '/developers/success',
+        destination: '/api/success',
+        permanent: true,
+      },
       // Strip trailing slashes (except root) without host-based middleware —
       // host middleware previously 308'd localhost and broke local browsers.
       {

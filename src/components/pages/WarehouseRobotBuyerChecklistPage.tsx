@@ -51,7 +51,7 @@ export function WarehouseRobotBuyerChecklistPage() {
 
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/warehouse-robots#matcher"
+            href="/?category=warehouse#matcher"
             className="inline-flex items-center justify-center rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-accent/20 transition hover:bg-accent-hover"
           >
             Run warehouse matcher

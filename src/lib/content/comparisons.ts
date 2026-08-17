@@ -130,7 +130,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
     ],
     relatedLinks: [
       { href: '/resources/commercial-cleaning-robot-buyer-checklist', label: 'Cleaning robot buyer\'s checklist' },
-      { href: '/cleaning-robots#matcher', label: 'Cleaning robot matcher' },
+      { href: '/?category=cleaning#matcher', label: 'Cleaning robot matcher' },
       { href: '/cleaning-robot-cost', label: 'Cleaning robot cost guide' },
       { href: '/blog/cleaning-robot-cost-2026', label: 'Cleaning robot cost (2026)' },
       { href: '/cleaning-robots-as-a-service', label: 'Cleaning RaaS guide' },

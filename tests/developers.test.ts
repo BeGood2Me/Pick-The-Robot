@@ -4,7 +4,7 @@ import { API_TIER_LIMITS } from '../src/lib/api/tiers';
 
 describe('DEVELOPERS_PATH', () => {
   it('points to the developers page', () => {
-    expect(DEVELOPERS_PATH).toBe('/developers');
+    expect(DEVELOPERS_PATH).toBe('/api');
   });
 });
 

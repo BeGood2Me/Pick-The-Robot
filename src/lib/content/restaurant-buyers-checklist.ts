@@ -54,7 +54,7 @@ export const RESTAURANT_BUYERS_CHECKLIST_RELATED_LINKS = [
   { href: '/blog/restaurant-serving-robot-cost', label: 'Serving robot cost guide' },
   { href: '/robot-leasing-vs-buying', label: 'Lease vs buy guide' },
   { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service (RaaS)' },
-  { href: '/restaurant-robots#matcher', label: 'Restaurant matcher' },
+  { href: '/?category=restaurant#matcher', label: 'Restaurant matcher' },
 ] as const;
 
 export const RESTAURANT_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
@@ -62,7 +62,7 @@ export const RESTAURANT_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 1,
     title: 'Define the front-of-house problem',
     summary: 'Food running vs bussing vs kitchen bottleneck vs guest guidance — not “we need a robot.”',
-    href: '/restaurant-robots#guide',
+    href: '/restaurant-robots',
     linkLabel: 'Restaurant robot types guide',
   },
   {
@@ -125,7 +125,7 @@ export const RESTAURANT_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 10,
     title: 'Run the matcher',
     summary: 'Sanity-check fit scores and vendor matches from your venue inputs.',
-    href: '/restaurant-robots#matcher',
+    href: '/?category=restaurant#matcher',
     linkLabel: 'Restaurant matcher',
   },
 ];

@@ -3,16 +3,11 @@
 import Link from 'next/link';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { CATEGORY_LABELS } from '@/lib/forms';
-import { CATEGORY_ROUTES, HOME_MATCHER_RESET_HREF } from '@/lib/content/navigation';
+import { homeMatcherHref } from '@/lib/content/navigation';
 import type { RobotCategory } from '@/lib/matching';
 
-function matcherHref(category?: RobotCategory | null): string {
-  if (category) return `${CATEGORY_ROUTES[category]}#matcher`;
-  return HOME_MATCHER_RESET_HREF;
-}
-
 export function ComparisonMatcherCta({ category }: { category?: RobotCategory | null }) {
-  const href = matcherHref(category);
+  const href = homeMatcherHref(category);
   const label = category ? CATEGORY_LABELS[category].toLowerCase() : null;
 
   return (

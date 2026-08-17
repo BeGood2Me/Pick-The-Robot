@@ -29,7 +29,7 @@ const paths = [
   '/cleaning-robot-cost',
   '/cleaning-robots-as-a-service',
   '/for-vendors',
-  '/developers',
+  '/api',
   '/blog',
   '/about',
   '/blog/warehouse-robot-cost-2026',

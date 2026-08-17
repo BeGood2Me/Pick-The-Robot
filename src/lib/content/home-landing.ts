@@ -7,6 +7,23 @@ export const HOME_HERO = {
   proof: 'Rules-based scoring. No black-box AI. Under two minutes.',
 } as const;
 
+/** Static hero preview — illustrative output, not a live match. */
+export const HOME_HERO_PREVIEW = {
+  scenario: 'E-commerce warehouse · pallet transport',
+  bestMatch: {
+    label: 'Warehouse AMR',
+    acquisition: 'RaaS',
+    fit: 87,
+    reasons: ['Dynamic routes without fixed guides', 'OpEx fits a pilot budget'],
+  },
+  vendors: [
+    { name: 'Locus Robotics', fit: 91 },
+    { name: '6 River Systems', fit: 84 },
+    { name: 'MiR', fit: 79 },
+  ],
+  disclaimer: 'Example output — your match depends on your answers.',
+} as const;
+
 export const HOME_BENEFITS = [
   {
     title: 'Shortlist in one sitting',

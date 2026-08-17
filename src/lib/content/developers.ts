@@ -1,8 +1,8 @@
 import { API_TIER_LIMITS, type ApiTier } from '@/lib/api/tierLimits';
 
-export const DEVELOPERS_PATH = '/developers';
+export const DEVELOPERS_PATH = '/api';
 
-export const API_REFERENCE_PATH = '/developers/reference';
+export const API_REFERENCE_PATH = '/api/reference';
 
 /** Machine-readable OpenAPI 3.1 JSON (for Postman, codegen, etc.). */
 export const OPENAPI_JSON_PATH = '/api/v1/openapi.json';

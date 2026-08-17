@@ -1,4 +1,4 @@
-import { HomeHeroIllustration } from '@/components/brand/HomeHeroIllustration';
+import { HomeHeroMatchPreview } from '@/components/home/HomeHeroMatchPreview';
 import { ButtonLink } from '@/components/ui/Button';
 import { HOME_HERO } from '@/lib/content/home-landing';
 
@@ -27,7 +27,7 @@ export function HomeHero() {
           </div>
           <p className="mt-2 text-xs text-ink-faint sm:hidden">{HOME_HERO.proof}</p>
         </div>
-        <HomeHeroIllustration className="mx-auto hidden w-full max-w-[240px] sm:block lg:max-w-sm" />
+        <HomeHeroMatchPreview className="mx-auto hidden w-full max-w-sm sm:block" />
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
 import Stripe from 'stripe';
 import type { ApiTier } from '@/lib/api/tiers';
+import type { VendorTier } from '@/lib/vendor/tiers';
+import { vendorStripePriceEnvKey } from '@/lib/vendor/tiers';
 
 let stripeClient: Stripe | null = null;
 
@@ -31,11 +33,28 @@ export function getStripePriceId(tier: ApiTier): string {
   return priceId;
 }
 
+export function getVendorStripePriceId(tier: VendorTier): string {
+  const envKey = vendorStripePriceEnvKey(tier);
+  const priceId = process.env[envKey];
+  if (!priceId) {
+    throw new Error(`${envKey} is not configured.`);
+  }
+  return priceId;
+}
+
 export function isStripeCheckoutConfigured(): boolean {
   return Boolean(
     process.env.STRIPE_SECRET_KEY &&
       process.env.STRIPE_STARTER_PRICE_ID &&
       process.env.STRIPE_PRO_PRICE_ID,
+  );
+}
+
+export function isVendorStripeCheckoutConfigured(): boolean {
+  return Boolean(
+    process.env.STRIPE_SECRET_KEY &&
+      process.env.STRIPE_VENDOR_VERIFIED_PRICE_ID &&
+      process.env.STRIPE_WEBHOOK_SECRET,
   );
 }
 

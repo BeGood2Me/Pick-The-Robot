@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnalyticsConsentProvider } from '@/components/analytics/AnalyticsConsentProvider';
 import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider';
+import { VendorEntitlementsLoader } from '@/components/vendor/VendorEntitlementsLoader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { BRAND_IMAGE_PATHS } from '@/lib/brand/imagePaths';
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans">
         <AnalyticsConsentProvider>
           <AnalyticsProvider>
+            <VendorEntitlementsLoader />
             <SiteHeader />
             <main id="main-content">{children}</main>
             <SiteFooter />

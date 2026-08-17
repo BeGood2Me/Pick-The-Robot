@@ -106,7 +106,7 @@ export default function AboutPage() {
               /for-vendors
             </Link>
             . Developers can embed the matcher via the{' '}
-            <Link href="/developers" className="text-accent hover:underline">
+            <Link href="/api" className="text-accent hover:underline">
               API
             </Link>
             .

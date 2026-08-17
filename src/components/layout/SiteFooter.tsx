@@ -33,6 +33,21 @@ export function SiteFooter() {
                 Run the matcher
               </Link>
             </p>
+            <div className="mt-6">
+              <p className="text-sm font-semibold text-ink">Business</p>
+              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
+                <li>
+                  <Link href="/for-vendors" className="hover:text-ink">
+                    List your robot
+                  </Link>
+                </li>
+                <li>
+                  <Link href={DEVELOPERS_PATH} className="hover:text-ink">
+                    Developer API
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             <div className="min-w-0">
@@ -132,21 +147,6 @@ export function SiteFooter() {
                     </Link>
                   </li>
                 ))}
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">Business</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                <li>
-                  <Link href="/for-vendors" className="hover:text-ink">
-                    List your robot
-                  </Link>
-                </li>
-                <li>
-                  <Link href={DEVELOPERS_PATH} className="hover:text-ink">
-                    Developer API
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>

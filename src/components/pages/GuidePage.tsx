@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import { GUIDE_PAGES, type GuidePageContent } from '@/lib/content/guides';
-import { CATEGORY_ROUTES } from '@/lib/content/navigation';
+import { homeMatcherHref } from '@/lib/content/navigation';
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/seo/schema';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { siteMetadata } from '@/lib/seo/metadata';
@@ -13,9 +13,7 @@ type GuideKey = keyof typeof GUIDE_PAGES;
 function GuidePageContent({ pageKey }: { pageKey: GuideKey }) {
   const page = GUIDE_PAGES[pageKey];
   const path = `/${pageKey}`;
-  const matcherHref = page.matcherCategory
-    ? `${CATEGORY_ROUTES[page.matcherCategory]}#matcher`
-    : '/#matcher';
+  const matcherHref = homeMatcherHref(page.matcherCategory);
 
   return (
     <>

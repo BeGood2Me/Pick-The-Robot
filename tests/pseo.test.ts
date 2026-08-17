@@ -25,7 +25,8 @@ describe('pSEO best-for pages', () => {
     expect(page!.vendors.length).toBeGreaterThanOrEqual(MIN_VENDORS_FOR_PAGE);
     expect(page!.path).toBe('/best/amr/ecommerce-warehouse');
     expect(page!.h1.toLowerCase()).toContain('amr');
-    expect(page!.matcherHref).toContain('/warehouse-robots');
+    expect(page!.matcherHref).toBe('/?category=warehouse#matcher');
+    expect(page!.categoryGuideHref).toBe('/warehouse-robots');
     expect(page!.faqs.length).toBeGreaterThanOrEqual(3);
   });
 

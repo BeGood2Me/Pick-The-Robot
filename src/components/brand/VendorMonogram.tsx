@@ -14,7 +14,7 @@ function initials(name: string): string {
 
 /**
  * Vendor avatar: initials monogram by default.
- * Logo image only when vendor is sponsored and `logoUrl` is set.
+ * Logo image when `logoUrl` is set (verified partners).
  */
 export function VendorMonogram({
   name,
@@ -31,7 +31,7 @@ export function VendorMonogram({
 }) {
   const [imageFailed, setImageFailed] = useState(false);
   const dim = size === 'sm' ? 'h-9 w-9 text-xs' : 'h-11 w-11 text-sm';
-  const showLogo = sponsored && logoUrl && !imageFailed;
+  const showLogo = Boolean(logoUrl) && !imageFailed;
 
   if (showLogo) {
     return (

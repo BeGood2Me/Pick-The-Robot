@@ -11,7 +11,7 @@ import {
   getRelatedPosts,
   resolvePostBrand,
 } from '@/lib/content/blog';
-import { CATEGORY_ROUTES } from '@/lib/content/navigation';
+import { homeMatcherHref } from '@/lib/content/navigation';
 import { WAREHOUSE_ROBOT_POST_SLUG } from '@/lib/content/warehouse-buyers-checklist';
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/seo/schema';
 import { JsonLd } from '@/lib/seo/jsonld';
@@ -48,9 +48,7 @@ export function BlogPostPage({ post }: { post: ResolvedBlogPost }) {
   const path = blogPostPath(post.slug);
   const pillar = getBlogPillarBySlug(post.pillarSlug);
   const relatedPosts = getRelatedPosts(post);
-  const matcherHref = post.matcherCategory
-    ? `${CATEGORY_ROUTES[post.matcherCategory]}#matcher`
-    : '/#matcher';
+  const matcherHref = homeMatcherHref(post.matcherCategory);
 
   return (
     <>

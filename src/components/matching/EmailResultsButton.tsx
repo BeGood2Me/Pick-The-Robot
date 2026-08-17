@@ -27,7 +27,7 @@ export function EmailResultsButton({ result }: { result: RecommendationResult })
   }
 
   return (
-    <ButtonLink href={`mailto:?subject=${subject}&body=${body}`} variant="ghost">
+    <ButtonLink href={`mailto:?subject=${subject}&body=${body}`} variant="secondary">
       Email summary
     </ButtonLink>
   );

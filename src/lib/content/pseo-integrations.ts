@@ -8,7 +8,7 @@ import type {
   PseoSoftwareCategory,
 } from '@/lib/content/pseo-types';
 import { bestForPath, getEnvironmentById, getPublishableCombos } from '@/lib/content/pseo';
-import { CATEGORY_ROUTES } from '@/lib/content/navigation';
+import { homeMatcherHref } from '@/lib/content/navigation';
 import { ROBOT_TYPE_INFO } from '@/lib/content/categories';
 import type { RobotCategory, Vendor } from '@/lib/matching';
 import { getVendorBySlug } from '@/lib/matching/vendors';
@@ -152,7 +152,7 @@ export function resolveIntegrationPage(
     h1,
     title,
     metaDescription,
-    matcherHref: `${CATEGORY_ROUTES[primaryCategory]}#matcher`,
+    matcherHref: homeMatcherHref(primaryCategory),
     vendorHref: `/vendors/${vendor.slug}`,
     showAffiliateCta,
     affiliateHref: showAffiliateCta ? affiliate!.trackingUrl : undefined,

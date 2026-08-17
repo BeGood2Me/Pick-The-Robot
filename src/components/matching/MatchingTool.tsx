@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { StepIcon } from '@/components/brand/StepIcon';
 import { Button } from '@/components/ui/Button';
 import { CategorySelector } from '@/components/matching/CategorySelector';
@@ -22,7 +22,6 @@ import {
   getRequiredFieldErrors,
   validateFormAnswers,
 } from '@/lib/forms/validateAnswers';
-import { CATEGORY_ROUTES } from '@/lib/content/navigation';
 import { detectRegionFromBrowser } from '@/lib/geo/region';
 import { onFormSubmit, type RecommendationResult, type RobotCategory } from '@/lib/matching';
 import { decodeSharePayload } from '@/lib/matching/share';
@@ -35,6 +34,11 @@ function initialAnswers(category: RobotCategory): WizardAnswers {
   return base;
 }
 
+function parseCategoryQuery(value: string | null): RobotCategory | null {
+  if (value === 'warehouse' || value === 'cleaning' || value === 'restaurant') return value;
+  return null;
+}
+
 function scrollPageToTop() {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 }
@@ -42,26 +46,22 @@ function scrollPageToTop() {
 export type MatcherPhase = 'category' | 'questions' | 'results';
 
 export function MatchingTool({
-  initialCategory = null,
   onPhaseChange,
 }: {
-  initialCategory?: RobotCategory | null;
   /** Fired when the wizard phase changes (homepage uses this to hide landing chrome). */
   onPhaseChange?: (phase: MatcherPhase) => void;
 }) {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const shareToken = searchParams.get('share');
   const matcherReset = searchParams.get('matcher');
+  const categoryPrefill = parseCategoryQuery(searchParams.get('category'));
 
-  const [category, setCategory] = useState<RobotCategory | null>(initialCategory);
-  const [answers, setAnswers] = useState<WizardAnswers | null>(
-    initialCategory ? initialAnswers(initialCategory) : null,
-  );
+  const [category, setCategory] = useState<RobotCategory | null>(null);
+  const [answers, setAnswers] = useState<WizardAnswers | null>(null);
   const [result, setResult] = useState<RecommendationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [questionStep, setQuestionStep] = useState(0);
-  const [phase, setPhase] = useState<MatcherPhase>(initialCategory ? 'questions' : 'category');
+  const [phase, setPhase] = useState<MatcherPhase>('category');
   const [shareLoading, setShareLoading] = useState(false);
   const [draftBanner, setDraftBanner] = useState(false);
   const [resultsAnnouncement, setResultsAnnouncement] = useState('');
@@ -108,7 +108,7 @@ export function MatchingTool({
   }, []);
 
   useEffect(() => {
-    if (shareToken || initialCategory) return;
+    if (shareToken || categoryPrefill) return;
 
     const legacyQuery = matcherReset === 'category';
     const hashMatcher =
@@ -121,7 +121,24 @@ export function MatchingTool({
       document.getElementById('matcher')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     // Do not router.replace('/') — that made /?matcher=category look like a redirect in Search Console.
-  }, [matcherReset, shareToken, initialCategory, resetToCategorySelection]);
+  }, [matcherReset, shareToken, categoryPrefill, resetToCategorySelection]);
+
+  useEffect(() => {
+    if (shareToken || !categoryPrefill) return;
+
+    const draft = loadDraft(categoryPrefill);
+    setCategory(categoryPrefill);
+    setAnswers(draft ?? initialAnswers(categoryPrefill));
+    setDraftBanner(!!draft);
+    setResult(null);
+    setError(null);
+    setShowFieldErrors(false);
+    setQuestionStep(0);
+    setPhase('questions');
+    requestAnimationFrame(() => {
+      document.getElementById('matcher')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }, [shareToken, categoryPrefill]);
 
   useEffect(() => {
     if (!shareToken) {
@@ -132,7 +149,7 @@ export function MatchingTool({
     const payload = decodeSharePayload(shareToken);
     if (!payload) {
       setError('This share link is invalid or expired.');
-      setPhase(initialCategory ? 'questions' : 'category');
+      setPhase('category');
       setResult(null);
       setShareLoading(false);
       return;
@@ -148,22 +165,16 @@ export function MatchingTool({
       setError(null);
     } catch {
       setError('Could not load shared results.');
-      setPhase(initialCategory ? 'questions' : 'category');
+      setPhase('category');
       setResult(null);
     }
     setShareLoading(false);
-  }, [shareToken, initialCategory]);
+  }, [shareToken]);
 
   useEffect(() => {
     if (!category || !answers || phase !== 'questions') return;
     saveDraft(category, answers);
   }, [category, answers, phase]);
-
-  useEffect(() => {
-    if (!initialCategory || shareToken) return;
-    const draft = loadDraft(initialCategory);
-    if (draft) setDraftBanner(true);
-  }, [initialCategory, shareToken]);
 
   const handleChange = useCallback((key: string, value: string | number) => {
     setAnswers((prev) => (prev ? { ...prev, [key]: value } : prev));
@@ -183,10 +194,6 @@ export function MatchingTool({
   }
 
   function handleCategorySelect(next: RobotCategory) {
-    if (initialCategory && next !== initialCategory) {
-      router.push(CATEGORY_ROUTES[next]);
-      return;
-    }
     const draft = loadDraft(next);
     setCategory(next);
     setAnswers(draft ?? initialAnswers(next));
@@ -307,11 +314,9 @@ export function MatchingTool({
           <EmailResultsButton result={result} />
           <DownloadSummaryButton result={result} />
           <SavePdfButton />
-          {!initialCategory && (
-            <Button type="button" variant="ghost" onClick={handleStartOver}>
-              Start over
-            </Button>
-          )}
+          <Button type="button" variant="secondary" onClick={handleStartOver}>
+            Start over
+          </Button>
         </div>
         <MatchResults result={result} />
       </div>
@@ -351,14 +356,8 @@ export function MatchingTool({
 
       {phase === 'category' && (
         <section>
-          <h2 className="text-xl font-semibold">
-            {initialCategory ? 'Switch category' : 'Get your robot match'}
-          </h2>
-          <p className="mt-1 mb-4 text-sm text-ink-muted">
-            {initialCategory
-              ? 'Pick a different operation type.'
-              : 'Pick your operation type.'}
-          </p>
+          <h2 className="text-xl font-semibold">Get your robot match</h2>
+          <p className="mt-1 mb-4 text-sm text-ink-muted">Pick your operation type.</p>
           <CategorySelector selected={category} onSelect={handleCategorySelect} />
         </section>
       )}

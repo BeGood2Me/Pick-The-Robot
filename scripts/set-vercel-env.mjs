@@ -45,8 +45,17 @@ function resolveLiveStripeConfig(env) {
   const webhookSecret = env.STRIPE_LIVE_WEBHOOK_SECRET || null;
   const starterPriceId = env.STRIPE_LIVE_STARTER_PRICE_ID || null;
   const proPriceId = env.STRIPE_LIVE_PRO_PRICE_ID || null;
+  const vendorVerifiedPriceId = env.STRIPE_LIVE_VENDOR_VERIFIED_PRICE_ID || null;
+  const vendorSponsoredPriceId = env.STRIPE_LIVE_VENDOR_SPONSORED_PRICE_ID || null;
   if (!secretKey || !webhookSecret || !starterPriceId || !proPriceId) return null;
-  return { secretKey, webhookSecret, starterPriceId, proPriceId };
+  return {
+    secretKey,
+    webhookSecret,
+    starterPriceId,
+    proPriceId,
+    vendorVerifiedPriceId,
+    vendorSponsoredPriceId,
+  };
 }
 
 function resolveTestStripeConfig(env) {
@@ -58,6 +67,10 @@ function resolveTestStripeConfig(env) {
     webhookSecret: env.STRIPE_TEST_WEBHOOK_SECRET || env.STRIPE_WEBHOOK_SECRET,
     starterPriceId: env.STRIPE_TEST_STARTER_PRICE_ID || env.STRIPE_STARTER_PRICE_ID,
     proPriceId: env.STRIPE_TEST_PRO_PRICE_ID || env.STRIPE_PRO_PRICE_ID,
+    vendorVerifiedPriceId:
+      env.STRIPE_TEST_VENDOR_VERIFIED_PRICE_ID || env.STRIPE_VENDOR_VERIFIED_PRICE_ID,
+    vendorSponsoredPriceId:
+      env.STRIPE_TEST_VENDOR_SPONSORED_PRICE_ID || env.STRIPE_VENDOR_SPONSORED_PRICE_ID,
   };
 }
 
@@ -74,10 +87,23 @@ if (liveStripe) {
   productionVars.STRIPE_WEBHOOK_SECRET = liveStripe.webhookSecret;
   productionVars.STRIPE_STARTER_PRICE_ID = liveStripe.starterPriceId;
   productionVars.STRIPE_PRO_PRICE_ID = liveStripe.proPriceId;
+  if (liveStripe.vendorVerifiedPriceId) {
+    productionVars.STRIPE_VENDOR_VERIFIED_PRICE_ID = liveStripe.vendorVerifiedPriceId;
+  }
+  if (liveStripe.vendorSponsoredPriceId) {
+    productionVars.STRIPE_VENDOR_SPONSORED_PRICE_ID = liveStripe.vendorSponsoredPriceId;
+  }
 }
 
 if (env.API_KEY_ENCRYPTION_KEY) {
   productionVars.API_KEY_ENCRYPTION_KEY = env.API_KEY_ENCRYPTION_KEY;
+}
+
+if (env.BREVO_API_KEY) {
+  productionVars.BREVO_API_KEY = env.BREVO_API_KEY;
+}
+if (env.BREVO_FROM_EMAIL) {
+  productionVars.BREVO_FROM_EMAIL = env.BREVO_FROM_EMAIL;
 }
 
 const previewVars = {
@@ -98,6 +124,12 @@ if (testStripe?.secretKey && testStripe.webhookSecret && testStripe.starterPrice
   previewVars.STRIPE_WEBHOOK_SECRET = testStripe.webhookSecret;
   previewVars.STRIPE_STARTER_PRICE_ID = testStripe.starterPriceId;
   previewVars.STRIPE_PRO_PRICE_ID = testStripe.proPriceId;
+  if (testStripe.vendorVerifiedPriceId) {
+    previewVars.STRIPE_VENDOR_VERIFIED_PRICE_ID = testStripe.vendorVerifiedPriceId;
+  }
+  if (testStripe.vendorSponsoredPriceId) {
+    previewVars.STRIPE_VENDOR_SPONSORED_PRICE_ID = testStripe.vendorSponsoredPriceId;
+  }
 }
 
 for (const [name, value] of Object.entries(productionVars)) {

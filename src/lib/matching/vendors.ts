@@ -1,3 +1,4 @@
+import { applyVendorEntitlements } from '@/lib/vendor/entitlements';
 import vendorData from '@/data/vendors.json';
 import type { Vendor, VendorMatch } from './types';
 
@@ -18,12 +19,16 @@ export function compareVendorsForDisplay(a: Vendor, b: Vendor): number {
 }
 
 export function getVendorsByCategory(category: Vendor['categories'][number]): Vendor[] {
-  return VENDORS.filter((v) => v.categories.includes(category)).sort(compareVendorsForDisplay);
+  return VENDORS.filter((v) => v.categories.includes(category))
+    .map(applyVendorEntitlements)
+    .sort(compareVendorsForDisplay);
 }
 export function getVendorById(id: string): Vendor | undefined {
-  return VENDORS.find((v) => v.id === id);
+  const vendor = VENDORS.find((v) => v.id === id);
+  return vendor ? applyVendorEntitlements(vendor) : undefined;
 }
 
 export function getVendorBySlug(slug: string): Vendor | undefined {
-  return VENDORS.find((v) => v.slug === slug);
+  const vendor = VENDORS.find((v) => v.slug === slug);
+  return vendor ? applyVendorEntitlements(vendor) : undefined;
 }

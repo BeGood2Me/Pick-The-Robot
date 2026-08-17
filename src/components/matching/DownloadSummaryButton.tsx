@@ -20,7 +20,7 @@ export function DownloadSummaryButton({ result }: { result: RecommendationResult
   }
 
   return (
-    <Button type="button" variant="ghost" onClick={handleDownload}>
+    <Button type="button" variant="secondary" onClick={handleDownload}>
       Download .txt
     </Button>
   );

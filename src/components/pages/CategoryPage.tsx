@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
+import { ComparisonMatcherCta } from '@/components/matching/ComparisonMatcherCta';
 import { CanonicalDefinitions } from '@/components/content/CanonicalDefinitions';
 import { FaqBlock } from '@/components/content/FaqBlock';
-import { MatchingTool } from '@/components/matching/MatchingToolLoader';
 import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import { Badge } from '@/components/ui/Badge';
 import { CATEGORY_CONTENT, ROBOT_TYPE_INFO } from '@/lib/content/categories';
 import { getCategoryDefinitions } from '@/lib/content/definitions';
-import { CATEGORY_COMPARISON_LINKS, CATEGORY_ROUTES } from '@/lib/content/navigation';
+import { CATEGORY_COMPARISON_LINKS, CATEGORY_ROUTES, homeMatcherHref } from '@/lib/content/navigation';
+import { CATEGORY_LABELS } from '@/lib/forms/questions';
 import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
 import { WAREHOUSE_BUYERS_CHECKLIST_PATH } from '@/lib/content/warehouse-buyers-checklist';
 import { RESTAURANT_BUYERS_CHECKLIST_PATH } from '@/lib/content/restaurant-buyers-checklist';
@@ -75,17 +75,7 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
           </p>
         )}
 
-        <section id="matcher" className="mt-8 scroll-mt-8 border-y border-surface-border py-8">
-          <h2 className="text-xl font-semibold">Match your operation</h2>
-          <p className="mt-1 text-sm text-ink-muted">
-            Category-specific questions → robot type, acquisition model, ranked vendors.
-          </p>
-          <div className="mt-4">
-            <MatchingTool initialCategory={category} />
-          </div>
-        </section>
-
-        <StickyMatcherCta href="#matcher" />
+        <ComparisonMatcherCta category={category} />
 
         <div id="guide" className="scroll-mt-8">
         <CanonicalDefinitions items={getCategoryDefinitions(category)} />
@@ -176,8 +166,8 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
               </li>
             ))}
             <li>
-              <Link href="/" className="font-medium text-accent hover:underline">
-                Full matcher (all categories)
+              <Link href={homeMatcherHref(category)} className="font-medium text-accent hover:underline">
+                Run the {CATEGORY_LABELS[category].toLowerCase()} matcher
               </Link>
             </li>
           </ul>

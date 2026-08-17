@@ -5,6 +5,7 @@ import { VendorMonogram } from '@/components/brand/VendorMonogram';
 import { Badge } from '@/components/ui/Badge';
 import { ButtonLink } from '@/components/ui/Button';
 import { getOutboundUrl, trackVendorOutboundClick } from '@/lib/analytics/outbound';
+import { isVerifiedVendor } from '@/lib/vendor/entitlements';
 import type { Vendor, VendorMatch } from '@/lib/matching';
 
 const DEPLOY_LABELS = { low: 'Fast deployment', medium: 'Moderate', high: 'Complex' } as const;
@@ -35,6 +36,7 @@ export function VendorCard({
                 </Link>
               </h3>
               <Badge variant="accent">{Math.round(match.overallMatch)}% match</Badge>
+              {isVerifiedVendor(vendor.slug) && <Badge variant="success">Verified</Badge>}
               {vendor.sponsored && <Badge variant="sponsored">Sponsored</Badge>}
             </div>
             <p className="mt-1 text-sm text-ink-muted">{vendor.shortDescription}</p>

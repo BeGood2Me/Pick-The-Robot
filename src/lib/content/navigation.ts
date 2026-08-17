@@ -15,11 +15,17 @@ export const CATEGORY_ROUTES: Record<RobotCategory, string> = {
   restaurant: '/restaurant-robots',
 };
 
-/** In-page anchor for robot types, vendors, and FAQs below the matcher. */
+/** Legacy in-page anchor — kept on category guide pages for old deep links. */
 export const CATEGORY_GUIDE_ANCHOR = 'guide';
 
 export function categoryGuideHref(category: RobotCategory): string {
-  return `${CATEGORY_ROUTES[category]}#${CATEGORY_GUIDE_ANCHOR}`;
+  return CATEGORY_ROUTES[category];
+}
+
+/** Homepage matcher entry, optionally pre-selecting a category. */
+export function homeMatcherHref(category?: RobotCategory | null): string {
+  if (!category) return HOME_MATCHER_RESET_HREF;
+  return `/?category=${category}#matcher`;
 }
 
 /** Homepage matcher entry — hash scrolls to wizard; avoids ?query URLs that GSC treats as redirects. */
@@ -63,7 +69,7 @@ export const CATEGORY_LINKS = [
 
 const GUIDE_CATEGORIES: RobotCategory[] = ['warehouse', 'cleaning', 'restaurant'];
 
-/** Links to robot types / guide content below the matcher (`#guide`). */
+/** Links to standalone category guide pages. */
 export const CATEGORY_GUIDE_LINKS = GUIDE_CATEGORIES.map((category) => ({
   href: categoryGuideHref(category),
   label: `${CATEGORY_LABELS[category]} guide`,

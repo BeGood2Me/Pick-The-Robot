@@ -36,11 +36,6 @@ export const HOME_FAQS: FaqItem[] = [
     answer:
       'Fit comes first. If sponsored partnerships appear later, they are disclosed and only boost vendors that already match your profile — they never override fit.',
   },
-  {
-    question: 'How do you make money?',
-    answer:
-      'The matcher is free today. We may earn from outbound vendor referrals or disclosed sponsored placements later.',
-  },
 ];
 
 import { METHODOLOGY_SUMMARY } from '@/lib/content/methodology';

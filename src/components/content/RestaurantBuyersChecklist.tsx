@@ -24,13 +24,13 @@ export function RestaurantBuyersChecklist() {
           </p>
           <p>
             <strong className="text-ink">Buffet or high table turnover?</strong> → Consider{' '}
-            <Link href="/restaurant-robots#guide" className="text-accent hover:underline">
+            <Link href="/restaurant-robots" className="text-accent hover:underline">
               bussing robots
             </Link>
           </p>
           <p>
             <strong className="text-ink">Back-of-house bottleneck at one station?</strong> → Look at{' '}
-            <Link href="/restaurant-robots#guide" className="text-accent hover:underline">
+            <Link href="/restaurant-robots" className="text-accent hover:underline">
               kitchen automation
             </Link>{' '}
             for that station first

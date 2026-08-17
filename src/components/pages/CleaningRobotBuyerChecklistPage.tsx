@@ -51,7 +51,7 @@ export function CleaningRobotBuyerChecklistPage() {
 
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/cleaning-robots#matcher"
+            href="/?category=cleaning#matcher"
             className="inline-flex items-center justify-center rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-accent/20 transition hover:bg-accent-hover"
           >
             Run cleaning matcher

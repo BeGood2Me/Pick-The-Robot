@@ -41,6 +41,15 @@ export function trackVendorOutboundClick(vendor: Vendor, context?: string): void
       context,
     },
   });
+
+  if (typeof window !== 'undefined') {
+    void fetch('/api/vendor/click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ vendorSlug: vendor.slug, context }),
+      keepalive: true,
+    }).catch(() => undefined);
+  }
 }
 
 export function trackAcquisitionModelViewed(model: string, context?: string): void {
