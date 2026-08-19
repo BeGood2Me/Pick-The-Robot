@@ -9,9 +9,9 @@
     "warehouse robot price 2026",
     "how much does a warehouse robot cost"
   ],
-  "title": "Warehouse robot cost: first-year budget (2026)",
+  "title": "Warehouse robot cost: AMR, AGV & RaaS (2026)",
   "h1": "Warehouse robot cost in 2026",
-  "metaDescription": "Warehouse robot cost in 2026: AMR $25k–$150k, AGV plus infrastructure, RaaS $2k–$8k/mo, and first-year extras most quotes omit. Not a vendor quote.",
+  "metaDescription": "How much do warehouse robots cost? AMR $25k–$80k, RaaS $2k–$5k/mo per robot, AGV plus infrastructure — 2026 first-year budget guide.",
   "intro": "In 2026, most warehouse robots cost between $25,000 and $150,000 per unit for AMRs, with AGVs often lower per vehicle but higher once you add fixed infrastructure. A realistic first-year pilot — hardware, integration, and training — commonly lands between $100,000 and $500,000 depending on fleet size and WMS depth. Hardware is rarely the full bill: integration, network upgrades, and support can add 40–60% on top of list prices.",
   "publishedAt": "2026-07-16",
   "updatedAt": "2026-07-18",
@@ -146,6 +146,10 @@
     {
       "href": "/raas-pricing",
       "label": "RaaS pricing by category"
+    },
+    {
+      "href": "/robotics-as-a-service",
+      "label": "Robotics as a service (RaaS)"
     },
     {
       "href": "/warehouse-robots#matcher",

@@ -17,10 +17,10 @@ export interface ComparisonPage {
 export const COMPARISONS: Record<string, ComparisonPage> = {
   'amr-vs-agv': {
     slug: 'amr-vs-agv',
-    title: 'AMR vs AGV: pick the robot type first',
+    title: 'AGV vs AMR: difference, cost & when to use each',
     h1: 'AMR vs AGV',
     metaDescription:
-      'AMR vs AGV for warehouses: dynamic vs fixed paths. Choose robot type and layout fit before vendor demos — comparison table plus a free buyer checklist.',
+      'AGV vs AMR for warehouses: fixed paths vs dynamic maps, typical costs, and which workflows fit each. Comparison table + free buyer checklist.',
     intro:
       'The core AMR vs AGV difference is navigation: AMRs (autonomous mobile robots) build and follow a map and reroute around people and obstacles, while AGVs (automated guided vehicles) stick to fixed paths — tape, reflectors, wires, or marked lanes. Layout stability and route predictability decide which fits your warehouse. Use the free warehouse buyer checklist before demos, then compare fit below.',
     matcherCategory: 'warehouse',
@@ -314,10 +314,10 @@ export const DECISION_PAGES = {
     ],
   },
   'robotics-as-a-service': {
-    title: 'Robotics-as-a-Service (RaaS) for businesses',
+    title: 'Robot as a service (RaaS): cost & when it fits',
     h1: 'Robotics-as-a-Service (RaaS)',
     metaDescription:
-      'What is robotics-as-a-service? How RaaS pricing works for warehouse, cleaning, and restaurant robots — and when it is a good fit.',
+      'Robotics as a service explained: monthly cost bands for warehouse AMRs, cleaning scrubbers, and serving robots — and when RaaS beats buying.',
     intro:
       'RaaS bundles hardware, software, and often maintenance into a subscription. It lowers upfront risk and is common for first deployments.',
     sections: [

@@ -127,6 +127,25 @@ function shortEnvironmentName(environment: PseoEnvironment): string {
   return shortNames[environment.id] ?? environment.name;
 }
 
+function buildBestForTitle(
+  robotType: RobotType,
+  robotPhrase: string,
+  environment: PseoEnvironment,
+  year: number,
+): string {
+  if (environment.id === 'ecommerce-warehouse') {
+    const ecommerce: Partial<Record<RobotType, string>> = {
+      amr: `Best AMR for e-commerce fulfillment (${year})`,
+      agv: `Best AGV for e-commerce warehouses (${year})`,
+      picking_assist: `Best pick-assist for e-commerce (${year})`,
+    };
+    const titled = ecommerce[robotType];
+    if (titled) return titled;
+  }
+  const envTitle = shortEnvironmentName(environment);
+  return `Best ${robotPhrase} for ${envTitle} (${year})`;
+}
+
 function buildBestForMeta(
   robotType: RobotType,
   robotPhrase: string,
@@ -135,9 +154,9 @@ function buildBestForMeta(
 ): string {
   const env = environment.name;
   const byType: Partial<Record<RobotType, string>> = {
-    amr: `Best fulfillment AMR robots for ${env} in ${year} — compare vendors for e-commerce pick density, layout change, and RaaS vs buy before you pilot.`,
-    agv: `Best AGV robots for ${env} in ${year} — when fixed paths beat AMRs, vendor shortlist, and what infrastructure quotes usually include.`,
-    picking_assist: `Best pick-assist robots for ${env} in ${year} — vendors for collaborative picking, fleet sizing cues, and next-step matcher.`,
+    amr: `Best fulfillment AMRs for ${env} (${year}): vendor shortlist, RaaS vs buy, and AMR vs AGV before you pilot.`,
+    agv: `Best AGVs for ${env} (${year}): fixed-route fit, infrastructure costs, and when AMRs win instead.`,
+    picking_assist: `Best pick-assist robots for ${env} (${year}): collaborative picking vendors and WMS fit cues.`,
     office_cleaner: `Best office cleaner robots for ${env} in ${year} — compact autonomous cleaners, vendor shortlist, and when to move up to scrubbers.`,
     serving_robot: `Best serving robots for ${env} in ${year} — vendors for peak running, aisle-fit checks, and lease vs RaaS pilots.`,
   };
@@ -181,9 +200,8 @@ export function resolveBestForPage(
   const year = new Date().getFullYear();
   const path = bestForPath(robotType, environmentId);
   const robotPhrase = pluralRobotPhrase(robotTypeLabel);
-  const envTitle = shortEnvironmentName(environment);
   const h1 = `Best ${robotPhrase} for ${environment.name} (${year})`;
-  const title = `Best ${robotPhrase} for ${envTitle} (${year})`;
+  const title = buildBestForTitle(robotType, robotPhrase, environment, year);
   const metaDescription = buildBestForMeta(robotType, robotPhrase, environment, year);
 
   return {

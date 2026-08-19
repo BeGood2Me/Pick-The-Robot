@@ -10,9 +10,9 @@ import { JsonLd } from '@/lib/seo/jsonld';
 import { siteMetadata } from '@/lib/seo/metadata';
 
 export const metadata = siteMetadata({
-  title: 'Best robots by facility type',
+  title: 'Best robots by facility type (2026)',
   description:
-    'Research which robot types fit e-commerce warehouses, office floors, restaurants, and more—then run the matcher for a scored recommendation.',
+    'Best AMR, AGV, pick-assist, and cleaning robots for e-commerce warehouses, offices, and restaurants — vendor shortlists plus the free matcher.',
   path: BEST_HUB_PATH,
 });
 

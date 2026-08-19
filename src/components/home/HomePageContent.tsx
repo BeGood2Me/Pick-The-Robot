@@ -7,6 +7,7 @@ import { HomeHero } from '@/components/home/HomeHero';
 import { HomeHowItWorks } from '@/components/home/HomeHowItWorks';
 import { HomeTaglineReveal } from '@/components/home/HomeTaglineReveal';
 import { FaqBlock } from '@/components/content/FaqBlock';
+import { HomeSeoGuides } from '@/components/content/HomeSeoGuides';
 import { HomeExploreStrip } from '@/components/content/HomeExploreStrip';
 import { StickyMatcherCta } from '@/components/layout/StickyMatcherCta';
 import {
@@ -45,6 +46,7 @@ export function HomePageContent() {
           <HomeHowItWorks />
           <HomeTaglineReveal />
           <HomeExploreStrip />
+          <HomeSeoGuides />
           <FaqBlock items={HOME_FAQS} title="Common questions" defaultOpen={null} />
           <HomeFinalCta />
         </div>

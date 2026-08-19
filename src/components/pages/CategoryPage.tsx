@@ -12,6 +12,7 @@ import { CATEGORY_LABELS } from '@/lib/forms/questions';
 import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
 import { WAREHOUSE_BUYERS_CHECKLIST_PATH } from '@/lib/content/warehouse-buyers-checklist';
 import { RESTAURANT_BUYERS_CHECKLIST_PATH } from '@/lib/content/restaurant-buyers-checklist';
+import { CATEGORY_SEO_GUIDE_LINKS } from '@/lib/content/seo-money-pages';
 import { ROBOT_TYPE_LABELS, type RobotCategory, type RobotType } from '@/lib/matching';
 import { getVendorsByCategory } from '@/lib/matching/vendors';
 import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo/schema';
@@ -44,6 +45,20 @@ export function CategoryPage({ category }: { category: RobotCategory }) {
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: content.h1 }]} />
         <h1 className="font-display text-4xl font-semibold">{content.h1}</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">{content.intro}</p>
+
+        {CATEGORY_SEO_GUIDE_LINKS[category].length > 0 && (
+          <section className="mt-6" aria-label="Popular guides">
+            <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              {CATEGORY_SEO_GUIDE_LINKS[category].map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="font-medium text-accent hover:underline">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {category === 'cleaning' && (
           <p className="mt-4 text-sm text-ink-muted">

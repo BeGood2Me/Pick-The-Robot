@@ -19,9 +19,9 @@ import { siteMetadata } from '@/lib/seo/metadata';
 const CATEGORIES: RobotCategory[] = ['warehouse', 'cleaning', 'restaurant'];
 
 export const metadata = siteMetadata({
-  title: 'Robot vendors for warehouse, cleaning, restaurants',
+  title: 'Robot vendors: warehouse, cleaning & restaurants',
   description:
-    'Browse warehouse, cleaning, and restaurant robot vendors in the PickTheRobot directory. Profiles and outbound links — then run the matcher for a ranked shortlist, not a market-size report.',
+    'Compare deployable robot vendors — AMR, scrubbers, serving robots — by category. Profiles and matcher shortlist; not fleet management software.',
   path: '/vendors',
 });
 
@@ -31,12 +31,12 @@ export default function VendorsIndexPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },
-          { name: 'Vendors', path: '/vendors' },
+          { name: 'Directory', path: '/vendors' },
         ])}
       />
 
       <div className="container-page py-10">
-        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Vendors' }]} />
+        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Directory' }]} />
         <h1 className="font-display text-4xl font-semibold">Robot vendor directory</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">
           This is a directory of vendors in our matcher dataset for warehouse, cleaning, and restaurant

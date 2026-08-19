@@ -9,9 +9,9 @@
     "robot waiter cost",
     "restaurant robot price"
   ],
-  "title": "Serving robot cost: buy or lease $500–$1.5k/mo",
+  "title": "Robot waiter cost: lease $500–$1.5k/mo (2026)",
   "h1": "Buy or lease a serving robot: cost ranges",
-  "metaDescription": "Restaurant serving robot cost: typical $500–$1.5k/mo RaaS or mid five-figure purchase. When peak covers justify a pilot — not a quote.",
+  "metaDescription": "Restaurant serving robot cost: lease or RaaS $500–$1,500/mo typical, or mid five-figure purchase. Peak covers and aisle fit matter — not a vendor quote.",
   "intro": "Operators comparing whether to buy or lease a serving robot usually care about monthly cash flow first, then peak-hour utilization. Restaurant serving robots — food runners and bussing bots — are priced per unit or per month on lease and RaaS programs. Cost only makes sense alongside aisle layout fit.",
   "publishedAt": "2026-07-16",
   "updatedAt": "2026-08-06",
@@ -112,6 +112,14 @@
     {
       "href": "/robotics-as-a-service",
       "label": "Robotics-as-a-Service"
+    },
+    {
+      "href": "/robotics-as-a-service",
+      "label": "Robotics as a service (RaaS)"
+    },
+    {
+      "href": "/blog/warehouse-robot-cost-2026",
+      "label": "Warehouse robot cost (for ops teams)"
     },
     {
       "href": "/raas-pricing",

@@ -79,12 +79,12 @@ export interface CategoryPageContent {
 
 export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
   warehouse: {
-    title: 'Warehouse robots buying guide',
+    title: 'Warehouse robots: AMR, AGV & pick-assist guide',
     h1: 'Warehouse robots',
     intro:
       'Match AMRs, AGVs, picking assist, and pallet movers to your facility size, workflow, and budget. Use the tool below to get a rules-based recommendation in under two minutes.',
     metaDescription:
-      'Compare warehouse robots by fit, cost model, and deployment. Find AMR, AGV, picking assist, or pallet mover options for your operation.',
+      'Warehouse robots compared by fit and cost: AMR, AGV, pick-assist, pallet movers. Free matcher plus AGV vs AMR and cost guides.',
     robotTypesIntro:
       'Warehouse automation spans transport, picking, and pallet movement. The right type depends on layout stability, volume, and systems readiness.',
     acquisitionIntro:
