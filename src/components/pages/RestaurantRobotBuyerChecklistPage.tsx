@@ -36,12 +36,12 @@ export function RestaurantRobotBuyerChecklistPage() {
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Restaurant robot buyer\'s checklist' },
+            { label: RESTAURANT_BUYERS_CHECKLIST_META.title },
           ]}
         />
 
         <h1 className="mt-4 font-display text-4xl font-semibold">
-          Restaurant robot buyer&apos;s checklist
+          {RESTAURANT_BUYERS_CHECKLIST_META.title}
         </h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">
           A free, printable guide for restaurant operators evaluating serving, bussing, kitchen, or

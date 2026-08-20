@@ -11,7 +11,7 @@ export function RestaurantBuyersChecklist() {
   return (
     <BuyersChecklist
       id="restaurant-buyers-checklist"
-      heading="Restaurant robot buyer's checklist"
+      heading="Restaurant robot buyer checklist"
       intro="Use this before vendor demos. Each step links to a deeper guide on PickTheRobot — print or share with ops and ownership."
       items={RESTAURANT_BUYERS_CHECKLIST}
       decisionTree={
@@ -52,7 +52,7 @@ export function RestaurantBuyersChecklist() {
         </>
       }
       vendorQuestions={RESTAURANT_VENDOR_FIRST_CALL_QUESTIONS}
-      printSubtitle="Restaurant robot buyer's checklist · picktherobot.com"
+      printSubtitle="Restaurant robot buyer checklist · picktherobot.com"
       printFooterUrl={`${BASE_URL}${RESTAURANT_BUYERS_CHECKLIST_PATH}`}
     />
   );

@@ -6,9 +6,10 @@ export type { BuyersChecklistItem };
 export const WAREHOUSE_BUYERS_CHECKLIST_PATH = '/resources/warehouse-robot-buyer-checklist';
 
 export const WAREHOUSE_BUYERS_CHECKLIST_META = {
-  title: 'Warehouse robot buyer\'s checklist',
+  title: 'Warehouse robot buyer checklist (free)',
+  h1: 'Warehouse robot buyer checklist',
   description:
-    'Free 10-step checklist for ops and procurement teams before AMR, AGV, pick-assist, or pallet mover demos — workflow fit, WMS readiness, pilot design, and vendor questions.',
+    'Free warehouse robot buyer checklist: 10 steps before AMR/AGV demos — workflow, WMS, pilot, and vendor questions.',
 } as const;
 
 export const WAREHOUSE_BUYERS_CHECKLIST_LAST_UPDATED = 'August 2026';

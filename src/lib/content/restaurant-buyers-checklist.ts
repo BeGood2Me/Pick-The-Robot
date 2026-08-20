@@ -6,9 +6,9 @@ export type { BuyersChecklistItem };
 export const RESTAURANT_BUYERS_CHECKLIST_PATH = '/resources/restaurant-robot-buyer-checklist';
 
 export const RESTAURANT_BUYERS_CHECKLIST_META = {
-  title: 'Restaurant robot buyer\'s checklist',
+  title: 'Restaurant robot buyer checklist',
   description:
-    'Free 10-step checklist for restaurant operators before serving, bussing, or kitchen robot demos — covers, layout, peak hours, lease vs buy, and vendor questions.',
+    'Free restaurant robot buyer checklist: covers, layout, peak hours, lease vs buy, and vendor questions.',
 } as const;
 
 export const RESTAURANT_BUYERS_CHECKLIST_LAST_UPDATED = 'August 2026';

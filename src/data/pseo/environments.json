@@ -10,6 +10,36 @@
     "pageIntro": "Fulfillment AMRs help e-commerce warehouses cut walking time when layouts change and pick density is high—not just fixed guided AGV loops. This page ranks vendors whose fleets support AMR transport and pick assist for e-commerce fulfillment, then points you to cost guides and the matcher."
   },
   {
+    "id": "third-party-logistics-warehouse",
+    "name": "3PL / multi-client warehouse",
+    "description": "Third-party logistics and shared DCs serving multiple shippers, often with seasonal volume swings, client-specific SOPs, and pressure to pilot automation without locking the whole building into one fixed layout.",
+    "floorAreaBand": "80k–400k+ sq ft (approx. 7.5k–37k m²)",
+    "trafficPattern": "Multi-client zones, seasonal peaks, mixed tote and pallet work",
+    "priorityKpis": ["labour flexibility", "client SLA hit rate", "pilot time-to-value", "cost per order"],
+    "category": "warehouse",
+    "pageIntro": "3PL warehouses need fleets that adapt when clients and volumes change. Shortlist vendors that support AMR, pick-assist, AGV, or pallet workflows for multi-client sites—then run the warehouse matcher with your real volume and layout answers."
+  },
+  {
+    "id": "manufacturing-plant",
+    "name": "Manufacturing plant",
+    "description": "Production and assembly plants moving raw materials, WIP, and finished goods between lines, buffers, and docks. Routes are often more stable than e-commerce pick paths, which favors guided or heavy-payload movers alongside flexible AMRs.",
+    "floorAreaBand": "40k–300k sq ft production + staging (approx. 4k–28k m²)",
+    "trafficPattern": "Line-side delivery, dock-to-buffer, mixed people and forklift traffic",
+    "priorityKpis": ["line stoppages avoided", "moves per hour", "safety incidents", "dock dwell"],
+    "category": "warehouse",
+    "pageIntro": "Manufacturing plants often start with pallet movers or AGVs on stable routes, then add AMRs for ad-hoc WIP moves. Compare vendors below, then use the matcher for buy vs lease vs RaaS against your labour and layout inputs."
+  },
+  {
+    "id": "grocery-cold-chain-dc",
+    "name": "Grocery and cold-chain DC",
+    "description": "Grocery, foodservice, and cold-chain distribution with temperature zones, food-safety constraints, and dense outbound waves. Automation must respect cold environments, hygiene rules, and tight dock schedules.",
+    "floorAreaBand": "60k–350k sq ft including coolers/freezers (approx. 5.5k–32k m²)",
+    "trafficPattern": "Wave picking, cold-zone moves, tight outbound dock windows",
+    "priorityKpis": ["on-time outbound", "cold dwell time", "labour coverage", "shrink / damage"],
+    "category": "warehouse",
+    "pageIntro": "Grocery and cold-chain DCs need vendors that can operate in coolers or adjacent ambient zones and keep wave schedules. Shortlist AMR, AGV, and pallet options here, then confirm temperature ratings and hygiene SOPs with each vendor."
+  },
+  {
     "id": "office-retail-floors",
     "name": "Office and retail floors",
     "description": "Multi-tenant offices, showrooms, and retail floor plates with hard or mixed surfaces, after-hours cleaning windows, and staff who still handle restrooms and detailing. Robots cover routine vacuum or scrub passes so crews focus on edges and high-touch zones.",
@@ -20,6 +50,26 @@
     "pageIntro": "Office and retail sites usually start with compact autonomous cleaners before industrial scrubbers. Below are vendors that commonly fit this floor plate and soil profile—validate quotes and mapping for your exact layout."
   },
   {
+    "id": "hospital-healthcare-floors",
+    "name": "Hospital and healthcare floors",
+    "description": "Hospitals, clinics, and long corridors with infection-control expectations, mixed hard floors, and cleaning windows around clinical schedules. Robots handle routine scrub or vacuum coverage while staff keep restrooms, isolation areas, and detail work.",
+    "floorAreaBand": "20k–200k+ sq ft across wings (approx. 2k–18k m²)",
+    "trafficPattern": "Corridor scrubbing, overnight passes, staff and cart traffic",
+    "priorityKpis": ["coverage consistency", "hours saved", "infection-control compliance support"],
+    "category": "cleaning",
+    "pageIntro": "Healthcare sites care about quiet overnight runs, mapped no-go zones, and vendor hygiene documentation. Shortlist scrubbers and office cleaners that fit hospital corridors—confirm clinical SOPs with facilities and infection control before a pilot."
+  },
+  {
+    "id": "warehouse-distribution-floors",
+    "name": "Warehouse and distribution floors",
+    "description": "Warehouse and DC floor cleaning: concrete dust, tracked-in soil, wide aisles, and after-shift or overnight windows. Industrial or large scrubbers usually outperform compact office units on these plates.",
+    "floorAreaBand": "50k–400k+ sq ft (approx. 5k–37k m²)",
+    "trafficPattern": "Wide aisles, dock soil, forklift traffic between cleaning windows",
+    "priorityKpis": ["acres/hours covered", "dust control", "labour hours saved"],
+    "category": "cleaning",
+    "pageIntro": "Warehouse floors need rugged scrubbers more often than office vacuums. Compare large and industrial cleaning vendors below, then use the cleaning matcher for floor area, frequency, and RaaS vs buy preference."
+  },
+  {
     "id": "full-service-restaurant",
     "name": "Full-service restaurant",
     "description": "Table-service dining rooms with peak-hour runners, busing pressure, and aisle constraints that vary by concept. Robots help with food running or busing when paths are clear and staff still own guest experience and exceptions.",
@@ -28,5 +78,15 @@
     "priorityKpis": ["covers per labour hour", "runner walk time", "table turn consistency"],
     "category": "restaurant",
     "pageIntro": "Full-service venues care about aisle width, peak intensity, and guest-facing reliability. These serving-oriented vendors are a starting shortlist—run the restaurant matcher for a fit score based on your seats and layout."
+  },
+  {
+    "id": "quick-service-food-hall",
+    "name": "QSR and food hall",
+    "description": "Quick-service restaurants, food courts, and multi-vendor halls with high ticket volume, shared paths, and strong interest in lease or RaaS pilots before buying robots outright.",
+    "floorAreaBand": "Counter + dining paths typical of high-turnover QSR or food-hall pods",
+    "trafficPattern": "Dense guest flow, short ticket times, shared corridors",
+    "priorityKpis": ["ticket time", "runner/busser hours", "guest path reliability"],
+    "category": "restaurant",
+    "pageIntro": "QSR and food halls often pilot serving or bussing robots on lease/RaaS to test congestion and guest reaction. Shortlist vendors here, then confirm aisle width and peak covers in the restaurant matcher."
   }
 ]

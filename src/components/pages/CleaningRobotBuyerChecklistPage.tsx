@@ -36,12 +36,12 @@ export function CleaningRobotBuyerChecklistPage() {
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Cleaning robot buyer\'s checklist' },
+            { label: CLEANING_BUYERS_CHECKLIST_META.title },
           ]}
         />
 
         <h1 className="mt-4 font-display text-4xl font-semibold">
-          Commercial cleaning robot buyer&apos;s checklist
+          {CLEANING_BUYERS_CHECKLIST_META.title}
         </h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">
           A free, printable guide for facilities managers and procurement teams evaluating autonomous

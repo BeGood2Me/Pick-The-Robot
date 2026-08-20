@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T18:46:16.774Z",
+  "generatedAt": "2026-08-20T10:36:13.952Z",
   "posts": [
     {
       "slug": "amr-vs-agv-comparison",
@@ -19,21 +19,21 @@
       "slug": "how-to-buy-warehouse-robot",
       "pillarSlug": "warehouse-automation",
       "publishedAt": "2026-07-16",
-      "title": "Warehouse robot buyer's checklist (2026) + step-by-step guide",
+      "title": "Warehouse robot buyer checklist (2026) + step-by-step guide",
       "path": "/blog/how-to-buy-warehouse-robot"
     },
     {
       "slug": "raas-cleaning-robots-guide",
       "pillarSlug": "cleaning-robotics",
       "publishedAt": "2026-07-16",
-      "title": "RaaS cleaning robots: monthly cost $800–$5k",
+      "title": "RaaS cleaning robots: $800–$5k/mo explained",
       "path": "/blog/raas-cleaning-robots-guide"
     },
     {
       "slug": "restaurant-serving-robot-cost",
       "pillarSlug": "restaurant-robotics",
       "publishedAt": "2026-07-16",
-      "title": "Serving robot cost: buy or lease $500–$1.5k/mo",
+      "title": "Robot waiter cost: lease $500–$1.5k/mo (2026)",
       "path": "/blog/restaurant-serving-robot-cost"
     },
     {
@@ -47,7 +47,7 @@
       "slug": "warehouse-robot-cost-2026",
       "pillarSlug": "warehouse-automation",
       "publishedAt": "2026-07-16",
-      "title": "Warehouse robot cost: first-year budget (2026)",
+      "title": "Warehouse robot cost: AMR, AGV & RaaS (2026)",
       "path": "/blog/warehouse-robot-cost-2026"
     }
   ],

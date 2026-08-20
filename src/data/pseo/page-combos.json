@@ -9,15 +9,15 @@
       },
       {
         "question": "Are AMRs better than AGVs for e-commerce warehouses?",
-        "answer": "Often yes when layouts change and picks are dense—AMRs navigate dynamically. AGVs can win on fixed high-volume lanes. Many sites mix both. Use the AMR vs AGV guide and the warehouse matcher to compare for your pain point."
+        "answer": "Often yes when layouts change and picks are dense—AMRs navigate dynamically. AGVs can win on fixed high-volume lanes. Many sites mix both. Use the AMR vs AGV guide and the warehouse matcher to compare for your pain point; we do not guarantee one type wins for every DC."
       },
       {
         "question": "How do AMRs help e-commerce fulfillment?",
-        "answer": "They cut walking time on dense pick paths, move totes/cartons between zones, and scale fleet size with volume. Best fits are sites with layout change, high picks per hour pressure, and Wi-Fi ready for fleet software."
+        "answer": "They cut walking time on dense pick paths, move totes/cartons between zones, and scale fleet size with volume. Best fits are sites with layout change, high picks-per-hour pressure, and Wi-Fi ready for fleet software. Confirm fit with your inputs in the warehouse matcher."
       },
       {
         "question": "How long does an AMR pilot usually take?",
-        "answer": "Many vendors target a 60–90 day pilot in one workflow after mapping and basic WMS connectivity. Integration depth and network readiness drive the timeline more than robot count alone."
+        "answer": "Many vendors target a 60–90 day pilot in one workflow after mapping and basic WMS connectivity. Integration depth and network readiness drive the timeline more than robot count alone—treat vendor timelines as estimates, not guarantees."
       },
       {
         "question": "What facility changes do AMRs need?",
@@ -25,11 +25,11 @@
       },
       {
         "question": "How many AMRs do e-commerce sites start with?",
-        "answer": "Transport and pick-assist pilots commonly start with a small fleet (often around 3–5 robots) in one zone before expanding. Fleet size depends on picks, travel distance, and shifts—confirm with vendor sizing and the matcher hint."
+        "answer": "Transport and pick-assist pilots commonly start with a small fleet (often around 3–5 robots) in one zone before expanding. Fleet size depends on picks, travel distance, and shifts—confirm with vendor sizing and the matcher."
       },
       {
         "question": "Who are typical AMR vendors for e-commerce fulfillment?",
-        "answer": "Shortlists often include Locus, 6 River / Zebra, Geek+, MiR, and similar fleet platforms—compare on workflow fit, WMS connectors, and RaaS vs buy, not brand alone. See vendor profiles linked on this page and the warehouse cost guide for budget bands."
+        "answer": "Shortlists often include Locus, 6 River / Zebra, Geek+, MiR, and similar fleet platforms—compare on workflow fit, WMS connectors, and RaaS vs buy, not brand alone. See vendor profiles on this page and the warehouse robot cost guide for budget bands."
       }
     ]
   },
@@ -39,11 +39,11 @@
     "faqs": [
       {
         "question": "When should an e-commerce DC choose AGVs over AMRs?",
-        "answer": "When routes are stable, volume is predictable, and you can invest in guide infrastructure. If promotions constantly reshape pick paths, AMRs or a hybrid fleet usually fit better."
+        "answer": "When routes are stable, volume is predictable, and you can invest in guide infrastructure. If promotions constantly reshape pick paths, AMRs or a hybrid fleet usually fit better. Run the warehouse matcher and AMR vs AGV guide against your layout answers—no single type is guaranteed."
       },
       {
         "question": "What hidden costs come with AGVs?",
-        "answer": "Tape, reflectors, charging layout, and integration can rival vehicle price on larger sites. Budget infrastructure and WMS connectors separately from the per-vehicle quote."
+        "answer": "Tape, reflectors, charging layout, and integration can rival vehicle price on larger sites. Budget infrastructure and WMS connectors separately from the per-vehicle quote. The warehouse robot cost guide outlines illustrative bands before you request vendor quotes."
       },
       {
         "question": "Can AGVs and AMRs run in the same warehouse?",
@@ -57,15 +57,15 @@
     "faqs": [
       {
         "question": "Do pick-assist robots require a WMS?",
-        "answer": "Basic fleets can start light, but meaningful productivity usually needs WMS/WES work allocation. Plan connector cost and testing into the pilot budget."
+        "answer": "Basic fleets can start light, but meaningful productivity usually needs WMS/WES work allocation. Plan connector cost and testing into the pilot budget. The warehouse matcher asks about WMS readiness for this reason."
       },
       {
         "question": "Is pick assist the same as a goods-to-person AS/RS?",
-        "answer": "No. Collaborative pick-assist AMRs work with associates in aisles or zones. Goods-to-person AS/RS is a different capital profile. Match the workflow before comparing vendors."
+        "answer": "No. Collaborative pick-assist AMRs work with associates in aisles or zones. Goods-to-person AS/RS is a different capital profile. Match the workflow before comparing vendors or cost bands."
       },
       {
         "question": "Who is a poor fit for pick assist?",
-        "answer": "Very low pick volume, no path to WMS integration, or facilities that only move heavy pallets. Pallet movers or transport AMRs may fit better in those cases."
+        "answer": "Very low pick volume, no path to WMS integration, or facilities that only move heavy pallets. Pallet movers or transport AMRs may fit better in those cases—use the matcher to score alternatives from your inputs."
       }
     ]
   },
@@ -75,7 +75,7 @@
     "faqs": [
       {
         "question": "Will a cleaning robot replace janitorial staff?",
-        "answer": "Usually no. Robots handle routine floor coverage; staff still manage restrooms, detailing, and exceptions. The value is hours saved and more consistent coverage."
+        "answer": "Usually no. Robots handle routine floor coverage; staff still manage restrooms, detailing, and exceptions. The value is hours saved and more consistent coverage—not a guaranteed headcount cut."
       },
       {
         "question": "How long does mapping take?",
@@ -83,7 +83,7 @@
       },
       {
         "question": "What does RaaS look like for office cleaners?",
-        "answer": "Subscriptions often bundle the machine, software, and support. See the cleaning robot cost guide and RaaS pricing pages for illustrative bands before vendor quotes."
+        "answer": "Subscriptions often bundle the machine, software, and support. See the cleaning robot cost guide and RaaS pricing pages for illustrative bands before vendor quotes. The cleaning matcher can reflect buy vs lease vs RaaS preference."
       }
     ]
   },
@@ -93,15 +93,321 @@
     "faqs": [
       {
         "question": "Do serving robots work in tight dining rooms?",
-        "answer": "Narrow aisles and dense furniture reduce reliability. Measure clear path width and peak congestion before buying. The restaurant matcher asks about aisle width and layout complexity for this reason."
+        "answer": "Narrow aisles and dense furniture reduce reliability. Measure clear path width and peak congestion before buying. The restaurant matcher asks about aisle width and layout complexity for this reason—fit scores are rules-based, not performance guarantees."
       },
       {
         "question": "Should I buy or use RaaS for a serving robot?",
-        "answer": "Pilots often start on lease or RaaS to test guest reaction and path reliability. Purchase can win if utilization stays high for several years—compare with your budget preference in the matcher."
+        "answer": "Pilots often start on lease or RaaS to test guest reaction and path reliability. Purchase can win if utilization stays high for several years—compare with your budget preference in the matcher and the serving robot cost guide."
       },
       {
         "question": "What staff roles stay after adding a serving robot?",
         "answer": "Servers still sell, plate, and handle exceptions. Robots mainly cut runner walk time. Plan change management so the floor team trusts and loads the robot correctly."
+      }
+    ]
+  },
+  {
+    "robotType": "amr",
+    "environmentId": "third-party-logistics-warehouse",
+    "faqs": [
+      {
+        "question": "Why do 3PLs favor AMRs over fixed AGV infrastructure?",
+        "answer": "Multi-client sites change zones and SOPs often; AMRs adapt without rebuilding guide paths. AGVs still fit stable high-volume lanes for a long-term client. Use the warehouse matcher and AMR vs AGV guide—we score fit from your inputs, not a guaranteed winner."
+      },
+      {
+        "question": "Can AMR fleets be redeployed when a client leaves?",
+        "answer": "Often yes for transport and pick-assist fleets, which is why 3PLs like flexible automation. Remapping, charging layout, and WMS connectors still take time—budget that into the next client onboarding."
+      },
+      {
+        "question": "How should a 3PL size an AMR pilot?",
+        "answer": "Start in one client zone or workflow with a small fleet, then expand if SLAs and labor metrics improve. Seasonal peaks matter more than annual averages. Confirm budget bands in the warehouse robot cost guide before vendor quotes."
+      }
+    ]
+  },
+  {
+    "robotType": "picking_assist",
+    "environmentId": "third-party-logistics-warehouse",
+    "faqs": [
+      {
+        "question": "Does pick assist work across multiple 3PL clients?",
+        "answer": "It can, if each client’s pick rules and SKU profiles fit collaborative aisle work. Shared fleets need clear WMS/WES allocation so work does not collide across clients. The warehouse matcher asks about WMS readiness for this reason."
+      },
+      {
+        "question": "What breaks pick-assist ROI in a 3PL?",
+        "answer": "Clients with tiny pick volumes, constant layout churn without integration, or pallet-only accounts. Those sites often need transport AMRs or pallet movers instead—compare types in the matcher rather than forcing one workflow."
+      },
+      {
+        "question": "Is RaaS common for 3PL pick-assist pilots?",
+        "answer": "Yes—many 3PLs prefer low upfront cost while proving productivity for one shipper. See the warehouse robot cost guide for illustrative bands; vendor quotes and utilization assumptions still drive the real number."
+      }
+    ]
+  },
+  {
+    "robotType": "agv",
+    "environmentId": "third-party-logistics-warehouse",
+    "faqs": [
+      {
+        "question": "When does an AGV make sense in a multi-client warehouse?",
+        "answer": "When a large client has stable, high-volume lanes you can dedicate for years. If tenants and layouts churn yearly, AMRs usually fit better. Score both in the warehouse matcher; we do not guarantee AGVs win for every 3PL."
+      },
+      {
+        "question": "What infrastructure risk should 3PLs watch?",
+        "answer": "Guide tape, reflectors, and fixed charging layouts can strand capital if the client leaves. Price infrastructure separately from vehicles and prefer modular layouts when possible. The warehouse robot cost guide helps frame those line items."
+      },
+      {
+        "question": "Can AGVs share space with forklifts and AMRs?",
+        "answer": "Yes with clear zoning and traffic rules. Mixed fleets need one owner for safety and path conflicts. Pilot in a bounded zone before building-wide rollout."
+      }
+    ]
+  },
+  {
+    "robotType": "pallet_mover",
+    "environmentId": "third-party-logistics-warehouse",
+    "faqs": [
+      {
+        "question": "When should a 3PL choose pallet movers instead of pick AMRs?",
+        "answer": "When the bottleneck is dock-to-storage or staging pallet moves, not piece picking. Heavy, repetitive pallet cycles favor pallet movers; dense pick paths favor AMR or pick assist. Use the warehouse matcher to score from your pain point."
+      },
+      {
+        "question": "Do pallet movers need a full WMS integration?",
+        "answer": "Some pilots start with simple missions or tablets, but multi-client SLAs usually need WMS or dock scheduling hooks. Plan integration cost early—see the warehouse robot cost guide for budget context, not a fixed quote."
+      },
+      {
+        "question": "Are pallet movers flexible enough for seasonal 3PL peaks?",
+        "answer": "Fleets can scale if charging and aisle widths support extra units, but payload and aisle constraints still matter. Confirm peak-hour traffic with vendors; matcher scores are rules-based fit hints, not throughput guarantees."
+      }
+    ]
+  },
+  {
+    "robotType": "agv",
+    "environmentId": "manufacturing-plant",
+    "faqs": [
+      {
+        "question": "Why do manufacturing plants often start with AGVs?",
+        "answer": "Line-side and dock-to-buffer routes are usually more stable than e-commerce pick paths, so guided AGVs can deliver predictable moves. Dynamic AMRs still help for ad-hoc WIP. Compare both in the warehouse matcher against your route stability."
+      },
+      {
+        "question": "What safety issues matter most with AGVs on the plant floor?",
+        "answer": "Mixed forklift and pedestrian traffic, crossing aisles, and line-side clearance. Expect safety zoning, speed limits, and operator training before go-live—not optional extras."
+      },
+      {
+        "question": "How do I budget AGVs for manufacturing?",
+        "answer": "Include vehicles, guide infrastructure, charging, and MES/WMS connectors. See the warehouse robot cost guide for illustrative bands, then validate quotes against utilization and shift coverage. We do not promise payback."
+      }
+    ]
+  },
+  {
+    "robotType": "pallet_mover",
+    "environmentId": "manufacturing-plant",
+    "faqs": [
+      {
+        "question": "Where do pallet movers fit in a manufacturing plant?",
+        "answer": "Raw materials to line, WIP between buffers, and finished goods to docks are common fits. They struggle when aisles are too narrow or moves are mostly small totes. Score your layout in the warehouse matcher."
+      },
+      {
+        "question": "Can pallet movers replace forklifts entirely?",
+        "answer": "Rarely. They offload repetitive horizontal moves; forklifts often keep stacking, odd loads, and exceptions. Plan change management so operators trust the new traffic rules."
+      },
+      {
+        "question": "Buy, lease, or RaaS for plant pallet movers?",
+        "answer": "Stable multi-shift utilization often favors buy or lease; first pilots often use RaaS to limit upfront risk. Reflect budget preference in the matcher and compare bands in the warehouse robot cost guide."
+      }
+    ]
+  },
+  {
+    "robotType": "amr",
+    "environmentId": "manufacturing-plant",
+    "faqs": [
+      {
+        "question": "When should a plant prefer AMRs over AGVs?",
+        "answer": "When WIP routes change with product mix, or you need flexible moves without installing guide infrastructure. Stable high-volume loops may still favor AGVs. Use the AMR vs AGV guide and warehouse matcher—fit is rules-based, not a guarantee."
+      },
+      {
+        "question": "Do AMRs need Wi-Fi across the whole plant?",
+        "answer": "Fleet software usually needs reliable coverage on travel paths and charging areas. Dead zones delay missions and frustrate operators. Survey the network before the pilot, not after robots arrive."
+      },
+      {
+        "question": "How long is a typical plant AMR pilot?",
+        "answer": "Many teams map one route family and run 60–90 days before expanding. Integration with MES or WMS and safety reviews often set the calendar more than robot count. Treat vendor timelines as estimates."
+      }
+    ]
+  },
+  {
+    "robotType": "amr",
+    "environmentId": "grocery-cold-chain-dc",
+    "faqs": [
+      {
+        "question": "Can AMRs operate in coolers and freezers?",
+        "answer": "Some fleets are rated for cold zones; others stay in ambient or dock-adjacent areas only. Confirm temperature ratings, condensation handling, and battery behavior with each vendor before shortlisting."
+      },
+      {
+        "question": "How do AMRs help grocery wave picking?",
+        "answer": "They cut walking on dense outbound waves and move totes between temperature zones when layouts allow. Fit depends on aisle width, Wi-Fi, and WMS readiness—score those in the warehouse matcher."
+      },
+      {
+        "question": "What hygiene or food-safety constraints apply?",
+        "answer": "Expect vendor documentation for cleaning SOPs, sealed electronics where required, and no-go zones near open food handling. Facilities and food safety should sign off before a pilot; we do not certify compliance."
+      }
+    ]
+  },
+  {
+    "robotType": "agv",
+    "environmentId": "grocery-cold-chain-dc",
+    "faqs": [
+      {
+        "question": "When do AGVs fit a grocery or cold-chain DC?",
+        "answer": "Stable high-volume lanes between coolers, staging, and docks can favor guided AGVs. If slotting and waves constantly reshape paths, AMRs may fit better. Compare both with the warehouse matcher and AMR vs AGV guide."
+      },
+      {
+        "question": "Do cold environments change AGV infrastructure costs?",
+        "answer": "Yes—tape, sensors, and charging gear must tolerate condensation and cold. Budget infrastructure and temperature-rated vehicles separately. The warehouse robot cost guide gives illustrative bands, not quotes."
+      },
+      {
+        "question": "Can AGVs keep up with tight outbound dock windows?",
+        "answer": "They can when routes and charging are sized for peak waves. Undersized fleets or blocked aisles miss docks regardless of robot type. Pilot against real wave schedules before a building-wide roll out."
+      }
+    ]
+  },
+  {
+    "robotType": "pallet_mover",
+    "environmentId": "grocery-cold-chain-dc",
+    "faqs": [
+      {
+        "question": "Why use pallet movers in grocery DCs?",
+        "answer": "Grocery outbound is often pallet-heavy between coolers, staging, and docks. Pallet movers offload repetitive horizontal moves so forklifts focus on stacking and exceptions. Confirm cold ratings with vendors."
+      },
+      {
+        "question": "What fails pallet-mover pilots in cold chain?",
+        "answer": "Aisles too narrow for payload, charging outside the work zone, or no plan for mixed forklift traffic. Map peak dock congestion before buying. Matcher scores are fit hints from your answers, not throughput promises."
+      },
+      {
+        "question": "How should we budget cold-chain pallet automation?",
+        "answer": "Include temperature-rated hardware, charging in or near cold zones, and WMS/dock connectors. See the warehouse robot cost guide for bands, then validate all-in first-year cost with vendors."
+      }
+    ]
+  },
+  {
+    "robotType": "large_scrubber",
+    "environmentId": "hospital-healthcare-floors",
+    "faqs": [
+      {
+        "question": "Are large scrubbers appropriate for hospital corridors?",
+        "answer": "Wide corridors and overnight windows often fit large scrubbers; tight clinical spaces may need compact office cleaners instead. Confirm noise, no-go zones, and infection-control expectations with facilities. Use the cleaning matcher for floor area and frequency."
+      },
+      {
+        "question": "Will a scrubber robot replace EVS staff?",
+        "answer": "No. Robots cover routine hard-floor passes; staff still handle restrooms, isolation rooms, and detail work. Expect hours saved and more consistent coverage—not a guaranteed headcount reduction."
+      },
+      {
+        "question": "What should healthcare buyers ask vendors?",
+        "answer": "Ask about hygiene documentation, mapped restricted areas, overnight quiet modes, and response SLAs. See the cleaning robot cost guide for RaaS vs buy bands before comparing quotes."
+      }
+    ]
+  },
+  {
+    "robotType": "office_cleaner",
+    "environmentId": "hospital-healthcare-floors",
+    "faqs": [
+      {
+        "question": "When do compact office cleaners beat large scrubbers in healthcare?",
+        "answer": "On smaller clinics, admin wings, or mixed hard floors where a large scrubber is oversized. Large scrubbers win on long corridor runs. Score floor area and soil profile in the cleaning matcher."
+      },
+      {
+        "question": "How do hospitals handle mapping and no-go zones?",
+        "answer": "Vendors map corridors and mark restricted clinical areas. Remaps happen after construction or major furniture moves. Infection control should review the map before unsupervised runs."
+      },
+      {
+        "question": "Is RaaS common for healthcare floor robots?",
+        "answer": "Many sites pilot on subscription to limit upfront risk and bundle support. Check the cleaning robot cost guide for illustrative monthly bands; clinical SOP fit matters more than sticker price alone."
+      }
+    ]
+  },
+  {
+    "robotType": "industrial_cleaner",
+    "environmentId": "hospital-healthcare-floors",
+    "faqs": [
+      {
+        "question": "Do hospitals ever need industrial cleaners?",
+        "answer": "Sometimes for loading docks, service corridors, or large hard-floor wings with heavier soil. Most patient-facing floors stay with large scrubbers or compact cleaners. Match machine class to soil and aisle width in the cleaning matcher."
+      },
+      {
+        "question": "What limits industrial cleaners in clinical areas?",
+        "answer": "Size, noise, and infection-control zoning. Industrial units may be restricted to support areas. Confirm with facilities and infection control before a pilot—we do not certify clinical compliance."
+      },
+      {
+        "question": "How should we compare cost models?",
+        "answer": "Compare hardware, consumables, software, and support across buy, lease, and RaaS. The cleaning robot cost guide shows budgeting bands; use vendor quotes for your square footage and overnight window."
+      }
+    ]
+  },
+  {
+    "robotType": "large_scrubber",
+    "environmentId": "warehouse-distribution-floors",
+    "faqs": [
+      {
+        "question": "Why prefer large scrubbers for warehouse floors?",
+        "answer": "Concrete dust, dock soil, and wide aisles usually need more coverage and tank capacity than compact office units. Large scrubbers fit after-shift or overnight windows when forklift traffic is low."
+      },
+      {
+        "question": "Will a scrubber keep up with forklift soil?",
+        "answer": "It helps with routine dust and tracked-in dirt; heavy spills and edges still need staff. Set expectations around coverage consistency, not spotless docks after every shift. Score area and frequency in the cleaning matcher."
+      },
+      {
+        "question": "Buy or RaaS for warehouse scrubbing?",
+        "answer": "High utilization across large plates often favors buy or lease; first sites often pilot on RaaS. See the cleaning robot cost guide for bands, then validate consumables and support in quotes."
+      }
+    ]
+  },
+  {
+    "robotType": "industrial_cleaner",
+    "environmentId": "warehouse-distribution-floors",
+    "faqs": [
+      {
+        "question": "When do industrial cleaners beat large scrubbers in DCs?",
+        "answer": "On very large plates, heavy dock soil, or multi-shift coverage where rugged duty cycles matter. Smaller DCs may be fine with large scrubbers. Use the cleaning matcher for floor area and soil context."
+      },
+      {
+        "question": "What facility prep do industrial cleaners need?",
+        "answer": "Charging space, water fill/drain access, and clear overnight aisles. Forklift traffic during cleaning windows is a common failure mode—schedule around peak dock activity."
+      },
+      {
+        "question": "How do we estimate labor offset?",
+        "answer": "Compare loaded janitorial hours for routine passes against subscription or ownership cost. The cleaning robot cost guide and matcher give indicative framing only—not a promised payback or headcount cut."
+      }
+    ]
+  },
+  {
+    "robotType": "serving_robot",
+    "environmentId": "quick-service-food-hall",
+    "faqs": [
+      {
+        "question": "Do serving robots work in QSR and food halls?",
+        "answer": "They can when paths are clear and tickets create a runner bottleneck. Dense guest flow and shared corridors reduce reliability. Measure aisle width and peak congestion; the restaurant matcher scores those inputs without guaranteeing guest reaction."
+      },
+      {
+        "question": "Should QSR start on RaaS or buy?",
+        "answer": "Most pilots use lease or RaaS to test congestion and guest response before purchase. See the serving robot cost guide for monthly bands, then reflect budget preference in the matcher."
+      },
+      {
+        "question": "What roles stay after adding a serving robot?",
+        "answer": "Counter and floor staff still handle orders, exceptions, and guest issues. Robots mainly cut runner walk time on mapped routes. Train the team on loading and clearing blocked paths."
+      }
+    ]
+  },
+  {
+    "robotType": "bussing_robot",
+    "environmentId": "quick-service-food-hall",
+    "faqs": [
+      {
+        "question": "When does a bussing robot fit QSR or food halls?",
+        "answer": "When busser walk time and table turn create a bottleneck and aisles support mapped return paths. Tight shared corridors or tray chaos may still favor staff-only busing. Score layout in the restaurant matcher."
+      },
+      {
+        "question": "Is bussing different from serving robots?",
+        "answer": "Yes—bussing focuses on clearing trays and returns; serving focuses on kitchen-to-table delivery. Some venues run both; others need only one. Match the workflow before comparing vendors or cost bands."
+      },
+      {
+        "question": "How should we pilot a bussing robot?",
+        "answer": "Start on lease or RaaS in one zone during peak, watch guest path conflicts, and measure busser hours saved. Cost guides give illustrative bands only—vendor quotes and utilization drive the real number."
       }
     ]
   }

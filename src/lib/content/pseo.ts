@@ -121,49 +121,156 @@ function pluralRobotPhrase(label: string): string {
 function shortEnvironmentName(environment: PseoEnvironment): string {
   const shortNames: Record<string, string> = {
     'ecommerce-warehouse': 'e-commerce fulfillment',
-    'office-retail-floors': 'office & retail floors',
+    'third-party-logistics-warehouse': '3PL warehouses',
+    'manufacturing-plant': 'manufacturing plants',
+    'grocery-cold-chain-dc': 'grocery & cold-chain DCs',
+    'office-retail-floors': 'retail & offices',
+    'hospital-healthcare-floors': 'hospitals & healthcare',
+    'warehouse-distribution-floors': 'warehouse floors',
     'full-service-restaurant': 'full-service restaurants',
+    'quick-service-food-hall': 'QSR & food halls',
   };
   return shortNames[environment.id] ?? environment.name;
 }
 
-function buildBestForTitle(
-  robotType: RobotType,
-  robotPhrase: string,
-  environment: PseoEnvironment,
-  year: number,
-): string {
-  if (environment.id === 'ecommerce-warehouse') {
-    const ecommerce: Partial<Record<RobotType, string>> = {
-      amr: `Best AMR for e-commerce fulfillment (${year})`,
-      agv: `Best AGV for e-commerce warehouses (${year})`,
-      picking_assist: `Best pick-assist for e-commerce (${year})`,
-    };
-    const titled = ecommerce[robotType];
-    if (titled) return titled;
-  }
-  const envTitle = shortEnvironmentName(environment);
-  return `Best ${robotPhrase} for ${envTitle} (${year})`;
+type BestForCopy = { title: string; h1: string; metaDescription: string };
+
+function clipMeta(meta: string): string {
+  return meta.length > 160 ? `${meta.slice(0, 157)}…` : meta;
 }
 
-function buildBestForMeta(
+/** Long-tail SEO copy: title ≈ H1 ≈ primary query; meta ≤ ~160 chars. */
+function buildBestForCopy(
   robotType: RobotType,
   robotPhrase: string,
   environment: PseoEnvironment,
   year: number,
-): string {
-  const env = environment.name;
-  const byType: Partial<Record<RobotType, string>> = {
-    amr: `Best fulfillment AMRs for ${env} (${year}): vendor shortlist, RaaS vs buy, and AMR vs AGV before you pilot.`,
-    agv: `Best AGVs for ${env} (${year}): fixed-route fit, infrastructure costs, and when AMRs win instead.`,
-    picking_assist: `Best pick-assist robots for ${env} (${year}): collaborative picking vendors and WMS fit cues.`,
-    office_cleaner: `Best office cleaner robots for ${env} in ${year} — compact autonomous cleaners, vendor shortlist, and when to move up to scrubbers.`,
-    serving_robot: `Best serving robots for ${env} in ${year} — vendors for peak running, aisle-fit checks, and lease vs RaaS pilots.`,
+): BestForCopy {
+  const key = `${robotType}:${environment.id}`;
+  const byCombo: Record<string, BestForCopy> = {
+    'amr:ecommerce-warehouse': {
+      title: `Best AMR for e-commerce fulfillment (${year})`,
+      h1: `Best AMRs for e-commerce fulfillment (${year})`,
+      metaDescription: `Best AMRs for e-commerce fulfillment (${year}): vendor shortlist, RaaS vs buy, and when AGVs win instead. Free matcher.`,
+    },
+    'agv:ecommerce-warehouse': {
+      title: `Best AGV for e-commerce warehouses (${year})`,
+      h1: `Best AGVs for e-commerce warehouses (${year})`,
+      metaDescription: `Best AGVs for e-commerce warehouses (${year}): fixed-route fit, infrastructure cost, and when AMRs win. Free matcher.`,
+    },
+    'picking_assist:ecommerce-warehouse': {
+      title: `Best pick-assist robot for e-commerce (${year})`,
+      h1: `Best pick-assist robots for e-commerce (${year})`,
+      metaDescription: `Best pick-assist robots for e-commerce (${year}): collaborative picking vendors, WMS fit, and pilot cues. Free matcher.`,
+    },
+    'amr:third-party-logistics-warehouse': {
+      title: `Best AMR for 3PL warehouses (${year})`,
+      h1: `Best AMRs for 3PL warehouses (${year})`,
+      metaDescription: `Best AMRs for 3PL warehouses (${year}): flexible fleets for multi-client DCs, pilots, and seasonal peaks. Free matcher.`,
+    },
+    'picking_assist:third-party-logistics-warehouse': {
+      title: `Best pick-assist for 3PL warehouses (${year})`,
+      h1: `Best pick-assist robots for 3PL warehouses (${year})`,
+      metaDescription: `Best pick-assist robots for 3PL warehouses (${year}): multi-client fulfillment, WMS fit, and seasonal ramp. Free matcher.`,
+    },
+    'agv:third-party-logistics-warehouse': {
+      title: `Best AGV for 3PL warehouses (${year})`,
+      h1: `Best AGVs for 3PL warehouses (${year})`,
+      metaDescription: `Best AGVs for 3PL warehouses (${year}): stable dock lanes vs flexible AMRs for changing clients. Free matcher.`,
+    },
+    'pallet_mover:third-party-logistics-warehouse': {
+      title: `Best pallet mover for 3PL warehouses (${year})`,
+      h1: `Best pallet movers for 3PL warehouses (${year})`,
+      metaDescription: `Best pallet movers for 3PL warehouses (${year}): inbound/outbound pallets, aisle fit, and vendor shortlist. Free matcher.`,
+    },
+    'agv:manufacturing-plant': {
+      title: `Best AGV for manufacturing plants (${year})`,
+      h1: `Best AGVs for manufacturing plants (${year})`,
+      metaDescription: `Best AGVs for manufacturing plants (${year}): line-side delivery, stable routes, and when AMRs fit better. Free matcher.`,
+    },
+    'pallet_mover:manufacturing-plant': {
+      title: `Best pallet mover for manufacturing (${year})`,
+      h1: `Best pallet movers for manufacturing plants (${year})`,
+      metaDescription: `Best pallet movers for manufacturing plants (${year}): dock-to-line moves, safety zoning, vendor shortlist. Free matcher.`,
+    },
+    'amr:manufacturing-plant': {
+      title: `Best AMR for manufacturing plants (${year})`,
+      h1: `Best AMRs for manufacturing plants (${year})`,
+      metaDescription: `Best AMRs for manufacturing plants (${year}): ad-hoc WIP transport when fixed AGV loops are overkill. Free matcher.`,
+    },
+    'amr:grocery-cold-chain-dc': {
+      title: `Best AMR for grocery & cold-chain DCs (${year})`,
+      h1: `Best AMRs for grocery & cold-chain DCs (${year})`,
+      metaDescription: `Best AMRs for grocery & cold-chain DCs (${year}): wave transport, temperature caveats, vendor shortlist. Free matcher.`,
+    },
+    'agv:grocery-cold-chain-dc': {
+      title: `Best AGV for grocery & cold-chain DCs (${year})`,
+      h1: `Best AGVs for grocery & cold-chain DCs (${year})`,
+      metaDescription: `Best AGVs for grocery & cold-chain DCs (${year}): fixed dock lanes, hygiene, and temperature fit. Free matcher.`,
+    },
+    'pallet_mover:grocery-cold-chain-dc': {
+      title: `Best pallet mover for grocery DCs (${year})`,
+      h1: `Best pallet movers for grocery & cold-chain DCs (${year})`,
+      metaDescription: `Best pallet movers for grocery DCs (${year}): outbound waves, dock congestion, and vendor shortlist. Free matcher.`,
+    },
+    'office_cleaner:office-retail-floors': {
+      title: `Best office cleaning robot for retail & offices (${year})`,
+      h1: `Best office cleaning robots for retail & offices (${year})`,
+      metaDescription: `Best office cleaning robots for retail & offices (${year}): compact autonomous cleaners, vendors, and when to use scrubbers.`,
+    },
+    'large_scrubber:hospital-healthcare-floors': {
+      title: `Best scrubber robot for hospitals (${year})`,
+      h1: `Best scrubber robots for hospitals & healthcare (${year})`,
+      metaDescription: `Best autonomous scrubbers for hospitals (${year}): corridor coverage, overnight runs, vendor shortlist. Free matcher.`,
+    },
+    'office_cleaner:hospital-healthcare-floors': {
+      title: `Best cleaning robot for clinics & hospitals (${year})`,
+      h1: `Best office cleaners for clinics & hospitals (${year})`,
+      metaDescription: `Best compact cleaning robots for clinics & hospitals (${year}): admin wings, mapping, staff handoff. Free matcher.`,
+    },
+    'industrial_cleaner:hospital-healthcare-floors': {
+      title: `Best industrial cleaner for hospitals (${year})`,
+      h1: `Best industrial cleaners for healthcare support areas (${year})`,
+      metaDescription: `Best industrial floor cleaners for hospital docks & service corridors (${year}): heavy soil, vendor shortlist.`,
+    },
+    'large_scrubber:warehouse-distribution-floors': {
+      title: `Best scrubber for warehouse floors (${year})`,
+      h1: `Best scrubber robots for warehouse floors (${year})`,
+      metaDescription: `Best autonomous scrubbers for warehouse floors (${year}): concrete dust, dock soil, RaaS vs buy. Free matcher.`,
+    },
+    'industrial_cleaner:warehouse-distribution-floors': {
+      title: `Best industrial cleaner for warehouses (${year})`,
+      h1: `Best industrial cleaners for warehouse floors (${year})`,
+      metaDescription: `Best industrial floor cleaners for warehouses (${year}): heavy soil, rugged floors, vendor shortlist. Free matcher.`,
+    },
+    'serving_robot:full-service-restaurant': {
+      title: `Best serving robot for full-service restaurants (${year})`,
+      h1: `Best serving robots for full-service restaurants (${year})`,
+      metaDescription: `Best serving robots for full-service restaurants (${year}): aisle fit, peak running, lease vs RaaS. Free matcher.`,
+    },
+    'serving_robot:quick-service-food-hall': {
+      title: `Best serving robot for QSR & food halls (${year})`,
+      h1: `Best serving robots for QSR & food halls (${year})`,
+      metaDescription: `Best serving robots for QSR & food halls (${year}): shared paths, lease/RaaS pilots, vendor shortlist. Free matcher.`,
+    },
+    'bussing_robot:quick-service-food-hall': {
+      title: `Best bussing robot for food halls (${year})`,
+      h1: `Best bussing robots for QSR & food halls (${year})`,
+      metaDescription: `Best bussing robots for food halls (${year}): table turn, path fit, lease vs labour. Free matcher.`,
+    },
   };
-  const meta =
-    byType[robotType] ??
-    `Best ${robotPhrase} for ${env} in ${year} — compare vendors, workflows, cost models, and next steps with the matcher.`;
-  return meta.length > 160 ? `${meta.slice(0, 157)}…` : meta;
+
+  const override = byCombo[key];
+  if (override) {
+    return { ...override, metaDescription: clipMeta(override.metaDescription) };
+  }
+
+  const envTitle = shortEnvironmentName(environment);
+  const title = `Best ${robotPhrase} for ${envTitle} (${year})`;
+  const metaDescription = clipMeta(
+    `Best ${robotPhrase} for ${envTitle} (${year}) — compare vendors, cost models, and next steps with the free matcher.`,
+  );
+  return { title, h1: title, metaDescription };
 }
 
 function defaultFaqs(robotTypeLabel: string, environmentName: string): PseoFaq[] {
@@ -200,9 +307,12 @@ export function resolveBestForPage(
   const year = new Date().getFullYear();
   const path = bestForPath(robotType, environmentId);
   const robotPhrase = pluralRobotPhrase(robotTypeLabel);
-  const h1 = `Best ${robotPhrase} for ${environment.name} (${year})`;
-  const title = buildBestForTitle(robotType, robotPhrase, environment, year);
-  const metaDescription = buildBestForMeta(robotType, robotPhrase, environment, year);
+  const { h1, title, metaDescription } = buildBestForCopy(
+    robotType,
+    robotPhrase,
+    environment,
+    year,
+  );
 
   return {
     robotType,

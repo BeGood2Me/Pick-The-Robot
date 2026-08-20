@@ -14,9 +14,18 @@ describe('pSEO best-for pages', () => {
   it('allowlists only combos that clear the vendor gate', () => {
     const all = getAllPageCombos();
     const publishable = getPublishableCombos();
-    expect(all.length).toBeGreaterThanOrEqual(1);
-    expect(publishable.length).toBeGreaterThanOrEqual(1);
+    expect(all.length).toBe(22);
+    expect(publishable.length).toBe(22);
     expect(publishable.every(comboHasEnoughVendors)).toBe(true);
+  });
+
+  it('resolves new long-tail facility pages', () => {
+    expect(resolveBestForPage('amr', 'third-party-logistics-warehouse')?.title).toMatch(/3PL/i);
+    expect(resolveBestForPage('large_scrubber', 'hospital-healthcare-floors')?.title).toMatch(
+      /hospital/i,
+    );
+    expect(resolveBestForPage('serving_robot', 'quick-service-food-hall')?.title).toMatch(/QSR|food hall/i);
+    expect(resolveBestForPage('pallet_mover', 'manufacturing-plant')?.costBand).not.toBeNull();
   });
 
   it('resolves amr + ecommerce-warehouse with enough vendors', () => {
@@ -24,10 +33,25 @@ describe('pSEO best-for pages', () => {
     expect(page).not.toBeNull();
     expect(page!.vendors.length).toBeGreaterThanOrEqual(MIN_VENDORS_FOR_PAGE);
     expect(page!.path).toBe('/best/amr/ecommerce-warehouse');
-    expect(page!.h1.toLowerCase()).toContain('amr');
+    expect(page!.title).toMatch(/Best AMR for e-commerce fulfillment/i);
+    expect(page!.h1).toMatch(/Best AMRs for e-commerce fulfillment/i);
+    expect(page!.h1.toLowerCase()).not.toContain('fulfillment warehouse');
+    expect(page!.metaDescription.length).toBeLessThanOrEqual(160);
     expect(page!.matcherHref).toBe('/?category=warehouse#matcher');
     expect(page!.categoryGuideHref).toBe('/warehouse-robots');
     expect(page!.faqs.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('aligns title and H1 on all publishable best-for pages', () => {
+    for (const page of getHubEntries()) {
+      expect(page.title.length).toBeGreaterThan(10);
+      expect(page.h1.length).toBeGreaterThan(10);
+      expect(page.metaDescription.length).toBeGreaterThan(40);
+      expect(page.metaDescription.length).toBeLessThanOrEqual(160);
+      // H1 should use short facility labels, not raw environment.name
+      expect(page.h1.toLowerCase()).not.toContain('fulfillment warehouse');
+      expect(page.h1.toLowerCase()).not.toContain('office and retail floors');
+    }
   });
 
   it('rejects unknown or thin combos', () => {

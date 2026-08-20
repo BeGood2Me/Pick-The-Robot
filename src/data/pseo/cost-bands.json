@@ -58,5 +58,53 @@
       "Region and support plan inclusions"
     ],
     "caveat": "Indicative USD research bands only—pilots often start on lease/RaaS before purchase."
+  },
+  {
+    "robotType": "pallet_mover",
+    "purchaseBand": "$80,000–$200,000+ per vehicle",
+    "monthlyBand": "Lease/finance common; RaaS less standardized than AMR fleets",
+    "costDrivers": [
+      "Payload class and aisle width rules",
+      "Dock and rack interface design",
+      "Safety zoning with forklift traffic",
+      "Integration for move tasks and confirmations"
+    ],
+    "caveat": "Indicative USD research bands only—heavy payload and safety validation often dominate project cost."
+  },
+  {
+    "robotType": "large_scrubber",
+    "purchaseBand": "$30,000–$80,000",
+    "monthlyBand": "$2,000–$5,000/month (RaaS)",
+    "costDrivers": [
+      "Floor area and daily cleaning frequency",
+      "Soil type (office dust vs. dock tracked-in dirt)",
+      "Mapping, no-go zones, and elevator/door workflows",
+      "Consumables, pads, and service response times"
+    ],
+    "caveat": "Indicative USD research bands only—confirm quotes for your floor chemistry and hours of operation."
+  },
+  {
+    "robotType": "industrial_cleaner",
+    "purchaseBand": "$50,000–$120,000+",
+    "monthlyBand": "$2,500–$6,000/month (RaaS where offered)",
+    "costDrivers": [
+      "Heavy soil and rugged floor conditions",
+      "Machine durability and spare parts lead time",
+      "Operator training vs. fully autonomous modes",
+      "Multi-shift utilization"
+    ],
+    "caveat": "Indicative USD research bands only—industrial units sit above office cleaners; validate for your debris profile."
+  },
+  {
+    "robotType": "bussing_robot",
+    "purchaseBand": "$15,000–$35,000 per unit",
+    "monthlyBand": "$500–$1,400/month per unit (lease/RaaS)",
+    "costDrivers": [
+      "Table-turn pressure and busser labour cost",
+      "Aisle width and dish-return path design",
+      "Staff loading SOPs and guest interaction rules",
+      "Support plan and spare unit terms"
+    ],
+    "caveat": "Indicative USD research bands only—layout fit decides ROI more than sticker price."
   }
 ]

@@ -160,7 +160,7 @@ export const CATEGORY_COMPARISON_LINKS: Record<
     },
     {
       href: '/resources/restaurant-robot-buyer-checklist',
-      label: 'Restaurant buyer\'s checklist',
+      label: 'Restaurant robot buyer checklist',
       blurb: 'Ten steps before vendor demos.',
     },
     {

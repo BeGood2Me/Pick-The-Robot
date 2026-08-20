@@ -11,7 +11,7 @@ export function CleaningBuyersChecklist() {
   return (
     <BuyersChecklist
       id="cleaning-buyers-checklist"
-      heading="Commercial cleaning robot buyer's checklist"
+      heading="Commercial cleaning robot buyer checklist"
       intro="Use this before vendor demos. Each step links to a deeper guide on PickTheRobot — print or share with facilities and procurement."
       items={CLEANING_BUYERS_CHECKLIST}
       decisionTree={
@@ -45,7 +45,7 @@ export function CleaningBuyersChecklist() {
         </>
       }
       vendorQuestions={CLEANING_VENDOR_FIRST_CALL_QUESTIONS}
-      printSubtitle="Commercial cleaning robot buyer's checklist · picktherobot.com"
+      printSubtitle="Commercial cleaning robot buyer checklist · picktherobot.com"
       printFooterUrl={`${BASE_URL}${CLEANING_BUYERS_CHECKLIST_PATH}`}
     />
   );

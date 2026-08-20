@@ -21,10 +21,10 @@ export interface GuidePageContent {
 export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   'raas-pricing': {
     slug: 'raas-pricing',
-    title: 'RaaS pricing — cleaning, warehouse & serving robots',
-    h1: 'RaaS pricing',
+    title: 'RaaS pricing: warehouse, cleaning & serving robots',
+    h1: 'RaaS pricing for warehouse, cleaning & serving robots',
     metaDescription:
-      'What does cleaning and warehouse RaaS cost? Typical monthly ranges for scrubbers, AMRs, and serving robots — and what affects the quote.',
+      'RaaS pricing ranges for warehouse AMRs, cleaning robots, and serving robots — what changes the monthly quote.',
     intro:
       'RaaS bundles hardware, software, and often maintenance into a monthly subscription. Pricing varies by robot type, utilization, and region — vendors rarely publish list prices, but ranges help you budget before talking to sales.',
     sections: [
@@ -84,10 +84,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'warehouse-robot-cost': {
     slug: 'warehouse-robot-cost',
-    title: 'Warehouse robot cost ranges (AMR, AGV, RaaS)',
+    title: 'Warehouse robot cost: AMR, AGV & RaaS ranges',
     h1: 'Warehouse robot cost',
     metaDescription:
-      'Warehouse robot cost ranges by type: AMR, AGV, pick-assist, pallet mover — buy, lease, or RaaS. Then run the matcher. First-year budget examples are in the 2026 article.',
+      'Warehouse robot cost ranges for AMR, AGV, and pick-assist — buy, lease, or RaaS. Budget bands before vendor quotes.',
     intro:
       'Warehouse robot costs span a wide range by type and acquisition model. Use these benchmarks for budgeting; confirm quotes with vendors for your facility size and integration scope.',
     matcherCategory: 'warehouse',
@@ -141,10 +141,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'cleaning-robot-cost': {
     slug: 'cleaning-robot-cost',
-    title: 'Cleaning robot cost ranges: buy vs RaaS',
+    title: 'Cleaning robot cost: buy vs RaaS ranges',
     h1: 'Cleaning robot cost',
     metaDescription:
-      'How much do commercial cleaning robots cost? Bands for office vacuums, scrubbers, and industrial units — buy vs RaaS. Confirm quotes with vendors.',
+      'Commercial cleaning robot cost: office units vs scrubbers, buy vs RaaS monthly ranges. Confirm with vendors.',
     intro:
       'Cleaning robot pricing depends on floor area, frequency, and machine size. Small office units cost far less than industrial scrubbers built for daily heavy use.',
     matcherCategory: 'cleaning',
@@ -194,10 +194,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
   },
   'cleaning-robots-as-a-service': {
     slug: 'cleaning-robots-as-a-service',
-    title: 'Cleaning robots as a service (RaaS) guide',
-    h1: 'Cleaning RaaS',
+    title: 'Cleaning robots as a service (RaaS)',
+    h1: 'Cleaning robots as a service (RaaS)',
     metaDescription:
-      'Cleaning robots as a service: when to subscribe vs buy, vendor questions, and how RaaS cleaning differs from a plain equipment lease.',
+      'Cleaning robots as a service (RaaS): when to subscribe vs buy, vendor questions, and lease differences.',
     intro:
       'Cleaning RaaS is popular for first deployments: lower upfront cost, included maintenance, and easier pilots across one or two floors before scaling.',
     matcherCategory: 'cleaning',

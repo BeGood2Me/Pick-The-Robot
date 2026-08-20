@@ -4,9 +4,9 @@ import type { FaqItem } from '@/lib/seo/schema';
 export const CLEANING_BUYERS_CHECKLIST_PATH = '/resources/commercial-cleaning-robot-buyer-checklist';
 
 export const CLEANING_BUYERS_CHECKLIST_META = {
-  title: 'Commercial cleaning robot buyer\'s checklist',
+  title: 'Commercial cleaning robot buyer checklist',
   description:
-    'Free 10-step checklist for facilities and procurement teams before autonomous scrubber or vacuum demos — floor area, labor cost, RaaS vs buy, and vendor questions.',
+    'Free commercial cleaning robot buyer checklist: floor area, labor cost, RaaS vs buy, and vendor questions.',
 } as const;
 
 export const CLEANING_BUYERS_CHECKLIST_LAST_UPDATED = 'July 2026';

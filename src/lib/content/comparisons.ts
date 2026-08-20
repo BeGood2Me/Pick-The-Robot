@@ -65,13 +65,13 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
           'E-commerce DCs with changing slotting and dense picks usually lean AMR or pick-assist fleets. AGVs fit better when routes stay fixed year-round. Use the best AMRs for e-commerce fulfillment page and the warehouse matcher to shortlist.',
       },
       {
-        question: 'Can I print the warehouse robot buyer\'s checklist?',
+        question: 'Can I print the warehouse robot buyer checklist?',
         answer:
-          'Yes. Open the free warehouse robot buyer\'s checklist, then click Print checklist — it formats a one-page summary for ops and procurement.',
+          'Yes. Open the free warehouse robot buyer checklist, then click Print checklist — it formats a one-page summary for ops and procurement.',
       },
     ],
     relatedLinks: [
-      { href: '/resources/warehouse-robot-buyer-checklist', label: 'Warehouse robot buyer\'s checklist' },
+      { href: '/resources/warehouse-robot-buyer-checklist', label: 'Warehouse robot buyer checklist' },
       { href: '/warehouse-robots', label: 'Warehouse robot matcher' },
       { href: '/best/amr/ecommerce-warehouse', label: 'Best AMRs for e-commerce fulfillment' },
       { href: '/warehouse-robot-cost', label: 'Warehouse robot cost guide' },
@@ -123,13 +123,13 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
           'Compact office units often start in the low five figures; mid-size scrubbers commonly run tens of thousands to buy, or monthly RaaS. See the cleaning robot cost guide for bands before vendor quotes.',
       },
       {
-        question: 'Can I print the cleaning robot buyer\'s checklist?',
+        question: 'Can I print the cleaning robot buyer checklist?',
         answer:
-          'Yes. Open the free commercial cleaning robot buyer\'s checklist, then click Print checklist — it formats a one-page summary for facilities and procurement.',
+          'Yes. Open the free commercial cleaning robot buyer checklist, then click Print checklist — it formats a one-page summary for facilities and procurement.',
       },
     ],
     relatedLinks: [
-      { href: '/resources/commercial-cleaning-robot-buyer-checklist', label: 'Cleaning robot buyer\'s checklist' },
+      { href: '/resources/commercial-cleaning-robot-buyer-checklist', label: 'Cleaning robot buyer checklist' },
       { href: '/?category=cleaning#matcher', label: 'Cleaning robot matcher' },
       { href: '/cleaning-robot-cost', label: 'Cleaning robot cost guide' },
       { href: '/blog/cleaning-robot-cost-2026', label: 'Cleaning robot cost (2026)' },
@@ -187,13 +187,13 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
           'Lease and RaaS often fall around $500–$1,500/month per unit; purchase is commonly mid five figures. Confirm quotes — see the serving robot cost guide for budgeting bands.',
       },
       {
-        question: 'Can I print the restaurant robot buyer\'s checklist?',
+        question: 'Can I print the restaurant robot buyer checklist?',
         answer:
-          'Yes. Open the free restaurant robot buyer\'s checklist, then click Print checklist — it formats a one-page summary for operators and ownership.',
+          'Yes. Open the free restaurant robot buyer checklist, then click Print checklist — it formats a one-page summary for operators and ownership.',
       },
     ],
     relatedLinks: [
-      { href: '/resources/restaurant-robot-buyer-checklist', label: 'Restaurant robot buyer\'s checklist' },
+      { href: '/resources/restaurant-robot-buyer-checklist', label: 'Restaurant robot buyer checklist' },
       { href: '/blog/restaurant-serving-robot-cost', label: 'Serving robot cost (buy vs lease)' },
       { href: '/restaurant-robots', label: 'Restaurant robot matcher' },
       { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },

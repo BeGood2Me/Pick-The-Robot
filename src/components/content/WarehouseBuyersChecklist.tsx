@@ -11,7 +11,7 @@ export function WarehouseBuyersChecklist() {
   return (
     <BuyersChecklist
       id="warehouse-buyers-checklist"
-      heading="Warehouse robot buyer's checklist"
+      heading="Warehouse robot buyer checklist"
       intro="Use this before vendor demos. Each step links to a deeper guide on PickTheRobot — print or share with ops and procurement."
       items={WAREHOUSE_BUYERS_CHECKLIST}
       decisionTree={
@@ -45,7 +45,7 @@ export function WarehouseBuyersChecklist() {
         </>
       }
       vendorQuestions={WAREHOUSE_VENDOR_FIRST_CALL_QUESTIONS}
-      printSubtitle="Warehouse robot buyer's checklist · picktherobot.com"
+      printSubtitle="Warehouse robot buyer checklist · picktherobot.com"
       printFooterUrl={`${BASE_URL}${WAREHOUSE_BUYERS_CHECKLIST_PATH}`}
     />
   );

@@ -27,6 +27,96 @@
     "kpis": ["picks per hour", "training time", "error rate"]
   },
   {
+    "id": "3pl-flexible-transport",
+    "name": "Flexible transport across 3PL clients",
+    "robotType": "amr",
+    "environmentIds": ["third-party-logistics-warehouse"],
+    "summary": "AMRs help 3PLs move totes and cartons when client mix and slotting change. Prefer fleets you can redeploy by zone without rebuilding fixed guides for every new shipper.",
+    "priority": 1,
+    "kpis": ["labour flexibility", "cost per order", "redeploy time"]
+  },
+  {
+    "id": "3pl-pick-assist",
+    "name": "Pick assist for multi-client fulfillment",
+    "robotType": "picking_assist",
+    "environmentIds": ["third-party-logistics-warehouse"],
+    "summary": "Collaborative pick assist supports seasonal 3PL peaks when WMS work allocation can target robots and people by client or wave.",
+    "priority": 1,
+    "kpis": ["picks per hour", "seasonal ramp speed", "error rate"]
+  },
+  {
+    "id": "3pl-stable-lanes",
+    "name": "Stable dock and buffer lanes in a 3PL",
+    "robotType": "agv",
+    "environmentIds": ["third-party-logistics-warehouse"],
+    "summary": "AGVs fit long-lived dock-to-buffer lanes that stay the same across clients. Avoid AGV-only designs if client resets constantly reshape pick paths.",
+    "priority": 2,
+    "kpis": ["moves per hour", "dock dwell", "route utilization"]
+  },
+  {
+    "id": "3pl-pallet-moves",
+    "name": "Pallet moves for 3PL inbound/outbound",
+    "robotType": "pallet_mover",
+    "environmentIds": ["third-party-logistics-warehouse"],
+    "summary": "Autonomous pallet movers cut forklift trips on wide-aisle inbound and outbound when payload and aisle rules are clear.",
+    "priority": 2,
+    "kpis": ["pallets per hour", "forklift hours saved", "dock turn"]
+  },
+  {
+    "id": "mfg-line-side-delivery",
+    "name": "Line-side material delivery",
+    "robotType": "agv",
+    "environmentIds": ["manufacturing-plant"],
+    "summary": "AGVs deliver kits and components on repetitive plant routes with predictable timing. Strong when aisles and stops stay stable for years.",
+    "priority": 1,
+    "kpis": ["line stoppages avoided", "on-time kit delivery", "moves per hour"]
+  },
+  {
+    "id": "mfg-pallet-dock",
+    "name": "Dock-to-line pallet moves",
+    "robotType": "pallet_mover",
+    "environmentIds": ["manufacturing-plant"],
+    "summary": "Pallet movers handle heavy inbound and WIP pallets where forklifts create congestion or safety risk on known paths.",
+    "priority": 1,
+    "kpis": ["pallets per hour", "safety incidents", "dock dwell"]
+  },
+  {
+    "id": "mfg-ad-hoc-wip",
+    "name": "Ad-hoc WIP and buffer transport",
+    "robotType": "amr",
+    "environmentIds": ["manufacturing-plant"],
+    "summary": "AMRs cover less predictable WIP moves between cells when a full AGV guide network is overkill.",
+    "priority": 2,
+    "kpis": ["WIP travel time", "labour hours", "flexibility"]
+  },
+  {
+    "id": "grocery-wave-transport",
+    "name": "Wave transport in grocery DCs",
+    "robotType": "amr",
+    "environmentIds": ["grocery-cold-chain-dc"],
+    "summary": "AMRs support tote and carton moves around grocery waves when ambient zones change more than freezer tunnels. Confirm cold ratings before freezer-only work.",
+    "priority": 1,
+    "kpis": ["wave completion", "walk time", "on-time outbound"]
+  },
+  {
+    "id": "grocery-fixed-cold-lanes",
+    "name": "Fixed cold and dock lanes",
+    "robotType": "agv",
+    "environmentIds": ["grocery-cold-chain-dc"],
+    "summary": "AGVs suit stable dock and cooler-adjacent lanes with high repetitive volume. Factor hygiene and temperature qualification into vendor selection.",
+    "priority": 2,
+    "kpis": ["moves per hour", "cold dwell", "route reliability"]
+  },
+  {
+    "id": "grocery-pallet-outbound",
+    "name": "Pallet outbound for grocery waves",
+    "robotType": "pallet_mover",
+    "environmentIds": ["grocery-cold-chain-dc"],
+    "summary": "Pallet movers reduce forklift congestion on grocery outbound when aisles and dock doors support autonomous traffic rules.",
+    "priority": 2,
+    "kpis": ["pallets per hour", "dock turn", "damage rate"]
+  },
+  {
     "id": "office-nightly-vacuum",
     "name": "After-hours office vacuuming",
     "robotType": "office_cleaner",
@@ -36,6 +126,51 @@
     "kpis": ["hours saved", "coverage consistency", "complaint rate"]
   },
   {
+    "id": "hospital-corridor-scrub",
+    "name": "Hospital corridor scrubbing",
+    "robotType": "large_scrubber",
+    "environmentIds": ["hospital-healthcare-floors"],
+    "summary": "Large scrubbers cover long hard-floor corridors overnight when mapped no-go zones protect clinical areas. Staff keep isolation rooms and detailing.",
+    "priority": 1,
+    "kpis": ["coverage consistency", "hours saved", "noise/overnight fit"]
+  },
+  {
+    "id": "hospital-clinic-vacuum",
+    "name": "Clinic and admin floor vacuuming",
+    "robotType": "office_cleaner",
+    "environmentIds": ["hospital-healthcare-floors"],
+    "summary": "Compact cleaners fit clinics and admin wings with lighter soil than main hospital corridors.",
+    "priority": 2,
+    "kpis": ["hours saved", "coverage", "staff handoff"]
+  },
+  {
+    "id": "hospital-heavy-soil",
+    "name": "Heavy-soil healthcare support areas",
+    "robotType": "industrial_cleaner",
+    "environmentIds": ["hospital-healthcare-floors"],
+    "summary": "Industrial cleaners target loading docks, service corridors, and other high-soil healthcare support zones—not sterile clinical floors.",
+    "priority": 3,
+    "kpis": ["soil removal", "hours saved", "uptime"]
+  },
+  {
+    "id": "dc-floor-scrub",
+    "name": "Distribution center floor scrubbing",
+    "robotType": "large_scrubber",
+    "environmentIds": ["warehouse-distribution-floors"],
+    "summary": "Large scrubbers handle wide concrete aisles after shifts when dock soil and dust are the main problem.",
+    "priority": 1,
+    "kpis": ["area per hour", "dust control", "labour hours"]
+  },
+  {
+    "id": "dc-industrial-clean",
+    "name": "Heavy warehouse floor cleaning",
+    "robotType": "industrial_cleaner",
+    "environmentIds": ["warehouse-distribution-floors"],
+    "summary": "Industrial cleaners fit dusty, tracked-in, or rugged DC floors where compact office robots fail.",
+    "priority": 1,
+    "kpis": ["soil removal", "coverage", "machine uptime"]
+  },
+  {
     "id": "fsr-food-running",
     "name": "Food running in full-service dining",
     "robotType": "serving_robot",
@@ -43,5 +178,23 @@
     "summary": "Serving robots reduce runner walk time on clear paths during peak. Staff still plate, sell, and handle exceptions; robots are a capacity layer, not a full front-of-house replacement.",
     "priority": 1,
     "kpis": ["covers per labour hour", "ticket time to table", "runner steps"]
+  },
+  {
+    "id": "qsr-food-running",
+    "name": "Food running in QSR and food halls",
+    "robotType": "serving_robot",
+    "environmentIds": ["quick-service-food-hall"],
+    "summary": "Serving robots move trays across shared food-hall or QSR paths when congestion is manageable and staff still handle guest exceptions.",
+    "priority": 1,
+    "kpis": ["ticket time", "runner hours", "path reliability"]
+  },
+  {
+    "id": "qsr-bussing",
+    "name": "Bussing in high-turnover dining",
+    "robotType": "bussing_robot",
+    "environmentIds": ["quick-service-food-hall"],
+    "summary": "Bussing robots help clear tables in high-turnover halls when paths are open and turnover pressure exceeds staffing.",
+    "priority": 2,
+    "kpis": ["table turn", "busser hours", "path reliability"]
   }
 ]
