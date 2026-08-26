@@ -9,9 +9,9 @@
     "robot waiter cost",
     "restaurant robot price"
   ],
-  "title": "Robot waiter cost: lease $500–$1.5k/mo (2026)",
-  "h1": "Buy or lease a serving robot: cost ranges",
-  "metaDescription": "Restaurant serving robot cost: lease or RaaS $500–$1,500/mo typical, or mid five-figure purchase. Peak covers and aisle fit matter — not a vendor quote.",
+  "title": "Serving robot cost: buy vs lease (2026)",
+  "h1": "Serving robot cost: buy vs lease",
+  "metaDescription": "Restaurant serving robot cost: lease or RaaS $500–$1,500/mo typical, or $15k–$40k purchase. Peak covers and aisle fit matter — not a vendor quote.",
   "intro": "Operators comparing whether to buy or lease a serving robot usually care about monthly cash flow first, then peak-hour utilization. Restaurant serving robots — food runners and bussing bots — are priced per unit or per month on lease and RaaS programs. Cost only makes sense alongside aisle layout fit.",
   "publishedAt": "2026-07-16",
   "updatedAt": "2026-08-06",
@@ -33,7 +33,7 @@
     {
       "heading": "Purchase and subscription ranges",
       "bullets": [
-        "Purchase: often mid five figures per serving unit (varies by trays, brand, integration)",
+        "Purchase: often $15,000–$40,000 per serving unit (varies by trays, brand, integration)",
         "Lease / RaaS: commonly roughly $500–$1,500/month per robot",
         "Fleet discounts for multi-unit QSR or food halls",
         "Kitchen automation (frying/grilling lines) is a separate, higher capex category"
@@ -42,7 +42,7 @@
     {
       "heading": "How much does a robot waiter cost?",
       "paragraphs": [
-        "\"Robot waiter\" usually means a serving or food-runner robot, not a full server replacement. Monthly lease/RaaS fees often land around $500–$1,500 per unit. Capex purchase is typically mid five figures before training, mapping, and any multi-unit discounts."
+        "\"Robot waiter\" usually means a serving or food-runner robot, not a full server replacement. Monthly lease/RaaS fees often land around $500–$1,500 per unit. Capex purchase is typically $15,000–$40,000 before training, mapping, and any multi-unit discounts."
       ],
       "bullets": [
         "Ask vendors to quote monthly all-in (robot + software + support)",
@@ -80,11 +80,11 @@
     },
     {
       "question": "How much does a robot waiter cost to buy?",
-      "answer": "Purchase prices commonly land in the mid five figures per serving unit before training and any site work. Kitchen automation lines are a separate, higher-capex category."
+      "answer": "Purchase prices commonly land in the $15,000–$40,000 range per serving unit before training and any site work. Kitchen automation lines are a separate, higher-capex category."
     },
     {
       "question": "What is the restaurant serving robot price range?",
-      "answer": "Think in two bands: roughly $500–$1,500/month on lease/RaaS, or mid five figures to buy. Fleet and multi-site deals can move either band — treat public ranges as budgeting inputs, not quotes."
+      "answer": "Think in two bands: roughly $500–$1,500/month on lease/RaaS, or $15,000–$40,000 to buy. Fleet and multi-site deals can move either band — treat public ranges as budgeting inputs, not quotes."
     },
     {
       "question": "Do restaurant robots replace servers?",
@@ -97,6 +97,10 @@
   ],
   "relatedPostSlugs": [],
   "relatedLinks": [
+    {
+      "href": "/restaurant-robot-cost",
+      "label": "Restaurant robot cost guide"
+    },
     {
       "href": "/resources/restaurant-robot-buyer-checklist",
       "label": "Restaurant robot buyer checklist (printable)"
@@ -111,15 +115,7 @@
     },
     {
       "href": "/robotics-as-a-service",
-      "label": "Robotics-as-a-Service"
-    },
-    {
-      "href": "/robotics-as-a-service",
       "label": "Robotics as a service (RaaS)"
-    },
-    {
-      "href": "/blog/warehouse-robot-cost-2026",
-      "label": "Warehouse robot cost (for ops teams)"
     },
     {
       "href": "/raas-pricing",
@@ -129,5 +125,6 @@
       "href": "/restaurant-robots#matcher",
       "label": "Restaurant matcher"
     }
-  ]
+  ],
+  "canonicalPath": "/restaurant-robot-cost"
 }

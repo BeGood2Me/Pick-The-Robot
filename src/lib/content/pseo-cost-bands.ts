@@ -1,0 +1,131 @@
+import type { PseoCostBand } from '@/lib/content/pseo-types';
+import {
+  CLEANING_PRICE_BANDS,
+  RESTAURANT_PRICE_BANDS,
+  WAREHOUSE_PRICE_BANDS,
+} from '@/lib/content/price-bands';
+
+const CAVEAT =
+  'Indicative USD research bands only—confirm quotes, integration, and service terms with vendors.';
+
+/**
+ * pSEO cost bands — keep purchase/monthly strings aligned with price-bands.ts.
+ */
+export const PSEO_COST_BANDS: PseoCostBand[] = [
+  {
+    robotType: 'amr',
+    purchaseBand: '$25,000–$150,000 per robot',
+    monthlyBand: '$2,000–$8,000/month per robot (RaaS)',
+    costDrivers: [
+      'WMS / WES connectivity and pilot scope',
+      'Mapping, Wi-Fi, and safety review',
+      'Fleet size vs. picks and travel distance',
+      'Training and change management on the floor',
+    ],
+    caveat: CAVEAT,
+  },
+  {
+    robotType: 'agv',
+    purchaseBand: '$15,000–$75,000 per vehicle (+ $50,000–$200,000 infrastructure on larger sites)',
+    monthlyBand: 'Lease/RaaS less common; expect multi-year finance plus infrastructure',
+    costDrivers: [
+      'Guide infrastructure (tape, reflectors, or fixed paths)',
+      'Charging layout and aisle constraints',
+      'WMS integration for move confirmations',
+      'Stable high-volume routes vs. layout change risk',
+    ],
+    caveat:
+      'Indicative USD research bands only—AGV projects often carry infrastructure costs beyond the vehicle price.',
+  },
+  {
+    robotType: 'picking_assist',
+    purchaseBand: '$30,000–$70,000 per robot',
+    monthlyBand: '$2,000–$8,000/month per robot (typical RaaS/lease band)',
+    costDrivers: [
+      'Work allocation depth in WMS/WES',
+      'Associate workflow redesign and training',
+      'Zone size and concurrent robot count',
+      'Software tiers and annual support on buy models',
+    ],
+    caveat:
+      'Indicative USD research bands only—connector and professional services are often quoted separately.',
+  },
+  {
+    robotType: 'office_cleaner',
+    purchaseBand: '$15,000–$40,000 (compact office units)',
+    monthlyBand: '$800–$2,000/month (RaaS)',
+    costDrivers: [
+      'Floor area and cleaning frequency',
+      'Mapping complexity (furniture, glass, no-go zones)',
+      'Staff handoff for restrooms and detailing',
+      'Multi-site vs. single-floor deployment',
+    ],
+    caveat:
+      'Indicative USD research bands only—larger scrubbers sit higher; confirm with vendors for your floor plate.',
+  },
+  {
+    robotType: 'serving_robot',
+    purchaseBand: '$15,000–$40,000 per unit',
+    monthlyBand: '$500–$1,500/month per unit (lease/RaaS)',
+    costDrivers: [
+      'Aisle width and peak congestion',
+      'Guest-facing reliability and staff loading SOPs',
+      'Number of peak covers and runner walk time',
+      'Region and support plan inclusions',
+    ],
+    caveat:
+      'Indicative USD research bands only—pilots often start on lease/RaaS before purchase.',
+  },
+  {
+    robotType: 'pallet_mover',
+    purchaseBand: '$80,000–$200,000+ per vehicle',
+    monthlyBand: 'Lease/finance common; RaaS less standardized than AMR fleets',
+    costDrivers: [
+      'Payload class and aisle width rules',
+      'Dock and rack interface design',
+      'Safety zoning with forklift traffic',
+      'Integration for move tasks and confirmations',
+    ],
+    caveat:
+      'Indicative USD research bands only—heavy payload and safety validation often dominate project cost.',
+  },
+  {
+    robotType: 'large_scrubber',
+    purchaseBand: '$40,000–$96,000+',
+    monthlyBand: '$2,000–$5,000/month (RaaS)',
+    costDrivers: [
+      'Floor area and daily cleaning frequency',
+      'Soil type (office dust vs. dock tracked-in dirt)',
+      'Mapping, no-go zones, and elevator/door workflows',
+      'Consumables, pads, and service response times',
+    ],
+    caveat:
+      'Indicative USD research bands only—confirm quotes for your floor chemistry and hours of operation.',
+  },
+  {
+    robotType: 'industrial_cleaner',
+    purchaseBand: '$50,000–$120,000+',
+    monthlyBand: '$2,500–$6,000/month (RaaS where offered)',
+    costDrivers: [
+      'Heavy soil and rugged floor conditions',
+      'Machine durability and spare parts lead time',
+      'Operator training vs. fully autonomous modes',
+      'Multi-shift utilization',
+    ],
+    caveat:
+      'Indicative USD research bands only—industrial units sit above office cleaners; validate for your debris profile.',
+  },
+  {
+    robotType: 'bussing_robot',
+    purchaseBand: '$15,000–$35,000 per unit',
+    monthlyBand: '$500–$1,400/month per unit (lease/RaaS)',
+    costDrivers: [
+      'Table-turn pressure and busser labour cost',
+      'Aisle width and dish-return path design',
+      'Staff loading SOPs and guest interaction rules',
+      'Support plan and spare unit terms',
+    ],
+    caveat:
+      'Indicative USD research bands only—layout fit decides ROI more than sticker price.',
+  },
+];

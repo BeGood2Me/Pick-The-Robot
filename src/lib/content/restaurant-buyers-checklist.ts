@@ -1,4 +1,8 @@
 import type { BuyersChecklistItem } from '@/lib/content/buyers-checklist-types';
+import {
+  RESTAURANT_SERVING_LEASE_COPY,
+  RESTAURANT_SERVING_PURCHASE_COPY,
+} from '@/lib/content/price-bands';
 import type { FaqItem } from '@/lib/seo/schema';
 
 export type { BuyersChecklistItem };
@@ -44,14 +48,14 @@ export const RESTAURANT_BUYERS_CHECKLIST_FAQS: FaqItem[] = [
   {
     question: 'How much does a restaurant serving robot cost?',
     answer:
-      'Lease and RaaS often fall around $500–$1,500/month per unit; purchase is commonly mid five figures. See the serving robot cost guide for budgeting bands, then confirm quotes for your venue.',
+      `Lease and RaaS often fall around ${RESTAURANT_SERVING_LEASE_COPY}; purchase is commonly ${RESTAURANT_SERVING_PURCHASE_COPY}. See the serving robot cost guide for budgeting bands, then confirm quotes for your venue.`,
   },
 ];
 
 export const RESTAURANT_BUYERS_CHECKLIST_RELATED_LINKS = [
   { href: '/restaurant-robots', label: 'Restaurant robots hub' },
   { href: '/restaurant-robot-vs-runner', label: 'Food runner robot vs staff' },
-  { href: '/blog/restaurant-serving-robot-cost', label: 'Serving robot cost guide' },
+  { href: '/restaurant-robot-cost', label: 'Serving robot cost guide' },
   { href: '/robot-leasing-vs-buying', label: 'Lease vs buy guide' },
   { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service (RaaS)' },
   { href: '/?category=restaurant#matcher', label: 'Restaurant matcher' },
@@ -69,7 +73,7 @@ export const RESTAURANT_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 2,
     title: 'Measure covers and peak intensity',
     summary: 'Daily covers and peak service hours drive whether a robot adds capacity or sits idle.',
-    href: '/blog/restaurant-serving-robot-cost',
+    href: '/restaurant-robot-cost',
     linkLabel: 'Serving robot cost ranges',
   },
   {
@@ -104,7 +108,7 @@ export const RESTAURANT_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 7,
     title: 'Budget beyond the monthly fee',
     summary: 'Include mapping, charging space, floor markers, training, and first-year software renewals.',
-    href: '/blog/restaurant-serving-robot-cost',
+    href: '/restaurant-robot-cost',
     linkLabel: 'Serving robot cost guide',
   },
   {

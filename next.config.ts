@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/blog/buy-or-lease-serving-robot',
+        destination: '/blog/restaurant-serving-robot-cost',
+        permanent: true,
+      },
+      {
+        source: '/blog/robot-raas-vs-buying',
+        destination: '/robot-leasing-vs-buying',
+        permanent: true,
+      },
+      {
         source: '/favicon.svg',
         destination: '/images/brand/picktherobot-robot-mark.svg',
         permanent: true,

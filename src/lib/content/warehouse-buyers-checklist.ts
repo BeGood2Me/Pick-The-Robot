@@ -70,7 +70,7 @@ export const WAREHOUSE_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 2,
     title: 'Measure volume and floor size',
     summary: 'Orders per day, picks per day, and facility area drive ROI and fleet sizing.',
-    href: '/blog/warehouse-robot-cost-2026',
+    href: '/warehouse-robot-cost',
     linkLabel: 'Warehouse robot cost ranges',
   },
   {

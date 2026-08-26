@@ -1,7 +1,7 @@
 import environmentsData from '@/data/pseo/environments.json';
 import useCasesData from '@/data/pseo/use-cases.json';
 import pageCombosData from '@/data/pseo/page-combos.json';
-import costBandsData from '@/data/pseo/cost-bands.json';
+import { PSEO_COST_BANDS } from '@/lib/content/pseo-cost-bands';
 import type {
   PseoCostBand,
   PseoEnvironment,
@@ -31,7 +31,7 @@ export const MIN_COST_DRIVERS = 3;
 const COST_GUIDE_BY_CATEGORY: Record<RobotCategory, { href: string; label: string }> = {
   warehouse: { href: '/warehouse-robot-cost', label: 'Warehouse robot cost guide' },
   cleaning: { href: '/cleaning-robot-cost', label: 'Cleaning robot cost guide' },
-  restaurant: { href: '/raas-pricing', label: 'RaaS pricing guide' },
+  restaurant: { href: '/restaurant-robot-cost', label: 'Restaurant robot cost guide' },
 };
 
 export const BEST_HUB_PATH = '/best';
@@ -334,7 +334,7 @@ export function resolveBestForPage(
 }
 
 export function getAllCostBands(): PseoCostBand[] {
-  return costBandsData as PseoCostBand[];
+  return PSEO_COST_BANDS;
 }
 
 export function getCostBand(robotType: RobotType): PseoCostBand | null {

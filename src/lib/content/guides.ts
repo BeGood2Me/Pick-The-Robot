@@ -1,5 +1,10 @@
 import type { RobotCategory } from '@/lib/matching';
-
+import {
+  CLEANING_PRICE_BANDS,
+  RESTAURANT_PRICE_BANDS,
+  WAREHOUSE_AGV_GUIDE_COPY,
+  WAREHOUSE_PRICE_BANDS,
+} from '@/lib/content/price-bands';
 export interface GuideSection {
   heading: string;
   bullets?: string[];
@@ -31,10 +36,10 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
       {
         heading: 'Warehouse AMR / pick-assist (monthly per robot)',
         bullets: [
-          'Entry pilots: roughly $1,500–$3,500/month per robot',
-          'Mid-size fulfillment fleets: often $2,500–$5,000/month depending on software tier',
+          'Typical RaaS band: roughly $2,000–$8,000/month per robot',
+          'Entry pilots often sit in the lower half; high-utilization pick-assist fleets toward the upper range',
           'Includes fleet management, updates, and sometimes on-site support',
-          'Higher pick-assist utilization can justify upper range',
+          'Software tier and WMS integration depth move the quote within the band',
         ],
       },
       {
@@ -95,16 +100,16 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
       {
         heading: 'Typical capital purchase ranges (USD)',
         bullets: [
-          'AMR (single unit): $25,000–$80,000+',
-          'AGV / guided vehicle: $50,000–$150,000+ per vehicle',
-          'Pick-assist fleet (per robot): $30,000–$70,000',
-          'Autonomous forklift / pallet mover: $80,000–$200,000+',
+          `AMR (single unit): $25,000–$150,000`,
+          `AGV / guided vehicle: ${WAREHOUSE_AGV_GUIDE_COPY}`,
+          `Pick-assist fleet (per robot): ${WAREHOUSE_PRICE_BANDS.pickingAssistPurchase}`,
+          `Autonomous forklift / pallet mover: ${WAREHOUSE_PRICE_BANDS.palletMoverPurchase}`,
         ],
       },
       {
         heading: 'Lease and RaaS',
         bullets: [
-          'AMR RaaS: often $2,000–$5,000/month per robot',
+          'AMR RaaS: often $2,000–$8,000/month per robot',
           'Leases spread capex over 3–5 years with optional buyout',
           'Integration, mapping, and WMS work may be quoted separately',
         ],
@@ -152,16 +157,16 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
       {
         heading: 'Typical purchase ranges (USD)',
         bullets: [
-          'Office / compact vacuum robots: $5,000–$20,000',
-          'Mid-size autonomous scrubbers: $30,000–$80,000',
-          'Industrial scrubbers: $50,000–$120,000+',
+          'Office / compact vacuum robots: $15,000–$40,000',
+          'Mid-size autonomous scrubbers: $40,000–$70,000',
+          'Industrial scrubbers: $60,000–$96,000+',
         ],
       },
       {
         heading: 'Subscription / RaaS',
         bullets: [
-          'Office units: roughly $800–$2,000/month',
-          'Large scrubbers: roughly $2,000–$5,000/month',
+          `Office units: roughly ${CLEANING_PRICE_BANDS.compactRaas}`,
+          `Large scrubbers: roughly ${CLEANING_PRICE_BANDS.largeScrubberRaas}`,
           'Service plans may include consumables and mapping support',
         ],
       },
@@ -190,6 +195,60 @@ export const GUIDE_PAGES: Record<string, GuidePageContent> = {
       { href: '/cleaning-robots', label: 'Cleaning robot matcher' },
       { href: '/cleaning-robot-vs-cleaning-staff', label: 'Robot vs cleaning staff' },
       { href: '/cleaning-robots-as-a-service', label: 'Cleaning robots as a service' },
+    ],
+  },
+  'restaurant-robot-cost': {
+    slug: 'restaurant-robot-cost',
+    title: 'Restaurant robot cost: serving, bussing & lease vs buy',
+    h1: 'Restaurant robot cost',
+    metaDescription:
+      'Restaurant serving robot cost: lease/RaaS $500–$1,500/mo typical, purchase $15k–$40k per unit. Bussing and kitchen bands before vendor quotes.',
+    intro:
+      'Restaurant robot pricing depends on robot type, peak covers, and acquisition model. Serving and bussing units are priced per robot; kitchen automation spans a much wider capex range.',
+    matcherCategory: 'restaurant',
+    sections: [
+      {
+        heading: 'Serving robots (USD)',
+        bullets: [
+          `Purchase: ${RESTAURANT_PRICE_BANDS.servingPurchase} per unit`,
+          `Lease / RaaS: roughly ${RESTAURANT_PRICE_BANDS.servingLeaseRaas} per unit`,
+          'Peak-hour utilization and aisle fit matter more than headline price',
+        ],
+      },
+      {
+        heading: 'Bussing robots (USD)',
+        bullets: [
+          `Purchase: ${RESTAURANT_PRICE_BANDS.bussingPurchase} per unit`,
+          `Lease / RaaS: roughly ${RESTAURANT_PRICE_BANDS.bussingLeaseRaas} per unit`,
+          'Table-turn pressure and dish-return paths drive ROI',
+        ],
+      },
+      {
+        heading: 'Kitchen automation',
+        bullets: [
+          `Typical capex band: ${RESTAURANT_PRICE_BANDS.kitchenAutomationPurchase}`,
+          'Highly workflow-dependent — quote-based for most installs',
+          'Often evaluated separately from front-of-house serving pilots',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should a restaurant lease or buy a serving robot?',
+        answer:
+          'Lease or RaaS is common for first pilots when peak utilization is unproven. Buying can win after covers justify the unit across multiple busy periods per week.',
+      },
+      {
+        question: 'What is the cheapest restaurant robot to start with?',
+        answer:
+          'A single serving or bussing robot on lease/RaaS is the usual entry path. Kitchen automation projects start at a much higher capex band.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/blog/restaurant-serving-robot-cost', label: 'Serving robot cost deep dive (2026)' },
+      { href: '/restaurant-robots', label: 'Restaurant robot matcher' },
+      { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
+      { href: '/raas-pricing', label: 'RaaS pricing ranges' },
     ],
   },
   'cleaning-robots-as-a-service': {

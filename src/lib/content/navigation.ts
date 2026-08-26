@@ -164,14 +164,14 @@ export const CATEGORY_COMPARISON_LINKS: Record<
       blurb: 'Ten steps before vendor demos.',
     },
     {
-      href: '/robotics-as-a-service',
-      label: 'RaaS',
-      blurb: 'Pilot serving robots without large upfront cost.',
+      href: '/restaurant-robot-cost',
+      label: 'Restaurant robot cost',
+      blurb: 'Serving, bussing, and kitchen automation bands.',
     },
     {
-      href: '/raas-pricing',
-      label: 'RaaS pricing',
-      blurb: 'Typical serving-robot subscription ranges.',
+      href: '/robot-leasing-vs-buying',
+      label: 'Lease vs buy',
+      blurb: 'Acquisition models for restaurant pilots.',
     },
   ],
 };

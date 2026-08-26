@@ -1,4 +1,9 @@
 import { DEPLOYABLE_MATCHER_HREF, DEPLOYABLE_MATCHER_LABEL } from '@/lib/content/humanoids';
+import {
+  CLEANING_PRICE_BANDS,
+  RESTAURANT_SERVING_LEASE_COPY,
+  RESTAURANT_SERVING_PURCHASE_COPY,
+} from '@/lib/content/price-bands';
 
 export interface ComparisonPage {
   slug: string;
@@ -120,7 +125,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
       {
         question: 'How much does a commercial cleaning robot cost?',
         answer:
-          'Compact office units often start in the low five figures; mid-size scrubbers commonly run tens of thousands to buy, or monthly RaaS. See the cleaning robot cost guide for bands before vendor quotes.',
+          `Compact office units often start around ${CLEANING_PRICE_BANDS.compactVacuumPurchase}; mid-size scrubbers commonly run ${CLEANING_PRICE_BANDS.midScrubberPurchase} to buy, or monthly RaaS. See the cleaning robot cost guide for bands before vendor quotes.`,
       },
       {
         question: 'Can I print the cleaning robot buyer checklist?',
@@ -184,7 +189,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
       {
         question: 'How much does a restaurant serving robot cost?',
         answer:
-          'Lease and RaaS often fall around $500–$1,500/month per unit; purchase is commonly mid five figures. Confirm quotes — see the serving robot cost guide for budgeting bands.',
+          `Lease and RaaS often fall around ${RESTAURANT_SERVING_LEASE_COPY}; purchase is commonly ${RESTAURANT_SERVING_PURCHASE_COPY}. Confirm quotes — see the serving robot cost guide for budgeting bands.`,
       },
       {
         question: 'Can I print the restaurant robot buyer checklist?',
@@ -194,7 +199,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
     ],
     relatedLinks: [
       { href: '/resources/restaurant-robot-buyer-checklist', label: 'Restaurant robot buyer checklist' },
-      { href: '/blog/restaurant-serving-robot-cost', label: 'Serving robot cost (buy vs lease)' },
+      { href: '/restaurant-robot-cost', label: 'Serving robot cost guide' },
       { href: '/restaurant-robots', label: 'Restaurant robot matcher' },
       { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
       { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service' },
@@ -269,7 +274,7 @@ export const COMPARISONS: Record<string, ComparisonPage> = {
 
 export const DECISION_PAGES = {
   'robot-leasing-vs-buying': {
-    title: 'Lease vs buy a serving robot (when each wins)',
+    title: 'Lease vs buy a robot (serving, warehouse, cleaning)',
     h1: 'Lease vs buy a robot (serving, warehouse, cleaning)',
     metaDescription:
       'Lease vs buy a serving or business robot: cost, flexibility, and when RaaS is safer for a first restaurant or warehouse pilot.',

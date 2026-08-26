@@ -118,6 +118,10 @@ export function CleaningRobotCostPage() {
   return <GuidePageContent pageKey="cleaning-robot-cost" />;
 }
 
+export function RestaurantRobotCostPage() {
+  return <GuidePageContent pageKey="restaurant-robot-cost" />;
+}
+
 export function CleaningRobotsAsAServicePage() {
   return <GuidePageContent pageKey="cleaning-robots-as-a-service" />;
 }

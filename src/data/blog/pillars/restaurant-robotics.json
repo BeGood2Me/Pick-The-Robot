@@ -19,7 +19,7 @@
   "faqs": [
     {
       "question": "How much does a restaurant serving robot cost?",
-      "answer": "Purchase prices often fall in the mid five figures per unit; lease and RaaS programs commonly run roughly $500–$1,500/month per robot depending on model and fleet size."
+      "answer": "Purchase prices often fall in the $15,000–$40,000 range per unit; lease and RaaS programs commonly run roughly $500–$1,500/month per robot depending on model and fleet size."
     },
     {
       "question": "Do serving robots work in tight dining rooms?",
@@ -28,7 +28,8 @@
   ],
   "relatedLinks": [
     { "href": "/resources/restaurant-robot-buyer-checklist", "label": "Restaurant robot buyer checklist (printable)" },
-    { "href": "/blog/restaurant-serving-robot-cost", "label": "Serving robot cost (buy vs lease)" },
+    { "href": "/restaurant-robot-cost", "label": "Restaurant robot cost guide" },
+    { "href": "/blog/restaurant-serving-robot-cost", "label": "Serving robot cost deep dive (2026)" },
     { "href": "/restaurant-robots", "label": "Restaurant robots hub" },
     { "href": "/restaurant-robot-vs-runner", "label": "Food runner robot vs staff" },
     { "href": "/robot-leasing-vs-buying", "label": "Lease vs buy" }

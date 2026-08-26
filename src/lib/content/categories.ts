@@ -1,4 +1,9 @@
 import type { RobotCategory, RobotType } from '@/lib/matching';
+import {
+  CLEANING_PRICE_BANDS,
+  RESTAURANT_PRICE_BANDS,
+  WAREHOUSE_PRICE_BANDS,
+} from '@/lib/content/price-bands';
 
 export interface RobotTypeInfo {
   label: string;
@@ -100,9 +105,10 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
     priceRanges: {
       heading: 'Typical cost ranges (USD, indicative)',
       items: [
-        { label: 'AMR (purchase)', range: '$25k–$80k+', note: 'Per robot; software tiers vary' },
-        { label: 'AMR (RaaS)', range: '$2k–$5k/mo', note: 'Per robot, often includes support' },
-        { label: 'AGV / pallet systems', range: '$50k–$200k+', note: 'Higher integration cost' },
+        { label: 'AMR (purchase)', range: WAREHOUSE_PRICE_BANDS.amrPurchase, note: 'Per robot; software tiers vary' },
+        { label: 'AMR (RaaS)', range: WAREHOUSE_PRICE_BANDS.amrRaas, note: 'Per robot, often includes support' },
+        { label: 'AGV (vehicle)', range: WAREHOUSE_PRICE_BANDS.agvVehiclePurchase, note: 'Plus guide infrastructure on larger sites' },
+        { label: 'Pallet mover', range: WAREHOUSE_PRICE_BANDS.palletMoverPurchase, note: 'Quote-based; safety validation extra' },
       ],
     },
     deploymentTimeline: {
@@ -154,9 +160,10 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
     priceRanges: {
       heading: 'Typical cost ranges (USD, indicative)',
       items: [
-        { label: 'Office vacuum robot', range: '$5k–$20k', note: 'Purchase; smaller footprint' },
-        { label: 'Commercial scrubber', range: '$30k–$80k', note: 'Purchase; mid-large sites' },
-        { label: 'Cleaning RaaS', range: '$800–$5k/mo', note: 'Depends on machine size' },
+        { label: 'Office vacuum robot', range: CLEANING_PRICE_BANDS.compactVacuumPurchase, note: 'Purchase; smaller footprint' },
+        { label: 'Commercial scrubber', range: CLEANING_PRICE_BANDS.midScrubberPurchase, note: 'Purchase; mid-large sites' },
+        { label: 'Office vacuum RaaS', range: CLEANING_PRICE_BANDS.compactRaas, note: 'Per unit; consumables may be extra' },
+        { label: 'Large scrubber RaaS', range: CLEANING_PRICE_BANDS.largeScrubberRaas, note: 'Large floor plates' },
       ],
     },
     deploymentTimeline: {
@@ -208,9 +215,9 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
     priceRanges: {
       heading: 'Typical cost ranges (USD, indicative)',
       items: [
-        { label: 'Serving robot (lease/RaaS)', range: '$500–$1.5k/mo', note: 'Per unit, region varies' },
-        { label: 'Serving robot (purchase)', range: '$15k–$40k', note: 'Per unit; support plans extra' },
-        { label: 'Kitchen automation', range: '$50k–$200k+', note: 'Highly workflow-dependent' },
+        { label: 'Serving robot (lease/RaaS)', range: RESTAURANT_PRICE_BANDS.servingLeaseRaas, note: 'Per unit, region varies' },
+        { label: 'Serving robot (purchase)', range: RESTAURANT_PRICE_BANDS.servingPurchase, note: 'Per unit; support plans extra' },
+        { label: 'Kitchen automation', range: RESTAURANT_PRICE_BANDS.kitchenAutomationPurchase, note: 'Highly workflow-dependent' },
       ],
     },
     deploymentTimeline: {

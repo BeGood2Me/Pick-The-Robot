@@ -14,17 +14,17 @@ export const SEO_MONEY_PAGES: SeoMoneyPage[] = [
     blurb: 'Fixed paths vs dynamic maps — pick robot type before vendor demos.',
   },
   {
-    href: '/blog/warehouse-robot-cost-2026',
-    label: 'Warehouse robot cost (2026)',
+    href: '/warehouse-robot-cost',
+    label: 'Warehouse robot cost',
     blurb: 'AMR, AGV, and RaaS bands plus first-year budget examples.',
   },
   {
-    href: '/blog/restaurant-serving-robot-cost',
-    label: 'Serving robot cost',
+    href: '/restaurant-robot-cost',
+    label: 'Restaurant robot cost',
     blurb: 'Lease, RaaS, and purchase ranges for food runners.',
   },
   {
-    href: '/blog/raas-cleaning-robots-guide',
+    href: '/cleaning-robots-as-a-service',
     label: 'RaaS cleaning robots',
     blurb: 'Monthly scrubber subscriptions and what is included.',
   },

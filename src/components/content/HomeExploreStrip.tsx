@@ -10,7 +10,7 @@ export const HOME_EXPLORE_LINKS = [
   { href: CATEGORY_ROUTES.restaurant, label: 'Restaurant', title: 'Restaurant robots' },
   { href: BEST_HUB_PATH, label: 'Best by facility', title: 'Best robots by facility type' },
   { href: INTEGRATIONS_HUB_PATH, label: 'Integrations', title: 'Robot WMS integrations' },
-  { href: '/blog/warehouse-robot-cost-2026', label: 'Warehouse cost', title: 'Warehouse robot cost (2026)' },
+  { href: '/warehouse-robot-cost', label: 'Warehouse cost', title: 'Warehouse robot cost' },
   { href: '/amr-vs-agv', label: 'AGV vs AMR', title: 'AGV vs AMR comparison' },
   { href: '/about', label: 'About', title: 'About PickTheRobot' },
 ] as const;
