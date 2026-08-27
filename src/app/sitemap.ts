@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/robotics-as-a-service',
     '/privacy',
     '/terms',
+    '/extension',
     ...Object.keys(COMPARISONS).map((slug) => `/${slug}`),
     ...Object.keys(GUIDE_PAGES).map((slug) => `/${slug}`),
   ];

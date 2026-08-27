@@ -11,6 +11,7 @@ import {
   VENDORS_INDEX_HREF,
 } from '@/lib/content/navigation';
 import { DEVELOPERS_PATH } from '@/lib/content/developers';
+import { EXTENSION_PAGE_PATH } from '@/lib/content/extension';
 
 export function SiteFooter() {
   const blogPillars = getAllBlogPillars();
@@ -44,6 +45,11 @@ export function SiteFooter() {
                 <li>
                   <Link href={DEVELOPERS_PATH} className="hover:text-ink">
                     Developer API
+                  </Link>
+                </li>
+                <li>
+                  <Link href={EXTENSION_PAGE_PATH} className="hover:text-ink">
+                    Chrome extension
                   </Link>
                 </li>
               </ul>
