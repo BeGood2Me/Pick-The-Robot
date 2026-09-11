@@ -108,10 +108,6 @@ export default function MethodologyPage() {
             <Link href="/terms" className="font-medium text-accent hover:underline">
               Read terms of use
             </Link>
-            {' · '}
-            <Link href="/for-vendors" className="font-medium text-accent hover:underline">
-              Vendor listings
-            </Link>
           </p>
         </section>
 

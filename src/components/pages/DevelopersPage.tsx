@@ -164,13 +164,6 @@ export function DevelopersPage() {
           </div>
         </section>
 
-        <p className="mt-8 text-sm text-ink-muted">
-          Listing a robot on the matcher? See{' '}
-          <Link href="/for-vendors" className="text-accent hover:underline">
-            For vendors
-          </Link>
-          .
-        </p>
       </div>
     </>
   );

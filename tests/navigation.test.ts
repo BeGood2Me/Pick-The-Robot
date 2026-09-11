@@ -61,17 +61,16 @@ describe('HOME_MATCHER_RESET_HREF', () => {
 
 describe('HEADER_NAV_LINKS', () => {
   it('includes categories, vendors, and API', () => {
-    expect(HEADER_NAV_LINKS).toHaveLength(6);
+    expect(HEADER_NAV_LINKS).toHaveLength(5);
     expect(HEADER_NAV_LINKS.map((link) => link.href)).toEqual([
       '/warehouse-robots',
       '/cleaning-robots',
       '/restaurant-robots',
       '/vendors',
-      '/for-vendors',
       '/api',
     ]);
-    expect(HEADER_NAV_LINKS[4]?.label).toBe('Vendors');
-    expect(HEADER_NAV_LINKS[5]?.label).toBe('API');
+    expect(HEADER_NAV_LINKS[3]?.label).toBe('Vendors');
+    expect(HEADER_NAV_LINKS[4]?.label).toBe('API');
   });
 });
 
@@ -90,7 +89,7 @@ describe('HOME_EXPLORE_LINKS', () => {
       '/restaurant-robots',
       '/best',
       '/integrations',
-      '/blog/warehouse-robot-cost-2026',
+      '/warehouse-robot-cost',
       '/amr-vs-agv',
       '/about',
     ]);

@@ -1,6 +1,7 @@
 import type { FaqItem } from '@/lib/seo/schema';
 import { VENDOR_TIER_PRICES_USD } from '@/lib/vendor/tiers';
 
+/** Public /for-vendors pages are disabled; paths kept for API and email when re-enabled. */
 export const FOR_VENDORS_PATH = '/for-vendors';
 export const FOR_VENDORS_LOGIN_PATH = '/for-vendors/login';
 export const FOR_VENDORS_PORTAL_PATH = '/for-vendors/portal';

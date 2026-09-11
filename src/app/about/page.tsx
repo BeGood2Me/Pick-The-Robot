@@ -101,10 +101,10 @@ export default function AboutPage() {
             they cannot buy their way to the top of an irrelevant shortlist.
           </p>
           <p className="mt-2 text-sm text-ink-muted">
-            Vendors can reach us at{' '}
-            <Link href="/for-vendors" className="text-accent hover:underline">
-              /for-vendors
-            </Link>
+            Vendor or partnership questions:{' '}
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-accent hover:underline">
+              {CONTACT_EMAIL}
+            </a>
             . Developers can embed the matcher via the{' '}
             <Link href="/api" className="text-accent hover:underline">
               API

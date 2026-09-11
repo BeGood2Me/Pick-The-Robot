@@ -63,6 +63,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/for-vendors',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/for-vendors/:path*',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/list-your-robot',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/list-your-robot/:path*',
+        destination: '/',
+        permanent: false,
+      },
+      {
         source: '/developers',
         destination: '/api',
         permanent: true,
