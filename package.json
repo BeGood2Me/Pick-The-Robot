@@ -16,7 +16,8 @@
     "blog:generate": "node scripts/generate-blog.mjs",
     "prebuild": "node scripts/generate-blog.mjs",
     "vendors:export": "node scripts/export-vendors.mjs",
-    "indexnow": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/indexnow.ps1"
+    "indexnow": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/indexnow.ps1",
+    "mcp": "tsx --tsconfig mcp-server/tsconfig.json mcp-server/src/index.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
@@ -29,14 +30,17 @@
     "stripe": "^22.5.0"
   },
   "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.5.2",
     "postcss": "^8.5.16",
     "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.13",
     "typescript": "^5.7.2",
-    "vitest": "^3.0.5"
+    "vitest": "^3.0.5",
+    "zod": "^4.6.2"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,

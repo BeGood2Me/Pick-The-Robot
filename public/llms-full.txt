@@ -136,7 +136,18 @@ Vendors scored on category fit, robot types, acquisition model, budget tier, fac
 - /robot-leasing-vs-buying, /robotics-as-a-service
 - /blog, /blog/*
 - /privacy, /terms
+- /extension (Chrome extension landing page)
 - /sitemap.xml
+
+## MCP (Model Context Protocol)
+
+The repository includes a **stdio MCP server** (`mcp-server/`, run via `npm run mcp`) for Cursor and other MCP clients. It uses the same rules-based matcher as the website (not the paid HTTP API).
+
+Tools: `get_matcher_fields`, `run_match`, `list_vendors`, `get_vendor`, `get_price_bands`, `list_comparisons`, `get_comparison`.
+
+Resources: `picktherobot://methodology`, `picktherobot://llms.txt`.
+
+Setup: see `mcp-server/README.md` in the GitHub repo.
 
 ## Contact / data collection
 

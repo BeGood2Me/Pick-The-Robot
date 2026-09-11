@@ -31,6 +31,7 @@ npm run dev          # local dev
 npm test             # vitest
 npm run typecheck    # tsc --noEmit
 npm run build        # production build
+npm run mcp          # stdio MCP server (see mcp-server/README.md)
 ```
 
 ## Architecture map
