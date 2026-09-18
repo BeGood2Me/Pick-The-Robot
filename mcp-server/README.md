@@ -109,9 +109,21 @@ grok mcp add --transport http picktherobot http://127.0.0.1:3928/mcp
 
 ## Cursor configuration
 
-Project `.cursor/mcp.json` is already committed. Reload MCP in Cursor settings if needed.
+Project `.cursor/mcp.json` points at the **public remote** server (no token):
 
-Legacy manual config (optional):
+```json
+{
+  "mcpServers": {
+    "picktherobot": {
+      "url": "https://picktherobot.com/api/mcp"
+    }
+  }
+}
+```
+
+Reload MCP in Cursor (**Settings → Tools & MCP**, or restart Cursor) if tools do not appear after a pull.
+
+Local stdio (optional, offline/dev):
 
 ```json
 {
@@ -124,7 +136,7 @@ Legacy manual config (optional):
 }
 ```
 
-On Windows, run from the repo root so `scripts/mcp-entry.mjs` resolves.
+On Windows, run stdio from the repo root so `scripts/mcp-entry.mjs` resolves.
 
 ## Notes
 

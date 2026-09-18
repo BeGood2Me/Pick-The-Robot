@@ -170,7 +170,7 @@ Tools: `get_matcher_fields`, `run_match`, `list_vendors`, `get_vendor`, `get_pri
 
 Resources: `picktherobot://methodology`, `picktherobot://llms.txt`.
 
-Setup: `mcp-server/README.md` in the repo. Grok/Cursor auto-load `.mcp.json`, `.cursor/mcp.json`, and `.grok/config.toml` (server name `picktherobot`).
+Setup: `mcp-server/README.md` in the repo. Cursor/Grok load `.cursor/mcp.json` / `.mcp.json` / `.grok/config.toml` as **`picktherobot`** → public `https://picktherobot.com/api/mcp` (no auth).
 
 Remote HTTPS (Streamable HTTP): `https://picktherobot.com/api/mcp`  
 **Public — no Bearer token / API key.** Same in-repo matcher as stdio MCP (not the paid `/api/v1` X-API-Key API).  
