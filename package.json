@@ -21,6 +21,7 @@
     "mcp:http": "tsx --tsconfig mcp-server/tsconfig.json mcp-server/src/http.ts"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@neondatabase/serverless": "^1.1.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.8.0",
@@ -29,10 +30,10 @@
     "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "stripe": "^22.5.0"
+    "stripe": "^22.5.0",
+    "zod": "^4.6.2"
   },
   "devDependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
@@ -41,8 +42,7 @@
     "tailwindcss": "^3.4.19",
     "tsx": "^4.23.13",
     "typescript": "^5.7.2",
-    "vitest": "^3.0.5",
-    "zod": "^4.6.2"
+    "vitest": "^3.0.5"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,

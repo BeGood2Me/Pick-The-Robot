@@ -1,5 +1,5 @@
 import { WebStandardStreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js';
-import { createPickTheRobotMcpServer } from '../../../mcp-server/src/createServer';
+import { createPickTheRobotMcpServer } from '@/lib/mcp/createPickTheRobotMcpServer';
 
 /** Bearer token for remote MCP (Grok connectors, xAI API). Set in production env. */
 export function mcpHttpAuthFailure(request: Request): Response | null {

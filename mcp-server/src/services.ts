@@ -22,12 +22,15 @@ import { onFormSubmit } from '@/lib/matching/adapter';
 import { buildSharePayload, buildShareUrl } from '@/lib/matching/share';
 import type { RobotCategory } from '@/lib/matching/types';
 import { compareVendorsForDisplay, getVendorBySlug, VENDORS } from '@/lib/matching/vendors';
-import { mcpApiTier, siteBaseUrl } from './config.js';
+import { mcpApiTier, siteBaseUrl } from './config';
 
 const VALID_CATEGORIES = new Set<RobotCategory>(['warehouse', 'cleaning', 'restaurant']);
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, '../..');
+/** Prefer cwd (Next / Vercel / npm scripts); fall back to file path for direct tsx runs. */
+function repoRoot(): string {
+  if (process.cwd()) return process.cwd();
+  return path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+}
 
 export function matcherFieldsForCategory(category: RobotCategory) {
   return getFormFields(category).map((field) => ({
@@ -151,6 +154,6 @@ export function methodologyText() {
 }
 
 export async function readLlmsSummary(): Promise<string> {
-  const llmsPath = path.join(REPO_ROOT, 'public', 'llms.txt');
+  const llmsPath = path.join(repoRoot(), 'public', 'llms.txt');
   return readFile(llmsPath, 'utf-8');
 }

@@ -5,6 +5,10 @@ import { VENDOR_TIER_PRICES_USD } from '@/lib/vendor/tiers';
 export const FOR_VENDORS_PATH = '/for-vendors';
 export const FOR_VENDORS_LOGIN_PATH = '/for-vendors/login';
 export const FOR_VENDORS_PORTAL_PATH = '/for-vendors/portal';
+export const FOR_VENDORS_LABEL = 'For vendors';
+
+export const VENDOR_TRACKED_OUTBOUND_VERIFIED_NOTE =
+  'Tracked outbound links use UTM parameters so you can measure PickTheRobot clicks in your analytics. Verified partners can set a custom destination URL in the portal.';
 
 export const VENDOR_CONTACT_EMAIL = 'hello@picktherobot.com';
 
