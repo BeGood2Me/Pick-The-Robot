@@ -1,169 +1,97 @@
 import Link from 'next/link';
-import { getAllBlogPillars, getBlogBrand, blogPillarHref } from '@/lib/content/blog';
-import { HUMANOID_HUB_PATH } from '@/lib/content/humanoids';
+import { getBlogBrand } from '@/lib/content/blog';
 import {
   BUYER_CHECKLIST_LINKS,
-  CATEGORY_GUIDE_LINKS,
+  CATEGORY_LINKS,
   COMPARISON_LINKS,
-  DECISION_LINKS,
-  GUIDE_LINKS,
-  HOME_MATCHER_RESET_HREF,
+  HOME_TRACKS_HREF,
   VENDORS_INDEX_HREF,
 } from '@/lib/content/navigation';
 import { DEVELOPERS_PATH } from '@/lib/content/developers';
 import { EXTENSION_PAGE_PATH } from '@/lib/content/extension';
+import { HOME_BUYING_GUIDE_PAGES } from '@/lib/content/seo-money-pages';
+import { BUSINESS_HUB_PATH } from '@/lib/content/home-vacuums';
+
+type FooterLink = { href: string; label: string };
+
+function FooterLinkList({ title, links }: { title: string; links: FooterLink[] }) {
+  return (
+    <div className="min-w-0">
+      <p className="text-sm font-semibold text-ink">{title}</p>
+      <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className="hover:text-ink">
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+const HOME_LINKS: FooterLink[] = HOME_BUYING_GUIDE_PAGES.map((page) => ({
+  href: page.href,
+  label: page.label,
+}));
+
+const BUSINESS_LINKS: FooterLink[] = [
+  { href: BUSINESS_HUB_PATH, label: 'Business matcher' },
+  { href: VENDORS_INDEX_HREF, label: 'All vendors' },
+  ...CATEGORY_LINKS.map((link) => ({ href: link.href, label: link.label })),
+  { href: '/best', label: 'Best by facility' },
+  { href: '/integrations', label: 'Integrations' },
+  ...BUYER_CHECKLIST_LINKS.map((link) => ({ href: link.href, label: link.label })),
+];
+
+const LEARN_LINKS: FooterLink[] = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/methodology', label: 'Methodology' },
+  { href: '/robot-leasing-vs-buying', label: 'Lease vs buy' },
+  { href: '/robotics-as-a-service', label: 'RaaS overview' },
+  { href: '/raas-pricing', label: 'RaaS pricing' },
+  ...COMPARISON_LINKS.map((link) => ({ href: link.href, label: link.label })),
+];
 
 export function SiteFooter() {
-  const blogPillars = getAllBlogPillars();
   const brand = getBlogBrand();
 
   return (
     <footer className="mt-16 border-t border-surface-border bg-surface">
       <div className="container-page py-10">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
-          <div className="max-w-[16rem] shrink-0">
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-14">
+          <div className="max-w-xs shrink-0 lg:max-w-[15rem]">
             <p className="font-display text-lg font-semibold tracking-tight text-ink">{brand.name}</p>
-            <p className="mt-2 text-sm text-ink-muted">{brand.bio}</p>
-            <p className="mt-3">
-              <Link href="/about" className="text-sm font-medium text-accent hover:underline">
-                About us
+            <p className="mt-2 line-clamp-4 text-sm text-ink-muted">{brand.bio}</p>
+            <p className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm">
+              <Link href="/about" className="font-medium text-accent hover:underline">
+                About
+              </Link>
+              <Link href={HOME_TRACKS_HREF} className="font-medium text-accent hover:underline">
+                Choose a track
               </Link>
             </p>
-            <p className="mt-3">
-              <Link href={HOME_MATCHER_RESET_HREF} className="text-sm font-medium text-accent hover:underline">
-                Run the matcher
+            <p className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-sm text-ink-muted">
+              <Link href={DEVELOPERS_PATH} className="hover:text-ink">
+                API
+              </Link>
+              <Link href={EXTENSION_PAGE_PATH} className="hover:text-ink">
+                Extension
               </Link>
             </p>
-            <div className="mt-6">
-              <p className="text-sm font-semibold text-ink">Business</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                <li>
-                  <Link href={DEVELOPERS_PATH} className="hover:text-ink">
-                    Developer API
-                  </Link>
-                </li>
-                <li>
-                  <Link href={EXTENSION_PAGE_PATH} className="hover:text-ink">
-                    Chrome extension
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
-          <div className="grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">Still researching?</p>
-              <p className="mt-1 text-xs text-ink-muted">Robot types, vendors, and FAQs</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                <li>
-                  <Link href={VENDORS_INDEX_HREF} className="hover:text-ink">
-                    All vendors
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/best" className="hover:text-ink">
-                    Best robots by facility
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/integrations" className="hover:text-ink">
-                    Integrations
-                  </Link>
-                </li>
-                {CATEGORY_GUIDE_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="hover:text-ink">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">Buyer checklists</p>
-              <p className="mt-1 text-xs text-ink-muted">Free printable guides before vendor demos</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                {BUYER_CHECKLIST_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="hover:text-ink">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">Comparisons</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                {COMPARISON_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="hover:text-ink">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href={HUMANOID_HUB_PATH} className="hover:text-ink">
-                    Humanoid robots (track)
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">Acquisition guides</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                {DECISION_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="hover:text-ink">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">Cost &amp; pricing</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                {GUIDE_LINKS.filter((link) => link.href !== '/raas-pricing').map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="hover:text-ink">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-ink">Blog topics</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-muted">
-                <li>
-                  <Link href="/blog" className="hover:text-ink">
-                    All articles
-                  </Link>
-                </li>
-                {blogPillars.map((pillar) => (
-                  <li key={pillar.slug}>
-                    <Link href={blogPillarHref(pillar)} className="hover:text-ink">
-                      {pillar.h1}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+
+          <div className="grid min-w-0 flex-1 grid-cols-2 gap-8 sm:grid-cols-3">
+            <FooterLinkList title="Home" links={HOME_LINKS} />
+            <FooterLinkList title="Business" links={BUSINESS_LINKS} />
+            <FooterLinkList title="Learn" links={LEARN_LINKS} />
           </div>
         </div>
       </div>
       <div className="border-t border-surface-border py-4 text-center text-xs text-ink-faint">
-        <p>Recommendations are informational. Verify pricing and fit with vendors directly.</p>
+        <p>Recommendations are informational. Verify pricing and fit with vendors or retailers directly.</p>
         <p className="mt-2">
-          <Link href="/about" className="hover:text-ink-muted">
-            About
-          </Link>
-          {' · '}
-          <Link href="/methodology" className="hover:text-ink-muted">
-            Methodology
-          </Link>
-          {' · '}
           <Link href="/privacy" className="hover:text-ink-muted">
             Privacy
           </Link>

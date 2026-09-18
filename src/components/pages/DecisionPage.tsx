@@ -122,7 +122,7 @@ function DecisionPageContent({ pageKey }: { pageKey: DecisionKey }) {
           </p>
           <p className="mt-4">
             <Link
-              href="/#matcher"
+              href="/business#matcher"
               className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
             >
               Run the matcher
@@ -130,7 +130,7 @@ function DecisionPageContent({ pageKey }: { pageKey: DecisionKey }) {
           </p>
         </section>
 
-        <StickyMatcherCta href="/#matcher" />
+        <StickyMatcherCta href="/business#matcher" />
       </div>
     </>
   );

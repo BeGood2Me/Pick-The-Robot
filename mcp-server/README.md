@@ -1,6 +1,6 @@
 # PickTheRobot MCP server
 
-Stdio MCP server that exposes the same **rules-based matcher**, vendor catalog, price bands, and comparison guides as [picktherobot.com](https://picktherobot.com) — for use in Cursor, Claude Desktop, and other MCP clients.
+Stdio MCP server that exposes the same **rules-based matcher**, vendor catalog, price bands, and comparison guides as [picktherobot.com](https://picktherobot.com) — for use in **Grok Bot**, Cursor, Claude Desktop, and other MCP clients.
 
 ## Tools
 
@@ -21,7 +21,7 @@ Stdio MCP server that exposes the same **rules-based matcher**, vendor catalog, 
 
 ## Run locally
 
-From the repo root:
+From the repo root (after `npm install`):
 
 ```bash
 npm run mcp
@@ -36,23 +36,64 @@ Uses the in-repo matching engine (no paid API key required).
 | `NEXT_PUBLIC_SITE_URL` | `https://picktherobot.com` | Base URL for share links and vendor URLs |
 | `PICKTHEROBOT_MCP_TIER` | `pro` | Match payload detail: `pro` or `starter` |
 
+## Grok Bot / Grok CLI
+
+Grok discovers MCP from this repo automatically when you work in the project:
+
+| File | Purpose |
+|------|---------|
+| `.mcp.json` | Project MCP manifest (Grok, some other clients) |
+| `.cursor/mcp.json` | Cursor + Grok compat import |
+| `.grok/config.toml` | Native Grok project MCP config |
+
+The server is registered as **`picktherobot`**.
+
+1. Open a terminal **in this repository** (so `node_modules` exists).
+2. Run `npm install` if you have not already.
+3. In Grok: run **`grok inspect`** — you should see `picktherobot` listed.
+4. If it fails: **`grok mcp doctor picktherobot`** (stderr is also logged under `~/.grok/logs/mcp/` on first connect).
+
+Manual add (from repo root):
+
+```bash
+grok mcp add picktherobot -- node scripts/mcp-entry.mjs
+```
+
+First launch can take up to ~90s while `tsx` warms up; project config sets `startup_timeout_sec = 90`.
+
+### Grok on the web (grok.com connectors)
+
+Remote connectors need a **public HTTPS** Streamable HTTP URL, not stdio. This site exposes:
+
+- **URL:** `https://picktherobot.com/api/mcp`
+- **Auth:** `Authorization: Bearer <PICKTHEROBOT_MCP_HTTP_TOKEN>` (set on the host; remote MCP is off until the token is configured)
+- **Discovery:** `https://picktherobot.com/.well-known/mcp/server-card.json`
+
+For local HTTP testing without deploying:
+
+```bash
+npm run mcp:http
+grok mcp add --transport http picktherobot http://127.0.0.1:3928/mcp
+```
+
 ## Cursor configuration
 
-Add to your MCP settings (user or project), with `cwd` set to this repository:
+Project `.cursor/mcp.json` is already committed. Reload MCP in Cursor settings if needed.
+
+Legacy manual config (optional):
 
 ```json
 {
   "mcpServers": {
     "picktherobot": {
-      "command": "npm",
-      "args": ["run", "mcp"],
-      "cwd": "C:/Users/seand/Desktop/Projects/Pick The Robot"
+      "command": "node",
+      "args": ["scripts/mcp-entry.mjs"]
     }
   }
 }
 ```
 
-On Windows, use forward slashes or escaped backslashes in `cwd`.
+On Windows, run from the repo root so `scripts/mcp-entry.mjs` resolves.
 
 ## Notes
 

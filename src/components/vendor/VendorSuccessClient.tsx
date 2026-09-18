@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { FOR_VENDORS_PATH } from '@/lib/content/for-vendors';
+import { FOR_VENDORS_LABEL, FOR_VENDORS_PATH, FOR_VENDORS_PORTAL_PATH } from '@/lib/content/for-vendors';
 
 export function VendorSuccessClient() {
   const searchParams = useSearchParams();
@@ -23,7 +23,7 @@ export function VendorSuccessClient() {
         if (!response.ok) {
           throw new Error(data.message ?? 'Could not complete checkout.');
         }
-        if (!cancelled) router.replace(data.portalPath ?? `${FOR_VENDORS_PATH}/portal`);
+        if (!cancelled) router.replace(data.portalPath ?? FOR_VENDORS_PORTAL_PATH);
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : 'Checkout completion failed.');
@@ -42,7 +42,7 @@ export function VendorSuccessClient() {
       <p className="text-sm text-ink-muted">
         Missing checkout session.{' '}
         <Link href={FOR_VENDORS_PATH} className="text-accent hover:underline">
-          Return to for vendors
+          Return to {FOR_VENDORS_LABEL}
         </Link>
         .
       </p>

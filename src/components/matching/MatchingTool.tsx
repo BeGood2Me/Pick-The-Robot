@@ -356,8 +356,14 @@ export function MatchingTool({
 
       {phase === 'category' && (
         <section>
-          <h2 className="text-xl font-semibold">Get your robot match</h2>
-          <p className="mt-1 mb-4 text-sm text-ink-muted">Pick your operation type.</p>
+          <h2 className="text-xl font-semibold">Find a business robot</h2>
+          <p className="mt-1 mb-4 text-sm text-ink-muted">
+            Warehouse, commercial cleaning, or restaurant — not home robot vacuums.{' '}
+            <a href="/home-robots" className="font-medium text-accent hover:underline">
+              Find a home robot instead
+            </a>
+            .
+          </p>
           <CategorySelector selected={category} onSelect={handleCategorySelect} />
         </section>
       )}

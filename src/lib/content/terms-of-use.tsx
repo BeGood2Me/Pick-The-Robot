@@ -43,11 +43,12 @@ export function TermsOfUseContent() {
 
       <LegalSection title="What the Site provides">
         <LegalParagraph>
-          {LEGAL_COMPANY_NAME} offers editorial guides and a{' '}
-          <strong className="text-ink">rules-based matcher</strong> that scores robot types and vendors
-          using the inputs you provide. The Site is a starting point for research — not a substitute for
-          vendor quotes, site visits, pilots, engineering review, or professional advice (legal,
-          financial, or otherwise).
+          {LEGAL_COMPANY_NAME} offers editorial guides and two{' '}
+          <strong className="text-ink">rules-based matchers</strong>: a home robot-vacuum matcher that
+          ranks product models from your floors, pets, and budget, and a business matcher that scores
+          warehouse, commercial cleaning, and restaurant robot types and vendors. The Site is a starting
+          point for research — not a substitute for retailer confirmation, vendor quotes, site visits,
+          pilots, engineering review, or professional advice (legal, financial, or otherwise).
         </LegalParagraph>
         <LegalParagraph>
           Recommendations, scores, and vendor rankings are generated from our published criteria and
@@ -146,8 +147,10 @@ export function TermsOfUseContent() {
           practices. Clicking a vendor link takes you to an external site under their terms.
         </LegalParagraph>
         <LegalParagraph>
-          Some vendor links may be affiliate or referral links. If you purchase through those links, we
-          may receive compensation at no extra cost to you. Vendors may also be marked as{' '}
+          Some vendor and home-product links may be affiliate or referral links. If you purchase through
+          those links, we may receive compensation at no extra cost to you. Affiliate status does not
+          change matcher scores. Home robot-vacuum rankings are not lab tests. Vendors may also be marked
+          as{' '}
           <strong className="text-ink">sponsored</strong> when we have a commercial relationship; those
           listings are labeled on the Site. Sponsorship may add a small score adjustment when a vendor is
           already a reasonable fit — it does not override relevance, and a poor match should still rank

@@ -506,12 +506,12 @@ export function getFormFieldGroups(category: RobotCategory): FormFieldGroup[] {
 
 export const CATEGORY_LABELS: Record<RobotCategory, string> = {
   warehouse: 'Warehouse robots',
-  cleaning: 'Cleaning robots',
+  cleaning: 'Commercial cleaning robots',
   restaurant: 'Restaurant robots',
 };
 
 export const CATEGORY_DESCRIPTIONS: Record<RobotCategory, string> = {
   warehouse: 'AMRs, AGVs, picking assist, and pallet movers for fulfillment and distribution.',
-  cleaning: 'Autonomous scrubbers and vacuums for offices, retail, and industrial floors.',
+  cleaning: 'Autonomous commercial scrubbers and vacuums for offices, retail, and industrial floors — not home robot vacuums.',
   restaurant: 'Serving, bussing, kitchen, and reception robots for food service.',
 };

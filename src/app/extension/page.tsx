@@ -41,7 +41,7 @@ export default function ExtensionPage() {
           <ButtonLink href={CHROME_EXTENSION_STORE_URL} variant="primary">
             Add to Chrome
           </ButtonLink>
-          <ButtonLink href="/#matcher" variant="secondary">
+          <ButtonLink href="/#tracks" variant="secondary">
             Use the web matcher
           </ButtonLink>
         </div>

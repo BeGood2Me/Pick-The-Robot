@@ -63,7 +63,7 @@ export default function IntegrationsHubPage() {
 
         <p className="mt-8 text-sm text-ink-muted">
           Need a scored robot-type fit first?{' '}
-          <Link href="/#matcher" className="font-medium text-accent hover:underline">
+          <Link href="/business#matcher" className="font-medium text-accent hover:underline">
             Run the matcher
           </Link>
           .

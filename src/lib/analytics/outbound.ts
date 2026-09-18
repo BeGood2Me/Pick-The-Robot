@@ -5,8 +5,8 @@ import { isHttpsUrl } from '@/lib/vendors/validateUrls';
 const SITE_SOURCE = 'picktherobot';
 
 /**
- * Build tracked outbound URL — always uses the official `outboundUrl`.
- * UTM params are appended for attribution only.
+ * Build tracked outbound URL. Uses a vendor-provided tracked link when set (Sponsored),
+ * otherwise the official outboundUrl. UTM params are appended for attribution.
  */
 export function getOutboundUrl(vendor: Vendor, context?: string): string {
   const base = vendor.affiliateUrl ?? vendor.outboundUrl;
@@ -18,7 +18,7 @@ export function getOutboundUrl(vendor: Vendor, context?: string): string {
   try {
     const url = new URL(base);
     url.searchParams.set('utm_source', SITE_SOURCE);
-    url.searchParams.set('utm_medium', vendor.affiliateUrl ? 'affiliate' : 'referral');
+    url.searchParams.set('utm_medium', vendor.affiliateUrl ? 'tracked' : 'referral');
     url.searchParams.set('utm_campaign', vendor.slug);
     if (context) url.searchParams.set('utm_content', context);
     if (vendor.sponsored) url.searchParams.set('utm_term', 'sponsored');
@@ -36,7 +36,7 @@ export function trackVendorOutboundClick(vendor: Vendor, context?: string): void
       vendorName: vendor.name,
       slug: vendor.slug,
       sponsored: vendor.sponsored ?? false,
-      affiliate: Boolean(vendor.affiliateUrl),
+      customOutbound: Boolean(vendor.affiliateUrl),
       outboundUrl: getOutboundUrl(vendor, context),
       context,
     },

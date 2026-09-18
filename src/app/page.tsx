@@ -5,9 +5,9 @@ import { JsonLd } from '@/lib/seo/jsonld';
 import { siteMetadata } from '@/lib/seo/metadata';
 
 export const metadata = siteMetadata({
-  title: 'PickTheRobot — Pick the right robot for your business',
+  title: 'PickTheRobot — Home robot vacuums and business robots',
   description:
-    'Free robot matcher for warehouse, cleaning, and restaurant teams. Get a scored robot type, buy vs lease vs RaaS, and ranked vendors in under two minutes.',
+    'Free rules-based matchers: robot vacuums for home, and warehouse, commercial cleaning, and restaurant robots for work. Scored shortlists, not lab tests or sales calls.',
   path: '',
 });
 

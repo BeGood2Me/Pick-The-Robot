@@ -73,7 +73,7 @@ export default function BestHubPage() {
 
         <p className="mt-8 text-sm text-ink-muted">
           Prefer a scored recommendation?{' '}
-          <Link href="/#matcher" className="font-medium text-accent hover:underline">
+          <Link href="/#tracks" className="font-medium text-accent hover:underline">
             Run the matcher
           </Link>
           .

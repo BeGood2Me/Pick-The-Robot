@@ -5,17 +5,19 @@ export const METHODOLOGY_PATH = '/methodology';
 export const METHODOLOGY_META = {
   title: 'How matching works',
   description:
-    'How PickTheRobot scores warehouse, cleaning, and restaurant robots: rules-based weights, vendor ranking, sponsored disclosure, and what we do not guarantee.',
+    'How PickTheRobot scores home robot vacuums and business robots: rules-based weights, public specs vs vendor ranking, affiliate disclosure, and what we do not guarantee.',
 } as const;
 
-export const METHODOLOGY_LAST_UPDATED = 'August 2026';
+export const METHODOLOGY_LAST_UPDATED = 'September 2026';
 
 /** Short bullets for About page and other summaries. */
 export const METHODOLOGY_SUMMARY = [
-  'You answer operational questions — floor size, pain points, labor cost, layout, and budget preference.',
-  'Each robot type receives three scores: use-case fit (45%), economic fit (35%), and deployment fit (20%).',
-  'Vendors are ranked against your top robot type and recommended acquisition model.',
-  'Sponsored listings receive a small boost only when already a reasonable fit — never enough to override poor relevance.',
+  'PickTheRobot has two tracks. Home scores robot-vacuum models. Business scores warehouse, commercial cleaning, and restaurant robot types and vendors.',
+  'You answer short questions — floors and pets at home; floor size, pain points, labor cost, layout, and budget preference at work.',
+  'Each option receives three scores: use-case fit (45%), economic fit (35%), and deployment fit (20%).',
+  'Business vendors are ranked against your top robot type and recommended acquisition model.',
+  'Home rankings use a small catalog of current models and publicly listed spec flags — not lab tests.',
+  'Sponsored business listings receive a small boost only when already a reasonable fit — never enough to override poor relevance.',
   'Cleaning results may include an indicative labor offset from published cost bands. We do not promise payback, headcount cuts, or vendor performance.',
 ] as const;
 
@@ -57,26 +59,39 @@ export const VENDOR_RANKING_RULES = [
   'Sponsored listings are labeled on vendor cards and profile pages.',
 ] as const;
 
+export const HOME_VACUUM_METHODOLOGY = {
+  title: 'Home robot vacuums',
+  paragraphs: [
+    'The home matcher is a separate engine from the business wizard. It ranks product models (SKUs), not B2B vendors.',
+    'Scores use the same 45 / 35 / 20 weights against your floors, pets, hair, mopping need, budget band, self-empty preference, multi-floor maps, and clutter. Spec flags come from manufacturer positioning (mop type, self-empty, pet-hair class, obstacle avoidance class) — not suction-lab charts.',
+    'We are not RTINGS, Vacuum Wars, or a hands-on review site. Treat the output as a constraint-based shortlist. Confirm current price, firmware, brush design, and mopping performance on retailer and manufacturer pages.',
+    'Some outbound links may be affiliate links. Affiliate status does not change scores. A higher-commission product cannot outrank a better fit.',
+  ],
+} as const;
+
 export const SPONSORSHIP_POLICY = {
   title: 'Sponsored listings & referrals',
   paragraphs: [
     'PickTheRobot is free for buyers. We may earn revenue from outbound vendor traffic through referral or affiliate links, or from disclosed sponsored placements when commercial relationships exist.',
+    'Home robot-vacuum results may use retailer affiliate links. Those links are labeled when they are affiliates.',
     'Sponsorship does not buy placement for vendors that do not match your profile. A sponsored vendor with poor fit should still rank below a stronger non-sponsored match.',
     'We disclose sponsorship where it applies. Terms of use describe affiliate and sponsored listings in more detail.',
   ],
 } as const;
 
 export const WHAT_WE_DO_NOT_CLAIM = [
-  'Binding quotes, contracts, or availability from any vendor',
+  'Binding quotes, contracts, or availability from any vendor or retailer',
   'Guaranteed ROI, payback periods, or labor savings on every site',
+  'Hands-on lab rankings for robot vacuums (suction, mopping, hair pickup charts)',
   'Safety certification, regulatory compliance, or fitness for your jurisdiction',
   'On-site deployment, integration, or engineering services',
-  'Endorsement of any vendor — outbound links are for your research convenience',
+  'Endorsement of any vendor or product — outbound links are for your research convenience',
 ] as const;
 
 export const EDITORIAL_STANDARDS = [
   'Blog and guide price ranges are illustrative — useful for budgeting before vendor quotes, not substitutes for written proposals.',
   'Vendor profiles reflect publicly stated positioning. Confirm specifications, pricing, and regional support directly with vendors.',
+  'Home robot-vacuum catalogs are a short list of widely sold models with public spec flags. Names and street prices change — treat prices as indicative.',
   'Humanoid Track content is editorial coverage with readiness labels — not scored matcher results for robots you cannot procure like standard AMRs.',
   'We update scoring rules and content when categories or market norms shift materially. Scoring logic is rules-based and deterministic, not machine-learning black box output.',
 ] as const;
@@ -96,6 +111,11 @@ export const METHODOLOGY_FAQS: FaqItem[] = [
     question: 'Does the matcher replace vendor demos?',
     answer:
       'No. It narrows robot types and vendors to investigate. You should still validate pricing, pilots, integration scope, and contracts directly with vendors.',
+  },
+  {
+    question: 'Are home robot vacuum rankings lab tests?',
+    answer:
+      'No. We match public spec flags to your floors, pets, mopping need, and budget. Use the shortlist to narrow models, then verify reviews and current pricing.',
   },
   {
     question: 'Are cleaning labor offset numbers guaranteed savings?',

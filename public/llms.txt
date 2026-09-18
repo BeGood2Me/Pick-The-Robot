@@ -1,17 +1,23 @@
 # PickTheRobot
 
-> Free rules-based tool that helps businesses pick warehouse, cleaning, and restaurant robots — robot type, buy vs lease vs RaaS, and vendor matches.
+> Two-track rules-based matcher: **home robot vacuums** and **business robots** (warehouse, commercial cleaning, restaurant). Not a vendor, concierge, or lab-test review site.
 
-PickTheRobot is a buyer-side recommendation utility, not a vendor or concierge service. Recommendations are informational; users should verify pricing and fit with vendors directly.
+PickTheRobot is a buyer-side recommendation utility. Recommendations are informational; users should verify pricing and fit with retailers or vendors directly. Some product links may be affiliates.
 
-## Primary action
+## Primary actions
 
-- [Home — robot matcher](https://picktherobot.com/): Choose warehouse, cleaning, or restaurant → answer ~2 minutes of questions → get ranked recommendations.
+- [Home — choose a track](https://picktherobot.com/#tracks): Home robot vacuums vs business robots.
+- [Robot vacuum matcher](https://picktherobot.com/robot-vacuums): Floors, pets, mopping, budget → ranked models from public specs.
+- [Business matcher](https://picktherobot.com/business): Warehouse, commercial cleaning, or restaurant → robot type, buy vs lease vs RaaS, ranked vendors.
 
-## Categories
+## Home track
+
+- [Robot vacuums](https://picktherobot.com/robot-vacuums): Separate catalog of product models (not the B2B vendor index). Scoring is spec/fit rules, not RTINGS-style lab tests.
+
+## Business categories
 
 - [Warehouse robots](https://picktherobot.com/warehouse-robots): AMRs, AGVs, picking assist, pallet movers.
-- [Cleaning robots](https://picktherobot.com/cleaning-robots): Office, retail, and industrial autonomous scrubbers/vacuums.
+- [Commercial cleaning robots](https://picktherobot.com/cleaning-robots): Office, retail, and industrial autonomous scrubbers/vacuums — not home robot vacuums.
 - [Restaurant robots](https://picktherobot.com/restaurant-robots): Serving, bussing, kitchen, and reception robots.
 
 Educational guides (robot types, key definitions, vendors, FAQs) on each category page: append `#guide` to the URL (e.g. https://picktherobot.com/warehouse-robots#guide).
@@ -24,9 +30,9 @@ Educational guides (robot types, key definitions, vendors, FAQs) on each categor
 
 ## Methodology
 
-- [How PickTheRobot scores robots and vendors](https://picktherobot.com/methodology): Rules-based weights, sponsorship disclosure, and limits.
+- [How PickTheRobot scores robots](https://picktherobot.com/methodology): Rules-based weights, home-vacuum spec matching, sponsorship/affiliate disclosure, and limits.
 
-## Vendors
+## Vendors (business)
 
 - [All vendors](https://picktherobot.com/vendors): Browse vendor profiles with outbound links to official sites.
 

@@ -58,7 +58,7 @@ export const RESTAURANT_BUYERS_CHECKLIST_RELATED_LINKS = [
   { href: '/restaurant-robot-cost', label: 'Serving robot cost guide' },
   { href: '/robot-leasing-vs-buying', label: 'Lease vs buy guide' },
   { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service (RaaS)' },
-  { href: '/?category=restaurant#matcher', label: 'Restaurant matcher' },
+  { href: '/business?category=restaurant#matcher', label: 'Restaurant matcher' },
 ] as const;
 
 export const RESTAURANT_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
@@ -129,7 +129,7 @@ export const RESTAURANT_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 10,
     title: 'Run the matcher',
     summary: 'Sanity-check fit scores and vendor matches from your venue inputs.',
-    href: '/?category=restaurant#matcher',
+    href: '/business?category=restaurant#matcher',
     linkLabel: 'Restaurant matcher',
   },
 ];

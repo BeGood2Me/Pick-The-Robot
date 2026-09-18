@@ -55,7 +55,7 @@ export const WAREHOUSE_BUYERS_CHECKLIST_RELATED_LINKS = [
   { href: '/warehouse-robot-cost', label: 'Warehouse robot cost guide' },
   { href: '/robot-leasing-vs-buying', label: 'Lease vs buy guide' },
   { href: '/robotics-as-a-service', label: 'Robotics-as-a-Service (RaaS)' },
-  { href: '/?category=warehouse#matcher', label: 'Warehouse matcher' },
+  { href: '/business?category=warehouse#matcher', label: 'Warehouse matcher' },
 ] as const;
 
 export const WAREHOUSE_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
@@ -126,7 +126,7 @@ export const WAREHOUSE_BUYERS_CHECKLIST: BuyersChecklistItem[] = [
     step: 10,
     title: 'Run the matcher',
     summary: 'Sanity-check fit scores and vendor matches from your operational inputs.',
-    href: '/?category=warehouse#matcher',
+    href: '/business?category=warehouse#matcher',
     linkLabel: 'Warehouse matcher',
   },
 ];

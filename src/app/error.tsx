@@ -26,7 +26,7 @@ export default function Error({
           Try again
         </Button>
         <Link
-          href="/#matcher"
+          href="/#tracks"
           className="inline-flex items-center rounded-lg border border-surface-border px-4 py-2.5 text-sm font-semibold hover:bg-surface-soft"
         >
           Back to matcher

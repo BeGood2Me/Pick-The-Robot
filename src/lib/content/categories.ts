@@ -140,13 +140,13 @@ export const CATEGORY_CONTENT: Record<RobotCategory, CategoryPageContent> = {
   },
   cleaning: {
     title: 'Commercial cleaning robots guide',
-    h1: 'Cleaning robots',
+    h1: 'Commercial cleaning robots',
     intro:
       'Find office, commercial scrubber, or industrial cleaning robots based on floor area, mess level, and cleaning frequency. Automatic matching — no sales call required.',
     metaDescription:
       'Compare commercial cleaning robots for offices, retail, and industrial floors. Match scrubber or vacuum robots to your facility and budget.',
     robotTypesIntro:
-      'Cleaning robots range from compact office units to large scrubbers and industrial machines. Floor area and obstacle density drive the fit.',
+      'Commercial cleaning robots range from compact office units to large scrubbers and industrial machines. Floor area and obstacle density drive the fit.',
     acquisitionIntro:
       'RaaS and lease models are common for first deployments. Buying can make sense when cleaning runs daily across a large, stable footprint.',
     howToChoose: {

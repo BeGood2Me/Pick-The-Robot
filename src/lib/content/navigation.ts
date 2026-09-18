@@ -1,11 +1,11 @@
-import { DEVELOPERS_PATH } from '@/lib/content/developers';
-import type { RobotCategory } from '@/lib/matching';
 import { CATEGORY_LABELS } from '@/lib/forms/questions';
+import type { RobotCategory } from '@/lib/matching';
 
 import { GUIDE_LINKS } from '@/lib/content/guides';
 import { CLEANING_BUYERS_CHECKLIST_PATH } from '@/lib/content/cleaning-buyers-checklist';
 import { WAREHOUSE_BUYERS_CHECKLIST_PATH } from '@/lib/content/warehouse-buyers-checklist';
 import { RESTAURANT_BUYERS_CHECKLIST_PATH } from '@/lib/content/restaurant-buyers-checklist';
+import { BUSINESS_HUB_PATH, HOME_HUB_PATH, ROBOT_VACUUMS_PATH } from '@/lib/content/home-vacuums';
 
 export const SITE_NAME = 'PickTheRobot';
 
@@ -22,27 +22,30 @@ export function categoryGuideHref(category: RobotCategory): string {
   return CATEGORY_ROUTES[category];
 }
 
-/** Homepage matcher entry, optionally pre-selecting a category. */
+/** Business matcher entry, optionally pre-selecting a category. */
 export function homeMatcherHref(category?: RobotCategory | null): string {
   if (!category) return HOME_MATCHER_RESET_HREF;
-  return `/?category=${category}#matcher`;
+  return `${BUSINESS_HUB_PATH}?category=${category}#matcher`;
 }
 
-/** Homepage matcher entry — hash scrolls to wizard; avoids ?query URLs that GSC treats as redirects. */
-export const HOME_MATCHER_RESET_HREF = '/#matcher';
+/** Business matcher category picker on the business hub. */
+export const HOME_MATCHER_RESET_HREF = `${BUSINESS_HUB_PATH}#matcher`;
 
 /** Site logo / brand home link (plain homepage, not matcher hash). */
 export const HOME_HREF = '/';
 
+/** Homepage two-track chooser (home robots vs business). */
+export const HOME_TRACKS_HREF = '/#tracks';
+
 export const VENDORS_INDEX_HREF = '/vendors';
 
-/** Primary header nav — categories + vendors + API; guides/comparisons live in footer and mobile menu. */
+/** Primary header nav — home and business tracks as peers, then B2B categories. */
 export const HEADER_NAV_LINKS = [
+  { href: HOME_HUB_PATH, label: 'Home robots' },
+  { href: BUSINESS_HUB_PATH, label: 'Business' },
   { href: '/warehouse-robots', label: 'Warehouse' },
   { href: '/cleaning-robots', label: 'Cleaning' },
   { href: '/restaurant-robots', label: 'Restaurant' },
-  { href: VENDORS_INDEX_HREF, label: 'Vendors' },
-  { href: DEVELOPERS_PATH, label: 'API' },
 ] as const;
 
 export const NAV_LINKS = [
@@ -63,7 +66,7 @@ export { GUIDE_LINKS };
 
 export const CATEGORY_LINKS = [
   { href: '/warehouse-robots', label: 'Warehouse robots' },
-  { href: '/cleaning-robots', label: 'Cleaning robots' },
+  { href: '/cleaning-robots', label: 'Commercial cleaning robots' },
   { href: '/restaurant-robots', label: 'Restaurant robots' },
 ] as const;
 

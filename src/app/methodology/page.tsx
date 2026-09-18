@@ -3,6 +3,7 @@ import { FaqBlock } from '@/components/content/FaqBlock';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import {
   EDITORIAL_STANDARDS,
+  HOME_VACUUM_METHODOLOGY,
   MATCH_CONFIDENCE_EXPLAINER,
   METHODOLOGY_FAQS,
   METHODOLOGY_LAST_UPDATED,
@@ -45,9 +46,9 @@ export default function MethodologyPage() {
 
         <h1 className="mt-4 font-display text-4xl font-semibold">How matching works</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">
-          PickTheRobot uses a transparent, rules-based engine — not a black-box model — to score robot
-          types and rank vendors from your facility inputs. This page explains what we optimize for, what
-          we disclose, and what we do not guarantee.
+          PickTheRobot uses a transparent, rules-based engine — not a black-box model — to score
+          home robot vacuums and business robots from your inputs. This page explains what we
+          optimize for, what we disclose, and what we do not guarantee.
         </p>
         <p className="mt-2 text-sm text-ink-faint">Last updated {METHODOLOGY_LAST_UPDATED}</p>
 
@@ -77,6 +78,20 @@ export default function MethodologyPage() {
               </div>
             ))}
           </dl>
+        </section>
+
+        <section className="mt-6 card">
+          <h2 className="text-lg font-semibold text-ink">{HOME_VACUUM_METHODOLOGY.title}</h2>
+          {HOME_VACUUM_METHODOLOGY.paragraphs.map((p) => (
+            <p key={p} className="mt-3 text-sm text-ink-muted">
+              {p}
+            </p>
+          ))}
+          <p className="mt-4 text-sm">
+            <Link href="/robot-vacuums#matcher" className="font-medium text-accent hover:underline">
+              Run the robot vacuum matcher
+            </Link>
+          </p>
         </section>
 
         <section className="mt-6 card">
@@ -136,12 +151,18 @@ export default function MethodologyPage() {
             Run the matcher for your category, then expand the score breakdown on results to see which
             criteria moved each recommendation.
           </p>
-          <p className="mt-4">
+          <p className="mt-4 flex flex-wrap gap-3">
             <Link
-              href="/#matcher"
+              href="/#tracks"
               className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
             >
-              Run the matcher
+              Choose a track
+            </Link>
+            <Link
+              href="/business#matcher"
+              className="inline-flex rounded-lg border border-surface-border bg-surface px-4 py-2.5 text-sm font-semibold text-ink hover:border-accent/40"
+            >
+              Business matcher
             </Link>
           </p>
         </section>

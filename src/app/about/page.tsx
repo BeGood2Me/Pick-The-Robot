@@ -31,16 +31,17 @@ export default function AboutPage() {
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
         <h1 className="font-display text-4xl font-semibold">About PickTheRobot</h1>
         <p className="mt-4 max-w-3xl text-lg prose-muted">
-          PickTheRobot is a buyer-side research product for warehouse, cleaning, and restaurant
-          automation. We help teams structure a robot decision — type, acquisition model, and vendor
-          shortlist — before talking to sales.
+          PickTheRobot is a buyer-side research product with two tracks: home robot vacuums, and
+          warehouse, commercial cleaning, and restaurant automation. We help you structure a robot
+          decision — constraints, type or model, and a shortlist — before you buy or talk to sales.
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <section className="card">
             <h2 className="text-lg font-semibold">What we are</h2>
             <ul className="mt-3 list-inside list-disc space-y-2 text-sm text-ink-muted">
-              <li>A rules-based matcher with documented scoring weights</li>
+              <li>A home robot-vacuum matcher that ranks models from public specs</li>
+              <li>A business matcher with documented scoring weights</li>
               <li>Buyer guides, comparisons, and blog research by topic</li>
               <li>A vendor index with outbound links to official sites</li>
               <li>A shareable results flow for internal buy-in</li>
@@ -95,10 +96,11 @@ export default function AboutPage() {
         <section className="mt-6 card border-accent/30 bg-accent-soft/20">
           <h2 className="text-lg font-semibold">Monetization &amp; disclosure</h2>
           <p className="mt-2 text-sm text-ink-muted">
-            The matcher is free. We may earn revenue from outbound vendor traffic in the future —
-            through referral links or disclosed sponsored placements when partnerships exist.
-            Sponsored vendors receive a small score boost only when they already match your profile;
-            they cannot buy their way to the top of an irrelevant shortlist.
+            The matchers are free. We may earn revenue from outbound vendor traffic or home-product
+            retailer links — through affiliate or referral links, or disclosed sponsored placements when
+            partnerships exist. Affiliate status does not change scores. Sponsored business vendors
+            receive a small score boost only when they already match your profile; they cannot buy their
+            way to the top of an irrelevant shortlist.
           </p>
           <p className="mt-2 text-sm text-ink-muted">
             Vendor or partnership questions:{' '}
@@ -116,16 +118,21 @@ export default function AboutPage() {
         <section className="mt-8 card">
           <h2 className="text-lg font-semibold">Try the matcher</h2>
           <p className="mt-2 text-sm text-ink-muted">
-            The fastest way to see how PickTheRobot works is to run a match for your category —
-            about two minutes of facility inputs, then ranked robot types, acquisition model, and
-            vendors.
+            The fastest way to see how PickTheRobot works is to pick a track — home robot vacuums, or
+            warehouse / commercial cleaning / restaurant — then answer a short wizard.
           </p>
-          <p className="mt-4">
+          <p className="mt-4 flex flex-wrap gap-3">
             <Link
-              href="/#matcher"
+              href="/#tracks"
               className="inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover"
             >
-              Run the matcher
+              Choose a track
+            </Link>
+            <Link
+              href="/robot-vacuums#matcher"
+              className="inline-flex rounded-lg border border-surface-border bg-surface px-4 py-2.5 text-sm font-semibold text-ink hover:border-accent/40"
+            >
+              Robot vacuums
             </Link>
           </p>
         </section>

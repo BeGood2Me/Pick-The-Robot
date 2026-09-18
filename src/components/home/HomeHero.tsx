@@ -1,6 +1,6 @@
 import { HomeHeroMatchPreview } from '@/components/home/HomeHeroMatchPreview';
 import { ButtonLink } from '@/components/ui/Button';
-import { HOME_HERO } from '@/lib/content/home-landing';
+import { HOME_HERO, HOME_TRACKS } from '@/lib/content/home-landing';
 
 export function HomeHero() {
   return (
@@ -19,13 +19,19 @@ export function HomeHero() {
           >
             {HOME_HERO.subhead}
           </p>
-          <div className="mt-3 hidden flex-wrap items-center gap-4 sm:mt-6 sm:flex">
-            <ButtonLink href={HOME_HERO.ctaHref} variant="primary" className="text-base">
-              {HOME_HERO.ctaLabel}
-            </ButtonLink>
-            <p className="text-sm text-ink-faint">{HOME_HERO.proof}</p>
+          <div className="mt-3 flex flex-wrap items-center gap-3 sm:mt-6 sm:flex">
+            {HOME_TRACKS.map((track) => (
+              <ButtonLink
+                key={track.id}
+                href={track.href}
+                variant={track.id === 'home' ? 'primary' : 'secondary'}
+                className="text-base"
+              >
+                {track.cta}
+              </ButtonLink>
+            ))}
           </div>
-          <p className="mt-2 text-xs text-ink-faint sm:hidden">{HOME_HERO.proof}</p>
+          <p className="mt-2 text-xs text-ink-faint sm:mt-3 sm:text-sm">{HOME_HERO.proof}</p>
         </div>
         <HomeHeroMatchPreview className="mx-auto hidden w-full max-w-sm sm:block" />
       </div>

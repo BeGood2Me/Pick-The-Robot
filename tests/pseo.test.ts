@@ -37,7 +37,7 @@ describe('pSEO best-for pages', () => {
     expect(page!.h1).toMatch(/Best AMRs for e-commerce fulfillment/i);
     expect(page!.h1.toLowerCase()).not.toContain('fulfillment warehouse');
     expect(page!.metaDescription.length).toBeLessThanOrEqual(160);
-    expect(page!.matcherHref).toBe('/?category=warehouse#matcher');
+    expect(page!.matcherHref).toBe('/business?category=warehouse#matcher');
     expect(page!.categoryGuideHref).toBe('/warehouse-robots');
     expect(page!.faqs.length).toBeGreaterThanOrEqual(3);
   });

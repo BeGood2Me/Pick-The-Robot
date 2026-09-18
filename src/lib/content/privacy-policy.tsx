@@ -30,8 +30,9 @@ export function PrivacyPolicyContent() {
           pages that link to this policy (collectively, the &quot;Service&quot;).
         </LegalParagraph>
         <LegalParagraph>
-          {LEGAL_COMPANY_NAME} operates a rules-based robot recommendation tool and buyer research
-          site for warehouse, cleaning, and restaurant automation. We are based in{' '}
+          {LEGAL_COMPANY_NAME} operates rules-based robot recommendation tools and buyer research for
+          home robot vacuums and for warehouse, commercial cleaning, and restaurant automation. We are
+          based in{' '}
           {LEGAL_JURISDICTION} and do not require an account to use the matcher.
         </LegalParagraph>
         <LegalParagraph>

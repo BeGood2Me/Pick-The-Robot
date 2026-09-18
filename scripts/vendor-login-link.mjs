@@ -13,7 +13,14 @@ function loadEnvLocal() {
       if (!trimmed || trimmed.startsWith('#')) continue;
       const idx = trimmed.indexOf('=');
       if (idx === -1) continue;
-      env[trimmed.slice(0, idx)] = trimmed.slice(idx + 1);
+      let value = trimmed.slice(idx + 1).trim();
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+      env[trimmed.slice(0, idx)] = value;
     }
   } catch {
     // optional
@@ -55,6 +62,10 @@ async function createLoginToken(email) {
   return token;
 }
 
+function normalizeDatabaseUrl(url) {
+  return url.replace(/([?&])channel_binding=[^&]*/g, '$1').replace(/[?&]$/, '');
+}
+
 const email = process.argv[2];
 if (!email || !email.includes('@')) {
   console.error('Usage: node scripts/vendor-login-link.mjs vendor@company.com');
@@ -62,7 +73,7 @@ if (!email || !email.includes('@')) {
 }
 
 const env = loadEnvLocal();
-process.env.DATABASE_URL = env.DATABASE_URL;
+process.env.DATABASE_URL = normalizeDatabaseUrl(env.DATABASE_URL ?? '');
 
 const token = await createLoginToken(email);
 const site = (env.NEXT_PUBLIC_SITE_URL ?? 'https://picktherobot.com').replace(/\/$/, '');
@@ -70,4 +81,6 @@ const url = `${site}/api/vendor/auth/verify?token=${encodeURIComponent(token)}`;
 
 console.log(`Login link for ${email}:`);
 console.log(url);
-console.log('\nLink expires in 1 hour.');
+console.log('\nOpen the full URL above in your browser while npm run dev is running.');
+console.log('The link includes ?token=... — visiting /api/vendor/auth/verify without it will not sign you in.');
+console.log('Link expires in 1 hour.');

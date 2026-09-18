@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { FOR_VENDORS_PATH } from '@/lib/content/for-vendors';
+import { FOR_VENDORS_PORTAL_PATH } from '@/lib/content/for-vendors';
 import { getVendorSession, getVendorPortalForSession } from '@/lib/vendor/auth-server';
 import { getStripe, isVendorStripeCheckoutConfigured } from '@/lib/stripe/server';
 
@@ -35,7 +35,7 @@ export async function POST() {
   const stripe = getStripe();
   const portal = await stripe.billingPortal.sessions.create({
     customer: summary.account.stripeCustomerId,
-    return_url: `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'https://picktherobot.com'}${FOR_VENDORS_PATH}/portal`,
+    return_url: `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'https://picktherobot.com'}${FOR_VENDORS_PORTAL_PATH}`,
   });
 
   return NextResponse.json({ url: portal.url });

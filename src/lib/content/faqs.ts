@@ -2,39 +2,44 @@ import type { FaqItem } from '@/lib/seo/schema';
 
 export const HOME_FAQS: FaqItem[] = [
   {
+    question: 'Is PickTheRobot for homes or businesses?',
+    answer:
+      'Both, as two separate tracks. Home is robot vacuums matched to floors, pets, mopping, and budget. Business is warehouse, commercial cleaning, and restaurant robots — type, buy vs lease vs RaaS, and vendors. The wizards are not mixed.',
+  },
+  {
     question: 'How does PickTheRobot choose a robot?',
     answer:
-      'We use a rules-based engine that scores robot types on use-case fit, economic fit, and deployment fit from your answers. There is no black-box AI — the logic is deterministic and transparent.',
+      'We use a rules-based engine that scores options on use-case fit, economic fit, and deployment fit from your answers. There is no black-box AI — the logic is deterministic and transparent.',
+  },
+  {
+    question: 'Are robot vacuum rankings based on lab tests?',
+    answer:
+      'No. Home results match public specs to your constraints. We are not RTINGS or Vacuum Wars. Confirm price, firmware, and reviews before you buy. Some product links may be affiliates.',
   },
   {
     question: 'Does this replace talking to vendors?',
     answer:
-      'No. We narrow options and explain why, then link you to vendors that match. You still validate pricing, demos, and contracts directly.',
+      'No. The business matcher narrows robot types and vendors, then links you to official sites. You still validate pricing, demos, and contracts directly.',
   },
   {
-    question: 'What categories are supported?',
+    question: 'What business categories are supported?',
     answer:
-      'Warehouse, cleaning, and restaurant robots. Each category has its own questions and robot types.',
+      'Warehouse, commercial cleaning, and restaurant robots. Each category has its own questions and robot types. Home robot vacuums use a separate catalog of product models.',
   },
   {
-    question: 'How long does the matcher take?',
+    question: 'How long does a matcher take?',
     answer:
-      'Most people finish in under two minutes. You pick a category, answer a short wizard, and get scored results immediately in the browser.',
+      'Most people finish in under two minutes. Pick a track, answer a short wizard, and get scored results immediately in the browser.',
   },
   {
     question: 'Do I need an account or email?',
     answer:
-      'No. The matcher runs in your browser without signup. Share links encode answers in the URL if you want to send results to a colleague.',
+      'No. Matchers run in your browser without signup. Share links encode answers in the URL if you want to send results to someone else.',
   },
   {
-    question: 'Should I buy, lease, or use RaaS?',
+    question: 'Are rankings paid?',
     answer:
-      'It depends on upfront budget, utilization stability, and tech readiness. The matcher recommends a primary acquisition model and explains why.',
-  },
-  {
-    question: 'Are vendor rankings paid?',
-    answer:
-      'Fit comes first. If sponsored partnerships appear later, they are disclosed and only boost vendors that already match your profile — they never override fit.',
+      'Fit comes first. Sponsored business vendors are disclosed and only boost listings that already match your profile. Home product links may be affiliates; that does not change the score.',
   },
 ];
 

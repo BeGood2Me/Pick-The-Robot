@@ -20,7 +20,7 @@ export function ResultsPageIntro() {
     return (
       <p className="mt-2 text-sm text-ink-muted" role="status">
         This share link is invalid or expired.{' '}
-        <Link href="/#matcher" className="font-medium text-accent hover:underline">
+        <Link href="/business#matcher" className="font-medium text-accent hover:underline">
           Start a new match
         </Link>{' '}
         instead.
@@ -31,7 +31,7 @@ export function ResultsPageIntro() {
   return (
     <p className="mt-2 text-sm text-ink-muted">
       No share link detected.{' '}
-      <Link href="/#matcher" className="font-medium text-accent hover:underline">
+      <Link href="/business#matcher" className="font-medium text-accent hover:underline">
         Start a new match
       </Link>{' '}
       or paste a share URL with <code className="text-xs">?share=</code> to view saved results.

@@ -2,13 +2,19 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FOR_VENDORS_PATH } from '@/lib/content/for-vendors';
+import { FOR_VENDORS_LABEL, FOR_VENDORS_PATH } from '@/lib/content/for-vendors';
+import { vendorLoginErrorMessage } from '@/lib/vendor/loginErrors';
 
-export function VendorLoginForm() {
+interface VendorLoginFormProps {
+  authError?: string;
+}
+
+export function VendorLoginForm({ authError }: VendorLoginFormProps) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'sent' | 'error'>('idle');
   const [devLink, setDevLink] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const authErrorMessage = vendorLoginErrorMessage(authError);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -54,6 +60,11 @@ export function VendorLoginForm() {
       >
         Send login link
       </button>
+      {authErrorMessage && (
+        <p className="mt-3 text-sm text-warn" role="alert">
+          {authErrorMessage}
+        </p>
+      )}
       {status === 'sent' && (
         <p className="mt-3 text-sm text-ink-muted">
           If an account exists for that email, we sent a one-time sign-in link.
@@ -70,7 +81,7 @@ export function VendorLoginForm() {
       {message && <p className="mt-3 text-sm text-warn">{message}</p>}
       <p className="mt-4 text-sm">
         <Link href={FOR_VENDORS_PATH} className="text-accent hover:underline">
-          Back to for vendors
+          Back to {FOR_VENDORS_LABEL}
         </Link>
       </p>
     </form>

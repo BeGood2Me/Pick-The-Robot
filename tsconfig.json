@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "src/**/*", "tests/**/*", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "src/**/*", "tests/**/*", "mcp-server/src/**/*", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 # PickTheRobot
 
-Utility-first robot recommendation engine for warehouse, cleaning, and restaurant operators.
+Utility-first robot recommendation engine with two tracks: home robot vacuums, and warehouse / commercial cleaning / restaurant robots.
 
 ## Documentation
 

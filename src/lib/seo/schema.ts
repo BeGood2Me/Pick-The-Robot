@@ -45,7 +45,7 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     url: BASE_URL,
     description:
-      'Business robot buying guide and matcher for warehouse, cleaning, and restaurant operators.',
+      'Rules-based matchers for home robot vacuums and for warehouse, commercial cleaning, and restaurant robots.',
     logo: `${BASE_URL}${BRAND_IMAGE_PATHS.appleTouch180}`,
   };
 }
@@ -57,7 +57,7 @@ export function websiteJsonLd() {
     name: SITE_NAME,
     url: BASE_URL,
     description:
-      'Compare warehouse, cleaning, and restaurant robots by fit, cost model, and deployment.',
+      'Match home robot vacuums, or warehouse, commercial cleaning, and restaurant robots, by fit and constraints.',
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,

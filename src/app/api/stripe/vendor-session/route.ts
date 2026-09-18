@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { FOR_VENDORS_PATH } from '@/lib/content/for-vendors';
+import { FOR_VENDORS_PATH, FOR_VENDORS_PORTAL_PATH } from '@/lib/content/for-vendors';
 import { provisionVendorSubscription } from '@/lib/vendor/vendorStore';
 import { createVendorSessionToken, vendorSessionCookieOptions, vendorSessionCookieName } from '@/lib/vendor/session';
 import { getStripe, isVendorStripeCheckoutConfigured } from '@/lib/stripe/server';
@@ -100,7 +100,7 @@ export async function GET(request: Request) {
       tier: tierValue,
       vendorSlug,
       email: account.email,
-      portalPath: `${FOR_VENDORS_PATH}/portal`,
+      portalPath: FOR_VENDORS_PORTAL_PATH,
     });
     response.cookies.set(vendorSessionCookieName(), sessionToken, vendorSessionCookieOptions());
     return response;

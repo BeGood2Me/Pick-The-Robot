@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "picktherobot": {
+      "command": "node",
+      "args": ["scripts/mcp-entry.mjs"]
+    }
+  }
+}

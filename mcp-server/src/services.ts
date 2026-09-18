@@ -72,7 +72,7 @@ export function runMatch(answers: FormAnswers) {
     warnings,
     match,
     shareUrl,
-    matcherUrl: `${baseUrl}/?category=${answers.category}#matcher`,
+    matcherUrl: `${baseUrl}/business?category=${answers.category}#matcher`,
     disclaimer:
       'Informational only — verify pricing, safety, and deployment fit with vendors. PickTheRobot is not a dealer or integrator.',
   };

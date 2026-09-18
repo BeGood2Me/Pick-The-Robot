@@ -1,0 +1,16 @@
+{
+  "name": "picktherobot",
+  "title": "PickTheRobot",
+  "version": "1.0.0",
+  "description": "Rules-based business robot matcher: warehouse, commercial cleaning, and restaurant vendors.",
+  "protocolVersion": "2025-03-26",
+  "transport": {
+    "type": "streamable-http",
+    "url": "https://picktherobot.com/api/mcp"
+  },
+  "authentication": {
+    "type": "http",
+    "schemes": ["bearer"]
+  },
+  "documentation": "https://picktherobot.com/llms-full.txt"
+}

@@ -21,7 +21,9 @@ export function mergeVendorWithEntitlement(
     ...vendor,
     sponsored: entitlement.sponsored || Boolean(vendor.sponsored),
     logoUrl: entitlement.logoUrl ?? vendor.logoUrl,
-    affiliateUrl: entitlement.affiliateUrl ?? vendor.affiliateUrl,
+    affiliateUrl: entitlement.verified
+      ? (entitlement.affiliateUrl ?? vendor.affiliateUrl)
+      : vendor.affiliateUrl,
   };
 }
 

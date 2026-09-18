@@ -54,6 +54,25 @@ describe('vendor partner store', () => {
     expect(merged.logoUrl).toBe('https://example.com/logo.png');
   });
 
+  it('applies portal tracked outbound URL when verified', () => {
+    const base = VENDORS.find((v) => v.slug === 'locus-robotics');
+    expect(base).toBeTruthy();
+
+    const withoutVerified = mergeVendorWithEntitlement(base!, {
+      verified: false,
+      sponsored: true,
+      affiliateUrl: 'https://example.com/tracked',
+    });
+    expect(withoutVerified.affiliateUrl).toBeFalsy();
+
+    const verified = mergeVendorWithEntitlement(base!, {
+      verified: true,
+      sponsored: false,
+      affiliateUrl: 'https://example.com/tracked',
+    });
+    expect(verified.affiliateUrl).toBe('https://example.com/tracked');
+  });
+
   it('issues and consumes magic login tokens', async () => {
     await provisionVendorSubscription({
       email: 'partner@vendor.test',

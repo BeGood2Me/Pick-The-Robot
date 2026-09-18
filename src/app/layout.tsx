@@ -30,11 +30,11 @@ const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'PickTheRobot — Pick the right robot for your business',
+    default: 'PickTheRobot — Home robot vacuums and business robots',
     template: '%s | PickTheRobot',
   },
   description:
-    'Compare warehouse, cleaning, and restaurant robots by fit, cost model, and deployment. Rules-based recommendations and vendor matches.',
+    'Match a robot vacuum for home, or a warehouse, commercial cleaning, or restaurant robot for work. Rules-based scoring from your answers.',
   manifest: '/site.webmanifest',
   icons: {
     icon: [

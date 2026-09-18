@@ -24,7 +24,7 @@
   "relatedLinks": [
     { "href": "/humanoid-robots", "label": "Humanoid robots hub" },
     { "href": "/humanoid-vs-amr", "label": "Humanoid vs AMR" },
-    { "href": "/#matcher", "label": "Run the matcher" }
+    { "href": "/business#matcher", "label": "Run the matcher" }
   ],
   "canonicalPath": "/humanoid-robots"
 }

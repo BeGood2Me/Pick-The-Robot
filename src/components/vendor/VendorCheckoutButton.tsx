@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Button } from '@/components/ui/Button';
 import type { VendorTier } from '@/lib/vendor/tiers';
 
 export function VendorCheckoutButton({
@@ -45,14 +46,15 @@ export function VendorCheckoutButton({
 
   return (
     <div>
-      <button
+      <Button
         type="button"
+        variant="primary"
         onClick={startCheckout}
-        disabled={loading || disabled || !vendorSlug}
+        disabled={loading || disabled}
         className={className}
       >
         {loading ? 'Redirecting…' : children}
-      </button>
+      </Button>
       {error && <p className="mt-2 text-sm text-warn">{error}</p>}
     </div>
   );

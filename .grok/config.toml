@@ -1,0 +1,7 @@
+# Grok Bot / Grok CLI — project MCP (merged when you run grok from this repo).
+# Verify: grok inspect   Diagnose: grok mcp doctor picktherobot
+
+[mcp_servers.picktherobot]
+command = "node"
+args = ["scripts/mcp-entry.mjs"]
+startup_timeout_sec = 90

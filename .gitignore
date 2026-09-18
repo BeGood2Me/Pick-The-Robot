@@ -29,6 +29,9 @@ coverage/
 # Provisioned API subscriber keys (local dev; use durable storage in production)
 data/api-subscribers.json
 
+# Vendor logo uploads (local dev fallback)
+public/uploads/
+
 # Chrome extension — maintained outside this repo
 chrome-extension/
 .env*

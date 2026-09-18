@@ -4,14 +4,31 @@ Instructions for AI coding agents working in this repository.
 
 ## Product summary
 
-PickTheRobot.com is a **utility-first, rules-based robot recommendation engine** for businesses. It is not a concierge service or generic robotics blog.
+PickTheRobot.com is a **utility-first, rules-based robot recommendation engine** with **two equal tracks**:
 
-Users pick a category (warehouse, cleaning, restaurant), answer a short wizard, and receive:
+- **Home** — robot vacuums (and later other home robots). Product SKUs, affiliate/retail outbound.
+- **Business** — warehouse, commercial cleaning, and restaurant robots. Robot type, buy vs lease vs RaaS, ranked vendors.
+
+It is not a concierge service, lab-test review site, or generic robotics blog. Do **not** mix warehouse AMRs and home vacuums in one wizard or one catalog.
+
+### Home track
+
+Users open `/robot-vacuums`, answer floors / pets / mop / budget, and receive:
+
+- Best class (vacuum-only vs vac+mop) and budget lane
+- Ranked models with why / why-not notes
+- Shareable results URL (`/robot-vacuums/results?share=`, noindex)
+
+Catalog: **`src/data/home-vacuums.json`** (models, not vendors). Monetization is retail affiliate links when `affiliateUrl` is set.
+
+### Business track
+
+Users pick a category (warehouse, commercial cleaning, restaurant), answer a short wizard, and receive:
 
 - Best robot type match with score breakdown
 - Buy vs lease vs RaaS recommendation
 - Ranked vendor list with explanations
-- Shareable results URL
+- Shareable results URL (`/results?share=`, noindex)
 
 Monetization is outbound vendor clicks (UTM tracking; `affiliateUrl` when set). Lead capture is intentionally deferred.
 
@@ -20,8 +37,9 @@ Monetization is outbound vendor clicks (UTM tracking; `affiliateUrl` when set). 
 - **Next.js 15** App Router, React 19, TypeScript
 - **Tailwind CSS 3**
 - **Vitest** for unit tests (no Playwright e2e)
-- Client-side matcher — no backend API for recommendations
-- Vendor data in **`src/data/vendors.json`**
+- Client-side matchers — no backend API for recommendations
+- Business vendor data in **`src/data/vendors.json`**
+- Home vacuum SKUs in **`src/data/home-vacuums.json`**
 
 ## Commands
 
@@ -31,18 +49,22 @@ npm run dev          # local dev
 npm test             # vitest
 npm run typecheck    # tsc --noEmit
 npm run build        # production build
-npm run mcp          # stdio MCP server (see mcp-server/README.md)
+npm run mcp          # stdio MCP (Grok/Cursor: .mcp.json + mcp-server/README.md)
+npm run mcp:http     # local Streamable HTTP on :3928/mcp for grok mcp add --transport http
 ```
 
 ## Architecture map
 
 | Area | Path |
 |------|------|
-| Matcher UI | `src/components/matching/` — `MatchingTool.tsx` is the main wizard |
+| Homepage tracks | `src/components/home-vacuums/HomeTracks.tsx` — `#tracks` |
+| Business matcher UI | `src/components/matching/` — `MatchingTool.tsx` is the B2B wizard |
+| Home vacuum matcher | `src/components/home-vacuums/` + `src/lib/home-vacuums/` |
 | Forms / validation | `src/lib/forms/` — questions, `buildProfile.ts`, `validateAnswers.ts` |
-| Scoring engine | `src/lib/matching/engine.ts`, `scoring/` (warehouse, cleaning, restaurant, vendors) |
+| Business scoring | `src/lib/matching/engine.ts`, `scoring/` (warehouse, cleaning, restaurant, vendors) |
 | Vendor data | `src/data/vendors.json` → `src/lib/matching/vendors.ts` |
-| Share links | `src/lib/matching/share.ts` — base64url payload in `?share=` |
+| Home vacuum catalog | `src/data/home-vacuums.json` → `src/lib/home-vacuums/` |
+| Share links | `src/lib/matching/share.ts` (business) and `src/lib/home-vacuums/share.ts` (home) |
 | SEO | `src/lib/seo/`, `src/app/sitemap.ts`, `src/app/robots.ts` |
 | Analytics | `src/lib/analytics/` — gated behind cookie consent |
 | Content / nav | `src/lib/content/` |
@@ -50,18 +72,21 @@ npm run mcp          # stdio MCP server (see mcp-server/README.md)
 
 ## Key behaviors (do not break)
 
-1. **Logo / home** links to `/` (`HOME_HREF`). Matcher CTAs use `/#matcher` (`HOME_MATCHER_RESET_HREF`).
-2. **Category guide links** use `categoryGuideHref()` → `/[category-route]#guide` (educational content below matcher).
-3. **Share payloads** must pass full validation in `share.ts` — reject partial/tampered tokens.
+1. **Logo / home** links to `/` (`HOME_HREF`). Homepage primary CTA is `#tracks` (`HOME_TRACKS_HREF`). Business matcher CTAs use `/#matcher` (`HOME_MATCHER_RESET_HREF`). Home vacuum matcher is `/robot-vacuums#matcher`.
+2. **Category guide links** use `categoryGuideHref()` → `/[category-route]` (educational content; `#guide` still works).
+3. **Share payloads** must pass full validation — reject partial/tampered tokens (business `share.ts`, home `home-vacuums/share.ts`).
 4. **`staffAssignedToCleaning: 0`** is valid (see `ZERO_VALID_FIELDS` in `validateAnswers.ts`).
 5. **Sponsored vendors** get a small score boost only when already relevant — never override fit.
-6. **`/results`** is `noindex`.
+6. **`/results`** and **`/robot-vacuums/results`** are `noindex`.
+7. Commercial pages say **commercial cleaning robots**. Home pages say **robot vacuum** / **robot mop**. Do not use “cleaning robots” for both.
+8. Do not add home SKUs to `vendors.json`.
 
 ## Conventions
 
 - Minimize diff scope; match existing naming and patterns.
 - Rules-based scoring only — no ML.
-- Edit vendors in JSON, not hardcoded in TS (legacy `vendors:export` script is deprecated).
+- Edit business vendors in JSON, not hardcoded in TS (legacy `vendors:export` script is deprecated).
+- Edit home vacuums in `src/data/home-vacuums.json`.
 - Use `siteMetadata()` for page metadata; add JSON-LD via `src/lib/seo/schema.ts`.
 - Tests live in `tests/*.test.ts` — run after logic changes.
 
@@ -79,6 +104,8 @@ See `.env.example`. Important:
 - Blog or CMS
 - Playwright e2e suite
 - Force-push or amend commits unless asked
+- Lawn, pool, toys, or other home categories until the vacuum matcher is trustworthy
+- Mixing home SKUs into the business matcher
 
 ## Public documentation for AI assistants
 

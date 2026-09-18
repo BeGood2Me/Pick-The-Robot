@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { FOR_VENDORS_PATH } from '@/lib/content/for-vendors';
+import { FOR_VENDORS_LOGIN_PATH, FOR_VENDORS_PORTAL_PATH } from '@/lib/content/for-vendors';
 import {
   consumeLoginToken,
   getVendorAccountByEmail,
@@ -10,26 +10,29 @@ import {
   vendorSessionCookieOptions,
 } from '@/lib/vendor/session';
 
+function loginRedirect(request: Request, error: string) {
+  const loginUrl = new URL(FOR_VENDORS_LOGIN_PATH, request.url);
+  loginUrl.searchParams.set('error', error);
+  return NextResponse.redirect(loginUrl);
+}
+
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const token = url.searchParams.get('token');
-  const portalUrl = new URL(`${FOR_VENDORS_PATH}/portal`, url.origin);
+  const portalUrl = new URL(FOR_VENDORS_PORTAL_PATH, url.origin);
 
   if (!token) {
-    portalUrl.searchParams.set('error', 'missing_token');
-    return NextResponse.redirect(portalUrl);
+    return loginRedirect(request, 'missing_token');
   }
 
   const email = await consumeLoginToken(token);
   if (!email) {
-    portalUrl.searchParams.set('error', 'invalid_token');
-    return NextResponse.redirect(portalUrl);
+    return loginRedirect(request, 'invalid_token');
   }
 
   const account = await getVendorAccountByEmail(email);
   if (!account) {
-    portalUrl.searchParams.set('error', 'no_account');
-    return NextResponse.redirect(portalUrl);
+    return loginRedirect(request, 'no_account');
   }
 
   const sessionToken = createVendorSessionToken({

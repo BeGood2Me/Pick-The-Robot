@@ -10,7 +10,14 @@ function loadEnvLocal() {
       if (!trimmed || trimmed.startsWith('#')) continue;
       const idx = trimmed.indexOf('=');
       if (idx === -1) continue;
-      env[trimmed.slice(0, idx)] = trimmed.slice(idx + 1);
+      let value = trimmed.slice(idx + 1).trim();
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+      env[trimmed.slice(0, idx)] = value;
     }
   } catch {
     // optional
@@ -18,8 +25,12 @@ function loadEnvLocal() {
   return env;
 }
 
+function normalizeDatabaseUrl(url) {
+  return url.replace(/([?&])channel_binding=[^&]*/g, '$1').replace(/[?&]$/, '');
+}
+
 const env = loadEnvLocal();
-const url = env.DATABASE_URL;
+const url = normalizeDatabaseUrl(env.DATABASE_URL ?? '');
 if (!url) {
   console.error('DATABASE_URL is required.');
   process.exit(1);

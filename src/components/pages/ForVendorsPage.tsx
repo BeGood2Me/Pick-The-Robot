@@ -2,11 +2,12 @@ import Link from 'next/link';
 import { FaqBlock } from '@/components/content/FaqBlock';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { Badge } from '@/components/ui/Badge';
+import { ButtonLink } from '@/components/ui/Button';
 import { VendorSubscribeSection } from '@/components/vendor/VendorSubscribeSection';
 import {
   FOR_VENDORS_LOGIN_PATH,
+  FOR_VENDORS_LABEL,
   FOR_VENDORS_PATH,
-  FOR_VENDORS_PORTAL_PATH,
   VENDOR_FAQS,
   VENDOR_TIER_CARDS,
   VENDOR_VALUE_PROPS,
@@ -15,9 +16,6 @@ import {
 } from '@/lib/content/for-vendors';
 import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo/schema';
 import { JsonLd } from '@/lib/seo/jsonld';
-
-const PRIMARY_BUTTON_CLASS =
-  'inline-flex rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-hover';
 
 function tierStatusBadge(tier: VendorTierCard) {
   if (tier.id === 'sponsored') return <Badge variant="default">Add-on</Badge>;
@@ -30,16 +28,16 @@ export function ForVendorsPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'Home', path: '/' },
-          { name: 'For vendors', path: FOR_VENDORS_PATH },
+          { name: FOR_VENDORS_LABEL, path: FOR_VENDORS_PATH },
         ])}
       />
       <JsonLd data={faqJsonLd(VENDOR_FAQS)} />
 
       <div className="container-page py-10">
-        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'For vendors' }]} />
+        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: FOR_VENDORS_LABEL }]} />
 
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">Vendor partnerships</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-accent">{FOR_VENDORS_LABEL}</p>
           <h1 className="mt-2 font-display text-4xl font-semibold">
             Put your robots in front of buyers who are ready to shortlist
           </h1>
@@ -48,15 +46,10 @@ export function ForVendorsPage() {
             — then ranks vendors that fit their robot type, region, and acquisition model. Subscribe
             for directory presence, matcher placement, click reporting, and a vendor portal.
           </p>
-          <p className="mt-6 flex flex-wrap gap-4">
-            <a href="#subscribe" className={PRIMARY_BUTTON_CLASS}>
-              Subscribe
-            </a>
-            <Link href={FOR_VENDORS_LOGIN_PATH} className="text-sm font-semibold text-accent hover:underline self-center">
+          <p className="mt-6 flex flex-wrap items-center gap-4">
+            <ButtonLink href="#subscribe">Subscribe</ButtonLink>
+            <Link href={FOR_VENDORS_LOGIN_PATH} className="text-sm font-semibold text-accent hover:underline">
               Vendor login
-            </Link>
-            <Link href={FOR_VENDORS_PORTAL_PATH} className="text-sm font-semibold text-ink-muted hover:text-ink self-center">
-              Portal
             </Link>
           </p>
         </div>

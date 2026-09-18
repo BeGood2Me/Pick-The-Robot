@@ -33,7 +33,7 @@ export function HomeHeroMatchPreview({ className }: { className?: string }) {
       </div>
 
       <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-ink-faint">
-        Top vendors
+        Top models
       </p>
       <ol className="mt-2 space-y-2">
         {vendors.map((vendor, index) => (
