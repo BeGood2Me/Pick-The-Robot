@@ -35,9 +35,10 @@ Uses the in-repo matching engine (no paid API key required).
 |----------|---------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | `https://picktherobot.com` | Base URL for share links and vendor URLs |
 | `PICKTHEROBOT_MCP_TIER` | `pro` | Match payload detail: `pro` or `starter` |
-| `PICKTHEROBOT_MCP_HTTP_TOKEN` | _(unset)_ | **Required for remote HTTPS MCP.** Bearer secret for `POST https://picktherobot.com/api/mcp`. If unset, the route returns `503 mcp_http_disabled`. |
+| `PICKTHEROBOT_MCP_REQUIRE_AUTH` | _(unset)_ | **Optional / admin-only.** Set to `1` to require Bearer auth (private mode). Default production is **public** — no token. |
+| `PICKTHEROBOT_MCP_HTTP_TOKEN` | _(unset)_ | Used only when `PICKTHEROBOT_MCP_REQUIRE_AUTH=1`. |
 
-## Remote HTTPS MCP (Grok Bot / Cursor connectors)
+## Remote HTTPS MCP (public)
 
 Endpoint (same rules-based matcher as stdio — **not** the paid `/api/v1` X-API-Key API):
 
@@ -45,32 +46,34 @@ Endpoint (same rules-based matcher as stdio — **not** the paid `/api/v1` X-API
 |--|--|
 | **URL** | `https://picktherobot.com/api/mcp` |
 | **Transport** | Streamable HTTP (JSON responses) |
-| **Auth** | `Authorization: Bearer <PICKTHEROBOT_MCP_HTTP_TOKEN>` |
+| **Auth** | **None** (public, like the website matcher) |
 | **Discovery** | `https://picktherobot.com/.well-known/mcp/server-card.json` |
 
-### Enable on Vercel
+Abuse controls (no client secret): per-IP rate limit (~60 req/min) and max body size (~256 KB).
 
-1. Generate a secret: `node -e "console.log(require('crypto').randomBytes(32).toString('base64url'))"`
-2. Add it for Production (and Preview if you want):  
-   `npx vercel env add PICKTHEROBOT_MCP_HTTP_TOKEN production`  
-   (paste the secret when prompted, or pipe it in)
-3. **Redeploy** Production so the new env var is live.
-4. In Grok Bot / grok.com connectors: URL above + Bearer token header.
-5. Smoke test:
+### Connect (Grok Bot / Cursor / curl)
+
+No Bearer token. Point the client at the URL above.
 
 ```bash
-# Expect 401 without token (or 503 if host token still unset)
-curl.exe -s -o - -w "\n%{http_code}\n" -X POST https://picktherobot.com/api/mcp ^
+# Public smoke (no Authorization header)
+node scripts/smoke-mcp-http.mjs
+
+# Or curl initialize
+curl.exe -s -X POST https://picktherobot.com/api/mcp ^
   -H "Content-Type: application/json" ^
   -H "Accept: application/json, text/event-stream" ^
+  -H "MCP-Protocol-Version: 2025-03-26" ^
   -d "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-03-26\",\"capabilities\":{},\"clientInfo\":{\"name\":\"curl\",\"version\":\"0\"}}}"
-
-# Expect 200 with valid token
-set PICKTHEROBOT_MCP_HTTP_TOKEN=your-secret-here
-node scripts/smoke-mcp-http.mjs
 ```
 
-Without a valid Bearer token the endpoint stays closed (401). Without the env var on the host it stays disabled (503).
+### Optional private mode (admin only)
+
+Default production must stay public. To lock a non-prod or private deploy:
+
+1. Set `PICKTHEROBOT_MCP_REQUIRE_AUTH=1`
+2. Set `PICKTHEROBOT_MCP_HTTP_TOKEN=<secret>`
+3. Clients send `Authorization: Bearer <secret>`
 
 ## Grok Bot / Grok CLI (local stdio)
 

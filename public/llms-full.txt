@@ -173,10 +173,10 @@ Resources: `picktherobot://methodology`, `picktherobot://llms.txt`.
 Setup: `mcp-server/README.md` in the repo. Grok/Cursor auto-load `.mcp.json`, `.cursor/mcp.json`, and `.grok/config.toml` (server name `picktherobot`).
 
 Remote HTTPS (Streamable HTTP): `https://picktherobot.com/api/mcp`  
-Auth: `Authorization: Bearer <PICKTHEROBOT_MCP_HTTP_TOKEN>` (set on Vercel Production, then redeploy).  
-If the env var is unset, the route returns `503 mcp_http_disabled`. Wrong/missing Bearer → `401`.  
-Smoke: `node scripts/smoke-mcp-http.mjs --token <secret>`. Discovery: `https://picktherobot.com/.well-known/mcp/server-card.json`.  
-This path uses the same in-repo matcher as stdio MCP — not the paid `/api/v1` X-API-Key API.
+**Public — no Bearer token / API key.** Same in-repo matcher as stdio MCP (not the paid `/api/v1` X-API-Key API).  
+Discovery: `https://picktherobot.com/.well-known/mcp/server-card.json` (`authentication.type: none`).  
+Abuse: per-IP rate limit + max body size. Optional private lock: `PICKTHEROBOT_MCP_REQUIRE_AUTH=1` + token (admin only; production default is public).  
+Smoke: `node scripts/smoke-mcp-http.mjs` (no `--token`).
 
 ## Contact / data collection
 

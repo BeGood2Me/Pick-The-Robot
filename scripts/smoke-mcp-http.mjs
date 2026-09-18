@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 /**
- * Smoke-test remote MCP (Streamable HTTP + Bearer auth).
+ * Smoke-test public remote MCP (Streamable HTTP, no auth by default).
  *
  * Usage:
  *   node scripts/smoke-mcp-http.mjs
- *   node scripts/smoke-mcp-http.mjs --url https://picktherobot.com/api/mcp --token "$PICKTHEROBOT_MCP_HTTP_TOKEN"
+ *   node scripts/smoke-mcp-http.mjs --url http://127.0.0.1:3005/api/mcp
  *
  * Env:
- *   PICKTHEROBOT_MCP_HTTP_TOKEN — Bearer token (required for success path)
- *   MCP_SMOKE_URL — override endpoint (default production)
+ *   MCP_SMOKE_URL — override endpoint (default https://picktherobot.com/api/mcp)
  */
 import { randomUUID } from 'node:crypto';
 
@@ -19,7 +18,6 @@ function arg(name, fallback) {
 }
 
 const url = arg('--url', process.env.MCP_SMOKE_URL || 'https://picktherobot.com/api/mcp');
-const token = arg('--token', process.env.PICKTHEROBOT_MCP_HTTP_TOKEN || '');
 
 const headersBase = {
   Accept: 'application/json, text/event-stream',
@@ -27,15 +25,10 @@ const headersBase = {
   'MCP-Protocol-Version': '2025-03-26',
 };
 
-async function post(body, withAuth) {
-  const headers = { ...headersBase };
-  if (withAuth) {
-    if (!token) throw new Error('Missing --token or PICKTHEROBOT_MCP_HTTP_TOKEN');
-    headers.Authorization = `Bearer ${token}`;
-  }
+async function post(body) {
   const res = await fetch(url, {
     method: 'POST',
-    headers,
+    headers: headersBase,
     body: JSON.stringify(body),
   });
   const text = await res.text();
@@ -53,70 +46,24 @@ function assert(cond, msg) {
 }
 
 async function main() {
-  console.log(`MCP smoke → ${url}`);
+  console.log(`MCP smoke (public, no Authorization) → ${url}`);
 
-  // 1) No auth — expect 401 (if enabled) or 503 (if token unset on host)
-  const noAuth = await post(
-    { jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-03-26', capabilities: {}, clientInfo: { name: 'smoke', version: '0' } } },
-    false,
-  );
-  assert(
-    noAuth.status === 401 || noAuth.status === 503,
-    `Expected 401/503 without auth, got ${noAuth.status}: ${JSON.stringify(noAuth.json)}`,
-  );
-  console.log(`  no auth → ${noAuth.status} (${noAuth.json.error || 'ok'})`);
-
-  if (!token) {
-    console.log('  skip authenticated checks (set PICKTHEROBOT_MCP_HTTP_TOKEN or --token)');
-    if (noAuth.status === 503) {
-      console.log('  host has no PICKTHEROBOT_MCP_HTTP_TOKEN — set it on Vercel and redeploy');
-      process.exit(2);
-    }
-    process.exit(0);
-  }
-
-  // 2) Wrong token → 401
-  const bad = await fetch(url, {
-    method: 'POST',
-    headers: {
-      ...headersBase,
-      Authorization: 'Bearer wrong-token',
+  const init = await post({
+    jsonrpc: '2.0',
+    id: 1,
+    method: 'initialize',
+    params: {
+      protocolVersion: '2025-03-26',
+      capabilities: {},
+      clientInfo: { name: 'smoke-mcp-http', version: '1.0.0' },
     },
-    body: JSON.stringify({
-      jsonrpc: '2.0',
-      id: 2,
-      method: 'initialize',
-      params: {
-        protocolVersion: '2025-03-26',
-        capabilities: {},
-        clientInfo: { name: 'smoke', version: '0' },
-      },
-    }),
   });
-  assert(bad.status === 401, `Expected 401 for wrong token, got ${bad.status}`);
-  console.log('  wrong token → 401');
-
-  // 3) Initialize
-  const init = await post(
-    {
-      jsonrpc: '2.0',
-      id: 3,
-      method: 'initialize',
-      params: {
-        protocolVersion: '2025-03-26',
-        capabilities: {},
-        clientInfo: { name: 'smoke-mcp-http', version: '1.0.0' },
-      },
-    },
-    true,
-  );
   assert(init.status === 200, `initialize failed: ${init.status} ${JSON.stringify(init.json)}`);
   assert(init.json?.result?.serverInfo?.name === 'picktherobot', 'unexpected serverInfo');
   console.log('  initialize → 200 (picktherobot)');
 
-  // 4) tools/list (stateless — send as fresh request with auth)
-  const tools = await post({ jsonrpc: '2.0', id: 4, method: 'tools/list', params: {} }, true);
-  assert(tools.status === 200, `tools/list failed: ${tools.status}`);
+  const tools = await post({ jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} });
+  assert(tools.status === 200, `tools/list failed: ${tools.status} ${JSON.stringify(tools.json)}`);
   const names = (tools.json?.result?.tools || []).map((t) => t.name);
   for (const required of [
     'get_matcher_fields',
@@ -131,16 +78,16 @@ async function main() {
   }
   console.log(`  tools/list → ${names.length} tools`);
 
-  // 5) Sample tool call
-  const bands = await post(
-    {
-      jsonrpc: '2.0',
-      id: 5,
-      method: 'tools/call',
-      params: { name: 'get_price_bands', arguments: {}, _meta: { progressToken: randomUUID() } },
+  const bands = await post({
+    jsonrpc: '2.0',
+    id: 3,
+    method: 'tools/call',
+    params: {
+      name: 'get_price_bands',
+      arguments: {},
+      _meta: { progressToken: randomUUID() },
     },
-    true,
-  );
+  });
   assert(bands.status === 200, `get_price_bands failed: ${bands.status}`);
   assert(!bands.json?.result?.isError, `get_price_bands error: ${JSON.stringify(bands.json)}`);
   console.log('  tools/call get_price_bands → ok');
