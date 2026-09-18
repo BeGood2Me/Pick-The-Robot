@@ -18,7 +18,8 @@
     "vendors:export": "node scripts/export-vendors.mjs",
     "indexnow": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/indexnow.ps1",
     "mcp": "node scripts/mcp-entry.mjs",
-    "mcp:http": "tsx --tsconfig mcp-server/tsconfig.json mcp-server/src/http.ts"
+    "mcp:http": "tsx --tsconfig mcp-server/tsconfig.json mcp-server/src/http.ts",
+    "mcp:smoke": "node scripts/smoke-mcp-http.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",

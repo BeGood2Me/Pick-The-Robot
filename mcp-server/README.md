@@ -35,8 +35,44 @@ Uses the in-repo matching engine (no paid API key required).
 |----------|---------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | `https://picktherobot.com` | Base URL for share links and vendor URLs |
 | `PICKTHEROBOT_MCP_TIER` | `pro` | Match payload detail: `pro` or `starter` |
+| `PICKTHEROBOT_MCP_HTTP_TOKEN` | _(unset)_ | **Required for remote HTTPS MCP.** Bearer secret for `POST https://picktherobot.com/api/mcp`. If unset, the route returns `503 mcp_http_disabled`. |
 
-## Grok Bot / Grok CLI
+## Remote HTTPS MCP (Grok Bot / Cursor connectors)
+
+Endpoint (same rules-based matcher as stdio — **not** the paid `/api/v1` X-API-Key API):
+
+| | |
+|--|--|
+| **URL** | `https://picktherobot.com/api/mcp` |
+| **Transport** | Streamable HTTP (JSON responses) |
+| **Auth** | `Authorization: Bearer <PICKTHEROBOT_MCP_HTTP_TOKEN>` |
+| **Discovery** | `https://picktherobot.com/.well-known/mcp/server-card.json` |
+
+### Enable on Vercel
+
+1. Generate a secret: `node -e "console.log(require('crypto').randomBytes(32).toString('base64url'))"`
+2. Add it for Production (and Preview if you want):  
+   `npx vercel env add PICKTHEROBOT_MCP_HTTP_TOKEN production`  
+   (paste the secret when prompted, or pipe it in)
+3. **Redeploy** Production so the new env var is live.
+4. In Grok Bot / grok.com connectors: URL above + Bearer token header.
+5. Smoke test:
+
+```bash
+# Expect 401 without token (or 503 if host token still unset)
+curl.exe -s -o - -w "\n%{http_code}\n" -X POST https://picktherobot.com/api/mcp ^
+  -H "Content-Type: application/json" ^
+  -H "Accept: application/json, text/event-stream" ^
+  -d "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-03-26\",\"capabilities\":{},\"clientInfo\":{\"name\":\"curl\",\"version\":\"0\"}}}"
+
+# Expect 200 with valid token
+set PICKTHEROBOT_MCP_HTTP_TOKEN=your-secret-here
+node scripts/smoke-mcp-http.mjs
+```
+
+Without a valid Bearer token the endpoint stays closed (401). Without the env var on the host it stays disabled (503).
+
+## Grok Bot / Grok CLI (local stdio)
 
 Grok discovers MCP from this repo automatically when you work in the project:
 
@@ -61,15 +97,7 @@ grok mcp add picktherobot -- node scripts/mcp-entry.mjs
 
 First launch can take up to ~90s while `tsx` warms up; project config sets `startup_timeout_sec = 90`.
 
-### Grok on the web (grok.com connectors)
-
-Remote connectors need a **public HTTPS** Streamable HTTP URL, not stdio. This site exposes:
-
-- **URL:** `https://picktherobot.com/api/mcp`
-- **Auth:** `Authorization: Bearer <PICKTHEROBOT_MCP_HTTP_TOKEN>` (set on the host; remote MCP is off until the token is configured)
-- **Discovery:** `https://picktherobot.com/.well-known/mcp/server-card.json`
-
-For local HTTP testing without deploying:
+For local Streamable HTTP without deploying:
 
 ```bash
 npm run mcp:http
