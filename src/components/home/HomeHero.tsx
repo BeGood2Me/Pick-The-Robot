@@ -24,7 +24,7 @@ export function HomeHero() {
               <ButtonLink
                 key={track.id}
                 href={track.href}
-                variant={track.id === 'home' ? 'primary' : 'secondary'}
+                variant="primary"
                 className="text-base"
               >
                 {track.cta}
