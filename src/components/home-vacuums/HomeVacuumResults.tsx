@@ -8,7 +8,6 @@ import { HomeVacuumProductCard } from '@/components/home-vacuums/HomeVacuumProdu
 import { CLASS_LABELS } from '@/lib/content/home-vacuums';
 import { homeVacuumLaneCopy } from '@/lib/home-vacuums/engine';
 import {
-  detectHomeAffiliateLocaleFromBrowser,
   HOME_AFFILIATE_LOCALE_LABELS,
   HOME_AFFILIATE_LOCALES,
   isHomeAffiliateLocale,
@@ -22,7 +21,7 @@ const CONFIDENCE_COPY = {
   weak: 'Weak match — nothing in this catalog scored strongly against your constraints. Treat this as a starting point, not a purchase list.',
 } as const;
 
-const LOCALE_STORAGE_KEY = 'ptr-home-affiliate-locale';
+const LOCALE_STORAGE_KEY = 'ptr-home-affiliate-locale-v2';
 
 export function HomeVacuumResults({ result }: { result: HomeVacuumRecommendation }) {
   const top = result.matches[0];
@@ -35,12 +34,10 @@ export function HomeVacuumResults({ result }: { result: HomeVacuumRecommendation
       const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
       if (stored && isHomeAffiliateLocale(stored)) {
         setAffiliateLocale(stored);
-        return;
       }
     } catch {
       // ignore
     }
-    setAffiliateLocale(detectHomeAffiliateLocaleFromBrowser());
   }, []);
 
   function onLocaleChange(next: HomeAffiliateLocale) {
