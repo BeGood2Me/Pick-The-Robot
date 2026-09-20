@@ -39,6 +39,7 @@ export const HOME_VACUUM_FIELD_GROUPS: HomeVacuumFieldGroup[] = [
         key: 'homeSize',
         label: 'Home size',
         type: 'select',
+        helpText: 'Rough size — used for battery and coverage fit.',
         options: [
           { value: 'small', label: 'Small — studio or 1 bedroom' },
           { value: 'medium', label: 'Medium — 2–3 bedrooms' },

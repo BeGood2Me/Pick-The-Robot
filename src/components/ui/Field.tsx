@@ -22,7 +22,13 @@ export function Field({
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-ink">
         {label}
       </label>
-      {helpText && <p className="mb-1.5 text-xs text-ink-muted">{helpText}</p>}
+      {/* Always reserve one help line so adjacent grid selects share the same top edge. */}
+      <p
+        className={cn('mb-1.5 min-h-4 text-xs', helpText ? 'text-ink-muted' : 'invisible')}
+        aria-hidden={!helpText}
+      >
+        {helpText || '\u00a0'}
+      </p>
       {children}
       {error && (
         <p className="mt-1.5 text-xs text-red-700" role="alert">

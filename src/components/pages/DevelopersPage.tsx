@@ -92,15 +92,25 @@ export function DevelopersPage() {
           <h2 className="text-lg font-semibold">Quick start</h2>
           <p className="mt-2 text-sm text-ink-muted">
             Every request requires an API key. Subscribe, copy your key from the success page, then
-            send a flat JSON body with category-specific wizard fields (see{' '}
+            send JSON (see{' '}
             <code className="rounded bg-surface-soft px-1 py-0.5 text-xs">scripts/api-samples/</code>
-            ).
+            ). Use <code className="rounded bg-surface-soft px-1 py-0.5 text-xs">/api/v1/match</code>{' '}
+            for business robots and{' '}
+            <code className="rounded bg-surface-soft px-1 py-0.5 text-xs">/api/v1/home/match</code>{' '}
+            for home vacuums — separate catalogs.
           </p>
           <pre className="mt-4 overflow-x-auto rounded-lg bg-ink p-4 text-xs text-surface-soft">
-            <code>{`curl -X POST https://picktherobot.com/api/v1/match \\
+            <code>{`# Business (warehouse / cleaning / restaurant)
+curl -X POST https://picktherobot.com/api/v1/match \\
   -H "Content-Type: application/json" \\
   -H "X-API-Key: ptr_starter_your_key_here" \\
-  --data-binary "@match-cleaning.json"`}</code>
+  --data-binary "@match-cleaning.json"
+
+# Home robot vacuums
+curl -X POST https://picktherobot.com/api/v1/home/match \\
+  -H "Content-Type: application/json" \\
+  -H "X-API-Key: ptr_starter_your_key_here" \\
+  --data-binary "@match-home-vacuum.json"`}</code>
           </pre>
         </section>
 

@@ -24,14 +24,15 @@ export function buildOpenApiDocument(baseUrl: string) {
       title: 'PickTheRobot API',
       version: '1.0.0',
       description:
-        'Vendor-neutral robot matcher for warehouse, cleaning, and restaurant operators. ' +
-        'Rules-based scoring only. Vendor clicks must use returned clickUrl values. ' +
-        'All endpoints require a valid API key.',
+        'Vendor-neutral robot matcher for home robot vacuums and for warehouse, commercial cleaning, and restaurant operators. ' +
+        'Rules-based scoring only. Business vendor clicks must use returned clickUrl values; home product links may be affiliate. ' +
+        'All endpoints require a valid API key. Home and business catalogs are separate — do not mix them.',
     },
     servers: [{ url: `${server}/api/v1` }],
     tags: [
-      { name: 'match', description: 'Run the matcher' },
-      { name: 'vendors', description: 'Browse the vendor catalog' },
+      { name: 'match', description: 'Run the business matcher (warehouse, cleaning, restaurant)' },
+      { name: 'home', description: 'Home robot vacuum matcher and product catalog' },
+      { name: 'vendors', description: 'Browse the business vendor catalog' },
     ],
     components: {
       securitySchemes: {
@@ -117,13 +118,87 @@ export function buildOpenApiDocument(baseUrl: string) {
             vendors: { type: 'array', items: { type: 'object' } },
           },
         },
+        HomeMatchRequest: {
+          type: 'object',
+          required: [
+            'floorMix',
+            'homeSize',
+            'pets',
+            'hairLength',
+            'mopNeeded',
+            'budgetBand',
+            'selfEmpty',
+            'multiFloor',
+            'obstacles',
+          ],
+          properties: {
+            floorMix: { type: 'string', enum: ['hard', 'carpet', 'mixed'] },
+            homeSize: { type: 'string', enum: ['small', 'medium', 'large'] },
+            pets: { type: 'string', enum: ['none', 'cat', 'dog', 'both'] },
+            hairLength: { type: 'string', enum: ['none', 'short', 'long'] },
+            mopNeeded: { type: 'string', enum: ['no', 'nice_to_have', 'yes'] },
+            budgetBand: {
+              type: 'string',
+              enum: ['under_300', '300_600', '600_1000', 'over_1000'],
+            },
+            selfEmpty: {
+              type: 'string',
+              enum: ['not_needed', 'preferred', 'required'],
+            },
+            multiFloor: { type: 'boolean' },
+            obstacles: { type: 'string', enum: ['low', 'medium', 'high'] },
+          },
+          description:
+            'Home robot-vacuum matcher inputs. Separate from business POST /match — never send warehouse fields here.',
+        },
+        PublicHomeMatchResponse: {
+          type: 'object',
+          required: [
+            'matchId',
+            'tier',
+            'track',
+            'bestClass',
+            'productMatches',
+            'shareUrl',
+            'attribution',
+          ],
+          properties: {
+            matchId: { type: 'string', format: 'uuid' },
+            tier: { type: 'string', enum: ['starter', 'pro'] },
+            track: { type: 'string', enum: ['home_vacuum'] },
+            matchConfidence: { type: 'string', enum: ['strong', 'moderate', 'weak'] },
+            bestClass: { type: 'string', enum: ['vacuum_only', 'mop_vac_combo'] },
+            bestClassLabel: { type: 'string' },
+            budgetLane: { type: 'string', enum: ['budget', 'mid', 'premium'] },
+            summary: { type: 'string' },
+            productMatches: { type: 'array', items: { type: 'object' } },
+            shareUrl: { type: 'string', format: 'uri' },
+            affiliateDisclosure: { type: 'string' },
+            attribution: { type: 'object' },
+          },
+          description:
+            'Tier-gated home vacuum match. Pro includes score breakdowns and more product cautions.',
+        },
+        PublicHomeProductsResponse: {
+          type: 'object',
+          required: ['tier', 'track', 'count', 'products'],
+          properties: {
+            tier: { type: 'string', enum: ['starter', 'pro'] },
+            track: { type: 'string', enum: ['home_vacuum'] },
+            class: { type: 'string', enum: ['vacuum_only', 'mop_vac_combo'] },
+            count: { type: 'integer' },
+            products: { type: 'array', items: { type: 'object' } },
+          },
+        },
       },
     },
     paths: {
       '/match': {
         post: {
           tags: ['match'],
-          summary: 'Generate a robot recommendation',
+          summary: 'Generate a business robot recommendation',
+          description:
+            'Warehouse, commercial cleaning, or restaurant only. For home robot vacuums use POST /home/match.',
           security: [{ ApiKeyHeader: [] }, { BearerAuth: [] }],
           requestBody: {
             required: true,
@@ -157,6 +232,98 @@ export function buildOpenApiDocument(baseUrl: string) {
                 'Retry-After': { schema: { type: 'integer' } },
                 ...RATE_LIMIT_HEADERS,
                 ...MATCH_USAGE_HEADERS,
+              },
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
+            },
+          },
+        },
+      },
+      '/home/match': {
+        post: {
+          tags: ['home'],
+          summary: 'Generate a home robot vacuum recommendation',
+          description:
+            'Rules-based home vacuum / vac+mop shortlist from floors, pets, mop, and budget. ' +
+            'Separate catalog from business vendors. Counts against the same monthly match quota as POST /match.',
+          security: [{ ApiKeyHeader: [] }, { BearerAuth: [] }],
+          requestBody: {
+            required: true,
+            content: {
+              'application/json': { schema: { $ref: '#/components/schemas/HomeMatchRequest' } },
+            },
+          },
+          responses: {
+            '200': {
+              description: 'Home vacuum match result',
+              content: {
+                'application/json': {
+                  schema: { $ref: '#/components/schemas/PublicHomeMatchResponse' },
+                },
+              },
+              headers: { ...RATE_LIMIT_HEADERS, ...MATCH_USAGE_HEADERS },
+            },
+            '400': {
+              description: 'Invalid JSON or validation error',
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
+            },
+            '401': {
+              description: 'Invalid API key',
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
+            },
+            '422': {
+              description: 'Match engine error',
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
+            },
+            '429': {
+              description: 'Rate limit or monthly quota exceeded',
+              headers: {
+                'Retry-After': { schema: { type: 'integer' } },
+                ...RATE_LIMIT_HEADERS,
+                ...MATCH_USAGE_HEADERS,
+              },
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
+            },
+          },
+        },
+      },
+      '/home/products': {
+        get: {
+          tags: ['home'],
+          summary: 'List home robot vacuum products',
+          description:
+            'SKU catalog for home robot vacuums (not business vendors). Optional class filter.',
+          security: [{ ApiKeyHeader: [] }, { BearerAuth: [] }],
+          parameters: [
+            {
+              name: 'class',
+              in: 'query',
+              required: false,
+              schema: { type: 'string', enum: ['vacuum_only', 'mop_vac_combo'] },
+            },
+          ],
+          responses: {
+            '200': {
+              description: 'Home product catalog slice',
+              content: {
+                'application/json': {
+                  schema: { $ref: '#/components/schemas/PublicHomeProductsResponse' },
+                },
+              },
+              headers: RATE_LIMIT_HEADERS,
+            },
+            '400': {
+              description: 'Invalid class filter',
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
+            },
+            '401': {
+              description: 'Invalid API key',
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
+            },
+            '429': {
+              description: 'Rate limit exceeded',
+              headers: {
+                'Retry-After': { schema: { type: 'integer' } },
+                ...RATE_LIMIT_HEADERS,
               },
               content: { 'application/json': { schema: { $ref: '#/components/schemas/ApiError' } } },
             },

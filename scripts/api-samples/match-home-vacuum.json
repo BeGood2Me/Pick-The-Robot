@@ -1,0 +1,11 @@
+{
+  "floorMix": "mixed",
+  "homeSize": "medium",
+  "pets": "dog",
+  "hairLength": "long",
+  "mopNeeded": "yes",
+  "budgetBand": "600_1000",
+  "selfEmpty": "preferred",
+  "multiFloor": false,
+  "obstacles": "medium"
+}
