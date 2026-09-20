@@ -1,4 +1,6 @@
 export type {
+  HomeAffiliateLocale,
+  HomeAffiliateUrls,
   HomeBudgetBand,
   HomeBudgetLane,
   HomeFloorMix,
@@ -41,4 +43,13 @@ export {
   decodeHomeVacuumSharePayload,
   encodeHomeVacuumSharePayload,
 } from './share';
-export { getHomeVacuumOutboundUrl, trackHomeVacuumOutboundClick } from './outbound';
+export {
+  detectHomeAffiliateLocaleFromBrowser,
+  getHomeVacuumOutboundUrl,
+  HOME_AFFILIATE_LOCALE_LABELS,
+  HOME_AFFILIATE_LOCALES,
+  isHomeAffiliateLocale,
+  productHasAffiliate,
+  resolveHomeAffiliateUrl,
+  trackHomeVacuumOutboundClick,
+} from './outbound';

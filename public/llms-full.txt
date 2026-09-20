@@ -175,7 +175,7 @@ Setup: `mcp-server/README.md` in the repo. Cursor/Grok load `.cursor/mcp.json` /
 Remote HTTPS (Streamable HTTP): `https://picktherobot.com/api/mcp`  
 **Public — no Bearer token / API key.** Same in-repo matcher as stdio MCP (not the paid `/api/v1` X-API-Key API).  
 
-Paid REST API (X-API-Key): `POST /api/v1/match` (business), `POST /api/v1/home/match` (home vacuums), `GET /api/v1/home/products`, `GET /api/v1/vendors`. Spec: `https://picktherobot.com/api/v1/openapi.json`.  
+Paid REST API (X-API-Key): `POST /api/v1/match` (business), `POST /api/v1/home/match` (home vacuums; optional `affiliateLocale` US|UK), `GET /api/v1/home/products` (optional `locale`), `GET /api/v1/vendors`. Spec: `https://picktherobot.com/api/v1/openapi.json`.  
 Discovery: `https://picktherobot.com/.well-known/mcp/server-card.json` (`authentication.type: none`).  
 Abuse: per-IP rate limit + max body size. Optional private lock: `PICKTHEROBOT_MCP_REQUIRE_AUTH=1` + token (admin only; production default is public).  
 Smoke: `node scripts/smoke-mcp-http.mjs` (no `--token`).

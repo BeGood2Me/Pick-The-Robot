@@ -19,7 +19,7 @@ Users open `/robot-vacuums`, answer floors / pets / mop / budget, and receive:
 - Ranked models with why / why-not notes
 - Shareable results URL (`/robot-vacuums/results?share=`, noindex)
 
-Catalog: **`src/data/home-vacuums.json`** (models, not vendors). Monetization is retail affiliate links when `affiliateUrl` is set.
+Catalog: **`src/data/home-vacuums.json`** (models, not vendors). Monetization is retail affiliate links via `affiliateUrls` (`US` / `UK`); legacy `affiliateUrl` is a US fallback.
 
 ### Business track
 

@@ -7,7 +7,9 @@ import {
   getHomeVacuumOutboundUrl,
   isCompleteHomeVacuumAnswers,
   pickHomeVacuumClass,
+  productHasAffiliate,
   recommendHomeVacuum,
+  resolveHomeAffiliateUrl,
   scoreHomeVacuumProduct,
   type HomeVacuumAnswers,
   type HomeVacuumProduct,
@@ -129,17 +131,60 @@ describe('home vacuum share payload', () => {
 describe('home vacuum outbound URLs', () => {
   it('appends UTM parameters and uses affiliate medium when set', () => {
     const product = getHomeVacuumCatalog()[0]!;
-    const referral = getHomeVacuumOutboundUrl(product, 'results');
+    const referral = getHomeVacuumOutboundUrl(
+      { ...product, affiliateUrl: undefined, affiliateUrls: undefined },
+      'results',
+    );
     expect(referral).toContain('utm_source=picktherobot');
     expect(referral).toContain('utm_campaign=' + product.slug);
     expect(referral).toContain('utm_medium=referral');
     expect(referral).toContain('utm_term=home-vacuum');
 
     const affiliated = getHomeVacuumOutboundUrl(
-      { ...product, affiliateUrl: 'https://www.amazon.com/dp/example' },
+      {
+        ...product,
+        affiliateUrl: undefined,
+        affiliateUrls: { US: 'https://www.amazon.com/dp/example' },
+      },
       'results',
     );
     expect(affiliated).toContain('utm_medium=affiliate');
     expect(affiliated).toContain('amazon.com/dp/example');
+    expect(affiliated).toContain('utm_locale=US');
+  });
+
+  it('resolves per-marketplace affiliateUrls with legacy US fallback', () => {
+    const product = getHomeVacuumCatalog()[0]!;
+    const multi: HomeVacuumProduct = {
+      ...product,
+      affiliateUrl: 'https://www.amazon.com/dp/legacy',
+      affiliateUrls: {
+        US: 'https://www.amazon.com/dp/us-asin',
+        UK: 'https://www.amazon.co.uk/dp/uk-asin',
+      },
+    };
+
+    expect(resolveHomeAffiliateUrl(multi, 'US')).toContain('amazon.com/dp/us-asin');
+    expect(resolveHomeAffiliateUrl(multi, 'UK')).toContain('amazon.co.uk/dp/uk-asin');
+    expect(productHasAffiliate(multi, 'UK')).toBe(true);
+
+    const legacyOnly: HomeVacuumProduct = {
+      ...product,
+      affiliateUrl: 'https://www.amazon.com/dp/legacy-only',
+      affiliateUrls: undefined,
+    };
+    expect(resolveHomeAffiliateUrl(legacyOnly, 'US')).toContain('legacy-only');
+    expect(resolveHomeAffiliateUrl(legacyOnly, 'UK')).toBeUndefined();
+    expect(productHasAffiliate(legacyOnly, 'UK')).toBe(false);
+
+    const ukUrl = getHomeVacuumOutboundUrl(multi, 'results', 'UK');
+    expect(ukUrl).toContain('amazon.co.uk/dp/uk-asin');
+    expect(ukUrl).toContain('utm_locale=UK');
+    expect(ukUrl).toContain('utm_medium=affiliate');
+
+    const missingUk = getHomeVacuumOutboundUrl(legacyOnly, 'results', 'UK');
+    expect(missingUk).toContain('utm_medium=referral');
+    expect(missingUk).not.toContain('utm_locale=');
+    expect(missingUk.startsWith(legacyOnly.outboundUrl.split('?')[0]!)).toBe(true);
   });
 });

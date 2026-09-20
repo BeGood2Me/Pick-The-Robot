@@ -5,15 +5,17 @@ import { enforceApiLimits, finalizeApiLimits, jsonWithLimits } from '@/lib/api/g
 import { toPublicHomeMatchResponse } from '@/lib/api/publicHomeMatch';
 import { resolveApiTier, unauthorizedApiResponse } from '@/lib/api/tiers';
 import { recommendHomeVacuum } from '@/lib/home-vacuums/engine';
+import { isHomeAffiliateLocale } from '@/lib/home-vacuums/outbound';
 import {
   getHomeVacuumFieldErrors,
   isCompleteHomeVacuumAnswers,
 } from '@/lib/home-vacuums/questions';
-import type { WizardHomeVacuumAnswers } from '@/lib/home-vacuums/types';
+import type { HomeAffiliateLocale, WizardHomeVacuumAnswers } from '@/lib/home-vacuums/types';
 
 /**
  * POST /api/v1/home/match — home robot vacuum matcher (separate from business /match).
  * Counts against the same monthly match quota as POST /api/v1/match.
+ * Optional body field `affiliateLocale`: US | UK (default US) for clickUrl storefront.
  */
 export async function POST(request: Request) {
   const tier = await resolveApiTier(request);
@@ -38,6 +40,22 @@ export async function POST(request: Request) {
     );
   }
 
+  const record = body as Record<string, unknown>;
+  let affiliateLocale: HomeAffiliateLocale | undefined;
+  if (record.affiliateLocale !== undefined) {
+    if (typeof record.affiliateLocale !== 'string' || !isHomeAffiliateLocale(record.affiliateLocale)) {
+      return NextResponse.json(
+        {
+          error: 'validation_failed',
+          message: 'affiliateLocale must be US, UK, or DE when set.',
+          fields: { affiliateLocale: 'Must be US, UK, or DE.' },
+        },
+        { status: 400 },
+      );
+    }
+    affiliateLocale = record.affiliateLocale;
+  }
+
   const answers = body as WizardHomeVacuumAnswers;
   const fieldErrors = getHomeVacuumFieldErrors(answers);
   if (Object.keys(fieldErrors).length > 0 || !isCompleteHomeVacuumAnswers(answers)) {
@@ -60,6 +78,7 @@ export async function POST(request: Request) {
     const payload = toPublicHomeMatchResponse(result, tier, {
       matchId: randomUUID(),
       baseUrl: resolveApiBaseUrl(request),
+      affiliateLocale,
     });
     return jsonWithLimits(payload, tier, await finalizeApiLimits(request, tier, 'match'));
   } catch (err) {

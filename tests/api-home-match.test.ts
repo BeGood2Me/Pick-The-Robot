@@ -29,12 +29,14 @@ describe('toPublicHomeMatchResponse', () => {
 
     expect(payload.track).toBe('home_vacuum');
     expect(payload.tier).toBe('starter');
+    expect(payload.affiliateLocale).toBe('US');
     expect(payload.productMatches.length).toBeLessThanOrEqual(3);
     expect(payload.shareUrl).toContain('/robot-vacuums/results?share=');
     for (const product of payload.productMatches) {
       expect(product.score).toBeUndefined();
       expect(product.cautions).toBeUndefined();
       expect(product.clickUrl).toMatch(/^https?:\/\//);
+      expect(product.clickLocale).toBe('US');
     }
   });
 
@@ -48,6 +50,18 @@ describe('toPublicHomeMatchResponse', () => {
     expect(payload.productMatches.length).toBeLessThanOrEqual(5);
     expect(payload.productMatches[0]?.score?.useCaseFit).toBeDefined();
     expect(payload.productMatches[0]?.cautions?.length).toBeGreaterThan(0);
+  });
+
+  it('honors affiliateLocale for clickUrl storefront', () => {
+    const result = recommendHomeVacuum(sampleAnswers);
+    const payload = toPublicHomeMatchResponse(result, 'starter', {
+      matchId: 'test-id',
+      baseUrl: BASE,
+      affiliateLocale: 'UK',
+    });
+
+    expect(payload.affiliateLocale).toBe('UK');
+    expect(payload.productMatches[0]?.clickLocale).toBe('UK');
   });
 });
 
@@ -135,8 +149,27 @@ describe('GET /api/v1/home/products', () => {
     const body = await res.json();
     expect(body.track).toBe('home_vacuum');
     expect(body.class).toBe('mop_vac_combo');
+    expect(body.affiliateLocale).toBe('US');
     expect(body.count).toBeGreaterThan(0);
     expect(body.products.every((p: { class: string }) => p.class === 'mop_vac_combo')).toBe(true);
+
+    process.env = env;
+  });
+
+  it('accepts locale query for Amazon storefront', async () => {
+    process.env = { ...env };
+    process.env.PICKTHEROBOT_API_KEY_PRO = 'pro-secret';
+    delete process.env.DATABASE_URL;
+
+    const res = await homeProductsGet(
+      new Request('http://localhost:3005/api/v1/home/products?locale=UK', {
+        headers: { 'X-API-Key': 'pro-secret' },
+      }),
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.affiliateLocale).toBe('UK');
+    expect(body.products[0]?.clickLocale).toBe('UK');
 
     process.env = env;
   });

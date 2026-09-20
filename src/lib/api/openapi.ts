@@ -147,6 +147,12 @@ export function buildOpenApiDocument(baseUrl: string) {
             },
             multiFloor: { type: 'boolean' },
             obstacles: { type: 'string', enum: ['low', 'medium', 'high'] },
+            affiliateLocale: {
+              type: 'string',
+              enum: ['US', 'UK'],
+              description:
+                'Amazon storefront for product clickUrl values (Amazon.com / Amazon.co.uk). Defaults to US. Rankings are unchanged.',
+            },
           },
           description:
             'Home robot-vacuum matcher inputs. Separate from business POST /match — never send warehouse fields here.',
@@ -160,6 +166,7 @@ export function buildOpenApiDocument(baseUrl: string) {
             'bestClass',
             'productMatches',
             'shareUrl',
+            'affiliateLocale',
             'attribution',
           ],
           properties: {
@@ -174,18 +181,21 @@ export function buildOpenApiDocument(baseUrl: string) {
             productMatches: { type: 'array', items: { type: 'object' } },
             shareUrl: { type: 'string', format: 'uri' },
             affiliateDisclosure: { type: 'string' },
+            affiliateLocale: { type: 'string', enum: ['US', 'UK'] },
             attribution: { type: 'object' },
           },
           description:
-            'Tier-gated home vacuum match. Pro includes score breakdowns and more product cautions.',
+            'Tier-gated home vacuum match. Pro includes score breakdowns and more product cautions. ' +
+            'clickUrl uses affiliateLocale when a matching affiliateUrls entry exists.',
         },
         PublicHomeProductsResponse: {
           type: 'object',
-          required: ['tier', 'track', 'count', 'products'],
+          required: ['tier', 'track', 'count', 'products', 'affiliateLocale'],
           properties: {
             tier: { type: 'string', enum: ['starter', 'pro'] },
             track: { type: 'string', enum: ['home_vacuum'] },
             class: { type: 'string', enum: ['vacuum_only', 'mop_vac_combo'] },
+            affiliateLocale: { type: 'string', enum: ['US', 'UK'] },
             count: { type: 'integer' },
             products: { type: 'array', items: { type: 'object' } },
           },
@@ -291,7 +301,7 @@ export function buildOpenApiDocument(baseUrl: string) {
           tags: ['home'],
           summary: 'List home robot vacuum products',
           description:
-            'SKU catalog for home robot vacuums (not business vendors). Optional class filter.',
+            'SKU catalog for home robot vacuums (not business vendors). Optional class and locale filters.',
           security: [{ ApiKeyHeader: [] }, { BearerAuth: [] }],
           parameters: [
             {
@@ -299,6 +309,13 @@ export function buildOpenApiDocument(baseUrl: string) {
               in: 'query',
               required: false,
               schema: { type: 'string', enum: ['vacuum_only', 'mop_vac_combo'] },
+            },
+            {
+              name: 'locale',
+              in: 'query',
+              required: false,
+              schema: { type: 'string', enum: ['US', 'UK'] },
+              description: 'Amazon storefront for clickUrl (default US). Alias: affiliateLocale.',
             },
           ],
           responses: {

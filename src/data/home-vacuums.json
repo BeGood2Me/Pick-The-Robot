@@ -16,6 +16,10 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://us.roborock.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B04Gsjwzi",
+      "UK": "https://amzn.to/4xFApiT"
+    },
     "shortDescription": "Lidar vacuum without mopping — a common pick when you only want floors vacuumed.",
     "strengths": ["Pet hair vacuuming", "Lidar maps", "No mop hardware to maintain"],
     "limitations": ["No mop", "Self-empty is a separate dock purchase on some bundles"]
@@ -37,6 +41,9 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://us.roborock.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B00VfarTo"
+    },
     "shortDescription": "Q5 Pro with a self-empty dock for lower-touch emptying.",
     "strengths": ["Self-empty", "Pet hair", "Straightforward vacuum-only job"],
     "limitations": ["No mop", "Dock needs floor space"]
@@ -58,18 +65,21 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://us.roborock.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B04PekbRV"
+    },
     "shortDescription": "Spinning-mop combo with a dock that empties, washes, and refills.",
     "strengths": ["Vac + mop", "Self-empty dock", "Good all-rounder for mixed floors"],
     "limitations": ["Larger dock", "Overkill if you will never mop"]
   },
   {
     "id": "hv-004",
-    "slug": "roborock-s8-maxv-ultra",
+    "slug": "roborock-qrevo-slim",
     "brand": "Roborock",
-    "name": "S8 MaxV Ultra",
+    "name": "Qrevo Slim",
     "class": "mop_vac_combo",
     "priceBand": "over_1000",
-    "priceUsdApprox": 1600,
+    "priceUsdApprox": 1200,
     "suctionClass": "strong",
     "mop": "spinning",
     "selfEmpty": true,
@@ -79,8 +89,12 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://us.roborock.com/",
-    "shortDescription": "Premium combo with reactive obstacle avoidance for cluttered homes.",
-    "strengths": ["Camera obstacle avoidance", "Strong vac+mop dock", "Pet hair"],
+    "affiliateUrls": {
+      "US": "https://www.amazon.com/dp/B0DBQNYQ5M",
+      "UK": "https://amzn.to/4roDbHx"
+    },
+    "shortDescription": "Ultra-slim premium combo with 3D obstacle recognition and a full wash/dry dock.",
+    "strengths": ["Low profile under furniture", "Obstacle recognition", "Vac+mop dock"],
     "limitations": ["Premium price", "Large dock footprint"]
   },
   {
@@ -100,6 +114,10 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://us.roborock.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B03u1vJ4J",
+      "UK": "https://amzn.to/46vepvV"
+    },
     "shortDescription": "Flagship-thin combo aimed at furniture clearance and mixed floors.",
     "strengths": ["Low profile", "Premium avoidance", "Vac+mop dock"],
     "limitations": ["Expensive", "Features you may not use in a simple apartment"]
@@ -121,6 +139,10 @@
     "multiFloorMaps": false,
     "compact": true,
     "outboundUrl": "https://www.irobot.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B0gcpE8vO",
+      "UK": "https://amzn.to/4jfBKsR"
+    },
     "shortDescription": "Entry Roomba for small, relatively open homes on a tight budget.",
     "strengths": ["Low price", "Simple vacuum-only job", "Compact"],
     "limitations": ["Basic avoidance", "No self-empty", "Weak on heavy hair"]
@@ -142,6 +164,10 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.irobot.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B032ZpBXN",
+      "UK": "https://amzn.to/4hg4i2Z"
+    },
     "shortDescription": "Vacuum-only Roomba known for avoiding pet waste and clutter.",
     "strengths": ["Object avoidance", "Self-empty", "Pet homes without mopping"],
     "limitations": ["No mop", "Often priced above lidar vacuums with similar suction"]
@@ -163,6 +189,9 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.irobot.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B0f6E1ag3"
+    },
     "shortDescription": "Combo Roomba that lifts the mop pad on carpets.",
     "strengths": ["Avoidance", "Self-empty", "Auto mop lift on carpet"],
     "limitations": ["Premium price", "Mop is lighter than spinning-mop docks"]
@@ -184,15 +213,18 @@
     "multiFloorMaps": true,
     "compact": true,
     "outboundUrl": "https://www.ecovacs.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B05p8VXdE"
+    },
     "shortDescription": "Budget lidar vacuum when mopping is not on the list.",
     "strengths": ["Lidar at a low price", "Compact", "Maps"],
     "limitations": ["No self-empty in the base kit", "Average pet-hair performance"]
   },
   {
     "id": "hv-010",
-    "slug": "ecovacs-deebot-t30s",
+    "slug": "ecovacs-deebot-t30s-pro",
     "brand": "Ecovacs",
-    "name": "DEEBOT T30S",
+    "name": "DEEBOT T30S PRO",
     "class": "mop_vac_combo",
     "priceBand": "600_1000",
     "priceUsdApprox": 750,
@@ -205,36 +237,44 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.ecovacs.com/",
-    "shortDescription": "Combo with a hot-water mop wash in the dock — aimed at sticky hard floors.",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B0eAe1ckm",
+      "UK": "https://amzn.to/4ApzgOT"
+    },
+    "shortDescription": "Combo with hot-water mop wash in the dock — aimed at sticky hard floors.",
     "strengths": ["Hot-water mop care", "Self-empty", "Hard-floor mopping"],
     "limitations": ["Dock is bulky", "Less ideal if you never mop"]
   },
   {
     "id": "hv-011",
-    "slug": "ecovacs-deebot-x8-omni",
+    "slug": "ecovacs-deebot-n30-pro-omni",
     "brand": "Ecovacs",
-    "name": "DEEBOT X8 OMNI",
+    "name": "DEEBOT N30 PRO Omni",
     "class": "mop_vac_combo",
-    "priceBand": "over_1000",
-    "priceUsdApprox": 1300,
+    "priceBand": "600_1000",
+    "priceUsdApprox": 700,
     "suctionClass": "strong",
     "mop": "spinning",
     "selfEmpty": true,
     "petHair": "strong",
     "carpetBoost": true,
-    "obstacleAvoidance": "camera_ai",
+    "obstacleAvoidance": "lidar",
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.ecovacs.com/",
-    "shortDescription": "Premium Ecovacs combo with AI obstacle avoidance.",
-    "strengths": ["Avoidance", "Full dock", "Mixed floors"],
-    "limitations": ["Premium price", "Feature-heavy app"]
+    "affiliateUrls": {
+      "US": "https://www.amazon.com/dp/B0DBTJ61KF",
+      "UK": "https://amzn.to/4rnuXj3"
+    },
+    "shortDescription": "Mid-range Ecovacs combo with edge mopping, self-empty, and mop wash/dry.",
+    "strengths": ["Vac+mop dock", "Edge mopping", "Pet hair / anti-tangle focus"],
+    "limitations": ["Dock footprint", "Avoidance is structured-light, not camera-AI flagship"]
   },
   {
     "id": "hv-012",
-    "slug": "dreame-d10-plus",
+    "slug": "dreame-d10-plus-gen-2",
     "brand": "Dreame",
-    "name": "D10 Plus",
+    "name": "D10 Plus Gen 2",
     "class": "vacuum_only",
     "priceBand": "under_300",
     "priceUsdApprox": 280,
@@ -247,15 +287,19 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.dreametech.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B08GwMemv",
+      "UK": "https://amzn.to/4iA8H37"
+    },
     "shortDescription": "Budget lidar vacuum with a self-empty dock.",
     "strengths": ["Self-empty under $300 street price (when on sale)", "Lidar maps"],
     "limitations": ["No mop", "Basic obstacle avoidance vs camera flagships"]
   },
   {
     "id": "hv-013",
-    "slug": "dreame-l10s-ultra",
+    "slug": "dreame-l10s-ultra-gen-2",
     "brand": "Dreame",
-    "name": "L10s Ultra",
+    "name": "L10s Ultra Gen 2",
     "class": "mop_vac_combo",
     "priceBand": "600_1000",
     "priceUsdApprox": 700,
@@ -268,18 +312,22 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.dreametech.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B0enFUWUu",
+      "UK": "https://amzn.to/4hiDxuU"
+    },
     "shortDescription": "Widely sold spinning-mop combo with a self-wash dock.",
     "strengths": ["Vac+mop", "Self-empty", "Value vs $1k+ flagships"],
     "limitations": ["Avoidance is lidar, not camera-AI", "Dock needs space"]
   },
   {
     "id": "hv-014",
-    "slug": "dreame-l40-ultra",
-    "brand": "Dreame",
-    "name": "L40 Ultra",
+    "slug": "ecovacs-deebot-t50-pro-omni",
+    "brand": "Ecovacs",
+    "name": "DEEBOT T50 PRO Omni",
     "class": "mop_vac_combo",
-    "priceBand": "over_1000",
-    "priceUsdApprox": 1100,
+    "priceBand": "600_1000",
+    "priceUsdApprox": 800,
     "suctionClass": "strong",
     "mop": "spinning",
     "selfEmpty": true,
@@ -288,10 +336,14 @@
     "obstacleAvoidance": "camera_ai",
     "multiFloorMaps": true,
     "compact": false,
-    "outboundUrl": "https://www.dreametech.com/",
-    "shortDescription": "Higher Dreame combo with stronger obstacle avoidance.",
-    "strengths": ["Avoidance", "Mopping dock", "Pets and mixed floors"],
-    "limitations": ["Premium price", "Overkill for a tiny open studio"]
+    "outboundUrl": "https://www.ecovacs.com/",
+    "affiliateUrls": {
+      "US": "https://www.amazon.com/dp/B0F211S7HM",
+      "UK": "https://amzn.to/4cW6sn1"
+    },
+    "shortDescription": "Slim Ecovacs combo with AI obstacle avoidance and a full OMNI dock.",
+    "strengths": ["Ultra-slim body", "AI avoidance", "Vac+mop dock"],
+    "limitations": ["Dock footprint", "Overkill for a tiny open studio"]
   },
   {
     "id": "hv-015",
@@ -310,6 +362,10 @@
     "multiFloorMaps": false,
     "compact": true,
     "outboundUrl": "https://www.eufy.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B07eTT0uu",
+      "UK": "https://amzn.to/3TKTJ01"
+    },
     "shortDescription": "Simple budget vacuum for small, uncluttered hard-floor spaces.",
     "strengths": ["Low price", "Compact", "Easy first robot"],
     "limitations": ["Basic navigation", "No self-empty", "Weak on thick carpet and long hair"]
@@ -331,62 +387,74 @@
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.eufy.com/",
+    "affiliateUrls": {
+      "US": "https://link.amazon/B03bwUTLk",
+      "UK": "https://amzn.to/4xBv5wG"
+    },
     "shortDescription": "Combo with AI obstacle avoidance and an all-in-one dock.",
     "strengths": ["Avoidance", "Vac+mop dock", "Pets"],
     "limitations": ["Dock footprint", "Not a budget option"]
   },
   {
     "id": "hv-017",
-    "slug": "shark-powerdetect-nevercharge",
-    "brand": "Shark",
-    "name": "PowerDetect NeverCharge",
-    "class": "vacuum_only",
-    "priceBand": "300_600",
+    "slug": "roborock-qv-35s",
+    "brand": "Roborock",
+    "name": "QV 35S",
+    "class": "mop_vac_combo",
+    "priceBand": "600_1000",
     "priceUsdApprox": 450,
     "suctionClass": "strong",
-    "mop": "none",
+    "mop": "spinning",
     "selfEmpty": true,
     "petHair": "strong",
     "carpetBoost": true,
     "obstacleAvoidance": "lidar",
     "multiFloorMaps": true,
     "compact": false,
-    "outboundUrl": "https://www.sharkclean.com/",
-    "shortDescription": "Self-empty Shark vacuum aimed at carpets and pet hair.",
-    "strengths": ["Carpet", "Self-empty", "Pet hair"],
-    "limitations": ["No mop", "App/map polish varies vs Roborock/Dreame"]
+    "outboundUrl": "https://us.roborock.com/",
+    "affiliateUrls": {
+      "US": "https://www.amazon.com/dp/B0DSHZW3QB",
+      "UK": "https://www.amazon.co.uk/dp/B0HFJPL6QT"
+    },
+    "shortDescription": "Qrevo-series mid combo with anti-tangle brushes and a wash/dry/empty dock — strong on carpets and pet hair.",
+    "strengths": ["Carpet + pet hair", "Self-empty dock", "Vac and mop in one"],
+    "limitations": ["Dock footprint", "Avoidance is lidar, not camera-AI flagship"]
   },
   {
     "id": "hv-018",
-    "slug": "narwal-freo-x-ultra",
+    "slug": "narwal-freo-z-ultra",
     "brand": "Narwal",
-    "name": "Freo X Ultra",
+    "name": "Freo Z Ultra",
     "class": "mop_vac_combo",
     "priceBand": "over_1000",
     "priceUsdApprox": 1200,
     "suctionClass": "strong",
-    "mop": "spinning",
+    "mop": "hot_water",
     "selfEmpty": true,
     "petHair": "ok",
     "carpetBoost": true,
-    "obstacleAvoidance": "lidar",
+    "obstacleAvoidance": "camera_ai",
     "multiFloorMaps": true,
     "compact": false,
     "outboundUrl": "https://www.narwal.com/",
-    "shortDescription": "Mop-forward combo for people who care more about wet floors than deep carpet.",
-    "strengths": ["Mopping quality focus", "Self-empty", "Hard floors"],
+    "affiliateUrls": {
+      "US": "https://www.amazon.com/dp/B0D7HHKVLK",
+      "UK": "https://amzn.to/4AneL5f"
+    },
+    "shortDescription": "Mop-forward combo with dual-camera AI avoidance and hot-water pad washing.",
+    "strengths": ["Mopping quality focus", "AI obstacle avoidance", "Hard floors"],
     "limitations": ["Carpet/pet-hair not the headline strength", "Premium price"]
   },
   {
     "id": "hv-019",
-    "slug": "switchbot-k10-plus",
+    "slug": "switchbot-k11-plus",
     "brand": "SwitchBot",
-    "name": "K10+",
-    "class": "vacuum_only",
+    "name": "K11+",
+    "class": "mop_vac_combo",
     "priceBand": "300_600",
-    "priceUsdApprox": 350,
+    "priceUsdApprox": 400,
     "suctionClass": "standard",
-    "mop": "none",
+    "mop": "basic",
     "selfEmpty": true,
     "petHair": "ok",
     "carpetBoost": false,
@@ -394,18 +462,22 @@
     "multiFloorMaps": true,
     "compact": true,
     "outboundUrl": "https://us.switch-bot.com/",
-    "shortDescription": "Small-body lidar vacuum that fits tight furniture gaps.",
-    "strengths": ["Compact", "Self-empty mini dock", "Small apartments"],
-    "limitations": ["Not a heavy-carpet cleaner", "Small dustbin between empties"]
+    "affiliateUrls": {
+      "US": "https://www.amazon.com/dp/B0FBRK76L8",
+      "UK": "https://amzn.to/4rm6tGN"
+    },
+    "shortDescription": "Ultra-slim compact combo with a mini self-empty dock for small apartments.",
+    "strengths": ["Compact / slim", "Self-empty mini dock", "Small apartments"],
+    "limitations": ["Not a heavy-carpet cleaner", "Basic mop pad, not a wash/dry dock"]
   },
   {
     "id": "hv-020",
-    "slug": "wyze-robot-vacuum",
-    "brand": "Wyze",
-    "name": "Robot Vacuum",
+    "slug": "roborock-q5",
+    "brand": "Roborock",
+    "name": "Q5",
     "class": "vacuum_only",
     "priceBand": "under_300",
-    "priceUsdApprox": 200,
+    "priceUsdApprox": 220,
     "suctionClass": "standard",
     "mop": "none",
     "selfEmpty": false,
@@ -414,7 +486,11 @@
     "obstacleAvoidance": "lidar",
     "multiFloorMaps": true,
     "compact": true,
-    "outboundUrl": "https://www.wyze.com/",
+    "outboundUrl": "https://us.roborock.com/",
+    "affiliateUrls": {
+      "US": "https://www.amazon.com/dp/B09N3JKFFY",
+      "UK": "https://amzn.to/4xDN8Cz"
+    },
     "shortDescription": "Low-cost lidar vacuum for simple floor plans.",
     "strengths": ["Price", "Lidar maps", "Small homes"],
     "limitations": ["No self-empty", "No mop", "Avoidance is basic lidar"]

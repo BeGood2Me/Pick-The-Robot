@@ -4,21 +4,31 @@ import { Badge } from '@/components/ui/Badge';
 import { ButtonLink } from '@/components/ui/Button';
 import { ScoreMeter } from '@/components/matching/ScoreMeter';
 import { CLASS_LABELS, PRICE_BAND_LABELS } from '@/lib/content/home-vacuums';
-import { getHomeVacuumOutboundUrl, trackHomeVacuumOutboundClick } from '@/lib/home-vacuums/outbound';
-import type { HomeProductMatch } from '@/lib/home-vacuums/types';
+import {
+  getHomeVacuumOutboundUrl,
+  HOME_AFFILIATE_LOCALE_LABELS,
+  productHasAffiliate,
+  trackHomeVacuumOutboundClick,
+} from '@/lib/home-vacuums/outbound';
+import type { HomeAffiliateLocale, HomeProductMatch } from '@/lib/home-vacuums/types';
 
 export function HomeVacuumProductCard({
   match,
   rank,
   context = 'results',
+  affiliateLocale = 'US',
 }: {
   match: HomeProductMatch;
   rank: number;
   context?: string;
+  affiliateLocale?: HomeAffiliateLocale;
 }) {
   const { product, score, reasons, cautions } = match;
-  const href = getHomeVacuumOutboundUrl(product, context);
-  const isAffiliate = Boolean(product.affiliateUrl);
+  const href = getHomeVacuumOutboundUrl(product, context, affiliateLocale);
+  const isAffiliate = productHasAffiliate(product, affiliateLocale);
+  const ctaLabel = isAffiliate
+    ? `Check price on ${HOME_AFFILIATE_LOCALE_LABELS[affiliateLocale]}`
+    : `Visit ${product.brand}`;
 
   return (
     <article className="card">
@@ -42,9 +52,9 @@ export function HomeVacuumProductCard({
           className="no-print shrink-0"
           target="_blank"
           rel="noopener noreferrer sponsored"
-          onClick={() => trackHomeVacuumOutboundClick(product, context)}
+          onClick={() => trackHomeVacuumOutboundClick(product, context, affiliateLocale)}
         >
-          {isAffiliate ? 'Check price' : `Visit ${product.brand}`}
+          {ctaLabel}
         </ButtonLink>
       </div>
 

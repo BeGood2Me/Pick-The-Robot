@@ -8,8 +8,9 @@ import {
   buildHomeVacuumSharePayload,
   encodeHomeVacuumSharePayload,
 } from '@/lib/home-vacuums/share';
-import { getHomeVacuumOutboundUrl } from '@/lib/home-vacuums/outbound';
+import { getHomeVacuumOutboundUrl, productHasAffiliate } from '@/lib/home-vacuums/outbound';
 import type {
+  HomeAffiliateLocale,
   HomeProductMatch,
   HomeVacuumProduct,
   HomeVacuumRecommendation,
@@ -39,7 +40,9 @@ export interface PublicHomeProductMatch {
   cautions?: string[];
   shortDescription: string;
   clickUrl: string;
+  clickLocale: HomeAffiliateLocale;
   affiliate: boolean;
+  affiliateUrls?: Partial<Record<HomeAffiliateLocale, string>>;
 }
 
 export interface PublicHomeMatchResponse {
@@ -57,6 +60,7 @@ export interface PublicHomeMatchResponse {
   affiliateDisclosure: string;
   productMatches: PublicHomeProductMatch[];
   shareUrl: string;
+  affiliateLocale: HomeAffiliateLocale;
   attribution: {
     required: boolean;
     link: string;
@@ -76,7 +80,9 @@ export interface PublicHomeProductCatalogEntry {
   priceUsdApprox: number;
   shortDescription: string;
   clickUrl: string;
+  clickLocale: HomeAffiliateLocale;
   affiliate: boolean;
+  affiliateUrls?: Partial<Record<HomeAffiliateLocale, string>>;
   strengths?: string[];
   limitations?: string[];
 }
@@ -99,6 +105,7 @@ function toPublicScore(
 function toPublicProductMatch(
   match: HomeProductMatch,
   tier: ApiTier,
+  locale: HomeAffiliateLocale,
 ): PublicHomeProductMatch {
   const { product } = match;
   const entry: PublicHomeProductMatch = {
@@ -114,13 +121,15 @@ function toPublicProductMatch(
     overallMatch: Math.round(match.score.overallMatch),
     reasons: match.reasons.slice(0, tier === 'pro' ? 5 : 3),
     shortDescription: product.shortDescription,
-    clickUrl: getHomeVacuumOutboundUrl(product, 'api'),
-    affiliate: Boolean(product.affiliateUrl),
+    clickUrl: getHomeVacuumOutboundUrl(product, 'api', locale),
+    clickLocale: locale,
+    affiliate: productHasAffiliate(product, locale),
   };
 
   if (tier === 'pro') {
     entry.score = toPublicScore(match.score, tier);
     entry.cautions = match.cautions.slice(0, 4);
+    if (product.affiliateUrls) entry.affiliateUrls = product.affiliateUrls;
   }
 
   return entry;
@@ -139,12 +148,13 @@ export function buildHomeVacuumApiShareUrl(
 export function toPublicHomeMatchResponse(
   result: HomeVacuumRecommendation,
   tier: ApiTier,
-  options: { matchId: string; baseUrl: string },
+  options: { matchId: string; baseUrl: string; affiliateLocale?: HomeAffiliateLocale },
 ): PublicHomeMatchResponse {
   const limits = API_TIER_LIMITS[tier];
+  const affiliateLocale = options.affiliateLocale ?? 'US';
   const productMatches = result.matches
     .slice(0, limits.maxVendors)
-    .map((m) => toPublicProductMatch(m, tier));
+    .map((m) => toPublicProductMatch(m, tier, affiliateLocale));
 
   return {
     matchId: options.matchId,
@@ -161,6 +171,7 @@ export function toPublicHomeMatchResponse(
     affiliateDisclosure: result.affiliateDisclosure,
     productMatches,
     shareUrl: buildHomeVacuumApiShareUrl(options.baseUrl, result.answers),
+    affiliateLocale,
     attribution: {
       required: limits.attributionRequired,
       link: options.baseUrl,
@@ -172,6 +183,7 @@ export function toPublicHomeMatchResponse(
 export function toPublicHomeProductCatalogEntry(
   product: HomeVacuumProduct,
   tier: ApiTier,
+  locale: HomeAffiliateLocale = 'US',
 ): PublicHomeProductCatalogEntry {
   const entry: PublicHomeProductCatalogEntry = {
     productId: product.id,
@@ -184,13 +196,15 @@ export function toPublicHomeProductCatalogEntry(
     priceBandLabel: PRICE_BAND_LABELS[product.priceBand],
     priceUsdApprox: product.priceUsdApprox,
     shortDescription: product.shortDescription,
-    clickUrl: getHomeVacuumOutboundUrl(product, 'api-catalog'),
-    affiliate: Boolean(product.affiliateUrl),
+    clickUrl: getHomeVacuumOutboundUrl(product, 'api-catalog', locale),
+    clickLocale: locale,
+    affiliate: productHasAffiliate(product, locale),
   };
 
   if (tier === 'pro') {
     entry.strengths = product.strengths;
     entry.limitations = product.limitations;
+    if (product.affiliateUrls) entry.affiliateUrls = product.affiliateUrls;
   }
 
   return entry;

@@ -16,6 +16,11 @@ export type HomeMopType = 'none' | 'basic' | 'spinning' | 'hot_water';
 export type HomePetHair = 'poor' | 'ok' | 'strong';
 export type HomeObstacleAvoidance = 'basic' | 'lidar' | 'camera_ai';
 
+/** Amazon Associates marketplaces we support for home product CTAs (English only). */
+export type HomeAffiliateLocale = 'US' | 'UK';
+
+export type HomeAffiliateUrls = Partial<Record<HomeAffiliateLocale, string>>;
+
 export interface HomeVacuumAnswers {
   floorMix: HomeFloorMix;
   homeSize: HomeSize;
@@ -47,7 +52,15 @@ export interface HomeVacuumProduct {
   multiFloorMaps: boolean;
   compact: boolean;
   outboundUrl: string;
-  /** Retailer/affiliate URL when set; otherwise outboundUrl is used. */
+  /**
+   * Per-marketplace affiliate links (Amazon.com / Amazon.co.uk).
+   * Prefer this over legacy `affiliateUrl`.
+   */
+  affiliateUrls?: HomeAffiliateUrls;
+  /**
+   * @deprecated Prefer `affiliateUrls.US` (or the matching marketplace).
+   * Kept so a single-store link still works.
+   */
   affiliateUrl?: string;
   shortDescription: string;
   strengths: string[];

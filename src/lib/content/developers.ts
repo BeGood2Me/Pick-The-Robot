@@ -127,7 +127,7 @@ export const API_FAQS = [
   {
     question: 'How do vendor clicks work?',
     answer:
-      'Business vendor links in API responses route through our tracked /out redirect with UTM parameters. Home product clickUrl values may be retailer affiliate links — use them as returned.',
+      'Business vendor links in API responses route through our tracked /out redirect with UTM parameters. Home product clickUrl values may be retailer affiliate links — use them as returned. Pass affiliateLocale (US or UK) on POST /home/match or locale on GET /home/products to pick Amazon.com / Amazon.co.uk; rankings do not change.',
   },
   {
     question: 'Do failed requests count against my quota?',
