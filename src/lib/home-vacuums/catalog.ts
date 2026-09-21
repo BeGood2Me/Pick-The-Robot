@@ -23,3 +23,32 @@ export function getHomeVacuumById(id: string): HomeVacuumProduct | undefined {
 export function getHomeVacuumBySlug(slug: string): HomeVacuumProduct | undefined {
   return catalog.find((product) => product.slug === slug);
 }
+
+export interface HomeVacuumBrand {
+  name: string;
+  modelCount: number;
+  modelNames: string[];
+  outboundUrl: string;
+}
+
+/** Unique brands in the home vacuum SKU catalog (not B2B vendors.json). */
+export function getHomeVacuumBrands(): HomeVacuumBrand[] {
+  const byBrand = new Map<string, HomeVacuumBrand>();
+
+  for (const product of catalog) {
+    const existing = byBrand.get(product.brand);
+    if (existing) {
+      existing.modelCount += 1;
+      existing.modelNames.push(product.name);
+      continue;
+    }
+    byBrand.set(product.brand, {
+      name: product.brand,
+      modelCount: 1,
+      modelNames: [product.name],
+      outboundUrl: product.outboundUrl,
+    });
+  }
+
+  return [...byBrand.values()].sort((a, b) => a.name.localeCompare(b.name));
+}

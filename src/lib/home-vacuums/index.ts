@@ -24,7 +24,8 @@ export type {
   WizardHomeVacuumAnswers,
 } from './types';
 
-export { getHomeVacuumCatalog, getHomeVacuumById, getHomeVacuumBySlug } from './catalog';
+export { getHomeVacuumCatalog, getHomeVacuumById, getHomeVacuumBySlug, getHomeVacuumBrands } from './catalog';
+export type { HomeVacuumBrand } from './catalog';
 export {
   emptyHomeVacuumAnswers,
   getHomeVacuumFieldErrors,
